@@ -2,6 +2,7 @@ site_name: Fairfax For Devs - API
 theme:
   name: readthedocs
   highlightjs: true
+  locale: pt_BR
 plugins:
   - search
   - mkdocstrings:
