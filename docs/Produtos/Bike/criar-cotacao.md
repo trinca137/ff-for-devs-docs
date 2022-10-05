@@ -1,26 +1,28 @@
-# Create Quotation
 
-# Qual a ordem do fluxo ?
+<style>
+blockquote{
+  padding: .75em .5em .75em 1em;
+  background: white;
+  border-left: 0.5em solid #DDD;
+  margin-left: 10px!important
+  
+}
 
-<aside>
-1️⃣ **Primeiro deve-se chamar o endpoint para se criar uma cotação.**
+blockquote::before {
+  display: block;
+  height: 0;
+  color: #999;
+}
 
-</aside>
+/* for nested paragraphs in block quotes */
+blockquote p {
+  display: inline;
+  font-size: 14px;
+}
+</style>
 
-<aside>
-2️⃣ **Em seguida deve-se chamar o endpoint de proposal com o id da cotação criada.**
 
-</aside>
-
-<aside>
-3️⃣ **Para finalizar o fluxo, é necessário prosseguir para o endpoint de checkout.**
-
-</aside>
-
-<aside>
-💡 **Endpoint usado para se criar uma cotação**
-
-</aside>
+# Criar Cotação
 
 ```
 **METHOD** POST
@@ -28,11 +30,10 @@
 **Content**-Type: application/x-www-form-urlencoded
 **Ocp-Apim-Subscription-Key**: your apiKey
 ```
+___
 
-<aside>
-💡 **Exemplo de json de request**
+💡 **Exemplo do JSON de Request**
 
-</aside>
 
 ```json
 {
@@ -257,16 +258,16 @@
     ]
 }
 ```
+___
 
-<aside>
-💡 **Desmistificando o json de request - part 1**
 
-</aside>
+💡 **Desmistificando o JSON de request - parte 1**
+
 
 ```json
 {
-		"operationCode":"BIKE-MULTIPLE-PERIL",
-		"answers":[],
+	"operationCode":"BIKE-MULTIPLE-PERIL",
+	"answers":[]
 }
 ```
 
@@ -287,13 +288,13 @@ Abaixo, podemos ver a modelagem de answer.
 
 ```
 
-## Answer model
+#### Answer model
 
 ```json
 
 	{
 		"code":"code",
-    "answer":dynamic
+		"answer":dynamic
 	}
 ```
 
@@ -310,14 +311,13 @@ campo obrigatorio
 campo obrigatorio
 * campo usado como resposta para a pergunta, este campo é dinamico, podendo ser enviado de uma simples string até um array de array de answer "**array<array<answer>>**" 
 ```
+___
+ 
 
-<aside>
-💡 **Desmistificando o json de request - part 2**
+💡 **Desmistificando o JSON de Request - parte 2**
 
-</aside>
+Como explicado mais acima, o campo **answers** tem como finalidade enviar as perguntas referentes a cotação, abaixo você verá os valores que podem estar inclusos nesse array.
 
-> Como explicado mais acima, o campo **answers** tem como finalidade enviar as perguntas referentes a cotação, abaixo voce vera os valores que poderão/deverão estar inclusos nesse array.
-> 
 
 ```json
 {
@@ -331,29 +331,30 @@ campo obrigatorio
 }
 ```
 
-```
-**Code**: MODALITY
-**Type**: text
-Obrigatorio que esteja incluido no array 
-* pergunta usada para definir qual produto esta sendo cotado, neste caso o produto é bike, representado pelo operation code "BIKE-MULTIPLE-PERIL" 
-```
 
-```
-**Code**: PERSON-TYPE
-**Type**: text
-Obrigatorio que esteja incluido no array 
-* pergunta usada para saber que a cotacao esta sendo feita por uma pessoa fisica ou juridica.
-os valores possiveis para esta pergunta sao:
-**NATURAL =** significa que a pessoa em questao é fisica
-**LEGAL =** significa que a pessoa em questao é juridica
-```
+> **Code**: MODALITY <br/>
+> **Type**: text <br/>
+> **Campo Obrigatório:** Sim <br/>
+> **pergunta usada para definir qual produto esta sendo cotado, neste caso o produto é bike, representado pelo operation code "BIKE-MULTIPLE-PERIL"*
 
-```
-**Code**: START-VIGENCY-DATE
-**Type**: date
-Obrigatorio que esteja incluido no array 
-* pergunta usada para definir o inicio da vigencia do seguro.
-```
+___
+
+> **Code**: PERSON-TYPE <br/>
+> **Type**: text <br/>
+> **Campo Obrigatório:** Sim <br/>
+> **Valores Esperados:**<br/>
+> - **NATURAL =** significa que a pessoa em questao é fisica<br/>
+> - **LEGAL =** significa que a pessoa em questao é juridica<br/>
+> **pergunta usada para saber que a cotacao esta sendo feita por uma pessoa fisica ou juridica.*
+
+___
+
+
+> **Code**: START-VIGENCY-DATE <br/>
+> **Type**: date <br/>
+> **Campo Obrigatório:** Sim <br/>
+> **pergunta usada para definir o inicio da vigencia do seguro.*
+
 
 ```
 **Code**: VIGENCY-DURATION
