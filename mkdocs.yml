@@ -17,12 +17,12 @@ markdown_extensions:
   - admonition
 nav:
     - Introdução:
-        - Sobre a API: '/introducao/sobre-a-api'
-        - Ambientes: '/introducao/ambientes'
-        - Configurações: '/introducao/configuracoes'
+        - Sobre a API: '../introducao/sobre-a-api'
+        - Ambientes: '../introducao/ambientes'
+        - Configurações: '../introducao/configuracoes'
     - 'Produtos':
         - 'Bike': 
-            - 'Sobre o Produto': '/produtos/bike/sobre-o-produto'
-            - 'Criar Cotação': '/produtos/bike/criar-cotacao'
-            - 'Criar Proposta': '/produtos/bike/criar-proposta'
-            - 'Realizar Checkout': '/produtos/bike/realizar-checkout'
+            - 'Sobre o Produto': '../produtos/bike/sobre-o-produto'
+            - 'Criar Cotação': '../produtos/bike/criar-cotacao'
+            - 'Criar Proposta': '../produtos/bike/criar-proposta'
+            - 'Realizar Checkout': '../produtos/bike/realizar-checkout'
