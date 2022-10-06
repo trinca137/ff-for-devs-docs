@@ -14,3 +14,7 @@ blockquote p {
   display: inline;
   font-size: 14px;
 }
+
+text {
+  color: red;
+}
