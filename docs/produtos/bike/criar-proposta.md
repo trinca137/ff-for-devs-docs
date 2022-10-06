@@ -7,10 +7,9 @@
 **Ocp-Apim-Subscription-Key**: your apiKey
 ```
 
-<aside>
-💡 **Exemplo de json de request**
 
-</aside>
+💡 **Exemplo do JSON de request**
+
 
 ```json
 {
@@ -261,10 +260,10 @@
 }
 ```
 
-<aside>
-💡 **Desmistificando o json de request - part 1**
 
-</aside>
+💡 **Desmistificando o JSON de request - parte 1**
+
+
 
 ```json
 {
@@ -308,14 +307,14 @@ veremos a seguir tambem a modelagem de document .
 
 ```
 
-## Answer model
+### Answer model
 
 ```json
 
-	{
-		"code":"code",
-    "answer":dynamic
-	}
+{
+	"code":"code",
+	"answer":dynamic
+}
 ```
 
 ```
@@ -332,13 +331,13 @@ campo obrigatorio
 * campo usado como resposta para a pergunta, este campo é dinamico, podendo ser enviado de uma simples string até um array de array de answer "**array<array<answer>>**" 
 ```
 
-## Document model
+### Document model
 
 ```json
 
 {
-		"itemIdentifier":"92cc00b4-9ba6-4f50-bf5a-38b76ade9370",
-    "files":[]
+	"itemIdentifier":"92cc00b4-9ba6-4f50-bf5a-38b76ade9370",
+	"files":[]
 }
 ```
 
@@ -356,17 +355,17 @@ campo obrigatorio
 * campo usado como resposta para enviar as fotos no formato de **base64** 
 ```
 
-<aside>
-💡 **Desmistificando o json de request - part 2**
 
-</aside>
+💡 **Desmistificando o json de request - parte 2**
+
+
 
 > Como explicado mais acima, o campo **answers** tem como finalidade enviar as perguntas referentes a cotação, abaixo voce vera os valores que poderão/deverão estar inclusos nesse array.
 > 
 
 ```json
 {
-		"identifier":"2aea86d1-a9e5-4220-ab29-68c3fba8483f",
+	"identifier":"2aea86d1-a9e5-4220-ab29-68c3fba8483f",
     "operationCode": "BIKE-MULTIPLE-PERIL",
     "answers": [
         {
@@ -374,7 +373,7 @@ campo obrigatorio
             "answer": "BIKE-MULTIPLE-PERIL"
         }
     ]
-	}
+}
 ```
 
 ```
@@ -579,18 +578,18 @@ Obrigatorio que esteja incluido no array
 Obrigatorio que esteja incluido no array
 * esta pergunta em formato de array de answer é usado para enviar as perguntas mais especificas do produto em questao, neste caso bike. Veremos essas perguntas com mais detalhes na proxima parte.
 ```
+___
 
-<aside>
-💡 **Desmistificando o json de request - part 3**
+💡 **Desmistificando o JSON de request - parte 3**
 
-</aside>
+
 
 > Como explicado mais acima, o campo **items** dentro do **array de answer** tem como finalidade enviar as perguntas mais especificas do produto que esta sendo contado (bike), abaixo voce vera os valores que poderão/deverão estar inclusos nesse array.
 > 
 
 ```json
 {
-		"identifier":"2aea86d1-a9e5-4220-ab29-68c3fba8483f",
+	"identifier":"2aea86d1-a9e5-4220-ab29-68c3fba8483f",
     "operationCode": "BIKE-MULTIPLE-PERIL",
     "answers": [
         {
@@ -772,10 +771,10 @@ Obrigatorio que esteja incluido no array (se INVOICE == TRUE)
 se defida  como true, indica que "**Estou ciente e de acordo que a nota fiscal e/ou cupom fiscal da bicicleta em nome do segurado, serão solicitados em caso de sinistro.**"
 ```
 
-<aside>
-💡 **Desmistificando o json de request - part 4.1**
 
-</aside>
+💡 **Desmistificando o JSON de request - part 4.1**
+
+
 
 > Como explicado mais acima, o campo **parts** dentro do **array de items** tem como finalidade 
 enviar as partes customizadas da bike, abaixo você vera os valores que poderão 
@@ -891,10 +890,9 @@ REAR-SHIFTER**
 * pergunta usada para definir o valor da parte
 ```
 
-<aside>
+
 💡 **Desmistificando o json de request - part 4.2**
 
-</aside>
 
 > Como explicado mais acima, o campo **coverages** dentro do **array de items** tem como 
 finalidade enviar as coberturas, abaixo voce vera os valores que poderão/deverão estar inclusos nesse array.
@@ -1049,10 +1047,11 @@ Os possiveis valores para esta pergunta são:
 }
 ```
 
-<aside>
-💡 **Exemplo de json de response**
+___
 
-</aside>
+💡 **Exemplo do JSON de response**
+
+
 
 ```json
 {

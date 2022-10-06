@@ -356,8 +356,8 @@ ___
 > **pergunta usada para definir o inicio da vigencia do seguro.*
 
 
-```
-**Code**: VIGENCY-DURATION
+```text
+*Code*: VIGENCY-DURATION
 **Type**: integer
 No momento so é possivel o padrão, não sendo possível mudar a duração da vigência
 

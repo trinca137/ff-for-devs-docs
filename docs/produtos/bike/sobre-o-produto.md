@@ -1,23 +1,18 @@
 # Sobre o Produto
 
-## Qual a ordem do fluxo?
+### Qual a ordem do fluxo?
 
-<aside>
-1️⃣ **Primeiro deve-se chamar o endpoint para se criar uma cotação.**
 
-</aside>
+1️⃣ **Primeiro deve-se chamar o endpoint de [Criar Cotação](/produtos/bike/criar-cotacao/).**
 
-<aside>
-2️⃣ **Em seguida deve-se chamar o endpoint de proposal com o id da cotação criada.**
 
-</aside>
 
-<aside>
-3️⃣ **Para finalizar o fluxo, é necessário prosseguir para o endpoint de checkout.**
+2️⃣ **Em seguida deve-se chamar o endpoint de [Criar Proposta](/produtos/bike/criar-proposta/) com o identificador da cotação criada.**
 
-</aside>
 
-<aside>
-💡 **Endpoint usado para enviar quotation para o checkout**
 
-</aside>
+3️⃣ **Para finalizar o fluxo, é necessário prosseguir para o endpoint de [Checkout](/produtos/bike/realizar-checkout/).**
+
+
+
+

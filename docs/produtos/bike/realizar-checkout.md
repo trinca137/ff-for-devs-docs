@@ -7,10 +7,10 @@
 **Ocp-Apim-Subscription-Key**: your apiKey
 ```
 
-<aside>
+
 💡 **Exemplo de json de request**
 
-</aside>
+
 
 ```json
 {
@@ -36,10 +36,10 @@
 }
 ```
 
-<aside>
-💡 **Desmistificando o json de request - part 1**
 
-</aside>
+💡 **Desmistificando o JSON de request - parte 1**
+
+
 
 ```json
 {
