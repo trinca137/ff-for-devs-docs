@@ -1,11 +1,13 @@
 # Criar Cotação
 
-```
-**METHOD** POST
-**Endpoint**: https://azuh1-br-fairfax-gateway.azure-api.net/partner/api/v1/quotation
-**Content**-Type: application/x-www-form-urlencoded
-**Ocp-Apim-Subscription-Key**: your apiKey
-```
+**METHOD:** POST
+
+**Endpoint:**: https://azuh1-br-fairfax-gateway.azure-api.net/partner/api/v1/quotation
+
+**Content:**-Type: application/x-www-form-urlencoded
+
+**Ocp-Apim-Subscription-Key**: {api-key}
+
 ___
 
 💡 **Exemplo do JSON de Request**

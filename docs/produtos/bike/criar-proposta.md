@@ -6,10 +6,7 @@
 **Content**-Type: application/x-www-form-urlencoded
 **Ocp-Apim-Subscription-Key**: your apiKey
 ```
-
-
-💡 **Exemplo do JSON de request**
-
+💡 **Exemplo de json de request**
 
 ```json
 {
