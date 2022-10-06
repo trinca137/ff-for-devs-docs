@@ -1,0 +1,16 @@
+blockquote{
+  padding: .75em .5em .75em 1em;
+  background: white;
+  border-left: 0.5em solid #DDD;
+  margin-left: 10px!important
+}
+blockquote::before {
+  display: block;
+  height: 0;
+  color: #999;
+}
+/* for nested paragraphs in block quotes */
+blockquote p {
+  display: inline;
+  font-size: 14px;
+}
