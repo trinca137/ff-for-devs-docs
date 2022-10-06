@@ -3,6 +3,10 @@ theme:
   name: readthedocs
   highlightjs: true
   locale: pt_BR
+  
+extra_css:
+  - css/extra.css
+
 plugins:
   - search
   - mkdocstrings:
