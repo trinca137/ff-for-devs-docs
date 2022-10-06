@@ -12,4 +12,3 @@ Check out the [usage](usage) section for further information, including how to [
 !!! note
 
     This project is under active development.
-
