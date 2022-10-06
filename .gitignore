@@ -101,6 +101,9 @@ celerybeat.pid
 # SageMath parsed files
 *.sage.py
 
+# tool version asdf linux
+.tool-version
+
 # Environments
 .env
 .venv
