@@ -24,8 +24,10 @@ nav:
         - Ambientes: '../configuracoes/ambientes'
         - Autenticação: '../configuracoes/autenticacao'
     - Produtos:
-        - Bike: 
+        - Bike:
             - Fluxo Produto: '../produtos/bike/fluxo-produto'
-            - Criar Cotação: '../produtos/bike/criar-cotacao'
+            - Cotação:
+                - Criar cotação e retornos: '../produtos/bike/criar-cotacao'
+                - Explicando envios do json: '../produtos/bike/explicando-formulario'
             - Criar Proposta: '../produtos/bike/criar-proposta'
             - Realizar Checkout: '../produtos/bike/realizar-checkout'
