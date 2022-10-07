@@ -230,6 +230,43 @@ Obrigatorio que esteja incluido no array
 * pergunta usada para definir Agravo/Desconto.
 ```
 
+
+>**Code**: INSURED-BIRTH-DATE <br>
+>❗ Obrigatorio que esteja incluido no array (quando for para o endpoint de PROPOSAL) <br>
+>**Type**: ```date``` <br>
+>Pergunta usada para definir a data de nascimento do segurado <br>
+
+--------------------------------------------------------------------------
+
+
+>**Code**: PAYMENT-METHOD <br>
+>**Type**: ```text``` <br>
+>❗ Obrigatorio que esteja incluido no array (quando for para o endpoint de PROPOSAL) <br>
+>Pergunta usada para definir o metodo de pagamento <br>
+>os possiveis valores para esta pergunta são: <br>
+>**CREDIT-CARD** <br>
+
+--------------------------------------------------------------------------
+
+
+>**Code**: DUE-DAY <br>
+>**Type**: ```integer``` <br>
+>❗ Obrigatorio que esteja incluido no array  (apenas quando o PAYMENT-METHOD for TICKET)  <br>
+>❗ Obrigatorio que esteja incluido no array  (quando for para o endpoint de PROPOSAL) <br>
+>Pergunta usada para definir a data de vencimento <br>
+
+---------------------------------------------------------------------------
+
+
+
+>**Code**: PAYMENT-INSTALLMENT-IDENTIFIER <br>
+>**Type**: ```guid``` <br>
+>❗ Obrigatorio que esteja incluido no array (quando for para o endpoint de PROPOSAL) <br>
+>O guid que sera enviando nesse campo, é retornado no array de installments, no retorno do endpoint de criar cotacao <br>
+
+------------------------------------------------------------------------------
+
+
 ```
 **Code**: ITEMS
 **Type**: array<answer>
