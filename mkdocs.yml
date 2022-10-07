@@ -28,6 +28,7 @@ nav:
             - Fluxo Produto: '../produtos/bike/fluxo-produto'
             - Cotação:
                 - Criar cotação e retornos: '../produtos/bike/criar-cotacao'
-                - Explicando envios do json: '../produtos/bike/explicando-formulario'
-            - Criar Proposta: '../produtos/bike/criar-proposta'
+            - Proposta: '../produtos/bike/criar-proposta'
+                - Criar proposta e retornos: '../produtos/bike/criar-proposta'
             - Realizar Checkout: '../produtos/bike/realizar-checkout'
+            - Explicando envios do json: '../produtos/bike/explicando-formulario'
