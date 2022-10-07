@@ -2,8 +2,6 @@
 
 💡 **Exemplo de json de request**
 
-dasdadasd
-
 ```json
 {
     "operationCode": "BIKE-MULTIPLE-PERIL-PARTNER",
@@ -219,7 +217,7 @@ dasdadasd
 
 ### Retornos
 
-- Quando retornar 400, retorna a pergunta que faltou alguma resposta
+- Quando retornar 400, retorna a pergunta que faltou alguma resposta, no exemplo a baixo o <text>nome do segurado</text> não foi enviado
 ```json
 {
     "success": false,
@@ -236,7 +234,7 @@ dasdadasd
 }
 ```
 
-- Caso retorno 200, retorna o cálculo com algumas infos
+- Caso retorno 200, retorna o cálculo com algumas informações
 
 ```json
 {

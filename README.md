@@ -2,7 +2,7 @@ Padrões de uso:
 - Ao inves de usar tags ```<h1>``` ```<h2>```, usar ```#``` exemplo:
     ```h3 é igual a ###```.
 - Campos com aviso/obrigatorios usar no inicio ❗e a tag `<text></text>`
-- Tipos do campo sem usar ``` no ínicio e no fim.- ![image](https://user-images.githubusercontent.com/95287311/194413666-4defabd9-a822-4d86-a927-83b78610bda3.png)
+- Tipos do campo sempre usar ``` no ínicio e no fim. ![image](https://user-images.githubusercontent.com/95287311/194413666-4defabd9-a822-4d86-a927-83b78610bda3.png)
 
 --------------------------------------------------
 Example: Basic MkDocs project for Read the Docs

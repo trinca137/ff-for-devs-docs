@@ -23,12 +23,14 @@ nav:
     - Configurações:
         - Ambientes: '../configuracoes/ambientes'
         - Autenticação: '../configuracoes/autenticacao'
+    - Envios e explicação json:
+        - Envio cotação: ''
+        - Envio proposta: ''
+        - Envio checkout: ''
     - Produtos:
         - Bike:
             - Fluxo Produto: '../produtos/bike/fluxo-produto'
-            - Cotação:
-                - Criar cotação e retornos: '../produtos/bike/criar-cotacao'
-            - Proposta: '../produtos/bike/criar-proposta'
-                - Criar proposta e retornos: '../produtos/bike/criar-proposta'
+            - Criar cotação e retornos: '../produtos/bike/criar-cotacao'
+            - Criar proposta e retornos: '../produtos/bike/criar-proposta'
             - Realizar Checkout: '../produtos/bike/realizar-checkout'
-            - Explicando envios do json: '../produtos/bike/explicando-formulario'
+            - Campos adicionais no json para bikes: '../produtos/bike/explicando-formulario'
