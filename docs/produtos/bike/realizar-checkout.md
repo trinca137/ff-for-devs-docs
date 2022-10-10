@@ -1,16 +1,11 @@
 # Realizar Checkout
 
+#### Endpoint
 ```
-**METHOD** POST
-**Endpoint**: https://azuh1-br-fairfax-gateway.azure-api.net/partner/api/v1/checkout
-**Content**-Type: application/x-www-form-urlencoded
-**Ocp-Apim-Subscription-Key**: your apiKey
+POST: {{url_ambiente}}/v1/checkout
 ```
-
 
 💡 **Exemplo de json de request**
-
-
 
 ```json
 {
