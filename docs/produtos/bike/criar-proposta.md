@@ -1,11 +1,10 @@
 # Criar Proposta
 
+#### Endpoint
 ```
-**METHOD** POST
-**Endpoint**: https://azuh1-br-fairfax-gateway.azure-api.net/partner/api/v1/quotation/proposal
-**Content**-Type: application/x-www-form-urlencoded
-**Ocp-Apim-Subscription-Key**: your apiKey
+POST: {{url_ambiente}}/v1/quotation
 ```
+
 💡 **Exemplo de json de request**
 
 ```json
