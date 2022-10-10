@@ -271,12 +271,14 @@
 }
 ```
 
-```
-**Field**: **Identifier**
-**Type**: guid
-campo obrigatorio
-* campo usado para definir qual a cotacao sera enviada para proposta.
-```
+
+>**Field**: Identifier <br>
+>**Type**: ```guid``` <br>
+>❗ Campo obrigatorio <br>
+>campo usado para definir qual a cotacao sera enviada para proposta. <br>
+
+-----------------------------------------------------------------------------
+
 
 ```
 **Field**: **OperationCode**
@@ -295,14 +297,14 @@ Abaixo, podemos ver a modelagem de answer.
 
 ```
 
-```
-**Field**: documents
-**Type**: array<document>
-campo obrigatorio
-* campo usado para enviar as fotos referente a bike que esta sendo cotada,
-veremos a seguir tambem a modelagem de document .
 
-```
+>**Field**: documents
+>**Type**: ```array<document>```
+>❗ Campo obrigatorio
+> Campo usado para enviar as fotos referente a bike que esta sendo cotada,
+>veremos a seguir tambem a modelagem de document .
+
+
 
 ### Answer model
 
@@ -338,20 +340,25 @@ campo obrigatorio
 }
 ```
 
-```
-**Field**: **itemIdentifier**
-**Type**: text
-campo obrigatorio
-* campo usado para mandar um guid que sera vinculado as fotos no array de **files, esse guid é retornado com variantIdentifier dentro do objeto de pricing, ao obter o response quando se cria uma cotacao.**
-```
 
-```
-**Field**: files
-**Type**: array<string>
-campo obrigatorio
-* campo usado como resposta para enviar as fotos no formato de **base64** 
-```
+>**Field**: **itemIdentifier** <br>
+>**Type**: ```text``` <br>
+>❗ Campo obrigatorio <br>
+>Campo usado para mandar um guid que sera vinculado as fotos no array de <b>files, esse guid é retornado com variantIdentifier dentro do objeto de pricing, ao obter o response quando se cria uma cotacao.</b>
 
+--------------------------------------------------------------------------
+
+
+>**Field**: files <br>
+>**Type**: ```array<string>``` <br>
+>❗ Campo obrigatorio
+>Campo usado como resposta para enviar as fotos no formato de **base64** 
+
+-------------------------------------------------------------------------
+
+
+<br>
+<br>
 
 💡 **Desmistificando o json de request - parte 2**
 
