@@ -28,6 +28,7 @@ nav:
         - Envio proposta: ''
         - Envio checkout: ''
     - Produtos:
+        - Explicando Formulario: '../produtos/explicando-formulario'
         - Bikes:
             - Fluxo Produto: '../produtos/bike/fluxo-produto'
             - Criar cotação e retornos: '../produtos/bike/criar-cotacao'
