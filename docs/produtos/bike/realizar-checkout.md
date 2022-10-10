@@ -60,116 +60,185 @@ POST: {{url_ambiente}}/v1/checkout
 }
 ```
 
-```
-**Field**: **QuotationIdentifier**
-**Type**: guid
-campo obrigatorio
-* campo usado para definir qual cotacao sera enviada para checkout, é o mesmo identifier que é recebido quando se cria uma cotacao.
-```
 
-```
-**Field**: **CreditCard.Number**
-**Type**: text
-campo obrigatorio
-* campo usado para definir o numero do cartao de credito.
-```
 
-```
-**Field**: **CreditCard.Name**
-**Type**: text
-campo obrigatorio
-* campo usado para definir o nome do titular do cartao
-```
 
-```
-**Field**: **CreditCard.Identity**
-**Type**: text
-campo obrigatorio
-* campo usado para definir a identificacao do titular do cartao (cpf)
-```
+> **Field**: **QuotationIdentifier** <br>
+> **Type**: ```guid``` <br>
+> <text class="aviso">❗Campo obrigatório.</text>
+> 
+> Campo usado para definir qual cotação será enviada para checkout. É o mesmo identifier que é recebido quando se cria uma cotação.
 
-```
-**Field**: **CreditCard.Cvv**
-**Type**: text
-campo obrigatorio
-* campo usado para definir o codigo de seguranca do cartao (3 digitos)
-```
+------------------------------------------------------------------------------
 
-```
-**Field**: **CreditCard.ExpiryMonth**
-**Type**: integer
-campo obrigatorio
-* campo usado para definir o mes de expiracao do cartao
-```
 
-```
-**Field**: **CreditCard.ExpiryYear**
-**Type**: integer
-campo obrigatorio
-* campo usado para definir o ano de expiracao do cartao
-```
+!!! Aviso
 
-```
-**Field**: **CreditCard.ExpiryYear**
-**Type**: integer
-campo obrigatorio
-* campo usado para definir o ano de expiracao do cartao
-```
+      As campos referentes a cartão de credito só são obrigatorios caso o tipo de pagamento definido na proposta tenha sido CREDIT-CARD.
+      Caso contrario não enviar o objeto de cartão de credito.
 
-```
-**Field**: **CreditCard.UseCustomerAddress**
-**Type**: boolean
-campo obrigatorio
-* campo usado para definir se sera usado o endereco que é enviado nessa request através do campo **billingAddress,** ou se sera usado o endereco definido anteriormente na criacao da cotacao
+<br>
+<br>
+
+---------------------------------------------------------------------------------
+
+
+> **Field**: **CreditCard.Number** <br>
+> **Type**: ```text``` <br>
+> <text class="aviso">❗Campo obrigatório.</text>
+> 
+> Campo usado para definir o número do cartão de crédito.
+
+
+------------------------------------------------------------------------------
+
+
+> **Field**: **CreditCard.Name** <br>
+> **Type**: ```text```<br>
+> <text class="aviso">❗Campo obrigatório.</text>
+> 
+> Campo usado para definir o nome do titular do cartão.
+
+
+------------------------------------------------------------------------------
+
+
+
+> **Field**: **CreditCard.Identity** <br>
+> **Type**: ```text``` <br>
+> <text class="aviso">❗Campo obrigatório.</text>
+> 
+> Campo usado para definir a identificação do titular do cartão (CPF).
+
+
+------------------------------------------------------------------------------
+
+
+
+> **Field**: **CreditCard.Cvv** <br>
+> **Type**: ```text``` <br>
+> <text class="aviso">❗Campo obrigatório.</text>
+> 
+> Campo usado para definir o código de seguranca do cartão (3 digitos).
+
+
+------------------------------------------------------------------------------
+
+
+
+
+> **Field**: **CreditCard.ExpiryMonth** <br>
+> **Type**: ```integer``` <br>
+> <text class="aviso">❗Campo obrigatório.</text>
+> 
+> Campo usado para definir o mês de expiração do cartão.
+
+
+
+
+------------------------------------------------------------------------------
+
+
+> **Field**: **CreditCard.ExpiryYear** <br>
+> **Type**: ```integer``` <br>
+> <text class="aviso">❗Campo obrigatório.</text>
+> 
+> Campo usado para definir o ano de expiração do cartão.
+
+
+
+------------------------------------------------------------------------------
+
+
+
+> **Field**: **CreditCard.UseCustomerAddress** <br>
+> **Type**: ```boolean``` <br>
+> <text class="aviso">❗Campo obrigatório.</text>
+> 
+> Campo usado para definir se será usado o endereço que é enviado nessa request através do campo **billingAddress** ou se será usado o endereço definido anteriormente na criação da cotação.
 **true** = usara endereco enviado na quoation
 **false =** usara endereco enviado no **UseCustomerAddress**
-```
 
-```
-**Field**: **CreditCard.BillingAddress.ZipCode**
-**Type**: text
-campo obrigatorio
-* campo usado para definir o cep
-```
 
-```
-**Field**: **CreditCard.BillingAddress.Street**
-**Type**: text
-campo obrigatorio
-* campo usado para definir o nome da rua
-```
+------------------------------------------------------------------------------
 
-```
-**Field**: **CreditCard.BillingAddress.Number**
-**Type**: text
-campo obrigatorio
-* campo usado para definir o numero do endereco
-```
 
-```
-**Field**: **CreditCard.BillingAddress.Complement**
-**Type**: text
-campo obrigatorio
-* campo usado para definir um complemente para o endereco
-```
 
-```
-**Field**: **CreditCard.BillingAddress.Neighborhood**
-**Type**: text
-campo obrigatorio
-* campo usado para definir o bairro do endereco
-```
 
-```
-**Field**: **CreditCard.BillingAddress.City**
-**Type**: text
-campo obrigatorio
-* campo usado para definir a cidade
-```
+> **Field**: **CreditCard.BillingAddress.ZipCode** <br>
+> **Type**: ```text``` <br>
+> <text class="aviso">❗Campo obrigatório.</text>
+> 
+> Campo usado para definir o CEP.
 
-```
-**Field**: **CreditCard.BillingAddress.State**
-**Type**: text
-campo obrigatorio
-* campo usado para definir o estado
-```
+
+------------------------------------------------------------------------------
+
+
+
+> **Field**: **CreditCard.BillingAddress.Street** <br>
+> **Type**: ```text``` <br>
+> <text class="aviso">❗Campo obrigatório.</text>
+> 
+> Campo usado para definir o nome da rua.
+
+
+
+------------------------------------------------------------------------------
+
+
+> **Field**: **CreditCard.BillingAddress.Number** <br>
+> **Type**: ```text``` <br>
+> <text class="aviso">❗Campo obrigatório.</text>
+> 
+> Campo usado para definir o número do endereço.
+
+
+
+------------------------------------------------------------------------------
+
+
+
+> **Field**: **CreditCard.BillingAddress.Complement** <br>
+> **Type**: ```text``` <br>
+> <text class="aviso">❗Campo obrigatório.</text>
+> 
+> Campo usado para definir o complemento para o endereço.
+
+
+
+------------------------------------------------------------------------------
+
+
+
+> **Field**: **CreditCard.BillingAddress.Neighborhood** <br>
+> **Type**: ```text``` <br>
+> <text class="aviso">❗Campo obrigatório.</text>
+> 
+> Campo usado para definir o bairro do endereço.
+
+
+------------------------------------------------------------------------------
+
+
+
+> **Field**: **CreditCard.BillingAddress.City** <br>
+> **Type**: ```text```<br>
+> <text class="aviso">❗Campo obrigatório.</text>
+>  
+> Campo usado para definir a cidade.
+
+
+
+------------------------------------------------------------------------------
+
+
+> **Field**: **CreditCard.BillingAddress.State** <br>
+> **Type**: ```text``` <br>
+> <text class="aviso">❗Campo obrigatório.</text>
+> 
+> Campo usado para definir o estado.
+
+
+
+------------------------------------------------------------------------------

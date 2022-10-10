@@ -1,4 +1,45 @@
 
+
+
+>**Field**: documents <br>
+>**Type**: ```array<document>```<br>
+> <text class="aviso">❗ Campo obrigatorio </text><br>
+> 
+> Campo usado para enviar as fotos referentes a bike que está sendo cotada. A
+seguir, veremos também a modelagem de document.
+
+---------------------------------------------------------------------------------
+
+### Document model
+
+```json
+
+{
+	"itemIdentifier":"92cc00b4-9ba6-4f50-bf5a-38b76ade9370",
+	"files":[]
+}
+```
+
+
+>**Field**: **itemIdentifier** <br>
+>**Type**: ```text``` <br>
+> <text class="aviso">❗ Campo obrigatorio </text><br>
+> 
+>Campo usado para mandar um guid que será vinculado às fotos no array de **files, esse guid é retornado com variantIdentifier dentro do objeto de pricing ao obter o response quando se cria uma cotação.**
+
+--------------------------------------------------------------------------
+
+
+>**Field**: files <br>
+>**Type**: ```array<string>``` <br>
+><text class="aviso"> ❗ Campo obrigatorio </text><br>
+
+>Campo usado como resposta para enviar as fotos no formato de **base64**.
+
+-------------------------------------------------------------------------
+
+
+
 > **Code**: ITEMS </br>
 > **Tipo**: ```array<answer>``` </br>
 > <text class="aviso"> ❗Obrigatório que esteja incluido no array </text>
@@ -214,7 +255,12 @@ Se definida como true, indica que "**Estou ciente e de acordo que as peças modi
 > Pergunta usada para definir "**Entendimento e concordância de solicitação de nota fiscal.**"
 > Se definida como true, indica que  "**Estou ciente e de acordo que a nota fiscal e/ou cupom fiscal da bicicleta em nome do segurado, serão solicitados em caso de sinistro.**"
 
-### 💡 Desmistificando o json de request - part 1
+
+<br>
+<br>
+
+
+### 💡 Explicando PARTS
 
 > Como explicado anteriormente, o campo **parts** dentro do **array de items** tem como finalidade 
 enviar partes customizadas da bike. A seguir, você verá os valores que poderão/deverão estar inclusos nesse array.
@@ -329,7 +375,7 @@ enviar partes customizadas da bike. A seguir, você verá os valores que poderã
 
 ------------------------------------------------------------------------
 
-### 💡Desmistificando o json de request - part 2
+### 💡 Explicando COVERAGES
 
 > Como explicado anteriormente, o campo **coverages** dentro do **array de items** tem como 
 finalidade enviar as coberturas. A seguir, você verá os valores que poderão/deverão estar inclusos nesse array.

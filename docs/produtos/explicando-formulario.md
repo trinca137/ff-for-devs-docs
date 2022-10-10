@@ -3,6 +3,9 @@
       Isso é um padrão de envio para todos produtos.
       Verifique os campos adicionais para cada produto para adicionar no array de **```Answers```**
 
+<br>
+<br>
+
 ### 💡Desmistificando o json de request - part 1
 
 ```json
@@ -11,6 +14,14 @@
 	"answers":[],
 }
 ```
+
+
+>**Field**: Identifier <br>
+>**Type**: ```guid``` <br>
+> <text class="aviso">❗ Campo obrigatório (quando for Proposta ou Checkout)</text> <br>
+>Campo usado para definir qual a cotação será enviada para proposta e checkout.<br>
+
+------------------------------------------------------------------------------
 
 > **Field**: OperationCode </br>
 > **Tipo**: ```text``` </br>
@@ -25,6 +36,9 @@
 > Campo usado para enviar as perguntas mais gerais de uma cotação, um exemplo de pergunta seria se a pessoa que esta realizando a operação é jurídica ou física.</br>
 > Veremos mais detalhes sobre essas perguntas mais abaixo na documentacao.
 Abaixo, podemos ver a modelagem de answer.
+
+<br>
+<br>
 
 ### 💡 Desmistificando o json de request - part 2
 
