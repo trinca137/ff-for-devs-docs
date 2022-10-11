@@ -3,7 +3,7 @@
 
 >**Field**: documents <br>
 >**Type**: ```array<document>```<br>
-> <text class="aviso">❗ Campo obrigatorio </text><br>
+> <text class="aviso">❗ Campo Obrigatório. </text><br>
 > 
 > Campo usado para enviar as fotos referentes a bike que está sendo cotada. A
 seguir, veremos também a modelagem de document.
@@ -23,7 +23,7 @@ seguir, veremos também a modelagem de document.
 
 >**Field**: **itemIdentifier** <br>
 >**Type**: ```text``` <br>
-> <text class="aviso">❗ Campo obrigatorio </text><br>
+> <text class="aviso">❗ Campo Obrigatório. </text><br>
 > 
 >Campo usado para mandar um guid que será vinculado às fotos no array de **files, esse guid é retornado com variantIdentifier dentro do objeto de pricing ao obter o response quando se cria uma cotação.**
 
@@ -32,8 +32,8 @@ seguir, veremos também a modelagem de document.
 
 >**Field**: files <br>
 >**Type**: ```array<string>``` <br>
-><text class="aviso"> ❗ Campo obrigatorio </text><br>
-
+><text class="aviso">❗ Campo Obrigatório. </text><br>
+>
 >Campo usado como resposta para enviar as fotos no formato de **base64**.
 
 -------------------------------------------------------------------------
@@ -42,7 +42,7 @@ seguir, veremos também a modelagem de document.
 
 > **Code**: ITEMS </br>
 > **Tipo**: ```array<answer>``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array </text>
+> <text class="aviso">❗ Obrigatório que esteja incluído  no array. </text>
 > 
 > Pergunta em formato de array de answer é usada para enviar perguntas mais específicas do produto em questão. Neste caso, o "Bike". Mais detalhes sobre essas perguntas a seguir, na documentação.
 
@@ -84,26 +84,26 @@ seguir, veremos também a modelagem de document.
 
 > **Code**: SERIAL-NUMBER </br>
 > **Tipo**: ```text``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array </text>
+> <text class="aviso">❗ Obrigatório que esteja incluído  no array. </text>
 > 
-> Pergunta usada para definir o número de série da bike em questão. Máximo de 30 caracteres
+> Pergunta usada para definir o número de série da bike em questão. Máximo de 30 caracteres.
 
 ------------------------------------------------------------------------
 
 > **Code**: ITEM-TYPE </br>
 > **Tipo**: ```text``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array </text> </br>
+> <text class="aviso">❗ Obrigatório que esteja incluído  no array. </text> </br>
 > 
 > Pergunta usada para definir o tipo da bike. Os valores possíveis para esta pergunta são: </br>
 > 
->  - **TRADITIONAL =** Bike tradicional </br>
->  - **ELETRIC =** Bike elétrica (Elétrica (até 500W))
+>  - **TRADITIONAL =** bike tradicional.</br>
+>  - **ELETRIC =** bike elétrica (até 500W).
 
 ------------------------------------------------------------------------
 
 > **Code**: MANUFACTURE-YEAR </br>
 > **Tipo**: ```integer``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array.</text>
+> <text class="aviso">❗ Obrigatório que esteja incluído  no array.</text>
 > 
 > Pergunta usada para definir o ano de fabricação da bike. Não cobrimos bikes fabricadas em 2017 ou antes.
 >
@@ -113,7 +113,7 @@ seguir, veremos também a modelagem de document.
 
 > **Code**: MODEL </br>
 > **Tipo**: ```text``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array </text>
+> <text class="aviso">❗ Obrigatório que esteja incluído  no array. </text>
 > 
 > Pergunta usada para definir o modelo da bike.
 
@@ -121,7 +121,7 @@ seguir, veremos também a modelagem de document.
 
 > **Code**: COMPETITIONS </br>
 > **Tipo**: ```boolean``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array.</text>
+> <text class="aviso">❗ Obrigatório que esteja incluído  no array.</text>
 > 
 > Pergunta usada para definir se a bike será utilizada em competições.
 
@@ -129,7 +129,7 @@ seguir, veremos também a modelagem de document.
 
 > **Code**: ORIGINAL-VALUE </br>
 > **Tipo**: ```decimal``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array.</text>
+> <text class="aviso">❗ Obrigatório que esteja incluído  no array.</text>
 > 
 > Pergunta usada para definir o valor original da bike.
 
@@ -137,7 +137,7 @@ seguir, veremos também a modelagem de document.
 
 > **Code**: VALUE-AGREEMENT </br>
 > **Tipo**: ```boolean``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array.</text>
+> <text class="aviso">❗ Obrigatório que esteja incluído  no array.</text>
 > 
 > Pergunta usada para definir "**Entendimento e concordância de valor aprovado.**".
 > Se definida como true, indica que "**Estou de acordo com o valor aprovado pela Fairfax.**".
@@ -146,7 +146,7 @@ seguir, veremos também a modelagem de document.
 
 > **Code**: NEW </br>
 > **Tipo**: ```boolean``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array.</text>
+> <text class="aviso">❗ Obrigatório que esteja incluído  no array.</text>
 > 
 > Pergunta usada para definir se a bike é nova ou não.
 > 
@@ -156,7 +156,7 @@ seguir, veremos também a modelagem de document.
 
 > **Code**: BRAND-NAME </br>
 > **Tipo**: ```text``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array. </text>
+> <text class="aviso">❗ Obrigatório que esteja incluído  no array. </text>
 > 
 > Pergunta usada para definir o nome da marca da bike.
 
@@ -164,19 +164,19 @@ seguir, veremos também a modelagem de document.
 
 > **Code**: FRAME-TYPE </br>
 > **Tipo**: ```text``` </br>
-> <text class="aviso"> ❗Obrigatorio que esteja incluido no array. </text>
+> <text class="aviso">❗ Obrigatorio que esteja incluído  no array. </text>
 > 
 > Pergunta usada para definir o tipo de quadro da bike. Os valores possíveis para esta pergunta são:
 > 
->  - **CARBON =** carbono </br>
->  - **ALUMINUM =** aluminio </br>
->  - **STEEL=** aço
+>  - **CARBON =** carbono. </br>
+>  - **ALUMINUM =** alumínio. </br>
+>  - **STEEL=** aço.
 
 ------------------------------------------------------------------------
 
 > **Code**: FRAME-TYPE-AGREEMENT </br>
 > **Tipo**: ```boolean``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array. </text>
+> <text class="aviso">❗ Obrigatório que esteja incluído  no array. </text>
 > 
 > Pergunta usada para definir "**Entendimento e concordância do tipo de quadro.**"
 > Se definida como true, indica que "**Estou ciente e de acordo que o material do quadro da Bicicleta acima indicado está correto. A informação incorreta acarretará perda do direito.**"
@@ -185,32 +185,32 @@ seguir, veremos também a modelagem de document.
 
 > **Code**: CLAIMS </br>
 > **Tipo**: ```text``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array. </text>
+> <text class="aviso">❗ Obrigatório que esteja incluído  no array. </text>
 > 
 > Pergunta usada para definir se houve sinistros nos últimos 36 meses. Os valores possíveis para esta pergunta são:
 > 
->    - **0 =** nenhum </br>
->    - **1 =** sinistro </br>
->    - **2 =** sinistros </br>
->    - **3 ou mais é declinado (não cobrimos)**
+>    - **0 =** nenhum. </br>
+>    - **1 =** sinistro. </br>
+>    - **2 =** sinistros. </br>
+>    - **3+ = é declinado (não cobrimos).**
 
 ------------------------------------------------------------------------
 
 > **Code**: DEDUCTIBLE </br>
 > **Tipo**: ```text``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array </text>
+> <text class="aviso">❗ Obrigatório que esteja incluído  no array. </text>
 > 
 > Pergunta usada para definir o tipo de franquia. Os valores possíveis para esta pergunta são:
 > 
->    - DEFAULT **= padrao** </br>
->    - REDUCED  **= reduzida** </br>
->    - INCREASED **= aumentada** </br>
+>    - **DEFAULT** = padrão. </br>
+>    - **REDUCED** = reduzida. </br>
+>    - **INCREASED** = aumentada. </br>
 
 ------------------------------------------------------------------------
 
 > **Code**: PART-BIKE-AGREEMENT </br>
 > **Tipo**: ```boolean``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array </text>
+> <text class="aviso">❗ Obrigatório que esteja incluído  no array. </text>
 > 
 > Pergunta usada para definir "**Entendimento e concordância das peças modificadas.**"
 Se definida como true, indica que "**Estou ciente e de acordo que as peças modificadas deverão conter Nota Fiscal e/ou Cupom Fiscal, em nome do segurado. A não apresentação acarretará perda de direito.**"
@@ -226,7 +226,7 @@ Se definida como true, indica que "**Estou ciente e de acordo que as peças modi
 
 > **Code**: COVERAGES</br>
 > **Tipo**: ```array<answer>``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array</text>
+> <text class="aviso">❗ Obrigatório que esteja incluído  no array.</text>
 > 
 > Campo usado para enviar as coberturas. **Haverá uma seção nesta documentacão com explicação detalhada.** 
 
@@ -234,7 +234,7 @@ Se definida como true, indica que "**Estou ciente e de acordo que as peças modi
 
 > **Code**: RENT</br>
 > **Tipo**: ```boolean``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array</text>
+> <text class="aviso">❗ Obrigatório que esteja incluído  no array.</text>
 > 
 > Pergunta usada para definir se a bike será utilizada para locações.
 
@@ -242,7 +242,7 @@ Se definida como true, indica que "**Estou ciente e de acordo que as peças modi
 
 > **Code**: INVOICE </br>
 > **Tipo**: ```boolean``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array.</text>
+> <text class="aviso">❗ Obrigatório que esteja incluído  no array.</text>
 > 
 > Pergunta usada para definir se a bike possui ou não nota fiscal.
 
@@ -250,7 +250,7 @@ Se definida como true, indica que "**Estou ciente e de acordo que as peças modi
 
 > **Code**: INVOICE-AGREEMENT </br>
 > **Tipo**: ```boolean``` </br>
-> <text class="aviso"> Obrigatório que esteja incluido no array (se INVOICE == TRUE)</text>
+> <text class="aviso">❗ Obrigatório que esteja incluído  no array (se INVOICE == TRUE).</text>
 > 
 > Pergunta usada para definir "**Entendimento e concordância de solicitação de nota fiscal.**"
 > Se definida como true, indica que  "**Estou ciente e de acordo que a nota fiscal e/ou cupom fiscal da bicicleta em nome do segurado, serão solicitados em caso de sinistro.**"
@@ -333,25 +333,24 @@ enviar partes customizadas da bike. A seguir, você verá os valores que poderã
 > **Tipo:** ```text``` </br>
 > Pergunta usada para definir partes adicionais da bike. Os possíveis valores para esta pergunta são:
 > 
->    - **FRONT-DERAILLEUR =** Câmbio diantero
->    - **REAR-DERAILLEUR =** Câmbio transeiro
->    - **SEATPOST =** Canote
->    - **SEATPOST-BRAND =**
->    - **CLIP-PEDAL =** Clip pedal
->    - **COLOR =**  Cor
->    - **HUB =** Cubos
->    - **BRAKE =** Freios
->    - **FORK =** Garfo
->    - **HANDLEBAR =** Guidão
->    - **STEM =** Tronco
->    - **PEDAL =** Pedal
->    - **CRANKSET =**
->    - **TIRE =** Pneu
->    - **FRAME =** Quadro
->    - **WHEEL =** Roda
->    - **SADDLE =** Banco
->    - **FRONT-SHIFTER =**
->    - **REAR-SHIFTER =**
+>    - **FRONT-DERAILLEUR** = Câmbio diantero
+>    - **REAR-DERAILLEUR** = Câmbio transeiro
+>    - **SEATPOST** = Canote
+>    - **CLIP-PEDAL** = Clip pedal
+>    - **COLOR** =  Cor
+>    - **HUB** = Cubos
+>    - **BRAKE** = Freios
+>    - **FORK** = Garfo
+>    - **HANDLEBAR** = Guidão
+>    - **STEM** = Tronco
+>    - **PEDAL** = Pedal
+>    - **CRANKSET** =
+>    - **TIRE** = Pneu
+>    - **FRAME** = Quadro
+>    - **WHEEL** = Roda
+>    - **SADDLE** = Banco
+>    - **FRONT-SHIFTER** = Trocador Dianteiro
+>    - **REAR-SHIFTER** = Trocador Traseiro
 
 ------------------------------------------------------------------------
 
@@ -369,11 +368,15 @@ enviar partes customizadas da bike. A seguir, você verá os valores que poderã
 
 ------------------------------------------------------------------------
 
-**Code**: PART-VALUE<br>
-**Tipo**: ```decimal```<br>
+>**Code**: PART-VALUE<br>
+>**Tipo**: ```decimal```<br>
+>
 > Pergunta usada para definir o valor da parte.
 
 ------------------------------------------------------------------------
+
+<br>
+<br>
 
 ### 💡 Explicando COVERAGES
 
@@ -455,12 +458,12 @@ finalidade enviar as coberturas. A seguir, você verá os valores que poderão/d
 > 
 > Pergunta usada para definir o tipo de cobertura. Os possíveis valores para esta pergunta são:
 >
->   - **DAMAGE-COVERAGE =** Cobertura a danos
->   - **THEFT-COVERAGE =** Cobertura a roubo
->   - **CIVIL-LIABILITY-COVERAGE =**  
->   - **ACCESSORIES-COVERAGE =**  
->   - **ELECTRICAL-DAMAGE-COVERAGE =**  
->   - **INTERNATIONAL-COVERAGE =** 
+>   - **DAMAGE-COVERAGE** = Cobertura a danos
+>   - **THEFT-COVERAGE** = Cobertura a roubo
+>   - **CIVIL-LIABILITY-COVERAGE** =  Danos Materiais E/ou Corporais a Terceiros (RC)
+>   - **ACCESSORIES-COVERAGE** =  Acessórios
+>   - **ELECTRICAL-DAMAGE-COVERAGE** = Danos elétricos
+>   - **INTERNATIONAL-COVERAGE** = Cobertura internacional
 
 ------------------------------------------------------------------------
 

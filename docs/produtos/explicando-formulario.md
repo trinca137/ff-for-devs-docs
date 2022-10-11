@@ -18,24 +18,25 @@
 
 >**Field**: Identifier <br>
 >**Type**: ```guid``` <br>
-> <text class="aviso">❗ Campo obrigatório (quando for Proposta ou Checkout)</text> <br>
+> <text class="aviso">❗ Campo obrigatório (quando for Proposta ou Checkout).</text> <br>
+> 
 >Campo usado para definir qual a cotação será enviada para proposta e checkout.<br>
 
 ------------------------------------------------------------------------------
 
 > **Field**: OperationCode </br>
 > **Tipo**: ```text``` </br>
-> <text class="aviso">❗campo obrigatório</text> </br>
-> Campo usado para definir qual produto esta sendo cotado, neste caso o produto é bike, representado pelo operation code "BIKE-MULTIPLE-PERIL-PARTNER".
+> <text class="aviso">❗ Campo Obrigatório.</text> </br>
+> 
+> Campo usado para definir qual produto está sendo cotado. Neste caso, o produto é "Bike", representado pelo operation code "BIKE-MULTIPLE-PERIL-PARTNER".
 
 ---------------------------------------------------------
 
 > **Field**: Answers </br>
 > **Tipo**: ```array<answer>``` </br>
-> <text class="aviso"> ❗ Campo obrigatório</text> </br>
-> Campo usado para enviar as perguntas mais gerais de uma cotação, um exemplo de pergunta seria se a pessoa que esta realizando a operação é jurídica ou física.</br>
-> Veremos mais detalhes sobre essas perguntas mais abaixo na documentacao.
-Abaixo, podemos ver a modelagem de answer.
+> <text class="aviso">❗ Campo Obrigatório.</text> </br>
+> 
+> Campo usado para enviar perguntas mais gerais de uma cotação – um exemplo de pergunta seria se a pessoa é Jurídica ou Física. Mais detalhes sobre essas perguntas a seguir, na documentação.
 
 <br>
 <br>
@@ -43,7 +44,7 @@ Abaixo, podemos ver a modelagem de answer.
 ### 💡 Desmistificando o json de request - part 2
 
 
-> O campo **answers** tem como finalidade enviar as perguntas referentes a cotação, abaixo você vera os valores que poderão/deverão estar inclusos nesse array.
+> Como explicado anteriormente, o campo **answers** tem como finalidade enviar perguntas referentes a cotação. A seguir, você verá os valores que poderão/deverão estar inclusos nesse array.
 
 ```json
 {
@@ -60,221 +61,225 @@ Abaixo, podemos ver a modelagem de answer.
 
 > **Code**: MODALITY </br>
 > **Tipo**: ```text``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array </text> </br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
 > 
-> - Pergunta usada para definir qual produto esta sendo cotado, neste caso o produto é bike, representado pelo operation code **BIKE-MULTIPLE-PERIL** 
+> Pergunta usada para definir qual produto está sendo cotado. Neste caso, o produto é "Bike", representado pelo operation code **"BIKE-MULTIPLE-PERIL"**.
 
 ------------------------------------------------------------------------
 
 > **Code**: PERSON-TYPE </br>
 > **Tipo**: ```text``` </br>
-> <text class="aviso"> ❗Obrigatorio que esteja incluido no array </text> </br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
 > 
-> - Pergunta usada para saber que a cotacao esta sendo feita por uma pessoa física ou jurídica. </br>
+> Pergunta usada para saber se a cotação está sendo preenchida por uma Pessoa Física ou Jurídica. Os valores possíveis para esta pergunta são:
 > 
-***Os possiveis valores para esta pergunta são:*** </br>
-> **NATURAL =** Significa que a pessoa em questão é física </br>
-> **LEGAL =** Significa que a pessoa em questão é jurídica
+>  - **NATURAL** = significa que a pessoa em questão é física. </br>
+>  - **LEGAL** = significa que a pessoa em questão é jurídica.
 
 ------------------------------------------------------------------------
 
 > **Code**: START-VIGENCY-DATE </br>
 > **Tipo**: ```date``` </br>
-> <text class="aviso"> ❗Obrigatorio que esteja incluido no array </text> </br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
 > 
-> - Pergunta usada para definir o inicio da vigencia do seguro.
+> Pergunta usada para definir o início da vigência do seguro.
 
 ------------------------------------------------------------------------
 
 > **Code**: VIGENCY-DURATION </br>
 > **Tipo**: ```integer``` </br>
-> No momento so é possivel o padrão, não sendo possível mudar a duração da vigência </br>
+> <text class="aviso"> No momento so é possivel o padrão, não sendo possível mudar a duração da vigência. </text> </br>
 > 
-> - Pergunta usada para definir a duração da vigência em anos, o valor padrao é 1.
+> Pergunta usada para definir a duração da vigência em anos. O valor padrão é 1.
 
 ------------------------------------------------------------------------
 
 > **Code**: VIGENCY-RETROACTIVITY-AGREEMENT </br>
 > **Tipo**: ```boolean``` </br>
 > 
-> - Pergunta usada para definir "**Entendimento e concordância de vigência retroativa**".
- Se defida  como true, indica que "**Estou ciente e de acordo que não possuo conhecimento de qualquer fato que possa acarretar uma reclamação futura entre o início de vigência e a data de emissão da apólice**"
+> Pergunta usada para definir "**Entendimento e concordância de vigência retroativa**".
+ Se defida como true, indica que "**Estou ciente e de acordo que não possuo conhecimento de qualquer fato que possa acarretar uma reclamação futura entre o início de vigência e a data de emissão da apólice**"
 
 ------------------------------------------------------------------------
 
 > **Code**: CONGENER </br>
 > **Tipo**: ```text``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array </text> </br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
 > 
-> - Pergunta usada para definir se a cotação em questão é um seguro novo, ou uma renovação.
+> Pergunta usada para definir se a cotação em questão é um Seguro Novo ou uma Renovação. Os valores possíveis para esta pergunta são:
 > 
-> ***Os possíveis valores para esta pergunta são:***</br>
-> **NEW =** Indica que é um seguro novo. </br>
-> **RENEW =** Indica que é a renovação de um seguro.
+>  - **NEW** = indica que é um novo seguro. </br>
+>  - **RENEW** = indica que é a renovação de um seguro.
 
 ------------------------------------------------------------------------
 
 > **Code**: PREVIOUS-INSURER </br>
 > **Tipo**: ```text``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array (se a cotação for uma renovação de outra seguradora) </text>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array. (se a cotação for uma renovação de outra seguradora). </text>
 > 
-> - Pergunta usada para definir qual era a seguradora anterior. </br>
-> - Neste campo se deve enviar um **cnpj**.
+> Pergunta usada para definir qual é a seguradora anterior. </br>
+> Neste campo, deve-se enviar um **CNPJ**.
 
 ------------------------------------------------------------------------
 
 > **Code**: PREVIOUS-NAME</br>
 > **Tipo**: ```text``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array (se a cotacao for uma renovação de outra seguradora)</text></br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array. (se a cotação for uma renovação de outra seguradora).</text></br>
 > 
-> - Pergunta usada para definir o nome da seguradora anterior.
+> Pergunta usada para definir o nome da seguradora anterior.
 
 ------------------------------------------------------------------------
 
 > **Code**: INSURED-NAME </br>
 > **Tipo**: ```text``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array </text> </br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
 > 
-> - Pergunta usada para definir o nome do segurado
+> Pergunta usada para definir o nome do segurado.
 
 ------------------------------------------------------------------------
 
 > **Code**: INSURED-EMAIL </br>
 > **Tipo**: ```text``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array </text> </br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
 > 
-> - Pergunta usada para definir o email do segurado
+> Pergunta usada para definir o e-mail do segurado.
 
 ------------------------------------------------------------------------
 
 > **Code**: IDENTITY </br>
 > **Tipo**: ```text``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array </text> </br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
 > 
-> - Pergunta usada para definir a identificação do segurado, seja ela um **cpf** ou um **cnpj**
+> Pergunta usada para definir a identificação do segurado, seja ela um **CPF** ou um **CNPJ**.
 
 ------------------------------------------------------------------------
 
 > **Code**: GENDER </br>
 > **Tipo**: ```text``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array </text> </br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
 > 
-> - Pergunta usada para definir o genero do segurado </br>
+> Pergunta usada para definir o gênero do segurado.
+Os possíveis valores para esta pergunta são: </br>
 > 
-> ***Os possiveis valores para esta pergunta são:*** </br>
-> **M =** Masculino </br>
-> **F =** Feminino </br>
-> **I =** Não informado </br>
+> **M** = masculino </br>
+> **F** = feminino </br>
+> **I** = não informado. </br>
 > 
-> - Caso nada seja enviado, o valor padrao é "**I**".
+> O valor padrão é "**I**".
 
 ------------------------------------------------------------------------
 
 > **Code**: INSURED-CELLPHONE </br>
 > **Tipo**: ```text``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array </text> </br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
 > 
-> - Pergunta usada para definir o telefone do segurado.
+> Pergunta usada para definir o telefone do segurado.
 
 ------------------------------------------------------------------------
 
 > **Code**: INSURED-ADDRESS-ZIPCODE </br>
 > **Tipo**: ```text``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array </text> </br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
 > 
-> - Pergunta usada para definir o codigo postal do segurado
+> Pergunta usada para definir o código postal do segurado.
 
 ------------------------------------------------------------------------
 
 > **Code**: INSURED-ADDRESS-STREET </br>
 > **Tipo**: ```text``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array </text> </br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
 > 
-> - Pergunta usada para definir a rua do segurado
+> Pergunta usada para definir a rua do segurado.
 
 ------------------------------------------------------------------------
 
 > **Code**: INSURED-ADDRESS-NUMBER </br>
 > **Tipo**: ```text``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array </text> </br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
 > 
-> - Pergunta usada para definir o número da moradia do segurado
+> Pergunta usada para definir o número da moradia do segurado.
 
 ------------------------------------------------------------------------
 
 > **Code**: INSURED-ADDRESS-COMPLEMENT </br>
 > **Tipo**: ```text``` </br>
-> <text class="aviso"> ❗Obrigatorio que esteja incluido no array </text> </br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
 > 
-> - Pergunta usada para definir o numero da moradia do segurado
+> Pergunta usada para definir o número da moradia do segurado.
 
 ------------------------------------------------------------------------
 
 > **Code**: INSURED-ADDRESS-NEIGHBORHOOD </br>
 > **Tipo**: ```text``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array </text> </br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
 > 
-> - Pergunta usada para definir o bairro do segurado
+> Pergunta usada para definir o bairro do segurado.
 
 ------------------------------------------------------------------------
 
 > **Code**: INSURED-ADDRESS-CITY </br>
 > **Tipo**: ```text``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array </text> </br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
 > 
-> - Pergunta usada para definir a cidade do segurado
+> Pergunta usada para definir a cidade do segurado.
 
 ------------------------------------------------------------------------
 
 > **Code**: INSURED-ADDRESS-STATE </br>
 > **Tipo**: ```text``` </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido no array </text> </br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
 > 
-> - Pergunta usada para definir o estado do segurado
+> Pergunta usada para definir o estado do segurado.
 
 ------------------------------------------------------------------------
 
 > **Code**: COMMISSION </br>
 > **Tipo**: ```decimal``` </br>
-> - Pergunta usada para definir a comissao. </br>
-> <text class="aviso"> ❗Obrigatório que esteja incluido</text>
+> <text class="aviso">❗ Obrigatório que esteja incluído</text>
+> Pergunta usada para definir a comissão. </br>
 > 
-> - Pode ser enviado valores entre 1 e 20
->     - O valor padrao é 20.00
+> Pode ser enviado valores entre 1 e 20.<br>
+> Valor padrão é 20.00.
 
 
 >**Code**: INSURED-BIRTH-DATE <br>
->❗ Obrigatorio que esteja incluido no array (quando for para o endpoint de PROPOSAL) <br>
 >**Type**: ```date``` <br>
->Pergunta usada para definir a data de nascimento do segurado <br>
+><text class="aviso">❗ Obrigatório que esteja incluído no array. (quando for para o endpoint de PROPOSAL).</text> <br>
+>
+>Pergunta usada para definir a data de nascimento do segurado. <br>
 
 --------------------------------------------------------------------------
 
 
 >**Code**: PAYMENT-METHOD <br>
 >**Type**: ```text``` <br>
->❗ Obrigatorio que esteja incluido no array (quando for para o endpoint de PROPOSAL) <br>
->Pergunta usada para definir o metodo de pagamento <br>
->os possiveis valores para esta pergunta são: <br>
->**CREDIT-CARD** <br>
+><text class="aviso">❗ Obrigatório que esteja incluído no array. (quando for para o endpoint de PROPOSAL).</text> <br>
+>
+>Pergunta usada para definir o método de pagamento.
+Os possíveis valores para esta pergunta são:
+>
+>  - **CREDIT-CARD**
+>  - **TICKET**
 
 --------------------------------------------------------------------------
 
 
 >**Code**: DUE-DAY <br>
 >**Type**: ```integer``` <br>
->❗ Obrigatorio que esteja incluido no array  (apenas quando o PAYMENT-METHOD for TICKET)  <br>
->❗ Obrigatorio que esteja incluido no array  (quando for para o endpoint de PROPOSAL) <br>
->Pergunta usada para definir a data de vencimento <br>
+><text class="aviso">❗ Obrigatório que esteja incluído no array. (apenas quando o PAYMENT-METHOD for TICKET).  </text><br>
+><text class="aviso">❗ Obrigatório que esteja incluído no array.  (quando for para o endpoint de PROPOSAL).</text> <br>
+>
+>Pergunta usada para definir o dia de vencimento quando o PAYMENT-METHOD for TICKET (boleto). <br>
 
 ---------------------------------------------------------------------------
 
 
-
+retornado
 >**Code**: PAYMENT-INSTALLMENT-IDENTIFIER <br>
 >**Type**: ```guid``` <br>
->❗ Obrigatorio que esteja incluido no array (quando for para o endpoint de PROPOSAL) <br>
->O guid que sera enviando nesse campo, é retornado no array de installments, no retorno do endpoint de criar cotacao <br>
+><text class="aviso">❗ Obrigatório que esteja incluído no array. (quando for para o endpoint de PROPOSAL). </text><br>
+>
+>O guid que será enviado nesse campo é retornado no array de installments, no retorno do endpoint de criar cotação. <br>
 
 ------------------------------------------------------------------------------
 
@@ -282,9 +287,8 @@ Abaixo, podemos ver a modelagem de answer.
 > **Code**: GRIEVANCE-DISCOUNT </br>
 > **Tipo**: ```decimal```
 > 
-> - Pergunta usada para definir Agravo (aumento de valor acima do valor final da cotação).
-> 
-> O Padrão é 0
+> Pergunta usada para definir Agravo/Desconto.<br>
+> O Padrão é 0.
 
 ---------------------------------------------------------------------------------
 
