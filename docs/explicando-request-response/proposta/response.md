@@ -17,6 +17,11 @@
 }
 ```
 
+
+!!! Aviso
+
+      O JSON Usadado de exemplo abaixo é do produto BIKE.
+
 - Caso retorno 200, retorna o cálculo com algumas informações.
 
 ```json

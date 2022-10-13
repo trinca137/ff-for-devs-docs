@@ -3,7 +3,7 @@
 
 >**Field**: documents <br>
 >**Type**: ```array<document>```<br>
-> <text class="aviso">❗ Campo Obrigatório. </text><br>
+> <text class="aviso">❗ Campo Obrigatório (quando for na PROPOSTA).</text><br>
 > 
 > Campo usado para enviar as fotos referentes a bike que está sendo cotada. A
 seguir, veremos também a modelagem de document.
