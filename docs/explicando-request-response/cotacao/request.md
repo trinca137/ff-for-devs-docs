@@ -9,7 +9,7 @@ POST: {{url_ambiente}}/v1/quotation
 
 !!! Aviso
 
-      O JSON Usadado de exemplo abaixo é do produto BIKE.
+      O JSON Usado de exemplo abaixo é do produto BIKE.
 
 💡 **Exemplo de json de request**
 
