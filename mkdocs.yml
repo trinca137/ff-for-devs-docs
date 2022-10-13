@@ -3,6 +3,7 @@ theme:
   name: readthedocs
   highlightjs: true
   locale: pt_BR
+  titles_only: true
   
 extra_css:
   - css/extra.css
