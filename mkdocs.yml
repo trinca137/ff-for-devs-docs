@@ -24,19 +24,22 @@ nav:
         - Ambientes: '../configuracoes/ambientes'
         - Autenticação: '../configuracoes/autenticacao'
         - Fluxos padrões dos Produtos: '../fluxo/fluxo-produto.md'
-    - Json de Envio e Retorno:
-        - Explicando cotação:
-            - Json de envio: ''
-            - Json de retorno: ''
-        - Explicando proposta:
-            - Json de envio: ''
-            - Json de retorno: ''
-        - Explicando checkout:
-            - Json de envio: ''
-            - Json de retorno: ''
+    - Explicando requests e responses:
+        - Cotação:
+            - Request: '../explicando-request-response/cotacao/request'
+            - Response: '../explicando-request-response/cotacao/response'
+        - Proposta:
+            - Request: '../explicando-request-response/proposta/request'
+            - Response: '../explicando-request-response/proposta/response'
+        - Checkout:
+            - Request: '../explicando-request-response/checkout/request'
+            - Response: '../explicando-request-response/checkout/response'
     - Produtos:
         - Bikes:
-            - Criar cotação e retornos: '../produtos/bike/criar-cotacao'
-            - Criar proposta e retornos: '../produtos/bike/criar-proposta'
-            - Realizar Checkout: '../produtos/bike/realizar-checkout'
-            - Campos adicionais no json para bikes: '../produtos/bike/explicando-formulario'
+            - Cotação:
+                - Exemplo de Request: '../produtos/bike/cotacao/request'
+                - Exemplo de Response: '../produtos/bike/cotacao/response'
+            - Proposta:
+                - Exemplo de Request: '../produtos/bike/proposta/request'
+                - Exemplo de Response: '../produtos/bike/proposta/response'
+            - Campos adicionais no request de bikes: '../produtos/bike/explicando-formulario'
