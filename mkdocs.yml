@@ -1,4 +1,4 @@
-site_name: Fairfax For Devs - API
+site_name: Fairfax 4Devs - API
 theme:
   name: readthedocs
   highlightjs: true
@@ -25,30 +25,25 @@ markdown_extensions:
   - admonition
 nav:
   - Introdução:
-    - Sobre a documentação: 'introducao/sobre.md'
+    - Sobre a documentação: 'index.md'
 
   - Configurações:
-    - Ambientes: '../configuracoes/ambientes'
-    - Autenticação: '../configuracoes/autenticacao'
-    - Fluxos padrões dos Produtos: 'fluxo/fluxo-produto.md'
+    - Ambientes: 'configuracoes/ambientes'
+    - Autenticação: 'configuracoes/autenticacao'
+    - Fluxos padrões dos Produtos: 'configuracoes/fluxo-produto.md'
 
   - Explicando requests e responses:
-    - Cotação:
-      - Request: '../explicando-request-response/cotacao/request'
-      - Response: '../explicando-request-response/cotacao/response'
-    - Proposta:
-      - Request: '../explicando-request-response/proposta/request'
-      - Response: '../explicando-request-response/proposta/response'
-    - Checkout:
-      - Request: '../explicando-request-response/checkout/request'
-      - Response: '../explicando-request-response/checkout/response'
+    - Request de cotação: 'explicando-request-response/cotacao/request'
+    - Response de cotação: 'explicando-request-response/cotacao/response'
+    - Request de proposta: 'explicando-request-response/proposta/request'
+    - Response de proposta: 'explicando-request-response/proposta/response'
+    - Request de checkout: 'explicando-request-response/checkout/request'
+    - Response de chekout: 'explicando-request-response/checkout/response'
 
-  - Produtos:
-    - Bikes:
-      - Cotação:
-        - Exemplo de Request: '../produtos/bike/cotacao/request'
-        - Exemplo de Response: '../produtos/bike/cotacao/response'
-      - Proposta:
-        - Exemplo de Request: '../produtos/bike/proposta/request'
-        - Exemplo de Response: '../produtos/bike/proposta/response'
-      - Campos adicionais no request de bikes: '../produtos/bike/explicando-formulario'
+    
+  - Bikes:
+    - Request de cotação: 'produtos/bike/cotacao/request'
+    - Response de cotação: 'produtos/bike/cotacao/response'
+    - Request de proposta: 'produtos/bike/proposta/request'
+    - Response de proposta: 'produtos/bike/proposta/response'
+    - Campos adicionais no request de bikes: 'produtos/bike/explicando-formulario'

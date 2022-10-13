@@ -1,6 +1,6 @@
 # Ambientes
 
-A API do 4devs possui um ambiente de homologação para realização de testes e um ambiente de produção, cada um com sua respectiva Chave de Acesso.
+A API do 4Devs possui um ambiente de homologação para realização de testes e um ambiente de produção, cada um com sua respectiva Chave de Acesso.
 
 #### Homologação
 https://azuh-br-ff-orbi.azurewebsites.net/api/partner/
