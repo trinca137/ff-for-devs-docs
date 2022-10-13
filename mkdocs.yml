@@ -30,7 +30,7 @@ nav:
   - Configurações:
     - Ambientes: 'configuracoes/ambientes'
     - Autenticação: 'configuracoes/autenticacao'
-    - Fluxos padrões dos Produtos: 'configuracoes/fluxo-produto.md'
+    - Fluxos padrões dos Produtos: 'configuracoes/fluxo.md'
 
   - Explicando requests e responses:
     - Request de cotação: 'explicando-request-response/cotacao/request'

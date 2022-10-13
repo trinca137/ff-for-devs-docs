@@ -1,5 +1,5 @@
-<!--![Screenshot](img/4devs-positive.png)
-### Descrição da API -->
+![Screenshot](img/4devs-positive.png)
+### Descrição da API 
 
 
 !!! Aviso "Configurações"
