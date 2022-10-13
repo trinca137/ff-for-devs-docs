@@ -24,6 +24,9 @@ markdown_extensions:
       base_path: .
   - admonition
 nav:
+  - Introdução:
+    - Sobre a documentação: 'introducao/sobre.md'
+
   - Configurações:
     - Ambientes: '../configuracoes/ambientes'
     - Autenticação: '../configuracoes/autenticacao'
