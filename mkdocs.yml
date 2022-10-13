@@ -4,6 +4,9 @@ theme:
   highlightjs: true
   locale: pt_BR
   titles_only: true
+  collapse_navigation: true
+  navigation_depth: 10
+  prev_next_buttons_location: none
   
 extra_css:
   - css/extra.css
