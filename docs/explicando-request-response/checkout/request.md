@@ -5,6 +5,9 @@
 POST: {{url_ambiente}}/v1/checkout
 ```
 
+Request
+-------
+
 💡 **Exemplo de json de request**
 
 ```json
@@ -242,3 +245,19 @@ POST: {{url_ambiente}}/v1/checkout
 
 
 ------------------------------------------------------------------------------
+
+
+
+
+Response
+--------
+
+
+### Retornos
+
+```json
+{
+    "success": true,
+    "executed": "2022-10-13T12:44:38.1296147Z"
+}
+```

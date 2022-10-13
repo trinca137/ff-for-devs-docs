@@ -3,10 +3,8 @@ theme:
   name: readthedocs
   highlightjs: true
   locale: pt_BR
-  titles_only: true
-  collapse_navigation: true
-  navigation_depth: 10
-  prev_next_buttons_location: none
+
+
   
 extra_css:
   - css/extra.css
@@ -33,17 +31,13 @@ nav:
     - Fluxos padrões dos Produtos: 'configuracoes/fluxo'
 
   - Explicando requests e responses:
-    - Request de cotação: 'explicando-request-response/cotacao/request'
-    - Response de cotação: 'explicando-request-response/cotacao/response'
-    - Request de proposta: 'explicando-request-response/proposta/request'
-    - Response de proposta: 'explicando-request-response/proposta/response'
-    - Request de checkout: 'explicando-request-response/checkout/request'
-    - Response de chekout: 'explicando-request-response/checkout/response'
+    - Cotação: 'explicando-request-response/cotacao/request.md'
+    - Proposta: 'explicando-request-response/proposta/request.md'
+    - Checkout: 'explicando-request-response/checkout/request.md'
+
 
     
   - Bikes:
-    - Request de cotação: 'produtos/bike/cotacao/request'
-    - Response de cotação: 'produtos/bike/cotacao/response'
-    - Request de proposta: 'produtos/bike/proposta/request'
-    - Response de proposta: 'produtos/bike/proposta/response'
+    - Cotação: 'produtos/bike/cotacao/request.md'
+    - Proposta: 'produtos/bike/proposta/request.md'
     - Campos adicionais no request de bikes: 'produtos/bike/explicando-formulario'
