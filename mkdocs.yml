@@ -23,12 +23,12 @@ markdown_extensions:
   - admonition
 nav:
   - Introdução:
-    - Sobre a documentação: 'index'
+    - Sobre a documentação: 'index.md'
 
   - Configurações:
-    - Ambientes: 'configuracoes/ambientes'
-    - Autenticação: 'configuracoes/autenticacao'
-    - Fluxos padrões dos Produtos: 'configuracoes/fluxo'
+    - Ambientes: 'configuracoes/ambientes.md'
+    - Autenticação: 'configuracoes/autenticacao.md'
+    - Fluxos padrões dos Produtos: 'configuracoes/fluxo;md'
 
   - Explicando requests e responses:
     - Cotação: 'explicando-request-response/cotacao/request.md'
@@ -40,4 +40,4 @@ nav:
   - Bikes:
     - Cotação: 'produtos/bike/cotacao/request.md'
     - Proposta: 'produtos/bike/proposta/request.md'
-    - Campos adicionais no request de bikes: 'produtos/bike/explicando-formulario'
+    - Campos adicionais no request de bikes: 'produtos/bike/explicando-formulario.md'
