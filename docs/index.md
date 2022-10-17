@@ -4,7 +4,7 @@
 
 !!! Aviso "Configurações"
 
-      Na seção de "Configurações" você vai encontrar informações referentes a autenticação, ambientes e o fluxo padrão dos produtos.
+      Na seção de "Configurações" você vai encontrar informações referentes a autenticação, ambientes e o fluxo padrão dos produtos
 
 
 !!! Aviso "Explicando requests e responses"
