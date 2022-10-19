@@ -28,7 +28,7 @@ nav:
   - Configurações:
     - Ambientes: 'configuracoes/ambientes.md'
     - Autenticação: 'configuracoes/autenticacao.md'
-    - Fluxos padrões dos Produtos: 'configuracoes/fluxo;md'
+    - Fluxos padrões dos Produtos: 'configuracoes/fluxo.md'
 
   - Explicando requests e responses:
     - Cotação: 'explicando-request-response/cotacao/request.md'
@@ -41,3 +41,8 @@ nav:
     - Cotação: 'produtos/bike/cotacao/request.md'
     - Proposta: 'produtos/bike/proposta/request.md'
     - Campos adicionais no request de bikes: 'produtos/bike/explicando-formulario.md'
+
+  - Medicos:
+    - Cotação: 'produtos/medicos/cotacao/request.md'
+    - Proposta: 'produtos/medicos/proposta/request.md'
+    - Campos adicionais no request de medicos: 'produtos/medicos/explicando-formulario.md'

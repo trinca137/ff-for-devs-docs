@@ -94,7 +94,7 @@ seguir, veremos também a modelagem de document.
 > **Tipo**: ```text``` </br>
 > <text class="aviso">❗ Obrigatório que esteja incluído  no array. </text> </br>
 > 
-> Pergunta usada para definir o tipo da bike. Os valores possíveis para esta pergunta são: </br>
+> Pergunta usada para definir o tipo da bike. Os valores possíveis para esta pergunta são: </br><br>
 > 
 >  - **TRADITIONAL =** bike tradicional.</br>
 >  - **ELETRIC =** bike elétrica (até 500W).
@@ -166,7 +166,7 @@ seguir, veremos também a modelagem de document.
 > **Tipo**: ```text``` </br>
 > <text class="aviso">❗ Obrigatorio que esteja incluído  no array. </text>
 > 
-> Pergunta usada para definir o tipo de quadro da bike. Os valores possíveis para esta pergunta são:
+> Pergunta usada para definir o tipo de quadro da bike. Os valores possíveis para esta pergunta são:<br><br>
 > 
 >  - **CARBON =** carbono. </br>
 >  - **ALUMINUM =** alumínio. </br>
@@ -187,7 +187,7 @@ seguir, veremos também a modelagem de document.
 > **Tipo**: ```text``` </br>
 > <text class="aviso">❗ Obrigatório que esteja incluído  no array. </text>
 > 
-> Pergunta usada para definir se houve sinistros nos últimos 36 meses. Os valores possíveis para esta pergunta são:
+> Pergunta usada para definir se houve sinistros nos últimos 36 meses. Os valores possíveis para esta pergunta são:<br><br>
 > 
 >    - **0 =** nenhum. </br>
 >    - **1 =** sinistro. </br>
@@ -200,7 +200,7 @@ seguir, veremos também a modelagem de document.
 > **Tipo**: ```text``` </br>
 > <text class="aviso">❗ Obrigatório que esteja incluído  no array. </text>
 > 
-> Pergunta usada para definir o tipo de franquia. Os valores possíveis para esta pergunta são:
+> Pergunta usada para definir o tipo de franquia. Os valores possíveis para esta pergunta são:<br><br>
 > 
 >    - **DEFAULT** = padrão. </br>
 >    - **REDUCED** = reduzida. </br>

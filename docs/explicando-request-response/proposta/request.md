@@ -343,7 +343,7 @@ Request
 > **Tipo**: ```text``` </br>
 > <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
 > 
-> Pergunta usada para saber se a cotação está sendo preenchida por uma Pessoa Física ou Jurídica. Os valores possíveis para esta pergunta são:
+> Pergunta usada para saber se a cotação está sendo preenchida por uma Pessoa Física ou Jurídica. Os valores possíveis para esta pergunta são:<br><br>
 > 
 >  - **NATURAL** = significa que a pessoa em questão é física. </br>
 >  - **LEGAL** = significa que a pessoa em questão é jurídica.
@@ -378,7 +378,7 @@ Request
 > **Tipo**: ```text``` </br>
 > <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
 > 
-> Pergunta usada para definir se a cotação em questão é um Seguro Novo ou uma Renovação. Os valores possíveis para esta pergunta são:
+> Pergunta usada para definir se a cotação em questão é um Seguro Novo ou uma Renovação. Os valores possíveis para esta pergunta são: <br><br>
 > 
 >  - **NEW** = indica que é um novo seguro. </br>
 >  - **RENEW** = indica que é a renovação de um seguro.
