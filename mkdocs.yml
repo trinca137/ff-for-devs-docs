@@ -46,3 +46,8 @@ nav:
     - Cotação: 'produtos/medicos/cotacao/request.md'
     - Proposta: 'produtos/medicos/proposta/request.md'
     - Campos adicionais no request de medicos: 'produtos/medicos/explicando-formulario.md'
+      
+  - Dentistas:
+    - Cotação: 'produtos/dentistas/cotacao/request.md'
+    - Proposta: 'produtos/dentistas/proposta/request.md'
+    - Campos adicionais no request de medicos: 'produtos/dentistas/explicando-formulario.md'

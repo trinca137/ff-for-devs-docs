@@ -8,58 +8,34 @@
 >
 > Pergunta usada para definir a profissão do segurado. Os possíveis valores para esta pergunta são: <br><br>
 >
-> - **DOCTOR**</br>
+> - **DENTIST**</br>
 
 ---
 
 > **Code**: CATEGORIES <br> >**Type**: `array<string>` <br> ><text class="aviso">❗ Obrigatório que esteja incluido no array.</text><br>
 >
-> Pergunta usada para definir a especialidade médica. Pode-se enviar mais de uma resposta dentro desse array de string (exceto se o PERSON-TYPE for NATURAL), sendo elas:<br><br>
+> pergunta usada para definir as especialidades Odontológicas, pode-se enviar mais de uma resposta dentro desse array de string, sendo elas:<br><br>
 >
-> - **NO-SURGERY** = Médico sem Cirurgia e Medicina de Urgência e Emergência (disponível SE PERSON-TYPE for NATURAL).<br>
+> - **OROFACIAL-HARMONIZATION** = Harmonização Orofacial (HOF) <br>
 >
-> - **SURGERY-EXCEPT-PLASTIC** = Médico com Cirurgia (exceto Plástico), Anestesiologistas (disponível SE PERSON-TYPE for NATURAL).<br>
+> - **IMPLANTS** = Implantodontia <br>
 >
-> - **OBSTETRICIAN** = Obstetra (disponível SE PERSON-TYPE for NATURAL).<br>
+> - **ORALMAXILLOFACIAL-SURGERY** = Cirurgia Bucomaxilofacial <br>
 >
-> - **PLASTIC-SURGERY** = Cirurgião(ã) Plástico(a) (disponível SE PERSON-TYPE for NATURAL).<br>
+> - **FACIAL-FILLERS** = Preenchedores Faciais (não-estético) <br>
 >
-> - **CLINIC-WITHOUT-SURGERY** = Clínicas (outras, sem cirurgia) (disponível SE PERSON-TYPE for LEGAL).<br>
->
-> - **PATIENT-TRANSPORT** = Transporte de Pacientes (disponível SE PERSON-TYPE for LEGAL).<br>
->
-> - **HOME-CARE** = Home care (disponível SE PERSON-TYPE for LEGAL).<br>
->
-> - **SURGERY-CLINIC-EXCEPT-PLASTIC** = Clínica de Cirurgia e/ou Anestesiologia, Exceto Plástica (disponível SE PERSON-TYPE for igual a LEGAL).<br>
->
-> - **CLINICAL-LABORATORY** = Laboratório de Análises Clínicas (disponível SE PERSON-TYPE for LEGAL).<br><br>
->
-> - **BLOOD-BANK** = Bancos de Sangue (disponível SE PERSON-TYPE for LEGAL).<br>
->
-> - **CLINICAL-OBSTETRICS** = Clínica com Obstetrícia (disponível SE PERSON-TYPE for LEGAL).<br>
->
-> - **HOSPITAL** = Hospitais (disponível SE PERSON-TYPE for LEGAL).<br>
->
-> - **PLASTIC-SURGERY-CLINIC** = Clínica de Cirurgia Plástica (disponível SE PERSON-TYPE for LEGAL).<br>
->
-> - **CLINICAL-MULTIDISCIPLINARY** = Clínica Multidisciplinar (disponível SE PERSON-TYPE for LEGAL).
+> - **GENERAL-PROCEDURES** = Procedimentos Clínicos em Geral <br>
 
 ---
 
-> **Code**: RESIDENT <br> >**Type**: `text` <br> > <text class="aviso">❗ Obrigatório que esteja incluído no array (se o PERSON-TYPE for NATURAL ou se CATEGORIES for diferente de PLASTIC-SURGERY).</text><br>
+> **Code**: LEGAL-TYPE <br> >**Type**: `array<string>` <br><text class="aviso">❗ Obrigatorio que esteja incluido no array (se o PERSON-TYPE for LEGAL).</text><br>
 >
-> Pergunta usada para definir se o profissional é residente ou não.
-
----
-
-> **Code**: PROCEDURES-ACTIVITIES <br> >**Type**: `array<string>` <br>
+> pergunta usada para definir Característica da PJ. Os possiveis valores para esta pergunta são:<br><br>
 >
-> Procedimentos e/ou atividades. Pode-se enviar mais de uma resposta dentro desse array de string, sendo elas:<br><br>
->
-> - **AESTHETIC-PROCEDURES** = Procedimentos Estéticos Minimamente Invasivos. <br>
-> - **ENDOSCOPY-COLONOSCOPY** = Endoscopia e/ou Colonoscopia. <br>
-> - **RADIOTHERAPY-CHEMOTHERAPY-IMMUNOTHERAPY** = Radioterapia e/ou Quimioterapia e/ou Imunoterapia. <br>
-> - **AESTHETIC-PROCEDURES-MEDICAL-SPECIALTY** = Procedimentos Estéticos relacionados à Especialidade Médica.
+> - **PRIVATE-OFFICE** = Consultório Particular <br>
+> - **HIGHER-EDUCATION-INSTITUTION** = Instituição de Ensino Superior<br>
+> - **DENTAL-PLAN-OPERATOR** = Operadora de Planos Odontológicos <br>
+> - **MASTER-FRANCHISOR** = Franqueador Master
 
 ---
 
@@ -162,11 +138,11 @@
 ```json
 {
   "identifier": "7dfac165-a63e-40d8-b6bb-23431e057982",
-  "operationCode": "MEDICAL-CIVIL-LIABILITY-PARTNER",
+  "operationCode": "DENTIST-CIVIL-LIABILITY-PARTNER",
   "answers": [
     {
       "code": "MODALITY",
-      "answer": "MEDICAL-CIVIL-LIABILITY"
+      "answer": "DENTIST-CIVIL-LIABILITY"
     },
     {
       "code": "LIMIT-DEDUCTIBLE",
@@ -227,100 +203,72 @@
 > - **REDUCED**<br>
 > - **MINIMUM**<br> ><br> >**Dependendo do tipo de categoria definido no campo CATEGORIES, o cálculo acontecerá de maneira diferente. Abaixo, você pode ver detalhadamente:**<br><br>
 >
-> Se for **NO-SURGERY**:<br>
->
-> - **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00.<br>
-> - **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 5.000,00.<br>
-> - **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.000,00.<br>
-> - **MINIMUM =** Mínima - Sem franquia.<br><br>
->
-> Se for **SURGERY-EXCEPT-PLASTIC**:<br>
->
-> - **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00.<br>
-> - **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 5.000,00.<br>
-> - **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.000,00.<br>
-> - **MINIMUM =** Mínima - Sem franquia.<br><br>
->
-> Se for **OBSTETRICIAN**:<br>
+> Se for **GENERAL-PROCEDURES** (PERSON-TYPE NORMAL):<br>
 >
 > - **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.000,00.<br>
-> - **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 5.000,00.<br>
-> - **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 500,00.<br>
-> - **MINIMUM =** Mínima - 5% dos prejuízos indenizáveis com o mínimo de R$ 200,00.<br><br>
->
-> Se for **PLASTIC-SURGERY**:<br>
->
-> - **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 5.000,000.<br>
-> - **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 10.000,00.<br>
-> - **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 3.000,00.<br>
-> - **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00.<br><br>
->
-> Se for **PLASTIC-SURGERY-CLINIC**:<br>
->
-> - **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 15.000,00.<br>
-> - **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 20.000,00.<br>
-> - **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 10.000,00.<br>
-> - **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 7.500,00.<br><br>
->
-> Se for **CLINICAL-LABORATORY**:<br>
->
-> - **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 7.000,00.<br>
-> - **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 9.000,00.<br>
-> - **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 5.000,00.<br>
-> - **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 4.000,00.<br><br>
->
-> Se for **HOME-CARE**:<br>
->
-> - **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00.<br>
-> - **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 3.500,00.<br>
-> - **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.000,00.<br>
-> - **MINIMUM =** Mínima - Sem franquia.<br><br>
->
-> Se for **HOSPITAL**:<br>
->
-> - **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 15.000,00.<br>
-> - **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 20.000,00.<br>
-> - **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 10.000,00.<br>
-> - **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 7.500,00.<br><br>
->
-> Se for **PATIENT-TRANSPORT**:<br>
->
-> - **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 3.000,00.<br>
-> - **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 4.500,00.<br>
-> - **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00.<br>
-> - **MINIMUM =** Mínima - Sem franquia.<br><br>
->
-> Se for **CLINIC-WITHOUT-SURGERY**:<br>
->
-> - **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.000,00.<br>
-> - **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 4.500,00.<br>
+> - **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 3.000,00.<br>
 > - **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 500,00.<br>
 > - **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 400,00.<br><br>
 >
-> Se for **BLOOD-BANK**:<br>
+> Se for **IMPLANTS** (PERSON-TYPE NORMAL):<br>
 >
-> - **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 15.000,00.<br>
-> - **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 20.000,00.<br>
-> - **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 10.000,00.<br>
-> - **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 7.500,00.<br><br>
+> - **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.000,00.<br>
+> - **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 3.000,00.<br>
+> - **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 500,00.<br>
+> - **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 400,00.<br><br>
 >
-> Se for **SURGERY-CLINIC-EXCEPT-PLASTIC**:<br>
+> Se for **FACIAL-FILLERS** (PERSON-TYPE NORMAL):<br>
+>
+> - **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.000,00.<br>
+> - **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 3.000,00.<br>
+> - **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 500,00.<br>
+> - **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 400,00.<br><br>
+>
+> Se for **ORALMAXILLOFACIAL-SURGERY** (PERSON-TYPE NORMAL):<br>
 >
 > - **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00.<br>
 > - **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 4.500,00.<br>
+> - **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.500,00.<br>
+> - **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.000,00.<br><br>
+>
+> Se for **OROFACIAL-HARMONIZATION** (PERSON-TYPE NORMAL):<br>
+>
+> - **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 3.000,00.<br>
+> - **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 5.000,00.<br>
 > - **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00.<br>
+> - **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.500,00.<br><br>
+>
+> Se for **GENERAL-PROCEDURES**(PERSON-TYPE LEGAL):<br>
+>
+> - **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00.<br>
+> - **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$4.500,00.<br>
+> - **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 1,500,00.<br>
 > - **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.000,00.<br><br>
 >
-> Se for **CLINICAL-OBSTETRICS**:<br>
+> Se for **IMPLANTS** (PERSON-TYPE LEGAL):<br>
 >
-> - **DEFAULT =** Padrão - 15% dos prejuízos indenizáveis com o mínimo de R$ 500,00.<br>
-> - **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 3.500,00.<br>
-> - **REDUCED =** Reduzida - 15% dos prejuízos indenizáveis com o mínimo de R$ 1.500,00.<br>
+> - **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00.<br>
+> - **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$4.500,00.<br>
+> - **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 1,500,00.<br>
 > - **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.000,00.<br><br>
 >
-> Se for **CLINICAL-MULTIDISCIPLINARY**:<br>
+> Se for **FACIAL-FILLERS** (PERSON-TYPE LEGAL):<br>
 >
-> - **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00.<br>
+> - **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00.<br>
+> - **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$4.500,00.<br>
+> - **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 1,500,00.<br>
+> - **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.000,00.<br><br>
+>
+> Se for **ORALMAXILLOFACIAL-SURGERY** (PERSON-TYPE LEGAL):<br>
+>
+> - **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00.<br>
 > - **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 4.500,00.<br>
 > - **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.500,00.<br>
-> - **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 800,00.<br><br>
+> - **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.000,00.<br><br>
+>
+> Se for **OROFACIAL-HARMONIZATION** (PERSON-TYPE LEGAL):<br>
+>
+> - **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 3.000,00.<br>
+> - **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 5.000,00.<br>
+> - **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00.<br>
+> - **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.500,00.<br><br>
