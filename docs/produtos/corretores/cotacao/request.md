@@ -13,166 +13,163 @@ Request
 
 ```json
 {
-   "operationCode":"MEDICAL-CIVIL-LIABILITY-PARTNER",
-   "answers":[
-      {
-         "code":"MODALITY",
-         "answer":"MEDICAL-CIVIL-LIABILITY"
-      },
-      {
-         "code":"PRODUCT"
-      },
-      {
-         "code":"CURRENCY"
-      },
-      {
-         "code":"PERSON-TYPE",
-         "answer":"NATURAL"
-      },
-      {
-         "code":"START-VIGENCY-DATE",
-         "answer":"2022-09-09T03:00:00.000Z"
-      },
-      {
-         "code":"VIGENCY-DURATION"
-      },
-      {
-         "code":"CONGENER",
-         "answer":"NEW"
-      },
-      {
-         "code":"INSURED-NAME",
-         "answer":"samuel emidio"
-      },
-      {
-         "code":"INSURED-EMAIL",
-         "answer":"e@test.com"
-      },
-      {
-         "code":"IDENTITY",
-         "answer":"669.419.730-64"
-      },
-      {
-         "code":"GENDER"
-      },
-      {
-         "code":"INSURED-CELLPHONE",
-         "answer":"(12) 99644.0332"
-      },
-      {
-         "code":"INSURED-ADDRESS-ZIPCODE",
-         "answer":"12422-320"
-      },
-      {
-         "code":"INSURED-ADDRESS-STREET",
-         "answer":"Rua Antônio Lopes Pereira"
-      },
-      {
-         "code":"INSURED-ADDRESS-NUMBER",
-         "answer":"998"
-      },
-      {
-         "code":"INSURED-ADDRESS-COMPLEMENT",
-         "answer":""
-      },
-      {
-         "code":"INSURED-ADDRESS-NEIGHBORHOOD",
-         "answer":"Residencial Campos Maia"
-      },
-      {
-         "code":"INSURED-ADDRESS-CITY",
-         "answer":"Pindamonhangaba"
-      },
-      {
-         "code":"INSURED-ADDRESS-STATE",
-         "answer":"SP"
-      },
-      {
-         "code":"PROFESSIONAL-REGISTER",
-         "answer":"568568567"
-      },
-      {
-         "code":"PROFESSION"
-      },
-      {
-         "code":"CATEGORIES",
-         "answer":["OBSTETRICIAN"]
-      },
-      {
-         "code":"RESIDENT",
-         "answer":true
-      },
-      {
-         "code":"PROCEDURES-ACTIVITIES",
-         "answer":[
-            "AESTHETIC-PROCEDURES",
-            "ENDOSCOPY-COLONOSCOPY",
-            "RADIOTHERAPY-CHEMOTHERAPY-IMMUNOTHERAPY",
-            "AESTHETIC-PROCEDURES-MEDICAL-SPECIALTY"
-         ]
-      },
-      {
-         "code":"RETROACTIVITY",
-         "answer":0
-      },
-      {
-         "code":"RETROACTIVITY-DATE",
-         "answer":null
-      },
-      {
-         "code":"RETROACTIVITY-AGREEMENT"
-      },
-      {
-         "code":"VIGENCY-RETROACTIVITY-AGREEMENT"
-      },
-      {
-         "code":"CLAIMS",
-         "answer":"0"
-      },
-      {
-         "code":"CLAIM-EXPECTATION",
-         "answer":false
-      },
-      {
-         "code":"CLAIM-EXPECTATION-THIRD-PARTY"
-      },
-      {
-         "code":"CLAIM-EXPECTATION-AGREEMENT"
-      },
-      {
-         "code":"TERRITORIALITY"
-      },
-      {
-         "code":"SCOPE"
-      },
-      {
-         "code":"LIMIT-DEDUCTIBLE",
-         "answer":[
-            [
-               {
-                  "code":"LIMIT",
-                  "answer":30000
-               },
-               {
-                  "code":"DEDUCTIBLE",
-                  "answer":"DEFAULT"
-               },
-               {
-                  "code":"VARIANT-IDENTIFIER",
-                  "answer":"17a9aad2-1d5d-49ea-8270-04feb6272394"
-               }
+    "operationCode": "INSURANCE-BROKER-CIVIL-LIABILITY-PARTNER",
+    "answers": [
+        {
+            "code": "MODALITY",
+            "answer": "INSURANCE-BROKER-CIVIL-LIABILITY"
+        },
+        {
+            "code": "PRODUCT"
+        },
+        {
+            "code": "CURRENCY"
+        },
+        {
+            "code": "PERSON-TYPE",
+            "answer": "NATURAL"
+        },
+        {
+            "code": "START-VIGENCY-DATE",
+            "answer": "2022-09-20T03:00:00.000Z"
+        },
+        {
+            "code": "VIGENCY-DURATION"
+        },
+        {
+            "code": "CONGENER",
+            "answer": "NEW"
+        },
+        {
+            "code": "INSURED-NAME",
+            "answer": "segurado"
+        },
+        {
+            "code": "INSURED-EMAIL",
+            "answer": "samuel@gmail.com"
+        },
+        {
+            "code": "IDENTITY",
+            "answer": "209.654.740-70"
+        },
+        {
+            "code": "GENDER"
+        },
+        {
+            "code": "INSURED-CELLPHONE",
+            "answer": "(12) 99644.8132"
+        },
+        {
+            "code": "INSURED-ADDRESS-ZIPCODE",
+            "answer": "12422-124"
+        },
+        {
+            "code": "INSURED-ADDRESS-STREET",
+            "answer": "Rua Antônio"
+        },
+        {
+            "code": "INSURED-ADDRESS-NUMBER",
+            "answer": "4657"
+        },
+        {
+            "code": "INSURED-ADDRESS-COMPLEMENT",
+            "answer": ""
+        },
+        {
+            "code": "INSURED-ADDRESS-NEIGHBORHOOD",
+            "answer": "Residencial Campos"
+        },
+        {
+            "code": "INSURED-ADDRESS-CITY",
+            "answer": "Pindamonhangaba"
+        },
+        {
+            "code": "INSURED-ADDRESS-STATE",
+            "answer": "SP"
+        },
+        {
+            "code": "PROFESSIONAL-REGISTER",
+            "answer": "67867"
+        },
+        {
+            "code": "REGISTER-NUMBER-TYPE",
+            "answer": "FULL"
+        },
+        {
+            "code": "PROFESSION"
+        },
+        {
+            "code": "CATEGORIES",
+            "answer": [
+                "CAR",
+                "AERONAUTICAL"
             ]
-         ]
-      },
-      {
-         "code":"COMMISSION",
-         "answer":20
-      },
-      {
-         "code":"GRIEVANCE-DISCOUNT",
-         "answer":0
-      }    
-   ]
+        },
+        {
+            "code": "DIGITAL-CERTIFICATION-COVERAGE"
+        },
+        {
+            "code": "RETROACTIVITY",
+            "answer": 0
+        },
+        {
+            "code": "RETROACTIVITY-DATE",
+            "answer": null
+        },
+        {
+            "code": "RETROACTIVITY-AGREEMENT"
+        },
+        {
+            "code": "VIGENCY-RETROACTIVITY-AGREEMENT"
+        },
+        {
+            "code": "CLAIMS",
+            "answer": "0"
+        },
+        {
+            "code": "CLAIM-EXPECTATION",
+            "answer": false
+        },
+        {
+            "code": "CLAIM-EXPECTATION-THIRD-PARTY"
+        },
+        {
+            "code": "CLAIM-EXPECTATION-AGREEMENT"
+        },
+        {
+            "code": "TERRITORIALITY"
+        },
+        {
+            "code": "SCOPE"
+        },
+        {
+            "code": "LIMIT-DEDUCTIBLE",
+            "answer": [
+                [
+                    {
+                        "code": "LIMIT",
+                        "answer": 100000
+                    },
+                    {
+                        "code": "DEDUCTIBLE",
+                        "answer": "DEFAULT"
+                    },
+                    {
+                        "code": "VARIANT-IDENTIFIER",
+                        "answer": "c338d8ce-d7fb-4968-990f-5b400f138283"
+                    }
+                ]
+            ]
+        },
+        {
+            "code": "COMMISSION",
+            "answer": 1
+        },
+        {
+            "code": "GRIEVANCE-DISCOUNT",
+            "answer": 0
+        }
+    ]
 }
 ```
 
@@ -187,491 +184,107 @@ Response
 
 ```json
 {
-   "item":{
-      "quotationIdentifier":"7dfac165-a63e-40d8-b6bb-23431e057982",
-      "status":0,
-      "expiredAt":null,
-      "quotationDocumentUrl":null,
-      "proposal":null,
-      "pricing":[
-         {
-            "variantIdentifier":"17a9aad2-1d5d-49ea-8270-04feb6272394",
-            "underwriting":{
-               "approved":true,
-               "evaluations":[
-                  
-               ]
-            },
-            "price":{
-               "commission":222.86,
-               "grievanceDiscount":0.0,
-               "netValue":1114.29,
-               "interestValue":0.0,
-               "taxValue":82.23,
-               "totalValue":1196.52
-            },
-            "payment":{
-               "financialType":"Charge",
-               "paymentOptions":[
-                  {
-                     "paymentMethod":"All",
-                     "paymentType":"CreditCard",
-                     "installments":[
+    "item": {
+        "quotationIdentifier": "2942faa1-09b8-4345-9bdd-6764c4f1ad35",
+        "status": "Draft",
+        "pricing": [
+            {
+                "variantIdentifier": "c338d8ce-d7fb-4968-990f-5b400f138283",
+                "underwriting": {
+                    "approved": true,
+                    "evaluations": []
+                },
+                "price": {
+                    "commission": 2.54,
+                    "grievanceDiscount": 0,
+                    "netValue": 253.91,
+                    "interestValue": 0,
+                    "taxValue": 18.74,
+                    "totalValue": 272.65
+                },
+                "payment": {
+                    "financialType": "Charge",
+                    "paymentOptions": [
                         {
-                           "identifier":"4628a4ec-3368-44df-8919-163bab1c0ecd",
-                           "number":1,
-                           "commissionValue":222.86,
-                           "netValue":1114.29,
-                           "interestValue":0.0,
-                           "taxValue":82.23,
-                           "totalValue":1196.52,
-                           "installmentValue":1196.52,
-                           "installmentInterest":0.0,
-                           "installmentTax":82.23,
-                           "dueDates":[
-                              "2022-09-12T00:00:00Z"
-                           ]
+                            "paymentMethod": "All",
+                            "paymentType": "CreditCard",
+                            "installments": [
+                                {
+                                    "identifier": "6689e62a-ce02-4633-9e11-d01695c549ed",
+                                    "number": 1,
+                                    "commissionValue": 2.54,
+                                    "netValue": 253.91,
+                                    "interestValue": 0,
+                                    "taxValue": 18.74,
+                                    "totalValue": 272.65,
+                                    "installmentValue": 272.65,
+                                    "installmentInterest": 0,
+                                    "installmentTax": 18.74,
+                                    "dueDates": [
+                                        "2022-09-28T00:00:00Z"
+                                    ]
+                                },
+                                {
+                                    "identifier": "dffd5b1b-1b90-407b-875d-5c7863959749",
+                                    "number": 2,
+                                    "commissionValue": 2.54,
+                                    "netValue": 253.91,
+                                    "interestValue": 0,
+                                    "taxValue": 18.74,
+                                    "totalValue": 272.65,
+                                    "installmentValue": 136.32,
+                                    "installmentInterest": 0,
+                                    "installmentTax": 9.37,
+                                    "dueDates": [
+                                        "2022-09-28T00:00:00Z",
+                                        "2022-10-01T12:00:00Z"
+                                    ]
+                                }
+                            ]
                         },
                         {
-                           "identifier":"d33cc32b-dbbb-48f5-ac7f-34ddd1c065d8",
-                           "number":2,
-                           "commissionValue":222.86,
-                           "netValue":1114.29,
-                           "interestValue":0.0,
-                           "taxValue":82.23,
-                           "totalValue":1196.52,
-                           "installmentValue":598.26,
-                           "installmentInterest":0.0,
-                           "installmentTax":41.12,
-                           "dueDates":[
-                              "2022-09-12T00:00:00Z",
-                              "2022-10-01T12:00:00Z"
-                           ]
-                        },
-                        {
-                           "identifier":"e46be589-048f-4a1e-b815-cbc947221c18",
-                           "number":3,
-                           "commissionValue":222.86,
-                           "netValue":1114.29,
-                           "interestValue":0.0,
-                           "taxValue":82.23,
-                           "totalValue":1196.52,
-                           "installmentValue":398.84,
-                           "installmentInterest":0.0,
-                           "installmentTax":27.41,
-                           "dueDates":[
-                              "2022-09-12T00:00:00Z",
-                              "2022-10-01T12:00:00Z",
-                              "2022-11-01T12:00:00Z"
-                           ]
-                        },
-                        {
-                           "identifier":"d978c2af-3499-4f35-96ad-9ba2c0321d67",
-                           "number":4,
-                           "commissionValue":222.86,
-                           "netValue":1114.29,
-                           "interestValue":0.0,
-                           "taxValue":82.23,
-                           "totalValue":1196.52,
-                           "installmentValue":299.13,
-                           "installmentInterest":0.0,
-                           "installmentTax":20.56,
-                           "dueDates":[
-                              "2022-09-12T00:00:00Z",
-                              "2022-10-01T12:00:00Z",
-                              "2022-11-01T12:00:00Z",
-                              "2022-12-01T12:00:00Z"
-                           ]
-                        },
-                        {
-                           "identifier":"49f6380c-a8c1-410a-825e-01b925ae20e6",
-                           "number":5,
-                           "commissionValue":222.86,
-                           "netValue":1114.29,
-                           "interestValue":0.0,
-                           "taxValue":82.23,
-                           "totalValue":1196.52,
-                           "installmentValue":239.3,
-                           "installmentInterest":0.0,
-                           "installmentTax":16.45,
-                           "dueDates":[
-                              "2022-09-12T00:00:00Z",
-                              "2022-10-01T12:00:00Z",
-                              "2022-11-01T12:00:00Z",
-                              "2022-12-01T12:00:00Z",
-                              "2023-01-01T12:00:00Z"
-                           ]
-                        },
-                        {
-                           "identifier":"1f178c05-1006-4c75-9b56-a867a859df2b",
-                           "number":6,
-                           "commissionValue":222.86,
-                           "netValue":1114.29,
-                           "interestValue":0.0,
-                           "taxValue":82.23,
-                           "totalValue":1196.52,
-                           "installmentValue":199.42,
-                           "installmentInterest":0.0,
-                           "installmentTax":13.7,
-                           "dueDates":[
-                              "2022-09-12T00:00:00Z",
-                              "2022-10-01T12:00:00Z",
-                              "2022-11-01T12:00:00Z",
-                              "2022-12-01T12:00:00Z",
-                              "2023-01-01T12:00:00Z",
-                              "2023-02-01T12:00:00Z"
-                           ]
-                        },
-                        {
-                           "identifier":"689b51ed-0e01-4c0f-b837-c66662a05952",
-                           "number":7,
-                           "commissionValue":222.86,
-                           "netValue":1114.29,
-                           "interestValue":0.0,
-                           "taxValue":82.23,
-                           "totalValue":1196.52,
-                           "installmentValue":170.93,
-                           "installmentInterest":0.0,
-                           "installmentTax":11.75,
-                           "dueDates":[
-                              "2022-09-12T00:00:00Z",
-                              "2022-10-01T12:00:00Z",
-                              "2022-11-01T12:00:00Z",
-                              "2022-12-01T12:00:00Z",
-                              "2023-01-01T12:00:00Z",
-                              "2023-02-01T12:00:00Z",
-                              "2023-03-01T12:00:00Z"
-                           ]
-                        },
-                        {
-                           "identifier":"4aa357ef-39ca-4a7e-8c1f-94964943d47e",
-                           "number":8,
-                           "commissionValue":222.86,
-                           "netValue":1114.29,
-                           "interestValue":0.0,
-                           "taxValue":82.23,
-                           "totalValue":1196.52,
-                           "installmentValue":149.56,
-                           "installmentInterest":0.0,
-                           "installmentTax":10.28,
-                           "dueDates":[
-                              "2022-09-12T00:00:00Z",
-                              "2022-10-01T12:00:00Z",
-                              "2022-11-01T12:00:00Z",
-                              "2022-12-01T12:00:00Z",
-                              "2023-01-01T12:00:00Z",
-                              "2023-02-01T12:00:00Z",
-                              "2023-03-01T12:00:00Z",
-                              "2023-04-01T12:00:00Z"
-                           ]
-                        },
-                        {
-                           "identifier":"ccb52162-0a26-4f2a-943b-3411fbec825f",
-                           "number":9,
-                           "commissionValue":222.86,
-                           "netValue":1114.29,
-                           "interestValue":0.0,
-                           "taxValue":82.23,
-                           "totalValue":1196.52,
-                           "installmentValue":132.95,
-                           "installmentInterest":0.0,
-                           "installmentTax":9.14,
-                           "dueDates":[
-                              "2022-09-12T00:00:00Z",
-                              "2022-10-01T12:00:00Z",
-                              "2022-11-01T12:00:00Z",
-                              "2022-12-01T12:00:00Z",
-                              "2023-01-01T12:00:00Z",
-                              "2023-02-01T12:00:00Z",
-                              "2023-03-01T12:00:00Z",
-                              "2023-04-01T12:00:00Z",
-                              "2023-05-01T12:00:00Z"
-                           ]
-                        },
-                        {
-                           "identifier":"bac9089e-6b22-4e18-8f7e-0bf82ef91045",
-                           "number":10,
-                           "commissionValue":222.86,
-                           "netValue":1114.29,
-                           "interestValue":0.0,
-                           "taxValue":82.23,
-                           "totalValue":1196.52,
-                           "installmentValue":119.65,
-                           "installmentInterest":0.0,
-                           "installmentTax":8.22,
-                           "dueDates":[
-                              "2022-09-12T00:00:00Z",
-                              "2022-10-01T12:00:00Z",
-                              "2022-11-01T12:00:00Z",
-                              "2022-12-01T12:00:00Z",
-                              "2023-01-01T12:00:00Z",
-                              "2023-02-01T12:00:00Z",
-                              "2023-03-01T12:00:00Z",
-                              "2023-04-01T12:00:00Z",
-                              "2023-05-01T12:00:00Z",
-                              "2023-06-01T12:00:00Z"
-                           ]
-                        },
-                        {
-                           "identifier":"ca0a4841-a590-457d-8461-520272efe636",
-                           "number":11,
-                           "commissionValue":222.86,
-                           "netValue":1114.29,
-                           "interestValue":0.0,
-                           "taxValue":82.23,
-                           "totalValue":1196.52,
-                           "installmentValue":108.77,
-                           "installmentInterest":0.0,
-                           "installmentTax":7.48,
-                           "dueDates":[
-                              "2022-09-12T00:00:00Z",
-                              "2022-10-01T12:00:00Z",
-                              "2022-11-01T12:00:00Z",
-                              "2022-12-01T12:00:00Z",
-                              "2023-01-01T12:00:00Z",
-                              "2023-02-01T12:00:00Z",
-                              "2023-03-01T12:00:00Z",
-                              "2023-04-01T12:00:00Z",
-                              "2023-05-01T12:00:00Z",
-                              "2023-06-01T12:00:00Z",
-                              "2023-07-01T12:00:00Z"
-                           ]
+                            "paymentMethod": "Ticket",
+                            "paymentType": "Ticket",
+                            "installments": [
+                                {
+                                    "identifier": "c8be5748-d0ef-41b3-b83c-71e696867867",
+                                    "number": 1,
+                                    "commissionValue": 2.54,
+                                    "netValue": 253.91,
+                                    "interestValue": 0,
+                                    "taxValue": 18.74,
+                                    "totalValue": 272.65,
+                                    "installmentValue": 272.65,
+                                    "installmentInterest": 0,
+                                    "installmentTax": 18.74,
+                                    "dueDates": [
+                                        "2022-09-28T00:00:00Z"
+                                    ]
+                                },
+                                {
+                                    "identifier": "a5c49c0a-ec59-4b24-9e3e-b62d93da87be",
+                                    "number": 2,
+                                    "commissionValue": 2.54,
+                                    "netValue": 253.91,
+                                    "interestValue": 0,
+                                    "taxValue": 18.74,
+                                    "totalValue": 272.65,
+                                    "installmentValue": 136.32,
+                                    "installmentInterest": 0,
+                                    "installmentTax": 9.37,
+                                    "dueDates": [
+                                        "2022-09-28T00:00:00Z",
+                                        "2022-10-01T12:00:00Z"
+                                    ]
+                                }
+                            ]
                         }
-                     ]
-                  },
-                  {
-                     "paymentMethod":"Ticket",
-                     "paymentType":"Ticket",
-                     "installments":[
-                        {
-                           "identifier":"3e9a5381-5d53-4a18-b34b-24cee545e042",
-                           "number":1,
-                           "commissionValue":222.86,
-                           "netValue":1114.29,
-                           "interestValue":0.0,
-                           "taxValue":82.23,
-                           "totalValue":1196.52,
-                           "installmentValue":1196.52,
-                           "installmentInterest":0.0,
-                           "installmentTax":82.23,
-                           "dueDates":[
-                              "2022-09-12T00:00:00Z"
-                           ]
-                        },
-                        {
-                           "identifier":"373ac391-9488-486f-912a-5047a2ef4345",
-                           "number":2,
-                           "commissionValue":222.86,
-                           "netValue":1114.29,
-                           "interestValue":0.0,
-                           "taxValue":82.23,
-                           "totalValue":1196.52,
-                           "installmentValue":598.26,
-                           "installmentInterest":0.0,
-                           "installmentTax":41.12,
-                           "dueDates":[
-                              "2022-09-12T00:00:00Z",
-                              "2022-10-01T12:00:00Z"
-                           ]
-                        },
-                        {
-                           "identifier":"d59da991-60c6-4f95-9af1-6f10b843e395",
-                           "number":3,
-                           "commissionValue":222.86,
-                           "netValue":1114.29,
-                           "interestValue":0.0,
-                           "taxValue":82.23,
-                           "totalValue":1196.52,
-                           "installmentValue":398.84,
-                           "installmentInterest":0.0,
-                           "installmentTax":27.41,
-                           "dueDates":[
-                              "2022-09-12T00:00:00Z",
-                              "2022-10-01T12:00:00Z",
-                              "2022-11-01T12:00:00Z"
-                           ]
-                        },
-                        {
-                           "identifier":"54c11fd3-66cf-4496-bb0a-c832fc4e5e14",
-                           "number":4,
-                           "commissionValue":222.86,
-                           "netValue":1114.29,
-                           "interestValue":0.0,
-                           "taxValue":82.23,
-                           "totalValue":1196.52,
-                           "installmentValue":299.13,
-                           "installmentInterest":0.0,
-                           "installmentTax":20.56,
-                           "dueDates":[
-                              "2022-09-12T00:00:00Z",
-                              "2022-10-01T12:00:00Z",
-                              "2022-11-01T12:00:00Z",
-                              "2022-12-01T12:00:00Z"
-                           ]
-                        },
-                        {
-                           "identifier":"0dbf2828-7c4e-4e41-9e49-63d4b884b8a4",
-                           "number":5,
-                           "commissionValue":222.86,
-                           "netValue":1114.29,
-                           "interestValue":0.0,
-                           "taxValue":82.23,
-                           "totalValue":1196.52,
-                           "installmentValue":239.3,
-                           "installmentInterest":0.0,
-                           "installmentTax":16.45,
-                           "dueDates":[
-                              "2022-09-12T00:00:00Z",
-                              "2022-10-01T12:00:00Z",
-                              "2022-11-01T12:00:00Z",
-                              "2022-12-01T12:00:00Z",
-                              "2023-01-01T12:00:00Z"
-                           ]
-                        },
-                        {
-                           "identifier":"db5b41b9-c816-4389-9f9c-58a48f7202f7",
-                           "number":6,
-                           "commissionValue":222.86,
-                           "netValue":1114.29,
-                           "interestValue":0.0,
-                           "taxValue":82.23,
-                           "totalValue":1196.52,
-                           "installmentValue":199.42,
-                           "installmentInterest":0.0,
-                           "installmentTax":13.7,
-                           "dueDates":[
-                              "2022-09-12T00:00:00Z",
-                              "2022-10-01T12:00:00Z",
-                              "2022-11-01T12:00:00Z",
-                              "2022-12-01T12:00:00Z",
-                              "2023-01-01T12:00:00Z",
-                              "2023-02-01T12:00:00Z"
-                           ]
-                        },
-                        {
-                           "identifier":"03e2eac3-3748-4a6d-a1f1-74aea6dd2771",
-                           "number":7,
-                           "commissionValue":222.86,
-                           "netValue":1114.29,
-                           "interestValue":0.0,
-                           "taxValue":82.23,
-                           "totalValue":1196.52,
-                           "installmentValue":170.93,
-                           "installmentInterest":0.0,
-                           "installmentTax":11.75,
-                           "dueDates":[
-                              "2022-09-12T00:00:00Z",
-                              "2022-10-01T12:00:00Z",
-                              "2022-11-01T12:00:00Z",
-                              "2022-12-01T12:00:00Z",
-                              "2023-01-01T12:00:00Z",
-                              "2023-02-01T12:00:00Z",
-                              "2023-03-01T12:00:00Z"
-                           ]
-                        },
-                        {
-                           "identifier":"181af3fd-e556-477d-b380-ae9cd905c3a3",
-                           "number":8,
-                           "commissionValue":222.86,
-                           "netValue":1114.29,
-                           "interestValue":0.0,
-                           "taxValue":82.23,
-                           "totalValue":1196.52,
-                           "installmentValue":149.56,
-                           "installmentInterest":0.0,
-                           "installmentTax":10.28,
-                           "dueDates":[
-                              "2022-09-12T00:00:00Z",
-                              "2022-10-01T12:00:00Z",
-                              "2022-11-01T12:00:00Z",
-                              "2022-12-01T12:00:00Z",
-                              "2023-01-01T12:00:00Z",
-                              "2023-02-01T12:00:00Z",
-                              "2023-03-01T12:00:00Z",
-                              "2023-04-01T12:00:00Z"
-                           ]
-                        },
-                        {
-                           "identifier":"779297fe-017a-4b60-9109-7380c148974c",
-                           "number":9,
-                           "commissionValue":222.86,
-                           "netValue":1114.29,
-                           "interestValue":0.0,
-                           "taxValue":82.23,
-                           "totalValue":1196.52,
-                           "installmentValue":132.95,
-                           "installmentInterest":0.0,
-                           "installmentTax":9.14,
-                           "dueDates":[
-                              "2022-09-12T00:00:00Z",
-                              "2022-10-01T12:00:00Z",
-                              "2022-11-01T12:00:00Z",
-                              "2022-12-01T12:00:00Z",
-                              "2023-01-01T12:00:00Z",
-                              "2023-02-01T12:00:00Z",
-                              "2023-03-01T12:00:00Z",
-                              "2023-04-01T12:00:00Z",
-                              "2023-05-01T12:00:00Z"
-                           ]
-                        },
-                        {
-                           "identifier":"0ffb543c-be91-4632-a53e-35dbdc4a2174",
-                           "number":10,
-                           "commissionValue":222.86,
-                           "netValue":1114.29,
-                           "interestValue":0.0,
-                           "taxValue":82.23,
-                           "totalValue":1196.52,
-                           "installmentValue":119.65,
-                           "installmentInterest":0.0,
-                           "installmentTax":8.22,
-                           "dueDates":[
-                              "2022-09-12T00:00:00Z",
-                              "2022-10-01T12:00:00Z",
-                              "2022-11-01T12:00:00Z",
-                              "2022-12-01T12:00:00Z",
-                              "2023-01-01T12:00:00Z",
-                              "2023-02-01T12:00:00Z",
-                              "2023-03-01T12:00:00Z",
-                              "2023-04-01T12:00:00Z",
-                              "2023-05-01T12:00:00Z",
-                              "2023-06-01T12:00:00Z"
-                           ]
-                        },
-                        {
-                           "identifier":"1c7124f6-98e0-404f-93c5-06cf6a6b1d4f",
-                           "number":11,
-                           "commissionValue":222.86,
-                           "netValue":1114.29,
-                           "interestValue":0.0,
-                           "taxValue":82.23,
-                           "totalValue":1196.52,
-                           "installmentValue":108.77,
-                           "installmentInterest":0.0,
-                           "installmentTax":7.48,
-                           "dueDates":[
-                              "2022-09-12T00:00:00Z",
-                              "2022-10-01T12:00:00Z",
-                              "2022-11-01T12:00:00Z",
-                              "2022-12-01T12:00:00Z",
-                              "2023-01-01T12:00:00Z",
-                              "2023-02-01T12:00:00Z",
-                              "2023-03-01T12:00:00Z",
-                              "2023-04-01T12:00:00Z",
-                              "2023-05-01T12:00:00Z",
-                              "2023-06-01T12:00:00Z",
-                              "2023-07-01T12:00:00Z"
-                           ]
-                        }
-                     ]
-                  }
-               ]
+                    ]
+                }
             }
-         }
-      ]
-   },
-   "success":true,
-   "executed":"2022-09-05T21:28:03.8507822Z",
-   "errors":null
+        ]
+    },
+    "success": true,
+    "executed": "2022-09-21T12:33:30.801451Z"
 }
 ```
