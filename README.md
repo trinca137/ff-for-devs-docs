@@ -3,6 +3,8 @@ Padrões de uso:
     ```h3 é igual a ###```.
 - Campos com aviso/obrigatorios usar no inicio ❗e a tag `<text class="aviso"></text>`
 - Tipos do campo sempre usar ``` no ínicio e no fim. ![image](https://user-images.githubusercontent.com/95287311/194413666-4defabd9-a822-4d86-a927-83b78610bda3.png)
+- Versão de stable são utilizadas nos ambientes de QA, SIT, HOMOLOG 
+- Versão de latest é utilizada no ambiente de PROD 
 
 --------------------------------------------------
 Example: Basic MkDocs project for Read the Docs

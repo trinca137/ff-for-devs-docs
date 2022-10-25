@@ -153,10 +153,6 @@ Request
           {
             "code": "DEDUCTIBLE",
             "answer": "INCREASED"
-          },
-          {
-            "code": "VARIANT-IDENTIFIER",
-            "answer": "d5bd8886-d735-4f07-a138-5a4e773fec3e"
           }
         ]
       ]

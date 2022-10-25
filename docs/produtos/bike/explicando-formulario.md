@@ -82,6 +82,16 @@ seguir, veremos também a modelagem de document.
 ```
 
 
+
+> **Code**: ITEM-IDENTIFIER </br>
+> **Tipo**: ```guid``` </br>
+> <text class="aviso">❗ Obrigatório que esteja incluído  no array (quando for na PROPOSTA). </text><br>
+> 
+> Pergunta usada para definir o número de série da bike em questão. Máximo de 30 caracteres.
+
+------------------------------------------------------------------------
+
+
 > **Code**: SERIAL-NUMBER </br>
 > **Tipo**: ```text``` </br>
 > <text class="aviso">❗ Obrigatório que esteja incluído  no array. </text><br>
