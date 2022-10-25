@@ -2,7 +2,7 @@
 
 #### Endpoint
 ```
-POST: {{url_ambiente}}/v1/quotation
+POST: {{url_ambiente}}/v1/quotation/proposal
 ```
 
 Request
@@ -50,7 +50,7 @@ Request
       },
       {
          "code":"IDENTITY",
-         "answer":"462.564.658-81"
+         "answer":"669.419.730-64"
       },
       {
          "code":"GENDER"

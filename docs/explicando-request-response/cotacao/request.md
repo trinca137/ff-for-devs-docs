@@ -303,7 +303,7 @@ Request
 > **Tipo**: ```text``` </br>
 > <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
 > 
-> Pergunta usada para saber se a cotação está sendo preenchida por uma Pessoa Física ou Jurídica. Os valores possíveis para esta pergunta são:
+> Pergunta usada para saber se a cotação está sendo preenchida por uma Pessoa Física ou Jurídica. Os valores possíveis para esta pergunta são:<br><br>
 > 
 >  - **NATURAL** = significa que a pessoa em questão é física. </br>
 >  - **LEGAL** = significa que a pessoa em questão é jurídica.
@@ -338,7 +338,7 @@ Request
 > **Tipo**: ```text``` </br>
 > <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
 > 
-> Pergunta usada para definir se a cotação em questão é um Seguro Novo ou uma Renovação. Os valores possíveis para esta pergunta são:
+> Pergunta usada para definir se a cotação em questão é um Seguro Novo ou uma Renovação. Os valores possíveis para esta pergunta são:<br><br>
 > 
 >  - **NEW** = indica que é um novo seguro. </br>
 >  - **RENEW** = indica que é a renovação de um seguro.
@@ -921,6 +921,482 @@ Response
   "errors": null
 }
 ```
+
+
+
+<br>
+<br>
+
+
+### 💡 **Desmistificando o json de response -  part 1**
+
+
+>**Field**: success <br>
+>**Type**: ```boolean``` <br>
+>
+>Indica se a requisição foi feita com sucesso.
+
+
+
+-------------------------------------------------------------------------------
+
+
+
+
+>**Field**: executed <br>
+>**Type**: ```date``` <br>
+>
+>Data em que a requisicao foi feita.
+
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: errors  <br>
+>**Type**: ```array``` <br>
+>
+>Array de erros ao fazer a requisicao.
+
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.quotationIdentifier <br>
+>**Type**: ```guid``` <br>
+>
+>Identificador da cotacao.
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.status <br>
+>**Type**: ```integer``` <br>
+>
+>Status da cotacao.
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.expiredAt <br>
+>**Type**: ```date``` <br>
+>
+>Data de expiracao da cotacao.
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.quotationDocumentUrl <br>
+>**Type**: ```text``` <br>
+>
+>Url do documento de cotacao.
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.proposal.number <br>
+>**Type**: ```text``` <br>
+>
+>Número da proposta.
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.proposal.date <br>
+>**Type**: ```text``` <br>
+>
+>Data da proposta.
+
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing <br>
+>**Type**: ```array``` <br>
+>
+>Array de items cotados , exemplo = seriam dois obj's dentro do array 
+se duas bikes fossem cotadas.
+
+
+<br>
+<br>
+
+### 💡 **Desmistificando o json de response -  part 2**
+
+
+>**Field**: item.pricing[].variantIdentifier <br>
+>**Type**: ```guid``` <br>
+>
+>Identificador do item cotado.
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].underwriting.approved <br>
+>**Type**: ```boolean``` <br>
+>
+>Retorna true ou false referente as regras de subscrição do produto.
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].underwriting.evaluations <br>
+>**Type**: ```array``` <br>
+>
+>Retorna aviso referente as questões do questionário de risco do produto.
+
+
+-------------------------------------------------------------------------------
+
+
+>**Field**: item.pricing[].price.commision <br>
+>**Type**: ```decimal``` <br>
+>
+>Comissão de corretagem.
+
+
+-------------------------------------------------------------------------------
+
+
+>**Field**: item.pricing[].price.grievanceDiscount <br>
+>**Type**: ```decimal``` <br>
+>
+>Porcentagem de agravo adicionada ao valor da cotação, onde os valores permitidos vão de 0% até 500%..
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].price.itemValue <br>
+>**Type**: ```decimal``` <br>
+>
+>Valor do item.
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].price.netValue <br>
+>**Type**: ```decimal``` <br>
+>
+>Valor de prêmio líquido sem o IOF.
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].price.interestValue <br>
+>**Type**: ```decimal``` <br>
+>
+>Valor de juros(Por enquanto nenhum produto possui juros, nem para boleto e nem para cartão, mas futuramente terá a princípio para boleto).).
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].price.taxValue <br>
+>**Type**: ```decimal``` <br>
+>
+>Valor de IOF.
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].price.totalValue <br>
+>**Type**: ```decimal``` <br>
+>
+>Valor de Prêmio Total, composto pelo prêmio líquido somado ao IOF.
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].price.policyLimit <br>
+>**Type**: ```decimal``` <br>
+>
+>Valor de Limite da apólice(no caso de Bikes, o valor do limite da apólice é igual ao valor informado para a bike).
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].price.rates <br>
+>**Type**: ```array``` <br>
+>
+>Trata-se de um array, que retornará todas as coberturas contratadas para o produto.
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].payment.financialType <br>
+>**Type**: ```text``` <br>
+>
+>Trata-se do tipo de financeiro que no caso é "Cobrança".
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].payment.paymentOptions <br>
+>**Type**: ```array``` <br>
+>
+>Retorna as opções de pagamento disponíveis que são: Boleto e Cartão de crédito.
+
+
+
+<br>
+<br>
+
+### 💡 **Desmistificando o json de response -  part 3**
+
+
+
+
+>**Field**: item.pricing[].price.rates[].code <br>
+>**Type**: ```text``` <br>
+>
+>Exibe o código que identifica a ou as coberturas contratadas. Ex: DAMAGE-COVERAGE, trata-se da cobertura de Danos à Bike".
+
+
+
+-------------------------------------------------------------------------------
+
+
+
+
+>**Field**: item.pricing[].price.rates[].description <br>
+>**Type**: ```text``` <br>
+>
+>Trata-se do nome da cobertura em português. Ex: "Danos à Bike".
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].price.rates[].limit <br>
+>**Type**: ```decimal``` <br>
+>
+>Trata-se do valor do limite da cobertura.
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].price.rates[].netValue <br>
+>**Type**: ```decimal``` <br>
+>
+>Valor do prêmio específico de cada cobertura contratada..
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].price.rates[].deductible.code <br>
+>**Type**: ```text``` <br>
+>
+>Trata-se do código identificador de cada franquia.(podemos explorar melhor a regra).
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].price.rates[].deductible.text <br>
+>**Type**: ```text``` <br>
+>
+>Nome da franquia selecionada em português - Ex: "Padrão".
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].price.rates[].deductible.description <br>
+>**Type**: ```text``` <br>
+>
+>Escrição da franquia, que leva o mesmo de cada cobertura selecionada.
+
+
+
+<br>
+<br>
+
+### 💡 **Desmistificando o json de response -  part 4**
+
+
+>**Field**: item.pricing[].payment.paymentOptions[].paymentMethod <br>
+>**Type**: ```text``` <br>
+>
+>Retorna o nome da forma de pagamento que pode ser: Ticket(Boleto) ou CreditCard(Cartão de Crédito).
+
+
+
+
+-------------------------------------------------------------------------------
+
+
+
+
+>**Field**: item.pricing[].payment.paymentOptions[].paymentType <br>
+>**Type**: ```text``` <br>
+>
+>Trata-se do tipo de forma de pagamento escolhida que são: Boleto ou Cartão de crédito.
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].payment.paymentOptions[].installments <br>
+>**Type**: ```array``` <br>
+>
+>Retorna a quantidade de parcelas disponíveis para realizar o pagamento.
+
+
+<br>
+<br>
+
+
+### 💡 **Desmistificando o json de response -  part 5**
+
+
+>**Field**: item.pricing[].payment.paymentOptions[].installments[].identifier <br>
+>**Type**: ```guid``` <br>
+>
+>Código identificador da parcela.
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].payment.paymentOptions[].installments[].number <br>
+>**Type**: ```integer``` <br>
+>
+>Número da respectiva parcela.
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].payment.paymentOptions[].installments[].commissionValue <br>
+>**Type**: ```decimal``` <br>
+>
+>Valor de comissão de cada parcela.
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].payment.paymentOptions[].installments[].netValue <br>
+>**Type**: ```decimal``` <br>
+>
+>Valor de prêmio líquido de cada parcela, ou seja, sem o IOF.
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].payment.paymentOptions[].installments[].interestValue <br>
+>**Type**: ```decimal``` <br>
+>
+>Valor de juros de cada parcela.
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].payment.paymentOptions[].installments[].taxValue <br>
+>**Type**: ```decimal``` <br>
+>
+>IOF que implica em cada parcela.
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].payment.paymentOptions[].installments[].totalValue <br>
+>**Type**: ```decimal``` <br>
+>
+>Valor total de cada parcela que é composto do valor líquido + IOF.
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].payment.paymentOptions[].installments[].installmentValue <br>
+>**Type**: ```decimal``` <br>
+>
+>Valor total da parcela.
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].payment.paymentOptions[].installments[].installmentInterest <br>
+>**Type**: ```decimal``` <br>
+>
+>Valor de juros da parcela.
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].payment.paymentOptions[].installments[].installmentTax <br>
+>**Type**: ```decimal``` <br>
+>
+>Valor de IOF de cada parcela.
+
+
+-------------------------------------------------------------------------------
+
+
+
+>**Field**: item.pricing[].payment.paymentOptions[].installments[].dueDates<br>
+>**Type**: ```array<string>``` <br>
+>
+>Datas de vencimento da parcela.
 
 
 
