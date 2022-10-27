@@ -60,5 +60,5 @@ nav:
   - 'D&O':
     - Cotação: 'produtos/DAO/cotacao/request.md'
     - Proposta: 'produtos/DAO/proposta/request.md'
-    - Campos adicionais no request de corretores: 'produtos/DAO/explicando-formulario.md'
+    - 'Campos adicionais no request de D&O': 'produtos/DAO/explicando-formulario.md'
 
