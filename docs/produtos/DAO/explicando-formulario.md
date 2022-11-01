@@ -56,23 +56,13 @@
 >
 >   - **OPEN-CAPITAL** = S/A Capital Aberto <br>
 >
->   - **OPEN-CAPITAL-INTERNATIONAL** = S/A Capital Aberto (Internacional) - (Não Disponível)<br>
->
->   - **FINANCIAL-INSTITUTION-EXCEPT-CREDIT-UNION** = Instituição Financeira, exceto Cooperativa de Crédito  - (Não Disponível)<br>
->
 >   - **CREDIT-COOPERATIVE** = Cooperativa de Crédito<br>
 >
 >   - **OTHER-COOPERATIVE** = Cooperativa (demais)<br>
 >
->   - **PRIVATE-ASSOCIATION** = Associação Privada  - (Não Disponível)<br>
->
 >   - **EIRELLI** = Eirelli<br>
->
->   - **FOUNDATION** = Fundação  - (Não Disponível)<br>
 > 
 >   - **LEGAL-PERSON** = MEI - Micro Empresário Individual<br>
-> 
->   - **SYNDICATE** = Sindicato  - (Não Disponível)<br>
 
 
 -----------------------------------------------------------------------------------------------
@@ -84,10 +74,6 @@
 > Pergunta usada para definir qual a composição societária. Os valores possíveis para esta pergunta são:<br><br>
 >
 >   - **PRIVATE-CAPITAL** = Capital Privado<br>
->
->   - **MIXED-CAPITAL** = Capital Misto - (Não Disponível)<br>
->
->   - **PUBLIC** = Pública - (Não Disponível)<br>
 
 ---------------------------------------------------------------------------------------------
 
@@ -96,8 +82,6 @@
 >**Type**: ```text```<br>
 ><text class="aviso">❗ Obrigatório que esteja incluido no array.</text><br>
 > Pergunta usada para definir há quantos anos a empresa foi constituída e iniciou suas atividades. Os valores possíveis para esta pergunta são:<br><br>
->
->   - **0** = Pré-Operacional - (Não Disponível)<br>
 >
 >   - **3** = Até 3 anos<br>
 >
@@ -211,7 +195,6 @@ se definida  como true, indica que positivamente "**Entendimento e concordância
 >   - **700000000.01-800000000.00** = Entre R$ 700.000.000,01 e R$ 800.000.000,00 <br>
 >   - **800000000.01-900000000.00** = Entre R$ 800.000.000,01 e R$ 900.000.000,00 <br>
 >   - **900000000.01-1000000000.00** = Entre R$ 900.000.000,01 e R$ 1.000.000.000,00 <br>
->   - **1000000000.00+** = Acima de R$ 1.000.000.000,00  - (Não Disponível)<br>
 
 --------------------------------------------------------------------------------------
 
@@ -222,8 +205,6 @@ se definida  como true, indica que positivamente "**Entendimento e concordância
 ><text class="aviso">❗ Obrigatório que esteja incluido no array.</text><br>
 > Pergunta usada para definir a atividade principal da empresa. Os valores possíveis para esta pergunta são:<br><br>
 >
->   - **CONSORTIUM-ADMINISTRATOR** = Administrador de Consórcio e Empréstimos - (Não Disponível). <br>
->   - **TRAVEL-AGENCIES-OPERATORS-RESERVATION-SERVICES** = Agências de Viagens, Operadores Turísticos e Serviços de Reservas- (Não Disponível). <br>
 >   - **AGRICULTURE-RELATED-SERVICES** = Agricultura, Pecuária, Floresta, Aquicultura e Serviços Relacionados. <br>
 >   - **ARTS-CULTURE-RECREATION** = Artes, Cultura e Recreação (exceto Esportes). <br>
 >   - **ADMINISTRATIVE-ACTIVITIES-COMPLEMENTARY** = Atividades Administrativas e Serviços Complementares - Locação, Mão de Obra, Segurança, Administração Imobiliária. <br>
@@ -232,8 +213,6 @@ se definida  como true, indica que positivamente "**Entendimento e concordância
 >   - **RETAIL-TRADE** = Comércio Atacadista E/ou Varejista. <br>
 >   - **TRADE-REPAIR-MAINTENANCE** = Comércio, Reparação e Manutenção de Veículos Automotores e Motocicletas. <br>
 >   - **CREDIT-UNIONS** = Cooperativas de Crédito. <br>
->   - **INSURANCE-BROKERS** = Corretores de Seguros- (Não Disponível). <br>
->   - **EDUCATION** = Educação- (Não Disponível). <br>
 >   - **ELECTRICITY-OTHER-UTILITIES** = Eletricidade, Gás e Outras Utilidades, Exceto Concessões. <br>
 >   - **MANUFACTURE-COMPUTER-EQUIPMENT** = Fabricação de Equipamentos de Informática, Produtos Eletrônicos e Ópticos. <br>
 >   - **MANUFACTURE-MACHINERY-EQUIPMENT** = Fabricação de Máquinas e Equipamentos. <br>
@@ -247,19 +226,12 @@ se definida  como true, indica que positivamente "**Entendimento e concordância
 >   - **MANUFACTURE-PHARMACEUTICAL-CHEMICAL** = Fabricação de Produtos Farmacêuticos e/ou Químicos. <br>
 >   - **MANUFACTURE-TEXTILE-PRODUCTS** = Fabricação de Produtos Têxteis e Confecção, Incluindo Artigos de Couro. <br>
 >   - **MANUFACTURE-MOTOR-VEHICLES** = Fabricação de Veículos Automotores, Reboques e Carrocerias. <br>
->   - **FINTECH-INSURTECH** = Fintech E/ou Insurtech- (Não Disponível). <br>
->   - **HOTELS-RESTAURANTS** = Hotéis, restaurantes e Similares- (Não Disponível). <br>
 >   - **REAL-ESTATE** = Imobiliárias. <br>
->   - **EXTRACTIVE-INDUSTRIES** = Indústrias Extrativas - Mineração (minerais Metálicos e Não-metálicos), Óleo e Gás e Atividade de Apoio- (Não Disponível). <br>
->   - **INFORMATION-COMMUNICATION** = Informação e Comunicação - Cinema, Radio, Televisão e Atividades Relacionadas - (Não Disponível).<br>
 >   - **MAINTENANCE-REPAIR-INSTALLATION** = Manutenção, Reparação e Instalação de Máquinas e Equipamentos. <br>
 >   - **METALLURGY** = Metalurgia. <br>
->   - **ASSOCIATIVE-ORGANIZATIONS** = Organizações Associativas - (Não Disponível). <br>
 >   - **PAPER-PULP** = Papel e Celulose. <br>
 >   - **IT-SERVICES** = Serviços de Tecnologia da Informação. <br>
 >   - **GRAPHIC-SERVICES** = Serviços Gráficos - Impressão e Gravações. <br>
->   - **WATER-TRANSPORT** = Transporte Terrestre, Aquaviário e Aéreo - (Não Disponível). <br>
->   - **NOT-LISTED** = Demais Atividades Não Listadas - (Não Disponível). <br>
 
 
 -----------------------------------------------------------------------------------------------
@@ -301,7 +273,6 @@ se definida  como true, indica que positivamente "**Entendimento e concordância
 >   - **300000000.01-500000000.00** = Entre R$ 300.000.000,01 e R$ 500.000.000,00 <br>
 >   - **500000000.01-700000000.00** = Entre R$ 500.000.000,01 e R$ 700.000.000,00 <br>
 >   - **700000000.01-1000000000.00** = Entre R$ 700.000.000,01 e R$ 1.000.000.000,00 <br>
->   - **1000000000.00+** = Acima de R$ 1.000.000.000,00 - (Não Disponível).<br>
 
 
 -----------------------------------------------------------------------------------------------
