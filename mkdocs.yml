@@ -30,6 +30,9 @@ nav:
     - Autenticação: 'configuracoes/autenticacao.md'
     - Fluxos padrões dos Produtos: 'configuracoes/fluxo.md'
 
+
+  - Rate Limits: 'rate-limits/rate-limits.md'
+
   - Explicando requests e responses:
     - Cotação: 'explicando-request-response/cotacao/request.md'
     - Proposta: 'explicando-request-response/proposta/request.md'
