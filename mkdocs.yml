@@ -30,6 +30,9 @@ nav:
     - Autenticação: 'configuracoes/autenticacao.md'
     - Fluxos padrões dos Produtos: 'configuracoes/fluxo.md'
 
+
+  - Rate Limits: 'rate-limits/rate-limits.md'
+
   - Explicando requests e responses:
     - Cotação: 'explicando-request-response/cotacao/request.md'
     - Proposta: 'explicando-request-response/proposta/request.md'
@@ -51,3 +54,8 @@ nav:
     - Cotação: 'produtos/dentistas/cotacao/request.md'
     - Proposta: 'produtos/dentistas/proposta/request.md'
     - Campos adicionais no request de dentistas: 'produtos/dentistas/explicando-formulario.md'
+
+  - Corretores:
+    - Cotação: 'produtos/corretores/cotacao/request.md'
+    - Proposta: 'produtos/corretores/proposta/request.md'
+    - Campos adicionais no request de corretores: 'produtos/corretores/explicando-formulario.md'
