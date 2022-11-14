@@ -64,7 +64,7 @@ GET: {{url_ambiente}}/v1/policy/all
 >**Field**: sort <br>
 >**Type**: ```string``` <br>
 >
-> Campo para ordernar pelo campo passado.. Os valores possíveis para esta query parameter são: </br><br>
+> Possível ordernar pelo campo desejado. Os valores possíveis para esta query parameter são: </br><br>
 > 
 >  - **producttext =** ordernar pelo produto.</br>
 >  - **modalitytext =** ordernar pela modalidade.</br>
