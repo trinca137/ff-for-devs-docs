@@ -18,25 +18,81 @@ GET: {{url_ambiente}}/v1/policy/{policyNumber}
 
 ```json
 {
-   "policy":{
-      "identifier":"33c66b30-0ad8-41fa-a411-8215dee1d29f",
-      "number":"046692022100101710000902",
-      "status":"Emitida",
-      "insuredName":"Cecilia Koelpin Jr.",
-      "insuredIdentity":"11607537095",
-      "vigencyStartedAt":"2022-11-14T11:00:04Z",
-      "vigencyExpiredAt":"2023-11-14T11:00:04Z",
-      "modalityCode":"BIKE-MULTIPLE-PERIL",
-      "modalityText":"Bicicletas",
-      "createdAt":"2022-11-14T12:02:02.147485Z",
-      "quotationIdentifier":"c7f2ab5a-1615-4ade-86f9-63009560671e",
-      "quotationDocumentUrl":"https://azuqbrfairfaxstorage.blob.core.windows.net/document/policy/046692022100101710000902/apolice_046692022100101710000902_v01.00_1bbf.pdf",
-      "ticketDocumentUrl":"https://azuqbrfairfaxstorage.blob.core.windows.net/document/policy/046692022100101710000902/boletos_046692022100101710000902_v01.00_gjnd.pdf",
-      "version":"01.00",
-      "totalClaims":0
-   },
-   "success":true,
-   "executed":"2022-11-14T13:05:37.192139Z"
+    "policy": {
+        "identifier": "ca523a8b-01d3-4927-a41d-75f1d1982894",
+        "number": "046692022100101710000820",
+        "status": "Emitida",
+        "insuredName": "nome do segurado",
+        "insuredIdentity": "66941973064",
+        "vigencyStartedAt": "2022-09-08T03:00:00Z",
+        "vigencyExpiredAt": "2023-09-08T03:00:00Z",
+        "modalityCode": "BIKE-MULTIPLE-PERIL",
+        "modalityText": "Bicicletas",
+        "createdAt": "2022-11-07T18:28:04.9078375Z",
+        "quotationIdentifier": "96582a46-2032-4acf-b7d2-a7a61160943d",
+        "quotationDocumentUrl": "http://127.0.0.1:10000/devstoreaccount1/document/policy/046692022100101710000820/apolice_046692022100101710000820_v01.00_j3oc.pdf",
+        "installments": [
+            {
+                "installmentNumber": 1,
+                "extraValue": 0.00,
+                "dueDate": "2022-09-23T00:00:00Z",
+                "valueIof": 82.23,
+                "tariffPremiumValue": 1114.29,
+                "premiumTotalValue": 1196.52,
+                "status": "pendente",
+                "interestValue": 0.00,
+                "createdAt": "2022-09-16T17:02:30.0584567Z"
+            },
+            {
+                "installmentNumber": 2,
+                "extraValue": 0.00,
+                "dueDate": "2022-09-27T00:00:00Z",
+                "valueIof": 16.68,
+                "tariffPremiumValue": 225.98,
+                "premiumTotalValue": 242.66,
+                "status": "pendente",
+                "interestValue": 0.00,
+                "createdAt": "2022-09-16T20:41:07.3162239Z"
+            },
+            {
+                "installmentNumber": 3,
+                "extraValue": 0.00,
+                "dueDate": "2022-09-27T00:00:00Z",
+                "valueIof": 18.74,
+                "tariffPremiumValue": 253.91,
+                "premiumTotalValue": 272.65,
+                "status": "pendente",
+                "interestValue": 0.00,
+                "createdAt": "2022-09-20T15:54:46.5951803Z"
+            },
+            {
+                "installmentNumber": 4,
+                "extraValue": 0.00,
+                "dueDate": "2022-10-19T00:00:00Z",
+                "valueIof": 85.64,
+                "tariffPremiumValue": 1160.48,
+                "premiumTotalValue": 1246.12,
+                "status": "pendente",
+                "interestValue": 0.00,
+                "createdAt": "2022-10-05T19:44:14.2735256Z"
+            },
+            {
+                "installmentNumber": 5,
+                "extraValue": 0.00,
+                "dueDate": "2022-11-14T00:00:00Z",
+                "valueIof": 52.32,
+                "tariffPremiumValue": 708.97,
+                "premiumTotalValue": 761.29,
+                "status": "pendente",
+                "interestValue": 0.00,
+                "createdAt": "2022-11-07T18:28:07.2086256Z"
+            }
+        ],
+        "version": "01.00",
+        "totalClaims": 0
+    },
+    "success": true,
+    "executed": "2022-11-22T13:47:30.0768846Z"
 }
 ```
 
@@ -138,178 +194,84 @@ GET: {{url_ambiente}}/v1/policy/all
 
 ```json
 {
-    "totalItems": 275,
+    "totalItems": 1,
     "itemsPerPage": 10,
     "list": [
         {
-            "policyIdentifier": "fc408b7b-9017-40be-844d-e730dd81e953",
-            "number": "046692022100101710000907",
-            "policyNumber": "1007100000907",
+            "identifier": "ca523a8b-01d3-4927-a41d-75f1d1982894",
+            "number": "046692022100101710000820",
+            "policyNumber": "1007100000820",
             "status": "Issued",
-            "insuredName": "Mrs. Garrett Wolff",
-            "insuredIdentity": "40774220511",
-            "modalityText": "Bike",
-            "productText": "RD Equipamentos",
-            "vigencyStartedAt": "2022-11-14T13:23:49Z",
-            "vigencyExpiredAt": "2023-11-14T13:23:49Z",
-            "createdAt": "2022-11-14T14:06:31.1077184Z",
-            "quotationDocumentUrl": "https://azuqbrfairfaxstorage.blob.core.windows.net/document/policy/046692022100101710000907/apolice_046692022100101710000907_v01.00_ocy8.pdf",
+            "insuredName": "nome do segurado",
+            "insuredIdentity": "66941973064",
+            "vigencyStartedAt": "2022-09-08T03:00:00Z",
+            "vigencyExpiredAt": "2023-09-08T03:00:00Z",
+            "createdAt": "2022-11-07T18:28:04.9078375Z",
+            "quotationIdentifier": "00000000-0000-0000-0000-000000000000",
+            "quotationDocumentUrl": "http://127.0.0.1:10000/devstoreaccount1/document/policy/046692022100101710000820/apolice_046692022100101710000820_v01.00_j3oc.pdf",
+            "installments": [
+                {
+                    "installmentNumber": 1,
+                    "extraValue": 0.00,
+                    "dueDate": "2022-09-23T00:00:00Z",
+                    "valueIof": 82.23,
+                    "tariffPremiumValue": 1114.29,
+                    "premiumTotalValue": 1196.52,
+                    "status": "pendente",
+                    "interestValue": 0.00,
+                    "createdAt": "2022-09-16T17:02:30.0584567Z"
+                },
+                {
+                    "installmentNumber": 2,
+                    "extraValue": 0.00,
+                    "dueDate": "2022-09-27T00:00:00Z",
+                    "valueIof": 16.68,
+                    "tariffPremiumValue": 225.98,
+                    "premiumTotalValue": 242.66,
+                    "status": "pendente",
+                    "interestValue": 0.00,
+                    "createdAt": "2022-09-16T20:41:07.3162239Z"
+                },
+                {
+                    "installmentNumber": 3,
+                    "extraValue": 0.00,
+                    "dueDate": "2022-09-27T00:00:00Z",
+                    "valueIof": 18.74,
+                    "tariffPremiumValue": 253.91,
+                    "premiumTotalValue": 272.65,
+                    "status": "pendente",
+                    "interestValue": 0.00,
+                    "createdAt": "2022-09-20T15:54:46.5951803Z"
+                },
+                {
+                    "installmentNumber": 4,
+                    "extraValue": 0.00,
+                    "dueDate": "2022-10-19T00:00:00Z",
+                    "valueIof": 85.64,
+                    "tariffPremiumValue": 1160.48,
+                    "premiumTotalValue": 1246.12,
+                    "status": "pendente",
+                    "interestValue": 0.00,
+                    "createdAt": "2022-10-05T19:44:14.2735256Z"
+                },
+                {
+                    "installmentNumber": 5,
+                    "extraValue": 0.00,
+                    "dueDate": "2022-11-14T00:00:00Z",
+                    "valueIof": 52.32,
+                    "tariffPremiumValue": 708.97,
+                    "premiumTotalValue": 761.29,
+                    "status": "pendente",
+                    "interestValue": 0.00,
+                    "createdAt": "2022-11-07T18:28:07.2086256Z"
+                }
+            ],
             "version": "01.00",
-            "count": 275
-        },
-        {
-            "policyIdentifier": "0810694d-7197-4c19-a51e-123d58934fc9",
-            "number": "046692022100103780001904",
-            "policyNumber": "1007800001904",
-            "status": "Issued",
-            "insuredName": "Angela Leannon",
-            "insuredIdentity": "86816500334",
-            "modalityText": "Dentista",
-            "productText": "RC Profissional",
-            "vigencyStartedAt": "2022-11-14T13:23:49Z",
-            "vigencyExpiredAt": "2023-11-14T13:23:49Z",
-            "createdAt": "2022-11-14T14:04:35.5555354Z",
-            "quotationDocumentUrl": "https://azuqbrfairfaxstorage.blob.core.windows.net/document/policy/046692022100103780001904/apolice_046692022100103780001904_v01.00_hs0r.pdf",
-            "version": "01.00",
-            "count": 275
-        },
-        {
-            "policyIdentifier": "6c07e53c-42a5-453f-955a-42f717dc296b",
-            "number": "046692022100103780001903",
-            "policyNumber": "1007800001903",
-            "status": "Issued",
-            "insuredName": "Ray Volkman",
-            "insuredIdentity": "86031528290",
-            "modalityText": "Corretor de Seguros",
-            "productText": "RC Profissional",
-            "vigencyStartedAt": "2022-11-14T13:23:44Z",
-            "vigencyExpiredAt": "2023-11-14T13:23:44Z",
-            "createdAt": "2022-11-14T14:02:56.9358468Z",
-            "quotationDocumentUrl": "https://azuqbrfairfaxstorage.blob.core.windows.net/document/policy/046692022100103780001903/apolice_046692022100103780001903_v01.00_csfy.pdf",
-            "ticketDocumentUrl": "https://azuqbrfairfaxstorage.blob.core.windows.net/document/policy/046692022100103780001903/boletos_046692022100103780001903_v01.00_a8d3.pdf",
-            "version": "01.00",
-            "count": 275
-        },
-        {
-            "policyIdentifier": "28ead239-f6ad-409b-a9f1-a4510c5bbd36",
-            "number": "046692022100103780001902",
-            "policyNumber": "1007800001902",
-            "status": "Issued",
-            "insuredName": "Dexter Harvey I",
-            "insuredIdentity": "01382857802",
-            "modalityText": "Dentista",
-            "productText": "RC Profissional",
-            "vigencyStartedAt": "2022-11-14T13:23:42Z",
-            "vigencyExpiredAt": "2023-11-14T13:23:42Z",
-            "createdAt": "2022-11-14T14:01:33.6165537Z",
-            "quotationDocumentUrl": "https://azuqbrfairfaxstorage.blob.core.windows.net/document/policy/046692022100103780001902/apolice_046692022100103780001902_v01.00_c2qi.pdf",
-            "ticketDocumentUrl": "https://azuqbrfairfaxstorage.blob.core.windows.net/document/policy/046692022100103780001902/boletos_046692022100103780001902_v01.00_r601.pdf",
-            "version": "01.00",
-            "count": 275
-        },
-        {
-            "policyIdentifier": "33c66b30-0ad8-41fa-a411-8215dee1d29f",
-            "number": "046692022100101710000902",
-            "policyNumber": "1007100000902",
-            "status": "Issued",
-            "insuredName": "Cecilia Koelpin Jr.",
-            "insuredIdentity": "11607537095",
-            "modalityText": "Bike",
-            "productText": "RD Equipamentos",
-            "vigencyStartedAt": "2022-11-14T11:00:04Z",
-            "vigencyExpiredAt": "2023-11-14T11:00:04Z",
-            "createdAt": "2022-11-14T12:02:02.147485Z",
-            "quotationDocumentUrl": "https://azuqbrfairfaxstorage.blob.core.windows.net/document/policy/046692022100101710000902/apolice_046692022100101710000902_v01.00_1bbf.pdf",
-            "ticketDocumentUrl": "https://azuqbrfairfaxstorage.blob.core.windows.net/document/policy/046692022100101710000902/boletos_046692022100101710000902_v01.00_gjnd.pdf",
-            "version": "01.00",
-            "count": 275
-        },
-        {
-            "policyIdentifier": "62b99b28-5467-4881-b952-6181a8c71eb5",
-            "number": "046692022100101710000901",
-            "policyNumber": "1007100000901",
-            "status": "Issued",
-            "insuredName": "Ray Erdman",
-            "insuredIdentity": "22313547809",
-            "modalityText": "Bike",
-            "productText": "RD Equipamentos",
-            "vigencyStartedAt": "2022-11-14T10:59:45Z",
-            "vigencyExpiredAt": "2023-11-14T10:59:45Z",
-            "createdAt": "2022-11-14T11:02:05.5991632Z",
-            "quotationDocumentUrl": "https://azuqbrfairfaxstorage.blob.core.windows.net/document/policy/046692022100101710000901/apolice_046692022100101710000901_v01.00_jsyg.pdf",
-            "version": "01.00",
-            "count": 275
-        },
-        {
-            "policyIdentifier": "0b001b7d-1040-4a0a-af7e-acc4f6cf2d44",
-            "number": "046692022100103100000037",
-            "policyNumber": "1001000000037",
-            "status": "Issued",
-            "insuredName": "Melba Hauck DDS",
-            "insuredIdentity": "82310664724896",
-            "modalityText": "D&O",
-            "productText": "RC Administradores e Diretores",
-            "vigencyStartedAt": "2022-11-10T11:10:57Z",
-            "vigencyExpiredAt": "2023-11-10T11:10:57Z",
-            "createdAt": "2022-11-10T16:09:03.5978649Z",
-            "quotationDocumentUrl": "https://azuqbrfairfaxstorage.blob.core.windows.net/document/policy/046692022100103100000037/apolice_046692022100103100000037_v01.00_tsfm.pdf",
-            "ticketDocumentUrl": "https://azuqbrfairfaxstorage.blob.core.windows.net/document/policy/046692022100103100000037/boletos_046692022100103100000037_v01.00_ppe4.pdf",
-            "version": "01.00",
-            "count": 275
-        },
-        {
-            "policyIdentifier": "f1ef6d9a-4241-4b9e-81df-33e3703ccfb0",
-            "number": "046692022100103100000035",
-            "policyNumber": "1001000000035",
-            "status": "Issued",
-            "insuredName": "Scott Bartell PhD",
-            "insuredIdentity": "88744418401574",
-            "modalityText": "D&O",
-            "productText": "RC Administradores e Diretores",
-            "vigencyStartedAt": "2022-11-09T20:12:03Z",
-            "vigencyExpiredAt": "2023-11-09T20:12:03Z",
-            "createdAt": "2022-11-10T16:07:54.3196625Z",
-            "quotationDocumentUrl": "https://azuqbrfairfaxstorage.blob.core.windows.net/document/policy/046692022100103100000035/apolice_046692022100103100000035_v01.00_v53f.pdf",
-            "ticketDocumentUrl": "https://azuqbrfairfaxstorage.blob.core.windows.net/document/policy/046692022100103100000035/boletos_046692022100103100000035_v01.00_sp81.pdf",
-            "version": "01.00",
-            "count": 275
-        },
-        {
-            "policyIdentifier": "9bb4efbb-61e4-409d-b6c8-9c5eb5e2dc6c",
-            "number": "046692022100101710000883",
-            "policyNumber": "1007100000883",
-            "status": "Issued",
-            "insuredName": "Noah Keeling",
-            "insuredIdentity": "77722437745",
-            "modalityText": "Bike",
-            "productText": "RD Equipamentos",
-            "vigencyStartedAt": "2022-11-08T14:41:40Z",
-            "vigencyExpiredAt": "2023-11-08T14:41:40Z",
-            "createdAt": "2022-11-10T14:23:17.8206571Z",
-            "quotationDocumentUrl": "https://azuqbrfairfaxstorage.blob.core.windows.net/document/policy/046692022100101710000883/apolice_046692022100101710000883_v01.00_bfcu.pdf",
-            "ticketDocumentUrl": "https://azuqbrfairfaxstorage.blob.core.windows.net/document/policy/046692022100101710000883/boletos_046692022100101710000883_v01.00_lxac.pdf",
-            "version": "01.00",
-            "count": 275
-        },
-        {
-            "policyIdentifier": "e7add0e5-5caf-4249-8267-154d9321a42e",
-            "number": "046692022100101710000882",
-            "policyNumber": "1007100000882",
-            "status": "Issued",
-            "insuredName": "Luke Beatty",
-            "insuredIdentity": "68044874518",
-            "modalityText": "Bike",
-            "productText": "RD Equipamentos",
-            "vigencyStartedAt": "2022-11-08T14:41:19Z",
-            "vigencyExpiredAt": "2023-11-08T14:41:19Z",
-            "createdAt": "2022-11-10T14:20:22.6067508Z",
-            "quotationDocumentUrl": "https://azuqbrfairfaxstorage.blob.core.windows.net/document/policy/046692022100101710000882/apolice_046692022100101710000882_v01.00_ozni.pdf",
-            "version": "01.00",
-            "count": 275
+            "totalClaims": 0
         }
     ],
     "success": true,
-    "executed": "2022-11-14T14:07:30.0741757Z"
+    "executed": "2022-11-22T13:49:41.0776542Z"
 }
 ```
 
@@ -319,14 +281,6 @@ Explicando campos de response da apólice
 ----------------------------------------
 
 >**Field**: identifier <br>
->**Type**: ```guid``` <br>
->
->identificação unica da apólice em formatdo de ```guid```.
-
------------------------------------------------------
-
-
->**Field**: policyIdentifier <br>
 >**Type**: ```guid``` <br>
 >
 >identificação unica da apólice em formatdo de ```guid```.
@@ -435,4 +389,84 @@ Explicando campos de response da apólice
 >**Type**: ```string``` <br>
 >
 >versão da apólice.
+
+
+-----------------------------------------------------
+
+>**Field**: installments <br>
+>**Type**: ```array``` <br>
+>
+>Lista de parcelas com informações como status de pagamento por exemplo.
+
+
+
+-----------------------------------------------------
+
+>**Field**: installments[].installmentNumber <br>
+>**Type**: ```integer``` <br>
+>
+>Numero da parcela.
+
+-----------------------------------------------------
+
+>**Field**: installments[].extraValue <br>
+>**Type**: ```decimal``` <br>
+>
+>Numero da parcela.
+
+
+-----------------------------------------------------
+
+>**Field**: installments[].dueDate <br>
+>**Type**: ```date``` <br>
+>
+>Data de vencimento.
+
+-----------------------------------------------------
+
+>**Field**: installments[].valueIof <br>
+>**Type**: ```decimal``` <br>
+>
+>Data de vencimento.
+
+
+-----------------------------------------------------
+
+>**Field**: installments[].tariffPremiumValue <br>
+>**Type**: ```decimal``` <br>
+>
+>Data de vencimento.
+
+
+-----------------------------------------------------
+
+>**Field**: installments[].premiumTotalValue <br>
+>**Type**: ```decimal``` <br>
+>
+>Data de vencimento.
+
+
+
+-----------------------------------------------------
+
+>**Field**: installments[].status <br>
+>**Type**: ```string``` <br>
+>
+>Status de pagamento.
+
+
+-----------------------------------------------------
+
+>**Field**: installments[].interestValue <br>
+>**Type**: ```decimal``` <br>
+>
+>Valor de juros de cada parcela..
+
+
+-----------------------------------------------------
+
+>**Field**: installments[].createdAt <br>
+>**Type**: ```date``` <br>
+>
+>Data de criação da parcela.
 
