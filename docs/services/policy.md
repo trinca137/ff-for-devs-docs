@@ -332,10 +332,24 @@ Explicando campos de response da apólice
 
 -----------------------------------------------------
 
+>**Field**: modalityCode <br>
+>**Type**: ```text``` <br>
+>
+>Codigo da modalidade.
+
+-----------------------------------------------------
+
 >**Field**: productText <br>
 >**Type**: ```text``` <br>
 >
 >Produto.
+
+-----------------------------------------------------
+
+>**Field**: productCode <br>
+>**Type**: ```text``` <br>
+>
+>Codigo do produto.
 
 -----------------------------------------------------
 
@@ -409,13 +423,6 @@ Explicando campos de response da apólice
 
 -----------------------------------------------------
 
->**Field**: installments[].extraValue <br>
->**Type**: ```decimal``` <br>
->
->Numero da parcela.
-
-
------------------------------------------------------
 
 >**Field**: installments[].dueDate <br>
 >**Type**: ```date``` <br>
@@ -427,7 +434,7 @@ Explicando campos de response da apólice
 >**Field**: installments[].valueIof <br>
 >**Type**: ```decimal``` <br>
 >
->Data de vencimento.
+>Valor do IOF.
 
 
 -----------------------------------------------------
@@ -435,7 +442,7 @@ Explicando campos de response da apólice
 >**Field**: installments[].tariffPremiumValue <br>
 >**Type**: ```decimal``` <br>
 >
->Data de vencimento.
+>Valor do prêmio tarifario.
 
 
 -----------------------------------------------------
@@ -443,7 +450,7 @@ Explicando campos de response da apólice
 >**Field**: installments[].premiumTotalValue <br>
 >**Type**: ```decimal``` <br>
 >
->Data de vencimento.
+>Valor do prêmio total da cotação.
 
 
 
