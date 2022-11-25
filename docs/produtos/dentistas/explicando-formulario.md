@@ -1,42 +1,22 @@
+### Informações e explicações a mais para o produto de Dentistas.
 
-> **Code**: PRODUCT </br>
-> **Tipo**: ```text``` </br>
-> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
-> 
-> Pergunta usada para saber o produto. Os valores possíveis para esta pergunta são:<br><br>
-> 
->  - **PROFESSIONAL-CIVIL-LIABILITY** </br>
+-------------------------------------------------------------------------------------------
 
-------------------------------------------------------------------------
-
-> **Code**: CURRENCY </br>
-> **Tipo**: ```text``` </br>
-> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
-> 
-> Pergunta usada para saber a moeda do seguro. Os valores possíveis para esta pergunta são:<br><br>
-> 
->  - **BRL** </br>
-
-
-------------------------------------------------------------------------
-
-> **Code**: PROFESSIONAL-REGISTER <br> >**Type**: `text` <br> > <text class="aviso">❗ Obrigatório que esteja incluido no array.</text><br>
+> **Code**: PROFESSIONAL-REGISTER <br>
+> **Type**: `text` <br> 
+> <text class="aviso">❗ Obrigatório que esteja incluído no array.</text><br>
 >
 > Pergunta usada para definir o registro do profissional.
 
----
+-------------------------------------------------------------------------------------------
 
-> **Code**: PROFESSION <br> >**Type**: `text` <br> > <text class="aviso">❗ Obrigatório que esteja incluido no array.</text><br>
+> **Code**: CATEGORIES <br>
+> **Type**: `array<string>` <br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array.</text><br>
 >
-> Pergunta usada para definir a profissão do segurado. Os possíveis valores para esta pergunta são: <br><br>
->
-> - **DENTIST**</br>
-
----
-
-> **Code**: CATEGORIES <br> >**Type**: `array<string>` <br> ><text class="aviso">❗ Obrigatório que esteja incluido no array.</text><br>
->
-> pergunta usada para definir as especialidades Odontológicas, pode-se enviar mais de uma resposta dentro desse array de string, sendo elas:<br><br>
+> Pergunta usada para definir as especialidades Odontológicas.<br><br>
+> 
+> Pode-se enviar mais de uma resposta dentro desse array de string, sendo elas:<br>
 >
 > - **OROFACIAL-HARMONIZATION** = Harmonização Orofacial (HOF) <br>
 >
@@ -46,24 +26,31 @@
 >
 > - **FACIAL-FILLERS** = Preenchedores Faciais (não-estético) <br>
 >
-> - **GENERAL-PROCEDURES** = Procedimentos Clínicos em Geral <br>
+> - **GENERAL-PROCEDURES** = Procedimentos Clínicos em Geral
 
----
+-------------------------------------------------------------------------------------------
 
-> **Code**: LEGAL-TYPE <br> >**Type**: `array<string>` <br><text class="aviso">❗ Obrigatorio que esteja incluido no array (se o PERSON-TYPE for LEGAL).</text><br>
+> **Code**: LEGAL-TYPE <br>
+> **Type**: `array<string>` <br>
+> <text class="aviso">❗ Obrigatorio que esteja incluído no array se for pessoa jurídica (PERSON-TYPE for LEGAL).</text><br>
 >
-> pergunta usada para definir Característica da PJ. Os possiveis valores para esta pergunta são:<br><br>
+> Pergunta usada para definir Característica da PJ.<br><br>
+> 
+> Os possiveis valores para esta pergunta são:<br>
 >
 > - **PRIVATE-OFFICE** = Consultório Particular <br>
 > - **HIGHER-EDUCATION-INSTITUTION** = Instituição de Ensino Superior<br>
 > - **DENTAL-PLAN-OPERATOR** = Operadora de Planos Odontológicos <br>
 > - **MASTER-FRANCHISOR** = Franqueador Master
 
----
+-------------------------------------------------------------------------------------------
 
-> **Code**: RETROACTIVITY <br> >**Type**: `integer` <br>
+> **Code**: RETROACTIVITY <br>
+> **Type**: `integer` <br>
 >
-> Pergunta usada para definir a retroatividade. Os possíveis valores para esta pergunta são:<br><br>
+> Pergunta usada para definir a retroatividade.<br><br>
+> 
+> Os possíveis valores para esta pergunta são:<br>
 >
 > - **0** = Sem retroatividade.
 > - **1** = 1 ano.
@@ -72,23 +59,23 @@
 > - **4** = 4 anos.
 > - **5** = 5 anos.
 
----
+-------------------------------------------------------------------------------------------
 
-> **Code**: RETROACTIVITY-DATE<br> >**Type**: `date` <br> ><text class="aviso">❗ Obrigatório que esteja incluído no array (se o RETROACTIVITY for maior que zero).</text><br>
+> **Code**: RETROACTIVITY-AGREEMENT <br>
+> **Type**: `boolean` <br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array. (se o RETROACTIVITY for maior que zero).</text><br>
 >
-> Pergunta usada para definir a data de retroatividade.
+> Pergunta usada para definir **"Entendimento e concordância de retroatividade"**. Se definida como true, indica que ***Estou ciente e de acordo que a confirmação da data de retroatividade ocorrerá apenas num eventual sinistro, sendo obrigatório apresentar as apólices anteriores para comprovação. A apólice anterior não pode ter sido cancelada ou ter tido interrupção de vigência.***
 
----
+-------------------------------------------------------------------------------------------
 
-> **Code**: RETROACTIVITY-AGREEMENT <br> >**Type**: `boolean` <br> ><text class="aviso">❗ Obrigatório que esteja incluído no array.</text><br>
+> **Code**: REVENUES <br>
+> **Type**: `text` <br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array se for pessoa jurídica (PERSON-TYPE for LEGAL).</text><br>
 >
-> Pergunta usada para definir **"Entendimento e concordância de retroatividade"**. \***\*Se definida como true, indica que "**Estou ciente e de acordo que a confirmação da data de retroatividade ocorrerá apenas num eventual sinistro, sendo obrigatório apresentar as apólices anteriores para comprovação. A apólice anterior não pode ter sido cancelada ou ter tido interrupção de vigência.\*\*"
-
----
-
-> **Code**: REVENUES <br> >**Type**: `text` <br> ><text class="aviso">❗ Obrigatório que esteja incluído no array (se o PERSON-TYPE for LEGAL).</text><br>
->
-> Pergunta usada para definir o Faturamento nos últimos 12 meses. Os possíveis valores para esta pergunta são:<br><br>
+> Pergunta usada para definir o Faturamento nos últimos 12 meses.<br><br>
+> 
+> Os possíveis valores para esta pergunta são:<br>
 >
 > - **0.00-100000.00** = Entre R$ 0,00 e R$ 100.000,00.
 > - **100000.01-300000.00** = Entre R$ 100.000,01 e R$ 300.000,00.
@@ -100,60 +87,76 @@
 > - **3000000.01-5000000.00** = Entre R$ 3.000.000,01 e R$ 5.000.000,00.
 > - **5000000.01-7500000.00** = Entre R$ 5.000.000,01 e R$ 7.500.000,00.
 > - **7500000.01-10000000.00** = Entre R$ 7.500.000,01 e R$ 10.000.000,00.
-> - **10000000.01+** = Acima de R$ 10.000.000,00.
 
----
+-------------------------------------------------------------------------------------------
 
-> **Code**: CLAIMS <br> >**Type**: `text` <br> ><text class="aviso">❗ Obrigatório que esteja incluído no array.</text><br>
+> **Code**: CLAIMS <br>
+> **Type**: `text` <br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array.</text><br>
 >
-> Pergunta usada para definir se houve sinistros nos últimos 24 meses. Os valores possíveis para esta pergunta são: <br><br>
+> Pergunta usada para definir se houve sinistros nos últimos 24 meses.<br><br>
+>
+>  Os valores possíveis para esta pergunta são: <br>
 >
 > - **0 =** nenhum.
 > - **1 =** 1 reclamação.
-> - **2** **=** 2 reclamações.
-> - **3+** = 3 ou mais.
+> - **2 =** 2 reclamações.
 
----
+-------------------------------------------------------------------------------------------
 
-> **Code**: CLAIM-EXPECTATION <br> >**Type**: `boolean` <br> ><text class="aviso">❗ Obrigatório que esteja incluído no array.</text><br>
+> **Code**: CLAIM-EXPECTATION <br>
+> **Type**: `boolean` <br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array.</text><br>
 >
-> Pergunta usada para definir se há expectativas de sinistro.
+> Pergunta usada para definir se o segurado tem conhecimento ou Expectativas de Sinistro (alguma circunstância que possa gerar um sinistro).
 
----
+-------------------------------------------------------------------------------------------
 
-> **Code**: CLAIM-EXPECTATION-THIRD-PARTY <br> >**Type**: `text` <br> ><text class="aviso">❗ Obrigatório que esteja incluído no array (se CLAIM-EXPECTATION for TRUE).</text><br>
+> **Code**: CLAIM-EXPECTATION-THIRD-PARTY <br>
+> **Type**: `text` <br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array (se CLAIM-EXPECTATION for TRUE).</text><br>
 >
 > Pergunta usada para definir possíveis terceiros reclamantes de expectativas de sinistro.
 
----
+-------------------------------------------------------------------------------------------
 
-> **Code**: CLAIM-EXPECTATION-AGREEMENT <br> >**Type**: `boolean` <br>
+> **Code**: CLAIM-EXPECTATION-AGREEMENT <br>
+> **Type**: `boolean` <br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array (se CLAIM-EXPECTATION for TRUE).</text><br>
 >
 > Pergunta usada para definir "**Entendimento e concordância de expectativas de sinistro**". Se definida como true, indica que "**Entendido e acordado que não haverá cobertura securitária para qualquer tipo de fato já conhecido pelo segurado.**"
 
----
+-------------------------------------------------------------------------------------------
 
-> **Code**: TERRITORIALITY <br> >**Type**: `text` <br> ><text class="aviso">❗ Obrigatório que esteja incluído no array.</text><br>
+> **Code**: TERRITORIALITY <br>
+> **Type**: `text` <br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array. Atualmente so atendemos dentistas que atendem no Brasil</text><br>
+> Pergunta usada para definir a territorialidade.<br><br>
 >
-> Pergunta usada para definir a territorialidade. Os valores possíveis para esta pergunta são: <br><br>
+> Os valores possíveis para esta pergunta são: <br>
 >
 > - **BR =** Brasil.
 
----
+-------------------------------------------------------------------------------------------
 
-> **Code**: SCOPE <br> >**Type**: `text` <br> ><text class="aviso">❗ Obrigatório que esteja incluído no array.</text><br>
+> **Code**: SCOPE <br>
+> **Type**: `text` <br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array. Atualmente só atender dentistas com trabalhos nacionais.</text><br>
+> Pergunta usada para definir o Âmbito de trabalho do dentista.<br><br>
 >
-> Pergunta usada para definir o âmbito. Os valores possiveis para esta pergunta são: <br><br>
+> Os possíveis valores para esta pergunta são: <br>
 >
-> - **NATIONAL** = Nacional.
+>   - **NATIONAL =** Nacional.
 
----
+-------------------------------------------------------------------------------------------
 
-> **Code**: LIMIT-DEDUCTIBLE <br> >**Type**: `array<array<answer>>` <br> ><text class="aviso">❗ Obrigatório que esteja incluído no array.</text><br>
+> **Code**: LIMIT-DEDUCTIBLE <br>
+> **Type**: `array<array<answer>>` <br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array.</text><br>
 >
-> Campo para definir limite e franquia. Abordaremos mais detalhadamente no decorrer da documentação.
+> Campo para definir limite e franquia. Abordaremos mais detalhadamente a seguir.
 
----
+-------------------------------------------------------------------------------------------
 
 > ❕ Como explicado anteriormente, o campo **LIMIT-DEDUCTIBLE** dentro do array de answer tem como finalidade enviar perguntas referentes aos limites e franquias. A seguir, você verá os valores que poderão/deverão estar inclusos nesse array.
 
@@ -189,17 +192,21 @@
 }
 ```
 
-> **Code**: VARIANT-IDENTIFIER <br> >**Type**: `guid` <br> ><text class="aviso">❗ Obrigatório que esteja incluído no array de proposta.</text><br>
+> **Code**: VARIANT-IDENTIFIER <br>
+> **Type**: `guid` <br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array de proposta.</text><br>
 >
-> Pergunta usada para definir o identificador da variante.
+> Pergunta usada para definir o identificador da variante (variante retorna na cotação com nome de *variantIdentifier*).
 
----
+-------------------------------------------------------------------------------------------
 
-> **Code**: LIMIT <br> >**Type**: `decimal` <br> ><text class="aviso">❗ Obrigatório que esteja incluído no array.</text><br>
+> **Code**: LIMIT <br>
+> **Type**: `decimal` <br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array.</text><br><br>
 >
-> Os valores possíveis para esta pergunta são:<br><br>
+> Os valores possíveis para esta pergunta são:<br>
 >
-> - **30000.0m** = R$ 30.000.
+> - **30000.0** = R$ 30.000.
 > - **50000.0** = R$ 50.000.
 > - **100000.0** = R$ 100.000.
 > - **150000.0** = R$ 150.000.
@@ -214,17 +221,24 @@
 > - **900000.0** = R$ 900.000.
 > - **1000000.0** = R$ 1.000.000.
 
----
+-------------------------------------------------------------------------------------------
 
-> **Code**: DEDUCTIBLE <br> >**Type**: `text` <br> ><text class="aviso">❗ Obrigatório que esteja incluído no array.</text><br>
+> **Code**: DEDUCTIBLE <br>
+> **Type**: `text` <br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array.</text><br>
 >
-> Pergunta usada para definir o tipo da franquia. Os valores possíveis para esta pergunta são:<br><br>
+> Pergunta usada para definir o tipo da franquia.<br><br>
+> Os valores possíveis para esta pergunta são:<br>
 >
 > - **DEFAULT**<br>
 > - **INCREASED**<br>
 > - **REDUCED**<br>
-> - **MINIMUM**<br> ><br> >**Dependendo do tipo de categoria definido no campo CATEGORIES, o cálculo acontecerá de maneira diferente. Abaixo, você pode ver detalhadamente:**<br><br>
->
+> - **MINIMUM**<br>
+> 
+> **Dependendo do tipo de categoria definido no campo CATEGORIES e o tipo de PESSOA (física ou jurídica), a resposta será diferente. Abaixo, você pode ver detalhadamente:**<br><br>
+> 
+> <h6> Para pessoa física (PERSON-TYPE = NATURAL)</h6><br>
+> 
 > Se for **GENERAL-PROCEDURES** (PERSON-TYPE NORMAL):<br>
 >
 > - **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.000,00.<br>
@@ -260,6 +274,8 @@
 > - **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00.<br>
 > - **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.500,00.<br><br>
 >
+> <h6> Para pessoa jurídica (PERSON-TYPE = LEGAL)</h6><br>
+> 
 > Se for **GENERAL-PROCEDURES**(PERSON-TYPE LEGAL):<br>
 >
 > - **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00.<br>
