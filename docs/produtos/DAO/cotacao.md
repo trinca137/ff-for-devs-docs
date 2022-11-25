@@ -1,4 +1,4 @@
-# Create Quotation
+# Criar cotação
 
 #### Endpoint
 ```
@@ -7,9 +7,6 @@ POST: {{url_ambiente}}/v1/quotation
 
 Request
 -------
-
-
-💡 **Exemplo de json de request**
 
 ```json
 {
@@ -20,62 +17,52 @@ Request
             "answer": "DIRECTORS-OFFICERS-CIVIL-LIABILITY"
         },
         {
-            "code": "PRODUCT"
-        },
-        {
-            "code": "CURRENCY"
-        },
-        {
             "code": "PERSON-TYPE",
             "answer": "LEGAL"
         },
         {
-            "code": "START-VIGENCY-DATE",
-            "answer": "2022-11-20T03:00:00.000Z"
-        },
-        {
-            "code": "VIGENCY-DURATION"
-        },
-        {
-            "code": "VIGENCY-RETROACTIVITY-AGREEMENT"
-        },
-        {
             "code": "CONGENER",
-            "answer": "NEW"
+            "answer": "RENEWAL"
         },
         {
-            "code": "RETROACTIVITY-AGREEMENT"
+            "code": "PREVIOUS-INSURER",
+            "answer": "0"
         },
         {
-            "code": "INSURED-NAME",
-            "answer": "segurado"
+            "code": "PREVIOUS-INSURER-NAME",
+            "answer": "Seguradora anterior"
         },
         {
-            "code": "INSURED-EMAIL",
-            "answer": "seg@gmail.com"
+            "code": "START-VIGENCY-DATE",
+            "answer": "2022-11-23T03:00:00.000Z"
         },
         {
             "code": "IDENTITY",
-            "answer": "41.896.570/0001-99"
+            "answer": "65.854.012/0001-29"
         },
         {
-            "code": "GENDER"
+            "code": "INSURED-NAME",
+            "answer": "Nome segurado"
+        },
+        {
+            "code": "INSURED-EMAIL",
+            "answer": "email@segurado.com"
         },
         {
             "code": "INSURED-CELLPHONE",
-            "answer": "(12) 99643.2351"
+            "answer": "(11) 91111-2222"
         },
         {
             "code": "INSURED-ADDRESS-ZIPCODE",
-            "answer": "06717-265"
+            "answer": "12345-123"
         },
         {
             "code": "INSURED-ADDRESS-STREET",
-            "answer": "Rua Voturama"
+            "answer": "Nome da rua"
         },
         {
             "code": "INSURED-ADDRESS-NUMBER",
-            "answer": "998"
+            "answer": "Número"
         },
         {
             "code": "INSURED-ADDRESS-COMPLEMENT",
@@ -83,15 +70,23 @@ Request
         },
         {
             "code": "INSURED-ADDRESS-NEIGHBORHOOD",
-            "answer": "Recanto dos Victor's"
+            "answer": "Bairro"
         },
         {
             "code": "INSURED-ADDRESS-CITY",
-            "answer": "Cotia"
+            "answer": "São Paulo"
         },
         {
             "code": "INSURED-ADDRESS-STATE",
             "answer": "SP"
+        },
+        {
+            "code": "COMMISSION",
+            "answer": 20
+        },
+        {
+            "code": "GRIEVANCE-DISCOUNT",
+            "answer": 0
         },
         {
             "code": "PARTNER-TYPE",
@@ -106,8 +101,28 @@ Request
             "answer": "3"
         },
         {
+            "code": "COMPANY-ACTIVITY",
+            "answer": "AGRICULTURE-RELATED-SERVICES"
+        },
+        {
+            "code": "NET-PATRIMONY",
+            "answer": "R$ 1.000,00"
+        },
+        {
+            "code": "TOTAL-ASSETS",
+            "answer": "3000000.01-5000000.00"
+        },
+        {
+            "code": "REVENUES",
+            "answer": "0.00-50000.00"
+        },
+        {
             "code": "COMPANY-SOLVENT",
             "answer": true
+        },
+        {
+            "code": "INQUIRIES-ADMINISTRATIVE-CRIMINAL-PROCEDURES",
+            "answer": false
         },
         {
             "code": "CLAIM-EXPECTATION",
@@ -120,28 +135,16 @@ Request
             "code": "CLAIM-EXPECTATION-AGREEMENT"
         },
         {
-            "code": "INQUIRIES-ADMINISTRATIVE-CRIMINAL-PROCEDURES",
-            "answer": false
-        },
-        {
             "code": "COVERAGE-PENALTIES",
             "answer": false
         },
         {
-            "code": "NET-PATRIMONY",
-            "answer": "R$ 1.000,00"
+            "code": "TERRITORIALITY",
+            "answer": "BR"
         },
         {
-            "code": "TOTAL-ASSETS",
-            "answer": "3000000.01-5000000.00"
-        },
-        {
-            "code": "COMPANY-ACTIVITY",
-            "answer": "AGRICULTURE-RELATED-SERVICES"
-        },
-        {
-            "code": "REVENUES",
-            "answer": "200000.01-250000.00"
+            "code": "SCOPE",
+            "answer": "NATIONAL"
         },
         {
             "code": "LIMITS",
@@ -150,80 +153,53 @@ Request
                     {
                         "code": "LIMIT",
                         "answer": 1000000
-                    },
-                    {
-                        "code": "VARIANT-IDENTIFIER",
-                        "answer": "18ef9c2c-e15c-4844-8e3c-4da63d889bda"
                     }
                 ]
             ]
-        },
-        {
-            "code": "TERRITORIALITY"
-        },
-        {
-            "code": "SCOPE"
-        },
-        {
-            "code": "PROFESSION"
-        },
-        {
-            "code": "COMMISSION",
-            "answer": 20
-        },
-        {
-            "code": "GRIEVANCE-DISCOUNT",
-            "answer": 0
         }
     ]
 }
 ```
 
-
-
-
 Response
 --------
-
-
-
 
 ```json
 {
     "item": {
-        "quotationIdentifier": "fdb2d17a-a700-4028-aec5-8a882186fb64",
+        "quotationIdentifier": "42e9a23f-6d03-44b2-aea6-c407aa605fbb",
         "status": "Draft",
         "pricing": [
             {
-                "variantIdentifier": "b4a220d9-81e8-40ab-a314-a1be76d78498",
+                "variantIdentifier": "1a420302-f94a-4a06-9bca-ad203f65a395",
                 "underwriting": {
                     "approved": true,
                     "evaluations": []
                 },
                 "price": {
-                    "commission": 234.2,
+                    "commission": 218.95,
                     "grievanceDiscount": 0.0,
-                    "netValue": 1170.99,
+                    "netValue": 1094.75,
                     "interestValue": 0.0,
-                    "taxValue": 86.42,
-                    "totalValue": 1257.41,
+                    "taxValue": 80.79,
+                    "totalValue": 1175.54,
                     "policyLimit": 1000000.0,
                     "rates": [
                         {
-                            "code": "TOTAL-ASSETS",
-                            "description": "Ativos",
+                            "code": "COMPANY-ACTIVITY",
+                            "description": "Atividade",
                             "limit": 1000000.0,
-                            "netValue": 24.26,
+                            "netValue": 52.25,
                             "deductible": {
                                 "code": "NO-DEDUCTIBLE",
                                 "text": "Sem franquia"
                             }
                         },
                         {
-                            "code": "COMPANY-ACTIVITY",
-                            "description": "Atividade",
+                            "code": "TOTAL-ASSETS",
+                            "description": "Ativos",
                             "limit": 1000000.0,
-                            "netValue": 55.0,
+                            "netValue": 23.05,
                             "deductible": {
                                 "code": "NO-DEDUCTIBLE",
                                 "text": "Sem franquia"
@@ -233,7 +209,7 @@ Response
                             "code": "REVENUES",
                             "description": "Faturamento",
                             "limit": 1000000.0,
-                            "netValue": 32.37,
+                            "netValue": 13.06,
                             "deductible": {
                                 "code": "NO-DEDUCTIBLE",
                                 "text": "Sem franquia"
@@ -243,7 +219,7 @@ Response
                             "code": "LIMIT",
                             "description": "Limite",
                             "limit": 1000000.0,
-                            "netValue": 1059.36,
+                            "netValue": 1006.39,
                             "deductible": {
                                 "code": "NO-DEDUCTIBLE",
                                 "text": "Sem franquia"
@@ -259,84 +235,84 @@ Response
                             "paymentType": "Ticket",
                             "installments": [
                                 {
-                                    "identifier": "789222ba-3eaf-454d-8c55-385d67780fa7",
+                                    "identifier": "c6b2e46c-12c3-4eaa-b624-c782d65cef02",
                                     "number": 1,
-                                    "commissionValue": 234.2,
-                                    "netValue": 1170.99,
+                                    "commissionValue": 218.95,
+                                    "netValue": 1094.75,
                                     "interestValue": 0.0,
-                                    "taxValue": 86.42,
-                                    "totalValue": 1257.41,
-                                    "installmentValue": 1257.41,
+                                    "taxValue": 80.79,
+                                    "totalValue": 1175.54,
+                                    "installmentValue": 1175.54,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 86.42,
+                                    "installmentTax": 80.79,
                                     "dueDates": [
-                                        "2022-11-02T00:00:00Z"
+                                        "2022-11-30T00:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "3726636d-6a57-4199-baae-9360ae2c77b1",
+                                    "identifier": "8c82f0f5-62df-447f-9bd6-90273238e671",
                                     "number": 2,
-                                    "commissionValue": 234.2,
-                                    "netValue": 1170.99,
+                                    "commissionValue": 218.95,
+                                    "netValue": 1094.75,
                                     "interestValue": 0.0,
-                                    "taxValue": 86.42,
-                                    "totalValue": 1257.41,
-                                    "installmentValue": 628.7,
+                                    "taxValue": 80.79,
+                                    "totalValue": 1175.54,
+                                    "installmentValue": 587.77,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 43.21,
+                                    "installmentTax": 40.4,
                                     "dueDates": [
-                                        "2022-11-02T00:00:00Z",
+                                        "2022-11-30T00:00:00Z",
                                         "2022-12-01T12:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "b802d61a-6b4d-4228-b278-105e766dd032",
+                                    "identifier": "d61be87a-cd3a-41f0-8f04-244ac1cb70a4",
                                     "number": 3,
-                                    "commissionValue": 234.2,
-                                    "netValue": 1170.99,
+                                    "commissionValue": 218.95,
+                                    "netValue": 1094.75,
                                     "interestValue": 0.0,
-                                    "taxValue": 86.42,
-                                    "totalValue": 1257.41,
-                                    "installmentValue": 419.14,
+                                    "taxValue": 80.79,
+                                    "totalValue": 1175.54,
+                                    "installmentValue": 391.85,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 28.81,
+                                    "installmentTax": 26.93,
                                     "dueDates": [
-                                        "2022-11-02T00:00:00Z",
+                                        "2022-11-30T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "93f9c5c4-cd06-4f3f-94e0-f545758ddb92",
+                                    "identifier": "293bcbcf-db2e-4b3e-b719-4fa120204195",
                                     "number": 4,
-                                    "commissionValue": 234.2,
-                                    "netValue": 1170.99,
+                                    "commissionValue": 218.95,
+                                    "netValue": 1094.75,
                                     "interestValue": 0.0,
-                                    "taxValue": 86.42,
-                                    "totalValue": 1257.41,
-                                    "installmentValue": 314.35,
+                                    "taxValue": 80.79,
+                                    "totalValue": 1175.54,
+                                    "installmentValue": 293.88,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 21.6,
+                                    "installmentTax": 20.2,
                                     "dueDates": [
-                                        "2022-11-02T00:00:00Z",
+                                        "2022-11-30T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z",
                                         "2023-02-01T12:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "ba856519-1a3f-4c19-86ae-f9f110a9d873",
+                                    "identifier": "2fe3a900-c6a6-4a41-a2b1-63823fbf8e47",
                                     "number": 5,
-                                    "commissionValue": 234.2,
-                                    "netValue": 1170.99,
+                                    "commissionValue": 218.95,
+                                    "netValue": 1094.75,
                                     "interestValue": 0.0,
-                                    "taxValue": 86.42,
-                                    "totalValue": 1257.41,
-                                    "installmentValue": 251.48,
+                                    "taxValue": 80.79,
+                                    "totalValue": 1175.54,
+                                    "installmentValue": 235.11,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 17.28,
+                                    "installmentTax": 16.16,
                                     "dueDates": [
-                                        "2022-11-02T00:00:00Z",
+                                        "2022-11-30T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z",
                                         "2023-02-01T12:00:00Z",
@@ -344,18 +320,18 @@ Response
                                     ]
                                 },
                                 {
-                                    "identifier": "688e8a2e-5707-4cc1-8325-b6cb47f6f7d0",
+                                    "identifier": "3e52401c-35de-49ae-8123-660a650ec2c9",
                                     "number": 6,
-                                    "commissionValue": 234.2,
-                                    "netValue": 1170.99,
+                                    "commissionValue": 218.95,
+                                    "netValue": 1094.75,
                                     "interestValue": 0.0,
-                                    "taxValue": 86.42,
-                                    "totalValue": 1257.41,
-                                    "installmentValue": 209.57,
+                                    "taxValue": 80.79,
+                                    "totalValue": 1175.54,
+                                    "installmentValue": 195.92,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 14.4,
+                                    "installmentTax": 13.46,
                                     "dueDates": [
-                                        "2022-11-02T00:00:00Z",
+                                        "2022-11-30T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z",
                                         "2023-02-01T12:00:00Z",
@@ -371,6 +347,6 @@ Response
         ]
     },
     "success": true,
-    "executed": "2022-10-26T21:23:11.8043857Z"
+    "executed": "2022-11-23T16:57:15.4133765Z"
 }
 ```

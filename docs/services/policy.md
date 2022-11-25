@@ -1,7 +1,6 @@
 # Serviço de apólice
 
-
-Consulta Apólice
+Consulta Apólice única
 ----------------
 
 #### Endpoint
@@ -9,12 +8,9 @@ Consulta Apólice
 GET: {{url_ambiente}}/v1/policy/{policyNumber}
 ```
 
-> ❕ Chamada GET, passando como route parameter o numero da apólice
-
+> ❕ Chamada GET, passando como paramêtro o numero da apólice.
 
 #### Response
-
-💡 **Exemplo de json de response**
 
 ```json
 {
@@ -96,9 +92,6 @@ GET: {{url_ambiente}}/v1/policy/{policyNumber}
 }
 ```
 
-
-
-
 Listagem Apólice
 ----------------
 
@@ -109,18 +102,18 @@ GET: {{url_ambiente}}/v1/policy/all
 
 #### Query Parameters
 
->**Field**: page <br>
->**Type**: ```string``` <br>
+> **Field**: page <br>
+> **Type**: ```string``` <br>
 >
->Possível passar número da pagina.
+> Possível passar número da pagina.
 
 -----------------------------------------------------
 
-
->**Field**: sort <br>
->**Type**: ```string``` <br>
+> **Field**: sort <br>
+> **Type**: ```string``` <br>
 >
-> Possível ordernar pelo campo desejado. Os valores possíveis para esta query parameter são: </br><br>
+> Possível ordernar pelo campo desejado.<br><br>
+> Os valores possíveis para esta query parameter são: </br>
 > 
 >  - **producttext =** ordernar pelo produto.</br>
 >  - **modalitytext =** ordernar pela modalidade.</br>
@@ -129,53 +122,52 @@ GET: {{url_ambiente}}/v1/policy/all
 >  - **insuredname =** ordernar pelo nome do segurado</br> 
 >  - **insuredidentity =** ordernar pela identificação do segurado.</br>
 >
->
 > Caso queira definir se a ordem sera crescente ou não, basta passar o operador ```-``` quando for decrescente.</br>
 > Caso queria passar mais de um campo para ordenação, tambem é possivel, basta colocar os campos separados por ```,```</br>
 >
 > Exemplo:</br>
 > ```{{url_ambiente}}/v1/policy/all?sort=-status,insuredname```</br>
-> No exemplo acima é passado dois campos para a ordenação, onde o status sera em ordem decrescente e o insuredname será em ordem crescente.</br>
+> No exemplo acima é passado dois campos para a ordenação, onde o status sera em ordem decrescente e o insuredName será em ordem crescente.</br>
 >
 -----------------------------------------------------
 
->**Field**: search <br>
->**Type**: ```string``` <br>
+> **Field**: search <br>
+> **Type**: ```string``` <br>
 >
->Campo para buscar pelo nome do segurado.
+> Campo para buscar pelo nome do segurado.
 
 -----------------------------------------------------
 
->**Field**: modality <br>
->**Type**: ```string``` <br>
+> **Field**: modality <br>
+> **Type**: ```string``` <br>
 >
->Campo para buscar pela modalidade.
+> Campo para buscar pela modalidade.
 
 -----------------------------------------------------
 
->**Field**: product <br>
->**Type**: ```string``` <br>
+> **Field**: product <br>
+> **Type**: ```string``` <br>
 >
->Campo para buscar pelo produto.
+> Campo para buscar pelo produto.
 
 -----------------------------------------------------
 
->**Field**: startDate <br>
->**Type**: ```string``` <br>
+> **Field**: startDate <br>
+> **Type**: ```string``` <br>
 >
->Campo para buscar pela data de inicio de vigencia.
+> Campo para buscar pela data de inicio de vigencia.
 
 -----------------------------------------------------
 
->**Field**: endDate <br>
->**Type**: ```string``` <br>
+> **Field**: endDate <br>
+> **Type**: ```string``` <br>
 >
->Campo para buscar pela data final de vigencia.
+> Campo para buscar pela data final de vigencia.
 
 -----------------------------------------------------
 
->**Field**: status <br>
->**Type**: ```string``` <br>
+> **Field**: status <br>
+> **Type**: ```string``` <br>
 >
 > Campo para buscar pelo status. Os valores possíveis para esta query parameter são: </br><br>
 > 
@@ -185,12 +177,7 @@ GET: {{url_ambiente}}/v1/policy/all
 
 -----------------------------------------------------
 
-
-
-
 #### Response
-
-💡 **Exemplo de json de response**
 
 ```json
 {
@@ -275,205 +262,185 @@ GET: {{url_ambiente}}/v1/policy/all
 }
 ```
 
-
-
 Explicando campos de response da apólice
 ----------------------------------------
 
->**Field**: identifier <br>
->**Type**: ```guid``` <br>
+> **Field**: identifier <br>
+> **Type**: ```guid``` <br>
 >
->identificação unica da apólice em formatdo de ```guid```.
+> Identificação unica da apólice em formatdo de ```guid```.
 
 -----------------------------------------------------
 
-
->**Field**: number <br>
->**Type**: ```text``` <br>
+> **Field**: number <br>
+> **Type**: ```text``` <br>
 >
->Número referente a apólice .
+> Número referente a apólice .
 
 -----------------------------------------------------
 
->**Field**: policyNumber <br>
->**Type**: ```text``` <br>
+> **Field**: policyNumber <br>
+> **Type**: ```text``` <br>
 >
->Número referente a apólice .
+> Número referente a apólice .
 
 -----------------------------------------------------
 
->**Field**: status <br>
->**Type**: ```text``` <br>
+> **Field**: status <br>
+> **Type**: ```text``` <br>
 >
->Status da apólice .
+> Status da apólice .
 
 -----------------------------------------------------
 
-
->**Field**: insuredName <br>
->**Type**: ```text``` <br>
+> **Field**: insuredName <br>
+> **Type**: ```text``` <br>
 >
->Nome do Segurado .
+> Nome do Segurado .
 
 -----------------------------------------------------
 
->**Field**: insuredIdentity <br>
->**Type**: ```text``` <br>
+> **Field**: insuredIdentity <br>
+> **Type**: ```text``` <br>
 >
->Identificação do segurado.
+> Identificação do segurado.
 
 -----------------------------------------------------
 
-
->**Field**: modalityText <br>
->**Type**: ```text``` <br>
+> **Field**: modalityText <br>
+> **Type**: ```text``` <br>
 >
->Modalidade.
+> Modalidade.
 
 -----------------------------------------------------
 
->**Field**: modalityCode <br>
->**Type**: ```text``` <br>
+> **Field**: modalityCode <br>
+> **Type**: ```text``` <br>
 >
->Codigo da modalidade.
+> Codigo da modalidade.
 
 -----------------------------------------------------
 
->**Field**: productText <br>
->**Type**: ```text``` <br>
+> **Field**: productText <br>
+> **Type**: ```text``` <br>
 >
->Produto.
+> Produto.
 
 -----------------------------------------------------
 
->**Field**: productCode <br>
->**Type**: ```text``` <br>
+> **Field**: productCode <br>
+> **Type**: ```text``` <br>
 >
->Codigo do produto.
+> Codigo do produto.
 
 -----------------------------------------------------
 
->**Field**: vigencyStartedAt <br>
->**Type**: ```date``` <br>
+> **Field**: vigencyStartedAt <br>
+> **Type**: ```date``` <br>
 >
->Inicio da vigencia.
+> Inicio da vigencia.
 
 -----------------------------------------------------
 
-
->**Field**: vigencyExpiredAt <br>
->**Type**: ```date``` <br>
+> **Field**: vigencyExpiredAt <br>
+> **Type**: ```date``` <br>
 >
->Final da vigencia.
+> Final da vigencia.
 
 -----------------------------------------------------
 
-
->**Field**: createdAt <br>
->**Type**: ```date``` <br>
+> **Field**: createdAt <br>
+> **Type**: ```date``` <br>
 >
->Data de criação.
+> Data de criação.
 
 -----------------------------------------------------
 
-
->**Field**: quotationIdentifier <br>
->**Type**: ```string``` <br>
+> **Field**: quotationIdentifier <br>
+> **Type**: ```string``` <br>
 >
->identificação refente a cotação.
+> Identificação refente a cotação.
 
 -----------------------------------------------------
 
-
->**Field**: quotationDocumentUrl <br>
->**Type**: ```string``` <br>
+> **Field**: quotationDocumentUrl <br>
+> **Type**: ```string``` <br>
 >
->Url do pdf da apólice.
+> Url do pdf da apólice.
 
 -----------------------------------------------------
 
->**Field**: TicketUrl <br>
->**Type**: ```string``` <br>
+> **Field**: TicketUrl <br>
+> **Type**: ```string``` <br>
 >
->Url do boleto.
+> Url do boleto.
 
 -----------------------------------------------------
 
->**Field**: version <br>
->**Type**: ```string``` <br>
+> **Field**: version <br>
+> **Type**: ```string``` <br>
 >
->versão da apólice.
-
+> Versão da apólice.
 
 -----------------------------------------------------
 
->**Field**: installments <br>
->**Type**: ```array``` <br>
+> **Field**: installments <br>
+> **Type**: ```array``` <br>
 >
->Lista de parcelas com informações como status de pagamento por exemplo.
-
-
+> Lista das informações de parcelas.
 
 -----------------------------------------------------
 
->**Field**: installments[].installmentNumber <br>
->**Type**: ```integer``` <br>
+> **Field**: installments[].installmentNumber <br>
+> **Type**: ```integer``` <br>
 >
->Numero da parcela.
+> Número da parcela.
 
 -----------------------------------------------------
 
-
->**Field**: installments[].dueDate <br>
->**Type**: ```date``` <br>
+> **Field**: installments[].dueDate <br>
+> **Type**: ```date``` <br>
 >
->Data de vencimento.
+> Data de vencimento.
 
 -----------------------------------------------------
 
->**Field**: installments[].valueIof <br>
->**Type**: ```decimal``` <br>
+> **Field**: installments[].valueIof <br>
+> **Type**: ```decimal``` <br>
 >
->Valor do IOF.
-
+> Valor do IOF.
 
 -----------------------------------------------------
 
->**Field**: installments[].tariffPremiumValue <br>
->**Type**: ```decimal``` <br>
+> **Field**: installments[].tariffPremiumValue <br>
+> **Type**: ```decimal``` <br>
 >
->Valor do prêmio tarifario.
-
+> Valor do prêmio tarifário.
 
 -----------------------------------------------------
 
->**Field**: installments[].premiumTotalValue <br>
->**Type**: ```decimal``` <br>
+> **Field**: installments[].premiumTotalValue <br>
+> **Type**: ```decimal``` <br>
 >
->Valor do prêmio total da cotação.
-
-
+> Valor do prêmio total da cotação.
 
 -----------------------------------------------------
 
->**Field**: installments[].status <br>
->**Type**: ```string``` <br>
+> **Field**: installments[].status <br>
+> **Type**: ```string``` <br>
 >
->Status de pagamento.
-
+> Status de pagamento.
 
 -----------------------------------------------------
 
->**Field**: installments[].interestValue <br>
->**Type**: ```decimal``` <br>
+> **Field**: installments[].interestValue <br>
+> **Type**: ```decimal``` <br>
 >
->Valor de juros de cada parcela..
-
+> Valor de juros de cada parcela.
 
 -----------------------------------------------------
 
->**Field**: installments[].createdAt <br>
->**Type**: ```date``` <br>
+> **Field**: installments[].createdAt <br>
+> **Type**: ```date``` <br>
 >
->Data de criação da parcela.
-
+> Data de criação da parcela.

@@ -21,6 +21,10 @@ text.aviso {
   color: red;
 }
 
+text.definicao {
+  color: green;
+}
+
 code {
   color: #000;
   background: #F8F8F8;

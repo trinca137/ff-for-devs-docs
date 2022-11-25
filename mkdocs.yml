@@ -4,8 +4,6 @@ theme:
   highlightjs: true
   locale: pt_BR
 
-
-  
 extra_css:
   - css/extra.css
 
@@ -22,6 +20,7 @@ markdown_extensions:
       base_path: .
   - admonition
 nav:
+
   - Introdução:
     - Sobre a documentação: 'index.md'
 
@@ -29,41 +28,37 @@ nav:
     - Ambientes: 'configuracoes/ambientes.md'
     - Autenticação: 'configuracoes/autenticacao.md'
     - Fluxos padrões dos Produtos: 'configuracoes/fluxo.md'
-
-
-  - Rate Limits: 'rate-limits/rate-limits.md'
+    - Rate Limits: 'rate-limits/rate-limits.md'
 
   - Explicando requests e responses:
     - Cotação: 'explicando-request-response/cotacao/request.md'
     - Proposta: 'explicando-request-response/proposta/request.md'
     - Checkout: 'explicando-request-response/checkout/request.md'
 
-
-    
   - Bikes:
-    - Cotação: 'produtos/bike/cotacao/request.md'
-    - Proposta: 'produtos/bike/proposta/request.md'
+    - Cotação: 'produtos/bike/cotacao.md'
+    - Proposta: 'produtos/bike/proposta.md'
     - Campos adicionais no request de bikes: 'produtos/bike/explicando-formulario.md'
 
   - Medicos:
-    - Cotação: 'produtos/medicos/cotacao/request.md'
-    - Proposta: 'produtos/medicos/proposta/request.md'
+    - Cotação: 'produtos/medicos/cotacao.md'
+    - Proposta: 'produtos/medicos/proposta.md'
     - Campos adicionais no request de medicos: 'produtos/medicos/explicando-formulario.md'
       
   - Dentistas:
-    - Cotação: 'produtos/dentistas/cotacao/request.md'
-    - Proposta: 'produtos/dentistas/proposta/request.md'
+    - Cotação: 'produtos/dentistas/cotacao.md'
+    - Proposta: 'produtos/dentistas/proposta.md'
     - Campos adicionais no request de dentistas: 'produtos/dentistas/explicando-formulario.md'
 
   - Corretores:
-    - Cotação: 'produtos/corretores/cotacao/request.md'
-    - Proposta: 'produtos/corretores/proposta/request.md'
+    - Cotação: 'produtos/corretores/cotacao.md'
+    - Proposta: 'produtos/corretores/proposta.md'
     - Campos adicionais no request de corretores: 'produtos/corretores/explicando-formulario.md'
 
 
   - 'D&O':
-    - Cotação: 'produtos/DAO/cotacao/request.md'
-    - Proposta: 'produtos/DAO/proposta/request.md'
+    - Cotação: 'produtos/DAO/cotacao.md'
+    - Proposta: 'produtos/DAO/proposta.md'
     - 'Campos adicionais no request de D&O': 'produtos/DAO/explicando-formulario.md'
 
 
