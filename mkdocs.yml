@@ -59,3 +59,16 @@ nav:
     - Cotação: 'produtos/corretores/cotacao/request.md'
     - Proposta: 'produtos/corretores/proposta/request.md'
     - Campos adicionais no request de corretores: 'produtos/corretores/explicando-formulario.md'
+
+
+  - 'D&O':
+    - Cotação: 'produtos/DAO/cotacao/request.md'
+    - Proposta: 'produtos/DAO/proposta/request.md'
+    - 'Campos adicionais no request de D&O': 'produtos/DAO/explicando-formulario.md'
+
+
+
+  - 'Serviços':
+    - Apolice: 'services/policy.md'
+
+

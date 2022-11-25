@@ -46,7 +46,7 @@ Request
       },
       {
          "code":"INSURED-NAME",
-         "answer":"samuel emidio"
+         "answer":"segurado"
       },
       {
          "code":"INSURED-EMAIL",
@@ -61,19 +61,19 @@ Request
       },
       {
          "code":"INSURED-CELLPHONE",
-         "answer":"(12) 99644-0332"
+         "answer":"(12) 99634-0232"
       },
       {
          "code":"INSURED-ADDRESS-ZIPCODE",
-         "answer":"12422-320"
+         "answer":"12412-321"
       },
       {
          "code":"INSURED-ADDRESS-STREET",
-         "answer":"Rua Antônio Lopes Pereira"
+         "answer":"Rua Antônio"
       },
       {
          "code":"INSURED-ADDRESS-NUMBER",
-         "answer":"98"
+         "answer":"983"
       },
       {
          "code":"INSURED-ADDRESS-COMPLEMENT",
@@ -81,7 +81,7 @@ Request
       },
       {
          "code":"INSURED-ADDRESS-NEIGHBORHOOD",
-         "answer":"Residencial Campos Maia"
+         "answer":"Residencial Campos"
       },
       {
          "code":"INSURED-ADDRESS-CITY",

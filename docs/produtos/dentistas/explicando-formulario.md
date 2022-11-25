@@ -1,3 +1,25 @@
+
+> **Code**: PRODUCT </br>
+> **Tipo**: ```text``` </br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
+> 
+> Pergunta usada para saber o produto. Os valores possíveis para esta pergunta são:<br><br>
+> 
+>  - **PROFESSIONAL-CIVIL-LIABILITY** </br>
+
+------------------------------------------------------------------------
+
+> **Code**: CURRENCY </br>
+> **Tipo**: ```text``` </br>
+> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
+> 
+> Pergunta usada para saber a moeda do seguro. Os valores possíveis para esta pergunta são:<br><br>
+> 
+>  - **BRL** </br>
+
+
+------------------------------------------------------------------------
+
 > **Code**: PROFESSIONAL-REGISTER <br> >**Type**: `text` <br> > <text class="aviso">❗ Obrigatório que esteja incluido no array.</text><br>
 >
 > Pergunta usada para definir o registro do profissional.

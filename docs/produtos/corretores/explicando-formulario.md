@@ -1,5 +1,3 @@
-
-
 >**Code**: PROFESSIONAL-REGISTER<br>
 >**Type**: ```text```<br>
 ><text class="aviso">❗ Obrigatório que esteja incluido no array.</text><br>
