@@ -9,3 +9,26 @@ Todas chamadas                  | Qualquer chamada                  | 100 solita
 Subscription-Key                | Qualquer chamada = 1 requisição   | 1000 soliticações | Por dia
 Receber apólice única           | GET /{versão}/get/{registerNumber}| 20 solicitações   | 20 segundos
 Receber lista apólices          | GET /{versão}/get-all             | 10 solicitações   | 20 segundos
+
+<br>
+
+Retornos
+-------
+
+<h6>Erro 429, muitas chamadas</h6>
+
+```json
+{
+    "statusCode": 429,
+    "message": "Rate limit is exceeded. Try again in 69 seconds."
+}
+```
+
+<h6>Erro 403, limites de chamadas da chave atingido</h6>
+
+```json
+{
+    "statusCode": 403,
+    "message": "Out of call volume quota. Quota will be replenished in 10:25:13."
+}
+```
