@@ -1056,3 +1056,209 @@ Response
 > **Type**: ```array<string>``` <br>
 >
 > Datas de vencimento da parcela caso a forma de pagamento seja boleto.
+
+
+Editação de cotação
+-------
+
+Para edição de cotação não é necessário fazer nada de diferente.
+
+Para editar vai ser necessário enviar o identifier da cotação no request, independentemente do produto utilizado. (neste exemplo foi utilizado um request de Bikes também) 
+
+Exemplo de request com identifier
+```json
+{
+    "identifier": "2badb55a-a785-4bf3-b35e-c551578bde85",
+    "operationCode": "BIKE-MULTIPLE-PERIL-PARTNER",
+    "answers": [
+        {
+            "code": "MODALITY",
+            "answer": "BIKE-MULTIPLE-PERIL"
+        },
+        {
+            "code": "PERSON-TYPE",
+            "answer": "NATURAL"
+        },
+        {
+            "code": "START-VIGENCY-DATE",
+            "answer": "2022-11-30T03:00:00.000Z"
+        },
+        {
+            "code": "VIGENCY-DURATION",
+            "answer": 1
+        },
+        {
+            "code": "CONGENER",
+            "answer": "NEW"
+        },
+        {
+            "code": "INSURED-NAME",
+            "answer": "Teste proposta vazia"
+        },
+        {
+            "code": "INSURED-EMAIL",
+            "answer": "teste@email.com"
+        },
+        {
+            "code": "IDENTITY",
+            "answer": "28214722268"
+        },
+        {
+            "code": "GENDER",
+            "answer": "I"
+        },
+        {
+            "code": "INSURED-CELLPHONE",
+            "answer": "(11) 91111-2222"
+        },
+        {
+            "code": "INSURED-ADDRESS-ZIPCODE",
+            "answer": "12345-123"
+        },
+        {
+            "code": "INSURED-ADDRESS-STREET",
+            "answer": "Nome da rua"
+        },
+        {
+            "code": "INSURED-ADDRESS-NUMBER",
+            "answer": "44"
+        },
+        {
+            "code": "INSURED-ADDRESS-COMPLEMENT",
+            "answer": "Não é obrigatório"
+        },
+        {
+            "code": "INSURED-ADDRESS-NEIGHBORHOOD",
+            "answer": "Bairro"
+        },
+        {
+            "code": "INSURED-ADDRESS-CITY",
+            "answer": "São Paulo"
+        },
+        {
+            "code": "INSURED-ADDRESS-STATE",
+            "answer": "SP"
+        },
+        {
+            "code": "COMMISSION",
+            "answer": 20
+        },
+        {
+            "code": "GRIEVANCE-DISCOUNT",
+            "answer": 0
+        },
+        {
+            "code": "ITEMS",
+            "answer": [
+                [
+                    {
+                        "code": "SERIAL-NUMBER",
+                        "answer": "13"
+                    },
+                    {
+                        "code": "ITEM-TYPE",
+                        "answer": "TRADITIONAL"
+                    },
+                    {
+                        "code": "MANUFACTURE-YEAR",
+                        "answer": 2022
+                    },
+                    {
+                        "code": "MODEL",
+                        "answer": "12"
+                    },
+                    {
+                        "code": "COMPETITIONS",
+                        "answer": false
+                    },
+                    {
+                        "code": "ORIGINAL-VALUE",
+                        "answer": 3500
+                    },
+                    {
+                        "code": "NEW",
+                        "answer": false
+                    },
+                    {
+                        "code": "BRAND",
+                        "answer": "ACCELL"
+                    },
+                    {
+                        "code": "BRAND-NAME",
+                        "answer": "ACCELL"
+                    },
+                    {
+                        "code": "FRAME-TYPE",
+                        "answer": "CARBON"
+                    },
+                    {
+                        "code": "FRAME-TYPE-AGREEMENT",
+                        "answer": true
+                    },
+                    {
+                        "code": "CLAIMS",
+                        "answer": "0"
+                    },
+                    {
+                        "code": "DEDUCTIBLE",
+                        "answer": "DEFAULT"
+                    },
+                    {
+                        "code": "PARTS",
+                        "answer": [
+                            [
+                                {
+                                    "code": "PART-TYPE",
+                                    "answer": "UNMODIFIED"
+                                },
+                                {
+                                    "code": "PART-BRAND"
+                                },
+                                {
+                                    "code": "PART-MODEL"
+                                },
+                                {
+                                    "code": "PART-VALUE"
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "code": "COVERAGES",
+                        "answer": [
+                            [
+                                {
+                                    "code": "COVERAGE-TYPE",
+                                    "answer": "DAMAGE-COVERAGE"
+                                }
+                            ],
+                            [
+                                {
+                                    "code": "COVERAGE-TYPE",
+                                    "answer": "THEFT-COVERAGE"
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "code": "RENT",
+                        "answer": false
+                    },
+                    {
+                        "code": "INVOICE",
+                        "answer": true
+                    },
+                    {
+                        "code": "INVOICE-AGREEMENT",
+                        "answer": true
+                    },
+                    {
+                        "code": "VALUE-AGREEMENT",
+                        "answer": true
+                    }
+                ]
+            ]
+        }
+    ]
+}
+```
