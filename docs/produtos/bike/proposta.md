@@ -14,82 +14,6 @@ Request
     "operationCode": "BIKE-MULTIPLE-PERIL-PARTNER",
     "answers": [
         {
-            "code": "MODALITY",
-            "answer": "BIKE-MULTIPLE-PERIL"
-        },
-        {
-            "code": "PERSON-TYPE",
-            "answer": "NATURAL"
-        },
-        {
-            "code": "START-VIGENCY-DATE",
-            "answer": "2022-11-22T03:00:00.000Z"
-        },
-        {
-            "code": "VIGENCY-DURATION",
-            "answer": 1
-        },
-        {
-            "code": "CONGENER",
-            "answer": "NEW"
-        },
-        {
-            "code": "INSURED-NAME",
-            "answer": "Nome do segurado"
-        },
-        {
-            "code": "INSURED-EMAIL",
-            "answer": "teste@email.com"
-        },
-        {
-            "code": "IDENTITY",
-            "answer": "10481767703"
-        },
-        {
-            "code": "GENDER",
-            "answer": "I"
-        },
-        {
-            "code": "INSURED-CELLPHONE",
-            "answer": "(11) 91111-2222"
-        },
-        {
-            "code": "INSURED-ADDRESS-ZIPCODE",
-            "answer": "12345-123"
-        },
-        {
-            "code": "INSURED-ADDRESS-STREET",
-            "answer": "Nome da rua"
-        },
-        {
-            "code": "INSURED-ADDRESS-NUMBER",
-            "answer": "44"
-        },
-        {
-            "code": "INSURED-ADDRESS-COMPLEMENT",
-            "answer": "Não é obrigatório"
-        },
-        {
-            "code": "INSURED-ADDRESS-NEIGHBORHOOD",
-            "answer": "Bairro"
-        },
-        {
-            "code": "INSURED-ADDRESS-CITY",
-            "answer": "São Paulo"
-        },
-        {
-            "code": "INSURED-ADDRESS-STATE",
-            "answer": "SP"
-        },
-        {
-            "code": "COMMISSION",
-            "answer": 20
-        },
-        {
-            "code": "GRIEVANCE-DISCOUNT",
-            "answer": 0
-        },
-        {
             "code": "PAYMENT-METHOD",
             "answer": "CREDIT-CARD"
         },
@@ -105,113 +29,6 @@ Request
             "code": "PAYMENT-INSTALLMENT-IDENTIFIER",
             "answer": "adee1bc9-154f-4fa2-937d-34d2610bed83"
         },
-        {
-            "code": "ITEMS",
-            "answer": [
-                [
-                    {
-                        "code":"ITEM-IDENTIFIER",
-                        "answer":"1634aa56-f096-43a2-bd47-11ecd4600c7e"
-                    },
-                    {
-                        "code": "SERIAL-NUMBER",
-                        "answer": "13"
-                    },
-                    {
-                        "code": "ITEM-TYPE",
-                        "answer": "TRADITIONAL"
-                    },
-                    {
-                        "code": "MANUFACTURE-YEAR",
-                        "answer": 2022
-                    },
-                    {
-                        "code": "MODEL",
-                        "answer": "12"
-                    },
-                    {
-                        "code": "COMPETITIONS",
-                        "answer": false
-                    },
-                    {
-                        "code": "ORIGINAL-VALUE",
-                        "answer": 3500
-                    },
-                    {
-                        "code": "NEW",
-                        "answer": false
-                    },
-                    {
-                        "code": "BRAND",
-                        "answer": "ACCELL"
-                    },
-                    {
-                        "code": "BRAND-NAME",
-                        "answer": "ACCELL"
-                    },
-                    {
-                        "code": "FRAME-TYPE",
-                        "answer": "CARBON"
-                    },
-                    {
-                        "code": "FRAME-TYPE-AGREEMENT",
-                        "answer": true
-                    },
-                    {
-                        "code": "CLAIMS",
-                        "answer": "0"
-                    },
-                    {
-                        "code": "DEDUCTIBLE",
-                        "answer": "DEFAULT"
-                    },
-                    {
-                        "code": "PARTS",
-                        "answer": [
-                            [
-                                {
-                                    "code": "PART-TYPE",
-                                    "answer": "UNMODIFIED"
-                                }
-                            ]
-                        ]
-                    },
-                    {
-                        "code": "COVERAGES",
-                        "answer": [
-                            [
-                                {
-                                    "code": "COVERAGE-TYPE",
-                                    "answer": "DAMAGE-COVERAGE"
-                                }
-                            ],
-                            [
-                                {
-                                    "code": "COVERAGE-TYPE",
-                                    "answer": "THEFT-COVERAGE"
-                                }
-                            ]
-                        ]
-                    },
-                    {
-                        "code": "RENT",
-                        "answer": false
-                    },
-                    {
-                        "code": "INVOICE",
-                        "answer": true
-                    },
-                    {
-                        "code": "INVOICE-AGREEMENT",
-                        "answer": true
-                    },
-                    {
-                        "code": "VALUE-AGREEMENT",
-                        "answer": true
-                    }
-                ]
-            ]
-        }
     ],
     "documents": [
         {
@@ -224,6 +41,20 @@ Request
     ]
 }
 ```
+
+# Na proposta de bikes possuimos o campo "documents"
+
+> **Field**: ItemIdentifier <br>
+> **Type**: ```guid``` <br>
+> <text class="aviso">❗ Campo obrigatório.</text> <br>
+> 
+> Campo usado para enviar o variantIdentifier (retornado no response de cotação).<br>
+
+> **Field**: Files <br>
+> **Type**: ```base64``` <br>
+> <text class="aviso">❗ Campo obrigatório.</text> <br>
+> 
+> Campo usado para enviar duas fotos em base64 OBRIGATÓRIAS da bike, com no minimo 2 fotos .<br>
 
 Response
 --------

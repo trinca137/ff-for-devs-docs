@@ -14,152 +14,6 @@ Request
     "operationCode": "INSURANCE-BROKER-CIVIL-LIABILITY-PARTNER",
     "answers": [
         {
-            "code": "MODALITY",
-            "answer": "INSURANCE-BROKER-CIVIL-LIABILITY"
-        },
-        {
-            "code": "PERSON-TYPE",
-            "answer": "NATURAL"
-        },
-        {
-            "code": "CONGENER",
-            "answer": "RENEWAL"
-        },
-        {
-            "code": "PREVIOUS-INSURER",
-            "answer": "0"
-        },
-        {
-            "code": "PREVIOUS-INSURER-NAME",
-            "answer": "Seguradora anterior"
-        },
-        {
-            "code": "START-VIGENCY-DATE",
-            "answer": "2022-11-22T03:00:00.000Z"
-        },
-        {
-            "code": "IDENTITY",
-            "answer": "000.111.222-33"
-        },
-        {
-            "code": "INSURED-NAME",
-            "answer": "Nome segurado"
-        },
-        {
-            "code": "INSURED-EMAIL",
-            "answer": "email@segurado.com"
-        },
-        {
-            "code": "INSURED-CELLPHONE",
-            "answer": "(11) 91111-2222"
-        },
-        {
-            "code": "INSURED-ADDRESS-ZIPCODE",
-            "answer": "12345-123"
-        },
-        {
-            "code": "INSURED-ADDRESS-STREET",
-            "answer": "Nome da rua"
-        },
-        {
-            "code": "INSURED-ADDRESS-NUMBER",
-            "answer": "Número"
-        },
-        {
-            "code": "INSURED-ADDRESS-COMPLEMENT",
-            "answer": ""
-        },
-        {
-            "code": "INSURED-ADDRESS-NEIGHBORHOOD",
-            "answer": "Bairro"
-        },
-        {
-            "code": "INSURED-ADDRESS-CITY",
-            "answer": "São Paulo"
-        },
-        {
-            "code": "INSURED-ADDRESS-STATE",
-            "answer": "SP"
-        },
-        {
-            "code": "COMMISSION",
-            "answer": 20
-        },
-        {
-            "code": "GRIEVANCE-DISCOUNT",
-            "answer": 0
-        },
-        {
-            "code": "PROFESSIONAL-REGISTER",
-            "answer": "123456"
-        },
-        {
-            "code": "REGISTER-NUMBER-TYPE",
-            "answer": "FULL"
-        },
-        {
-            "code": "CATEGORIES",
-            "answer": [
-                "CAR",
-                "AERONAUTICAL",
-                "CONSORTIUM"
-            ]
-        },
-        {
-            "code": "DIGITAL-CERTIFICATION-COVERAGE"
-        },
-        {
-            "code": "RETROACTIVITY",
-            "answer": 3
-        },
-        {
-            "code": "RETROACTIVITY-AGREEMENT"
-        },
-        {
-            "code": "VIGENCY-RETROACTIVITY-AGREEMENT"
-        },
-        {
-            "code": "CLAIMS",
-            "answer": "0"
-        },
-        {
-            "code": "CLAIM-EXPECTATION",
-            "answer": false
-        },
-        {
-            "code": "CLAIM-EXPECTATION-THIRD-PARTY"
-        },
-        {
-            "code": "CLAIM-EXPECTATION-AGREEMENT"
-        },
-        {
-            "code": "TERRITORIALITY",
-            "answer": "BR"
-        },
-        {
-            "code": "SCOPE",
-            "answer": "NATIONAL"
-        },
-        {
-            "code": "LIMIT-DEDUCTIBLE",
-            "answer": [
-                [
-                    {
-                        "code": "LIMIT",
-                        "answer": 100000
-                    },
-                    {
-                        "code": "DEDUCTIBLE",
-                        "answer": "INCREASED"
-                    },
-                    {
-                        "code": "VARIANT-IDENTIFIER",
-                        "answer": "01d46264-70d5-4f44-aba5-805fedba0d7a"
-                    }
-                ]
-            ]
-        },
-        {
             "code": "PAYMENT-METHOD",
             "answer": "CREDIT-CARD"
         },
@@ -170,7 +24,11 @@ Request
         {
             "code": "PAYMENT-INSTALLMENT-IDENTIFIER",
             "answer": "fab2abd1-88f3-40fe-b37f-0db0ed5ba9b5"
-        }
+        },
+        {
+            "code": "DUE-DAY",
+            "answer": 1
+        },
     ]
 }
 ```
