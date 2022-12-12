@@ -50,11 +50,15 @@ Request
 > 
 > Campo usado para enviar o variantIdentifier (retornado no response de cotação).<br>
 
+----------------------------------------------------------------------------------------
+
 > **Field**: Files <br>
 > **Type**: ```base64``` <br>
 > <text class="aviso">❗ Campo obrigatório.</text> <br>
 > 
-> Campo usado para enviar duas fotos em base64 OBRIGATÓRIAS da bike, com no minimo 2 fotos .<br>
+> Campo usado para enviar duas fotos OBRIGATÓRIAS em base64 da bike, com no minimo 2 fotos .<br>
+
+----------------------------------------------------------------------------------------
 
 Response
 --------
