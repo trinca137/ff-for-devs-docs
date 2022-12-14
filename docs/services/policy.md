@@ -444,3 +444,312 @@ Explicando campos de response da apólice
 > **Type**: ```date``` <br>
 >
 > Data de criação da parcela.
+
+
+
+
+
+
+
+
+
+
+Criar Sinistro
+--------------
+
+#### Endpoint
+```
+POST: {{url_ambiente}}/v1/claim
+```
+
+> ❕ Chamada POST, para criar o sinistro.
+
+
+#### Request
+-------
+
+```json
+{
+    "description":"descricao para o sinistro",
+    "policyNumber":"046692022100101710000820",
+    "notificationEmail":"email@gmail.com",
+    "files":[]
+}
+```
+
+💡 **Explicando o JSON de request**
+
+> **Field**: description <br>
+> **Type**: ```string``` <br>
+> <text class="aviso">❗Campo obrigatório.</text><br>
+> <text class="aviso">❗Minimo de 20 caracteres.</text>
+> 
+> Campo usado para definir a descrição do sinistro.
+
+------------------------------------------------------------------------------
+
+> **Field**: policyNumber <br>
+> **Type**: ```string``` <br>
+> <text class="aviso">❗Campo obrigatório.</text>
+> 
+> Campo usado para definir o vinculo entre apolice e sinistro.
+
+------------------------------------------------------------------------------
+
+
+> **Field**: notificationEmail <br>
+> **Type**: ```string``` <br>
+> <text class="aviso">❗Campo obrigatório.</text>
+> 
+> Campo usado para definir o email que recebera uma notificação.
+
+------------------------------------------------------------------------------
+
+> **Field**: files <br>
+> **Type**: ```array<string>``` <br>
+> 
+> Campo usado para enviar um array de arquivos no formato de base64.
+
+------------------------------------------------------------------------------
+
+
+#### Response
+
+```json
+{
+    "protocol": "202212120011",
+    "success": true,
+    "executed": "2022-12-12T10:56:32.00473372"
+}
+```
+
+💡 **Explicando o JSON de response**
+
+> **Field**: protocol <br>
+> **Type**: ```string``` <br>
+> 
+> Numero de protocolo gerado vinculado ao sinistro.
+
+------------------------------------------------------------------------------
+
+
+
+
+
+Consultar Sinistro
+------------------
+
+
+#### Endpoint
+```
+GET: {{url_ambiente}}/v1/claim/046692022100101710000820
+```
+
+> ❕ Chamada GET, para consultar o sinistro, passando como route parameter o numero da apolice.
+
+
+
+#### Query Parameters
+
+> **Field**: page <br>
+> **Type**: ```string``` <br>
+>
+> Possível passar número da pagina.
+
+----------------------------------------------------------------------------
+
+
+> **Field**: protocol <br>
+> **Type**: ```string``` <br>
+>
+> Possível passar número do protocolo.
+
+----------------------------------------------------------------------------
+
+
+
+#### response
+
+
+```json
+{
+    "totalItems": 12,
+    "itemsPerPage": 10,
+    "list": [
+        {
+            "updatedAt": "0001-01-01T00:00:00Z",
+            "createdAt": "2022-11-30T15:08:48.8390442Z",
+            "description": "descricao para o sinistro",
+            "protocol": "202211300001",
+            "notificationEmail": "email@gmail.com",
+            "files": []
+        },
+        {
+            "updatedAt": "0001-01-01T00:00:00Z",
+            "createdAt": "2022-11-30T15:41:28.9666929Z",
+            "description": "descricao para o sinistro",
+            "protocol": "202211300002",
+            "notificationEmail": "email@gmail.com",
+            "files": []
+        },
+        {
+            "updatedAt": "0001-01-01T00:00:00Z",
+            "createdAt": "2022-12-02T00:51:50.6185862Z",
+            "description": "descricao para o sinistro",
+            "protocol": "202212010003",
+            "notificationEmail": "email@gmail.com",
+            "files": [
+                {
+                    "url": ""
+                }
+            ]
+        },
+        {
+            "updatedAt": "0001-01-01T00:00:00Z",
+            "createdAt": "2022-12-02T00:52:44.29048Z",
+            "description": "descricao para o sinistro",
+            "protocol": "202212010004",
+            "notificationEmail": "email@gmail.com",
+            "files": [
+                {
+                    "url": ""
+                }
+            ]
+        },
+        {
+            "updatedAt": "0001-01-01T00:00:00Z",
+            "createdAt": "2022-12-02T00:58:19.2392716Z",
+            "description": "descricao para o sinistro",
+            "protocol": "202212010005",
+            "notificationEmail": "email@gmail.com",
+            "files": [
+                {
+                    "url": ""
+                }
+            ]
+        },
+        {
+            "updatedAt": "0001-01-01T00:00:00Z",
+            "createdAt": "2022-12-02T00:58:34.6285619Z",
+            "description": "descricao para o sinistro",
+            "protocol": "202212010006",
+            "notificationEmail": "email@gmail.com",
+            "files": [
+                {
+                    "url": ""
+                }
+            ]
+        },
+        {
+            "updatedAt": "0001-01-01T00:00:00Z",
+            "createdAt": "2022-12-02T01:00:57.1733333Z",
+            "description": "descricao para o sinistro",
+            "protocol": "202212010007",
+            "notificationEmail": "email@gmail.com",
+            "files": [
+                {
+                    "url": ""
+                }
+            ]
+        },
+        {
+            "updatedAt": "0001-01-01T00:00:00Z",
+            "createdAt": "2022-12-06T11:50:39.8020657Z",
+            "description": "descricao para o sinistro",
+            "protocol": "202212060008",
+            "notificationEmail": "email@gmail.com",
+            "files": [
+                {
+                    "url": ""
+                }
+            ]
+        },
+        {
+            "updatedAt": "0001-01-01T00:00:00Z",
+            "createdAt": "2022-12-06T11:55:21.9120622Z",
+            "description": "descricao para o sinistro",
+            "protocol": "202212060009",
+            "notificationEmail": "email@gmail.com",
+            "files": [
+                {
+                    "url": ""
+                }
+            ]
+        },
+        {
+            "updatedAt": "0001-01-01T00:00:00Z",
+            "createdAt": "2022-12-08T15:49:17.9276681Z",
+            "description": "descricao para o sinistro",
+            "protocol": "202212080010",
+            "notificationEmail": "email@gmail.com",
+            "files": []
+        }
+    ],
+    "success": true,
+    "executed": "2022-12-14T11:51:02.8707949Z"
+}
+```
+
+
+💡 **Explicando o JSON de response**
+
+> **Field**: list.updatedAt <br>
+> **Type**: ```date``` <br>
+> 
+> Data de atualização do sinistro.
+
+------------------------------------------------------------------------------
+
+> **Field**: list.createdAt <br>
+> **Type**: ```date``` <br>
+> 
+> Data de criação do sinistro.
+
+------------------------------------------------------------------------------
+
+
+> **Field**: list.description <br>
+> **Type**: ```string``` <br>
+> 
+> Descrição do sinistro.
+
+------------------------------------------------------------------------------
+
+> **Field**: list.protocol <br>
+> **Type**: ```string``` <br>
+> 
+> Protocolo do sinistro.
+
+------------------------------------------------------------------------------
+
+> **Field**: list.notificationEmail <br>
+> **Type**: ```string``` <br>
+> 
+> Email que recebeu a notificação do sinistro.
+
+------------------------------------------------------------------------------
+
+
+> **Field**: list.notificationEmail <br>
+> **Type**: ```string``` <br>
+> 
+> Email que recebeu a notificação do sinistro.
+
+------------------------------------------------------------------------------
+
+
+> **Field**: list.files <br>
+> **Type**: ```array``` <br>
+> 
+> Array contendo os arquivos vinculados ao sinistro.
+
+------------------------------------------------------------------------------
+
+
+> **Field**: list.files[].url <br>
+> **Type**: ```string``` <br>
+> 
+> Link do arquivo.
+
+------------------------------------------------------------------------------
+
