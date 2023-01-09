@@ -1,18 +1,20 @@
 # Criar Proposta
 
 ### Endpoint
+
 ```
 POST: {{url_ambiente}}/v1/quotation/proposal
 ```
 
-Request
--------
+## Request
 
 !!! Aviso
 
-      Esse json abaixo contém as informações onde TODOS os produtos utilizam, na pagina do produto é necessário adicionar os campos (contém exemplo nos produtos)
+```
+  Esse json abaixo contém as informações onde TODOS os produtos utilizam, na pagina do produto é necessário adicionar os campos (contém exemplo nos produtos)
 
-      As respostas estão usando valores referentes a um produto, no caso "Bike"
+  As respostas estão usando valores referentes a um produto, no caso "Bike"
+```
 
 ```json
 {
@@ -119,15 +121,19 @@ Request
 }
 ```
 
-<br>
+\
+
 
 !!! Aviso "Aviso sobre os campos documentados abaixo."
 
-      Isso é um padrão de envio para todos produtos.
-      
-      Verifique os campos adicionais para cada produto para adicionar no array de **```Answers```**
+````
+  Isso é um padrão de envio para todos produtos.
+  
+  Verifique os campos adicionais para cada produto para adicionar no array de **```Answers```**
+````
 
-<br>
+\
+
 
 ### 💡Desmistificando o json de request
 
@@ -138,29 +144,33 @@ Request
 }
 ```
 
->**Field**: Identifier <br>
->**Type**: ```guid``` <br>
-> <text class="aviso">❗ Campo obrigatório (quando for Proposta ou Checkout).</text> <br>
-> 
->Campo usado para definir qual a cotação será enviada para proposta e checkout.<br>
+> **Field**: Identifier\
+> **Type**: `guid`\
+> ❗ Campo obrigatório (quando for Proposta ou Checkout).\
+>
+>
+> Campo usado para definir qual a cotação será enviada para proposta e checkout.\
+>
 
-------------------------------------------------------------------------------
+***
 
-> **Field**: OperationCode </br>
-> **Tipo**: ```text``` </br>
-> <text class="aviso">❗ Campo Obrigatório.</text> </br>
-> 
+> **Field**: OperationCode\
+> **Tipo**: `text`\
+> ❗ Campo Obrigatório.\
+>
+>
 > Campo usado para definir qual produto está sendo cotado. Neste caso, o produto é "Bike", representado pelo operation code "BIKE-MULTIPLE-PERIL-PARTNER".
 
----------------------------------------------------------
+***
 
-> **Field**: Answers </br>
-> **Tipo**: ```array<answer>``` </br>
-> <text class="aviso">❗ Campo Obrigatório.</text> </br>
-> 
+> **Field**: Answers\
+> **Tipo**: `array<answer>`\
+> ❗ Campo Obrigatório.\
+>
+>
 > Campo usado para enviar perguntas mais gerais de uma cotação – um exemplo de pergunta seria se a pessoa é Jurídica ou Física. Mais detalhes sobre essas perguntas a seguir, na documentação.
 
----------------------------------------------------------
+***
 
 > Como explicado anteriormente, o campo **answers** tem como finalidade enviar perguntas referentes a cotação. A seguir, você verá os valores que poderão/deverão estar inclusos nesse array.
 
@@ -176,236 +186,271 @@ Request
 }
 ```
 
-> **Code**: MODALITY </br>
-> **Tipo**: ```text``` </br>
-> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
-> 
+> **Code**: MODALITY\
+> **Tipo**: `text`\
+> ❗ Obrigatório que esteja incluído no array.\
+>
+>
 > Pergunta usada para definir qual modalidade está sendo cotado. Neste caso, a modalidade é "Bike", representado pelo código **"BIKE-MULTIPLE-PERIL"**.
 
-------------------------------------------------------------------------
+***
 
-> **Code**: PERSON-TYPE </br>
-> **Tipo**: ```text``` </br>
-> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
-> 
-> Pergunta usada para saber se a cotação está sendo preenchida por uma Pessoa Física ou Jurídica.<br><br>
-> Os valores possíveis para esta pergunta são:</br>
-> 
->  - **NATURAL** = significa que a pessoa em questão é física. </br>
->  - **LEGAL** = significa que a pessoa em questão é jurídica.
+> **Code**: PERSON-TYPE\
+> **Tipo**: `text`\
+> ❗ Obrigatório que esteja incluído no array.\
+>
+>
+> Pergunta usada para saber se a cotação está sendo preenchida por uma Pessoa Física ou Jurídica.\
+> \
+> Os valores possíveis para esta pergunta são:\
+>
+>
+> * **NATURAL** = significa que a pessoa em questão é física.\
+>
+> * **LEGAL** = significa que a pessoa em questão é jurídica.
 
-------------------------------------------------------------------------
+***
 
-> **Code**: CONGENER </br>
-> **Tipo**: ```text``` </br>
-> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
-> 
-> Pergunta usada para definir se a cotação em questão é um Seguro Novo ou uma Renovação.<br><br>
-> Os valores possíveis para esta pergunta são:<br>
-> 
->  - **NEW** = indica que é um novo seguro. </br>
->  - **RENEW** = indica que é a renovação de um seguro.
+> **Code**: CONGENER\
+> **Tipo**: `text`\
+> ❗ Obrigatório que esteja incluído no array.\
+>
+>
+> Pergunta usada para definir se a cotação em questão é um Seguro Novo ou uma Renovação.\
+> \
+> Os valores possíveis para esta pergunta são:\
+>
+>
+> * **NEW** = indica que é um novo seguro.\
+>
+> * **RENEW** = indica que é a renovação de um seguro.
 
-------------------------------------------------------------------------
+***
 
-> **Code**: PREVIOUS-INSURER </br>
-> **Tipo**: ```text``` </br>
-> <text class="aviso">❗ Obrigatório que esteja incluído no array. (se a cotação for uma renovação de outra seguradora). </text>
-> 
-> Pergunta usada para definir qual é a seguradora anterior. </br>
+> **Code**: PREVIOUS-INSURER\
+> **Tipo**: `text`\
+> ❗ Obrigatório que esteja incluído no array. (se a cotação for uma renovação de outra seguradora).
+>
+> Pergunta usada para definir qual é a seguradora anterior.\
 > Neste campo, deve-se enviar um **CNPJ**.
 
-------------------------------------------------------------------------
+***
 
-> **Code**: PREVIOUS-INSURER-NAME</br>
-> **Tipo**: ```text``` </br>
-> <text class="aviso">❗ Obrigatório que esteja incluído no array. (se a cotação for uma renovação de outra seguradora).</text></br>
-> 
+> **Code**: PREVIOUS-INSURER-NAME\
+> **Tipo**: `text`\
+> ❗ Obrigatório que esteja incluído no array. (se a cotação for uma renovação de outra seguradora).\
+>
+>
 > Pergunta usada para definir o nome da seguradora anterior.
 
-------------------------------------------------------------------------
+***
 
-> **Code**: START-VIGENCY-DATE </br>
-> **Tipo**: ```date``` </br>
-> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
-> 
+> **Code**: START-VIGENCY-DATE\
+> **Tipo**: `date`\
+> ❗ Obrigatório que esteja incluído no array.\
+>
+>
 > Pergunta usada para definir o início da vigência do seguro.
 
-------------------------------------------------------------------------
+***
 
-> **Code**: VIGENCY-DURATION </br>
-> **Tipo**: ```integer``` </br>
-> <text class="aviso"> No momento so é possivel o padrão, não sendo possível mudar a duração da vigência. </text> </br>
-> 
-> Pergunta usada para definir a duração da vigência em anos. O valor padrão é 1.  </br>
-> <text class="aviso"> ❗Atualmente não é possivel colocar mais do que 1 ano. </text>
+> **Code**: VIGENCY-DURATION\
+> **Tipo**: `integer`\
+> No momento so é possivel o padrão, não sendo possível mudar a duração da vigência.\
+>
+>
+> Pergunta usada para definir a duração da vigência em anos. O valor padrão é 1.\
+> ❗Atualmente não é possivel colocar mais do que 1 ano.
 
-------------------------------------------------------------------------
+***
 
-> **Code**: IDENTITY </br>
-> **Tipo**: ```text``` </br>
-> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
-> 
+> **Code**: IDENTITY\
+> **Tipo**: `text`\
+> ❗ Obrigatório que esteja incluído no array.\
+>
+>
 > Pergunta usada para definir a identificação do segurado, seja ela um **CPF** ou um **CNPJ**.
 
-------------------------------------------------------------------------
+***
 
-> **Code**: INSURED-NAME </br>
-> **Tipo**: ```text``` </br>
-> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
-> 
+> **Code**: INSURED-NAME\
+> **Tipo**: `text`\
+> ❗ Obrigatório que esteja incluído no array.\
+>
+>
 > Pergunta usada para definir o nome do segurado.
-> 
-------------------------------------------------------------------------
 
-> **Code**: INSURED-EMAIL </br>
-> **Tipo**: ```text``` </br>
-> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
-> 
+***
+
+> **Code**: INSURED-EMAIL\
+> **Tipo**: `text`\
+> ❗ Obrigatório que esteja incluído no array.\
+>
+>
 > Pergunta usada para definir o e-mail do segurado.
 
-------------------------------------------------------------------------
+***
 
-> **Code**: INSURED-CELLPHONE </br>
-> **Tipo**: ```text``` </br>
-> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
-> 
+> **Code**: INSURED-CELLPHONE\
+> **Tipo**: `text`\
+> ❗ Obrigatório que esteja incluído no array.\
+>
+>
 > Pergunta usada para definir o telefone ou celular do segurado.
 
-------------------------------------------------------------------------
+***
 
-> **Code**: INSURED-ADDRESS-ZIPCODE </br>
-> **Tipo**: ```text``` </br>
-> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
-> 
+> **Code**: INSURED-ADDRESS-ZIPCODE\
+> **Tipo**: `text`\
+> ❗ Obrigatório que esteja incluído no array.\
+>
+>
 > Pergunta usada para definir o código postal (CEP) do segurado.
 
-------------------------------------------------------------------------
+***
 
-> **Code**: INSURED-ADDRESS-STREET </br>
-> **Tipo**: ```text``` </br>
-> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
-> 
+> **Code**: INSURED-ADDRESS-STREET\
+> **Tipo**: `text`\
+> ❗ Obrigatório que esteja incluído no array.\
+>
+>
 > Pergunta usada para definir a rua do segurado.
 
-------------------------------------------------------------------------
+***
 
-> **Code**: INSURED-ADDRESS-NUMBER </br>
-> **Tipo**: ```text``` </br>
-> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
-> 
+> **Code**: INSURED-ADDRESS-NUMBER\
+> **Tipo**: `text`\
+> ❗ Obrigatório que esteja incluído no array.\
+>
+>
 > Pergunta usada para definir o número da moradia do segurado.
 
-------------------------------------------------------------------------
+***
 
-> **Code**: INSURED-ADDRESS-COMPLEMENT </br>
-> **Tipo**: ```text``` </br>
-> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
-> 
+> **Code**: INSURED-ADDRESS-COMPLEMENT\
+> **Tipo**: `text`\
+> ❗ Obrigatório que esteja incluído no array.\
+>
+>
 > Pergunta usada para definir o número da moradia do segurado.
 
-------------------------------------------------------------------------
+***
 
-> **Code**: INSURED-ADDRESS-NEIGHBORHOOD </br>
-> **Tipo**: ```text``` </br>
-> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
-> 
+> **Code**: INSURED-ADDRESS-NEIGHBORHOOD\
+> **Tipo**: `text`\
+> ❗ Obrigatório que esteja incluído no array.\
+>
+>
 > Pergunta usada para definir o bairro do segurado.
 
-------------------------------------------------------------------------
+***
 
-> **Code**: INSURED-ADDRESS-CITY </br>
-> **Tipo**: ```text``` </br>
-> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
-> 
+> **Code**: INSURED-ADDRESS-CITY\
+> **Tipo**: `text`\
+> ❗ Obrigatório que esteja incluído no array.\
+>
+>
 > Pergunta usada para definir a cidade do segurado.
 
-------------------------------------------------------------------------
+***
 
-> **Code**: INSURED-ADDRESS-STATE </br>
-> **Tipo**: ```text``` </br>
-> <text class="aviso">❗Obrigatório que esteja incluído no array. </text> </br>
-> 
+> **Code**: INSURED-ADDRESS-STATE\
+> **Tipo**: `text`\
+> ❗Obrigatório que esteja incluído no array.\
+>
+>
 > Pergunta usada para definir o estado do segurado.
 
-------------------------------------------------------------------------
+***
 
-> **Code**: GENDER </br>
-> **Tipo**: ```text``` </br>
-> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text> </br>
-> 
-> Pergunta usada para definir o gênero do segurado.<br><br>
-Os possíveis valores para esta pergunta são: </br>
-> 
-> **M** = masculino </br>
-> **F** = feminino </br>
-> **I** = não informado. </br>
-> 
+> **Code**: GENDER\
+> **Tipo**: `text`\
+> ❗ Obrigatório que esteja incluído no array.\
+>
+>
+> Pergunta usada para definir o gênero do segurado.\
+> \
+> Os possíveis valores para esta pergunta são:\
+>
+>
+> **M** = masculino\
+> **F** = feminino\
+> **I** = não informado.\
+>
+>
 > O valor padrão é "**I**".
 
-------------------------------------------------------------------------
+***
 
-> **Code**: COMMISSION </br>
-> **Tipo**: ```decimal``` </br>
-> <text class="aviso">❗Obrigatório que esteja incluído</text><br>
-> Pergunta usada para definir a comissão. </br>
-> 
-> Pode ser enviado valores entre 1 e 30.<br>
+> **Code**: COMMISSION\
+> **Tipo**: `decimal`\
+> ❗Obrigatório que esteja incluído\
+> Pergunta usada para definir a comissão.\
+>
+>
+> Pode ser enviado valores entre 1 e 30.\
 > Valor padrão é 20.00.
 
---------------------------------------------------------------------------
+***
 
-> **Code**: GRIEVANCE-DISCOUNT </br>
-> **Tipo**: ```decimal```<br>
-> 
-> Pergunta usada para definir Agravo (aumento de preço sobre o netValue* da cotação).<br>
-> O Padrão é 0.<br>
-> <text class="aviso"> * Preço líquido do produto sem IOF. </text>
-
-------------------------------------------------------------------------
-
-> **Code**: INSURED-BIRTH-DATE <br>
-> **Type**: ```date``` <br>
-> <text class="aviso">❗ Obrigatório que esteja incluído no array.</text><br>
+> **Code**: GRIEVANCE-DISCOUNT\
+> **Tipo**: `decimal`\
 >
->Pergunta usada para definir a data de nascimento do segurado.
-
---------------------------------------------------------------------------
-
-> **Code**: PAYMENT-METHOD <br>
-> **Type**: ```text``` <br>
-> <text class="aviso">❗ Obrigatório que esteja incluído no array.</text> <br>
 >
-> Pergunta usada para definir o método de pagamento.<br>
-  Os possíveis valores para esta pergunta são:
+> Pergunta usada para definir Agravo (aumento de preço sobre o netValue\* da cotação).\
+> O Padrão é 0.\
+> \* Preço líquido do produto sem IOF.
+
+***
+
+> **Code**: INSURED-BIRTH-DATE\
+> **Type**: `date`\
+> ❗ Obrigatório que esteja incluído no array.\
 >
-> - *CREDIT-CARD*
-> - *TICKET*
-
---------------------------------------------------------------------------
-
-> **Code**: DUE-DAY <br>
-> **Type**: ```integer``` <br>
-> <text class="aviso">❗ Obrigatório que esteja incluído no array. (apenas quando o PAYMENT-METHOD for TICKET).  </text><br>
 >
-> Pergunta usada para definir o dia de vencimento quando o PAYMENT-METHOD for TICKET (boleto). <br>
+> Pergunta usada para definir a data de nascimento do segurado.
 
----------------------------------------------------------------------------
+***
 
-> **Code**: PAYMENT-INSTALLMENT-IDENTIFIER <br>
-> **Type**: ```guid``` <br>
-> <text class="aviso">❗ Obrigatório que esteja incluído no array. </text><br>
+> **Code**: PAYMENT-METHOD\
+> **Type**: `text`\
+> ❗ Obrigatório que esteja incluído no array.\
 >
-> O guid que será enviado nesse campo é retornado no array de installments, no retorno do endpoint de criar cotação. <br>
+>
+> Pergunta usada para definir o método de pagamento.\
+> Os possíveis valores para esta pergunta são:
+>
+> * _CREDIT-CARD_
+> * _TICKET_
 
-------------------------------------------------------------------------------
+***
 
-Response
---------
+> **Code**: DUE-DAY\
+> **Type**: `integer`\
+> ❗ Obrigatório que esteja incluído no array. (apenas quando o PAYMENT-METHOD for TICKET).\
+>
+>
+> Pergunta usada para definir o dia de vencimento quando o PAYMENT-METHOD for TICKET (boleto).\
+>
+
+***
+
+> **Code**: PAYMENT-INSTALLMENT-IDENTIFIER\
+> **Type**: `guid`\
+> ❗ Obrigatório que esteja incluído no array.\
+>
+>
+> O guid que será enviado nesse campo é retornado no array de installments, no retorno do endpoint de criar cotação.\
+>
+
+***
+
+## Response
 
 ### Retornos
 
-- Quando retornar 400, retorna a pergunta que faltou alguma resposta, no exemplo a baixo o <text>nome do segurado</text> não foi enviado
+* Quando retornar 400, retorna a pergunta que faltou alguma resposta, no exemplo a baixo o nome do segurado não foi enviado
+
 ```json
 {
     "success": false,
@@ -424,11 +469,13 @@ Response
 
 !!! Aviso
 
-      O JSON de response usado de exemplo abaixo é do produto BIKE.
+```
+  O JSON de response usado de exemplo abaixo é do produto BIKE.
 
-      O response contém algumas informações a mais nesse exemplo pois foi utilizado o retorno de uma cotação de bikes, mas cada produto tem a necessidade de incluir mais perguntas, assim alterando o retorno (dentro de item.price.rates).
+  O response contém algumas informações a mais nesse exemplo pois foi utilizado o retorno de uma cotação de bikes, mas cada produto tem a necessidade de incluir mais perguntas, assim alterando o retorno (dentro de item.price.rates).
+```
 
-- Caso retorno 200, retorna o cálculo com algumas informações.
+* Caso retorno 200, retorna o cálculo com algumas informações.
 
 ```json
 {
@@ -837,322 +884,368 @@ Response
 }
 ```
 
-<br>
+\
+
 
 ### 💡 **Desmistificando o json de response**
 
-> **Field**: success <br>
-> **Type**: ```boolean``` <br>
+> **Field**: success\
+> **Type**: `boolean`\
+>
 >
 > Indica se a requisição foi feita com sucesso.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: executed <br>
-> **Type**: ```date``` <br>
+> **Field**: executed\
+> **Type**: `date`\
+>
 >
 > Data em que a requisição foi feita.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: errors  <br>
-> **Type**: ```array``` <br>
+> **Field**: errors\
+> **Type**: `array`\
+>
 >
 > Array de erros ao fazer a requisição.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.quotationIdentifier <br>
-> **Type**: ```guid``` <br>
+> **Field**: item.quotationIdentifier\
+> **Type**: `guid`\
+>
 >
 > Identificador da cotação.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.status <br>
-> **Type**: ```integer``` <br>
+> **Field**: item.status\
+> **Type**: `integer`\
+>
 >
 > Status da cotação.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.expiredAt <br>
-> **Type**: ```date``` <br>
+> **Field**: item.expiredAt\
+> **Type**: `date`\
+>
 >
 > Data de expiração da cotação.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.quotationDocumentUrl <br>
-> **Type**: ```text``` <br>
+> **Field**: item.quotationDocumentUrl\
+> **Type**: `text`\
+>
 >
 > Url do documento de cotação.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.proposal.number <br>
-> **Type**: ```text``` <br>
+> **Field**: item.proposal.number\
+> **Type**: `text`\
+>
 >
 > Número da proposta.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.proposal.date <br>
-> **Type**: ```text``` <br>
+> **Field**: item.proposal.date\
+> **Type**: `text`\
+>
 >
 > Data da proposta.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing <br>
-> **Type**: ```array``` <br>
+> **Field**: item.pricing\
+> **Type**: `array`\
 >
-> Retorna as propriedades do item, taxas, valores, tipos de pagamentos.</br>
-> Array de items cotados. Ele pode retornar mais de 1 item também. <br>
+>
+> Retorna as propriedades do item, taxas, valores, tipos de pagamentos.\
+> Array de items cotados. Ele pode retornar mais de 1 item também.\
 > Ex. seriam dois obj's dentro do array se duas bikes fossem cotadas.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].variantIdentifier <br>
-> **Type**: ```guid``` <br>
+> **Field**: item.pricing\[].variantIdentifier\
+> **Type**: `guid`\
+>
 >
 > Identificador do item cotado.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].underwriting.approved <br>
-> **Type**: ```boolean``` <br>
+> **Field**: item.pricing\[].underwriting.approved\
+> **Type**: `boolean`\
+>
 >
 > Retorna true ou false referente as regras de subscrição do produto.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].underwriting.evaluations <br>
-> **Type**: ```array``` <br>
+> **Field**: item.pricing\[].underwriting.evaluations\
+> **Type**: `array`\
+>
 >
 > Retorna aviso referente as questões do questionário de risco do produto.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].price.commission <br>
-> **Type**: ```decimal``` <br>
+> **Field**: item.pricing\[].price.commission\
+> **Type**: `decimal`\
+>
 >
 > Comissão de corretagem.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].price.grievanceDiscount <br>
-> **Type**: ```decimal``` <br>
+> **Field**: item.pricing\[].price.grievanceDiscount\
+> **Type**: `decimal`\
+>
 >
 > Porcentagem de agravo adicionada ao valor da cotação, onde os valores permitidos vão de 0% até 500%.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].price.itemValue <br>
-> **Type**: ```decimal``` <br>
+> **Field**: item.pricing\[].price.itemValue\
+> **Type**: `decimal`\
+>
 >
 > Valor do item.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].price.netValue <br>
-> **Type**: ```decimal``` <br>
+> **Field**: item.pricing\[].price.netValue\
+> **Type**: `decimal`\
+>
 >
 > Valor de prêmio líquido sem o IOF.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].price.interestValue <br>
-> **Type**: ```decimal``` <br>
+> **Field**: item.pricing\[].price.interestValue\
+> **Type**: `decimal`\
+>
 >
 > Valor de juros (Por enquanto nenhum produto possui juros, nem para boleto e nem para cartão, mas futuramente terá a princípio para boleto).
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].price.taxValue <br>
-> **Type**: ```decimal``` <br>
+> **Field**: item.pricing\[].price.taxValue\
+> **Type**: `decimal`\
+>
 >
 > Valor de IOF.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].price.totalValue <br>
-> **Type**: ```decimal``` <br>
+> **Field**: item.pricing\[].price.totalValue\
+> **Type**: `decimal`\
+>
 >
 > Valor de Prêmio Total, composto pelo prêmio líquido somado ao IOF.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].price.policyLimit <br>
-> **Type**: ```decimal``` <br>
+> **Field**: item.pricing\[].price.policyLimit\
+> **Type**: `decimal`\
+>
 >
 > Valor de Limite da apólice (no caso de Bikes, o valor do limite da apólice é igual ao valor informado para a bike).
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].price.rates <br>
-> **Type**: ```array``` <br>
+> **Field**: item.pricing\[].price.rates\
+> **Type**: `array`\
+>
 >
 > Trata-se de um array, que retornará todas as coberturas contratadas para o produto.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].payment.financialType <br>
-> **Type**: ```text``` <br>
+> **Field**: item.pricing\[].payment.financialType\
+> **Type**: `text`\
+>
 >
 > Trata-se do tipo de financeiro que no caso é "Cobrança".
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].payment.paymentOptions <br>
-> **Type**: ```array``` <br>
+> **Field**: item.pricing\[].payment.paymentOptions\
+> **Type**: `array`\
+>
 >
 > Retorna as opções de pagamento disponíveis que são: Boleto e Cartão de crédito.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].price.rates[].code <br>
-> **Type**: ```text``` <br>
+> **Field**: item.pricing\[].price.rates\[].code\
+> **Type**: `text`\
+>
 >
 > Exibe o código que identifica a ou as coberturas contratadas. Ex: DAMAGE-COVERAGE, trata-se da cobertura de Danos à Bike.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].price.rates[].description <br>
-> **Type**: ```text``` <br>
+> **Field**: item.pricing\[].price.rates\[].description\
+> **Type**: `text`\
+>
 >
 > Trata-se do nome da cobertura em português. Ex: "Danos à Bike".
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].price.rates[].limit <br>
-> **Type**: ```decimal``` <br>
+> **Field**: item.pricing\[].price.rates\[].limit\
+> **Type**: `decimal`\
+>
 >
 > Trata-se do valor do limite da cobertura.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].price.rates[].netValue <br>
-> **Type**: ```decimal``` <br>
+> **Field**: item.pricing\[].price.rates\[].netValue\
+> **Type**: `decimal`\
+>
 >
 > Valor do prêmio específico de cada cobertura contratada.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].price.rates[].deductible.code <br>
-> **Type**: ```text``` <br>
+> **Field**: item.pricing\[].price.rates\[].deductible.code\
+> **Type**: `text`\
+>
 >
 > Trata-se do código identificador de cada franquia.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].price.rates[].deductible.text <br>
-> **Type**: ```text``` <br>
+> **Field**: item.pricing\[].price.rates\[].deductible.text\
+> **Type**: `text`\
+>
 >
 > Nome da franquia selecionada em português - Ex: "Padrão".
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].price.rates[].deductible.description <br>
-> **Type**: ```text``` <br>
+> **Field**: item.pricing\[].price.rates\[].deductible.description\
+> **Type**: `text`\
+>
 >
 > Descrição da franquia.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].payment.paymentOptions[].paymentMethod <br>
-> **Type**: ```text``` <br>
+> **Field**: item.pricing\[].payment.paymentOptions\[].paymentMethod\
+> **Type**: `text`\
+>
 >
 > Retorna o nome da forma de pagamento que pode ser: Ticket (Boleto) ou CreditCard (Cartão de Crédito).
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].payment.paymentOptions[].paymentType <br>
-> **Type**: ```text``` <br>
+> **Field**: item.pricing\[].payment.paymentOptions\[].paymentType\
+> **Type**: `text`\
+>
 >
 > Forma de pagamento que pode ser escolhida: Boleto ou Cartão de crédito.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].payment.paymentOptions[].installments <br>
-> **Type**: ```array``` <br>
+> **Field**: item.pricing\[].payment.paymentOptions\[].installments\
+> **Type**: `array`\
+>
 >
 > Retorna a quantidade de parcelas disponíveis para realizar o pagamento referente ao tipo de pagamento.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].payment.paymentOptions[].installments[].identifier <br>
-> **Type**: ```guid``` <br>
+> **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].identifier\
+> **Type**: `guid`\
 >
-> Código identificador da parcela.<br>
-> <text class="aviso"> Esté é o código necessário enviar ao selecionar o método de pagamento. Exemplo: Se foi selecionado cartão de crédito, enviar o identificador daquele meio de pagamento</text>
+>
+> Código identificador da parcela.\
+> Esté é o código necessário enviar ao selecionar o método de pagamento. Exemplo: Se foi selecionado cartão de crédito, enviar o identificador daquele meio de pagamento
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].payment.paymentOptions[].installments[].number <br>
-> **Type**: ```integer``` <br>
+> **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].number\
+> **Type**: `integer`\
+>
 >
 > Número da respectiva parcela (2 parcela, número 2).
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].payment.paymentOptions[].installments[].commissionValue <br>
-> **Type**: ```decimal``` <br>
+> **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].commissionValue\
+> **Type**: `decimal`\
+>
 >
 > Valor de comissão de cada parcela.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].payment.paymentOptions[].installments[].netValue <br>
-> **Type**: ```decimal``` <br>
+> **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].netValue\
+> **Type**: `decimal`\
+>
 >
 > Valor de prêmio líquido de cada parcela, ou seja, sem o IOF.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].payment.paymentOptions[].installments[].interestValue <br>
-> **Type**: ```decimal``` <br>
+> **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].interestValue\
+> **Type**: `decimal`\
+>
 >
 > Valor de juros de cada parcela.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].payment.paymentOptions[].installments[].taxValue <br>
-> **Type**: ```decimal``` <br>
+> **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].taxValue\
+> **Type**: `decimal`\
+>
 >
 > IOF que implica em cada parcela.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].payment.paymentOptions[].installments[].totalValue <br>
-> **Type**: ```decimal``` <br>
+> **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].totalValue\
+> **Type**: `decimal`\
+>
 >
 > Valor total de cada parcela que é composto do valor líquido + IOF.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].payment.paymentOptions[].installments[].installmentValue <br>
-> **Type**: ```decimal``` <br>
+> **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].installmentValue\
+> **Type**: `decimal`\
+>
 >
 > Valor total da parcela.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].payment.paymentOptions[].installments[].installmentInterest <br>
-> **Type**: ```decimal``` <br>
+> **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].installmentInterest\
+> **Type**: `decimal`\
+>
 >
 > Valor de juros da parcela.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].payment.paymentOptions[].installments[].installmentTax <br>
-> **Type**: ```decimal``` <br>
+> **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].installmentTax\
+> **Type**: `decimal`\
+>
 >
 > Valor de IOF de cada parcela.
 
--------------------------------------------------------------------------------
+***
 
-> **Field**: item.pricing[].payment.paymentOptions[].installments[].dueDates<br>
-> **Type**: ```array<string>``` <br>
+> **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].dueDates\
+> **Type**: `array<string>`\
+>
 >
 > Datas de vencimento da parcela caso a forma de pagamento seja boleto.

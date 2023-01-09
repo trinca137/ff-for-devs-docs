@@ -1,9 +1,9 @@
 # Serviço de apólice
 
-Consulta Apólice única
-----------------
+## Consulta Apólice única
 
 #### Endpoint
+
 ```
 GET: {{url_ambiente}}/v1/policy/{policyNumber}
 ```
@@ -92,90 +92,112 @@ GET: {{url_ambiente}}/v1/policy/{policyNumber}
 }
 ```
 
-Listagem Apólice
-----------------
+## Listagem Apólice
 
 #### Endpoint
+
 ```
 GET: {{url_ambiente}}/v1/policy/all
 ```
 
 #### Query Parameters
 
-> **Field**: page <br>
-> **Type**: ```string``` <br>
+> **Field**: page\
+> **Type**: `string`\
+>
 >
 > Possível passar número da pagina.
 
------------------------------------------------------
+***
 
-> **Field**: sort <br>
-> **Type**: ```string``` <br>
+> **Field**: sort\
+> **Type**: `string`\
 >
-> Possível ordernar pelo campo desejado.<br><br>
-> Os valores possíveis para esta query parameter são: </br>
-> 
->  - **producttext =** ordernar pelo produto.</br>
->  - **modalitytext =** ordernar pela modalidade.</br>
->  - **createdat =** ordernar pela data de criação.</br>
->  - **status =** ordernar pelo status</br>
->  - **insuredname =** ordernar pelo nome do segurado</br> 
->  - **insuredidentity =** ordernar pela identificação do segurado.</br>
 >
-> Caso queira definir se a ordem sera crescente ou não, basta passar o operador ```-``` quando for decrescente.</br>
-> Caso queria passar mais de um campo para ordenação, tambem é possivel, basta colocar os campos separados por ```,```</br>
+> Possível ordernar pelo campo desejado.\
+> \
+> Os valores possíveis para esta query parameter são:\
 >
-> Exemplo:</br>
-> ```{{url_ambiente}}/v1/policy/all?sort=-status,insuredname```</br>
-> No exemplo acima é passado dois campos para a ordenação, onde o status sera em ordem decrescente e o insuredName será em ordem crescente.</br>
 >
------------------------------------------------------
+> * **producttext =** ordernar pelo produto.\
+>
+> * **modalitytext =** ordernar pela modalidade.\
+>
+> * **createdat =** ordernar pela data de criação.\
+>
+> * **status =** ordernar pelo status\
+>
+> * **insuredname =** ordernar pelo nome do segurado\
+>
+> * **insuredidentity =** ordernar pela identificação do segurado.\
+>
+>
+> Caso queira definir se a ordem sera crescente ou não, basta passar o operador `-` quando for decrescente.\
+> Caso queria passar mais de um campo para ordenação, tambem é possivel, basta colocar os campos separados por `,`\
+>
+>
+> Exemplo:\
+> `{{url_ambiente}}/v1/policy/all?sort=-status,insuredname`\
+> No exemplo acima é passado dois campos para a ordenação, onde o status sera em ordem decrescente e o insuredName será em ordem crescente.\
+>
 
-> **Field**: search <br>
-> **Type**: ```string``` <br>
+***
+
+> **Field**: search\
+> **Type**: `string`\
+>
 >
 > Campo para buscar pelo nome do segurado.
 
------------------------------------------------------
+***
 
-> **Field**: modality <br>
-> **Type**: ```string``` <br>
+> **Field**: modality\
+> **Type**: `string`\
+>
 >
 > Campo para buscar pela modalidade.
 
------------------------------------------------------
+***
 
-> **Field**: product <br>
-> **Type**: ```string``` <br>
+> **Field**: product\
+> **Type**: `string`\
+>
 >
 > Campo para buscar pelo produto.
 
------------------------------------------------------
+***
 
-> **Field**: startDate <br>
-> **Type**: ```string``` <br>
+> **Field**: startDate\
+> **Type**: `string`\
+>
 >
 > Campo para buscar pela data de inicio de vigencia.
 
------------------------------------------------------
+***
 
-> **Field**: endDate <br>
-> **Type**: ```string``` <br>
+> **Field**: endDate\
+> **Type**: `string`\
+>
 >
 > Campo para buscar pela data final de vigencia.
 
------------------------------------------------------
+***
 
-> **Field**: status <br>
-> **Type**: ```string``` <br>
+> **Field**: status\
+> **Type**: `string`\
 >
-> Campo para buscar pelo status. Os valores possíveis para esta query parameter são: </br><br>
-> 
->  - **Issued** = Emitida</br>
->  - **Expired** = Expirada</br>
->  - **Canceled** = Cancelada.
+>
+> Campo para buscar pelo status. Os valores possíveis para esta query parameter são:\
+> \
+>
+>
+> * **Issued** = Emitida\
+>
+> * **Expired** = Expirada\
+>
+> * **Canceled** = Cancelada.
 
------------------------------------------------------
+***
 
 #### Response
 
@@ -262,185 +284,210 @@ GET: {{url_ambiente}}/v1/policy/all
 }
 ```
 
-Explicando campos de response da apólice
-----------------------------------------
+## Explicando campos de response da apólice
 
-> **Field**: identifier <br>
-> **Type**: ```guid``` <br>
+> **Field**: identifier\
+> **Type**: `guid`\
 >
-> Identificação unica da apólice em formatdo de ```guid```.
-
------------------------------------------------------
-
-> **Field**: number <br>
-> **Type**: ```text``` <br>
 >
-> Número referente a apólice .
+> Identificação unica da apólice em formatdo de `guid`.
 
------------------------------------------------------
+***
 
-> **Field**: policyNumber <br>
-> **Type**: ```text``` <br>
+> **Field**: number\
+> **Type**: `text`\
+>
 >
 > Número referente a apólice .
 
------------------------------------------------------
+***
 
-> **Field**: status <br>
-> **Type**: ```text``` <br>
+> **Field**: policyNumber\
+> **Type**: `text`\
+>
+>
+> Número referente a apólice .
+
+***
+
+> **Field**: status\
+> **Type**: `text`\
+>
 >
 > Status da apólice .
 
------------------------------------------------------
+***
 
-> **Field**: insuredName <br>
-> **Type**: ```text``` <br>
+> **Field**: insuredName\
+> **Type**: `text`\
+>
 >
 > Nome do Segurado .
 
------------------------------------------------------
+***
 
-> **Field**: insuredIdentity <br>
-> **Type**: ```text``` <br>
+> **Field**: insuredIdentity\
+> **Type**: `text`\
+>
 >
 > Identificação do segurado.
 
------------------------------------------------------
+***
 
-> **Field**: modalityText <br>
-> **Type**: ```text``` <br>
+> **Field**: modalityText\
+> **Type**: `text`\
+>
 >
 > Modalidade.
 
------------------------------------------------------
+***
 
-> **Field**: modalityCode <br>
-> **Type**: ```text``` <br>
+> **Field**: modalityCode\
+> **Type**: `text`\
+>
 >
 > Codigo da modalidade.
 
------------------------------------------------------
+***
 
-> **Field**: productText <br>
-> **Type**: ```text``` <br>
+> **Field**: productText\
+> **Type**: `text`\
+>
 >
 > Produto.
 
------------------------------------------------------
+***
 
-> **Field**: productCode <br>
-> **Type**: ```text``` <br>
+> **Field**: productCode\
+> **Type**: `text`\
+>
 >
 > Codigo do produto.
 
------------------------------------------------------
+***
 
-> **Field**: vigencyStartedAt <br>
-> **Type**: ```date``` <br>
+> **Field**: vigencyStartedAt\
+> **Type**: `date`\
+>
 >
 > Inicio da vigencia.
 
------------------------------------------------------
+***
 
-> **Field**: vigencyExpiredAt <br>
-> **Type**: ```date``` <br>
+> **Field**: vigencyExpiredAt\
+> **Type**: `date`\
+>
 >
 > Final da vigencia.
 
------------------------------------------------------
+***
 
-> **Field**: createdAt <br>
-> **Type**: ```date``` <br>
+> **Field**: createdAt\
+> **Type**: `date`\
+>
 >
 > Data de criação.
 
------------------------------------------------------
+***
 
-> **Field**: quotationIdentifier <br>
-> **Type**: ```string``` <br>
+> **Field**: quotationIdentifier\
+> **Type**: `string`\
+>
 >
 > Identificação refente a cotação.
 
------------------------------------------------------
+***
 
-> **Field**: quotationDocumentUrl <br>
-> **Type**: ```string``` <br>
+> **Field**: quotationDocumentUrl\
+> **Type**: `string`\
+>
 >
 > Url do pdf da apólice.
 
------------------------------------------------------
+***
 
-> **Field**: TicketUrl <br>
-> **Type**: ```string``` <br>
+> **Field**: TicketUrl\
+> **Type**: `string`\
+>
 >
 > Url do boleto.
 
------------------------------------------------------
+***
 
-> **Field**: version <br>
-> **Type**: ```string``` <br>
+> **Field**: version\
+> **Type**: `string`\
+>
 >
 > Versão da apólice.
 
------------------------------------------------------
+***
 
-> **Field**: installments <br>
-> **Type**: ```array``` <br>
+> **Field**: installments\
+> **Type**: `array`\
+>
 >
 > Lista das informações de parcelas.
 
------------------------------------------------------
+***
 
-> **Field**: installments[].installmentNumber <br>
-> **Type**: ```integer``` <br>
+> **Field**: installments\[].installmentNumber\
+> **Type**: `integer`\
+>
 >
 > Número da parcela.
 
------------------------------------------------------
+***
 
-> **Field**: installments[].dueDate <br>
-> **Type**: ```date``` <br>
+> **Field**: installments\[].dueDate\
+> **Type**: `date`\
+>
 >
 > Data de vencimento.
 
------------------------------------------------------
+***
 
-> **Field**: installments[].valueIof <br>
-> **Type**: ```decimal``` <br>
+> **Field**: installments\[].valueIof\
+> **Type**: `decimal`\
+>
 >
 > Valor do IOF.
 
------------------------------------------------------
+***
 
-> **Field**: installments[].tariffPremiumValue <br>
-> **Type**: ```decimal``` <br>
+> **Field**: installments\[].tariffPremiumValue\
+> **Type**: `decimal`\
+>
 >
 > Valor do prêmio tarifário.
 
------------------------------------------------------
+***
 
-> **Field**: installments[].premiumTotalValue <br>
-> **Type**: ```decimal``` <br>
+> **Field**: installments\[].premiumTotalValue\
+> **Type**: `decimal`\
+>
 >
 > Valor do prêmio total da cotação.
 
------------------------------------------------------
+***
 
-> **Field**: installments[].status <br>
-> **Type**: ```string``` <br>
+> **Field**: installments\[].status\
+> **Type**: `string`\
+>
 >
 > Status de pagamento.
 
------------------------------------------------------
+***
 
-> **Field**: installments[].interestValue <br>
-> **Type**: ```decimal``` <br>
+> **Field**: installments\[].interestValue\
+> **Type**: `decimal`\
+>
 >
 > Valor de juros de cada parcela.
 
------------------------------------------------------
+***
 
-> **Field**: installments[].createdAt <br>
-> **Type**: ```date``` <br>
+> **Field**: installments\[].createdAt\
+> **Type**: `date`\
+>
 >
 > Data de criação da parcela.
