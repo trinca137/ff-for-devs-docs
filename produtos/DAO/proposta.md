@@ -1,12 +1,12 @@
 # Criar Proposta
 
 #### Endpoint
+
 ```
 POST: {{url_ambiente}}/v1/quotation/proposal
 ```
 
-Request
--------
+## Request
 
 ```json
 {
@@ -178,8 +178,7 @@ Request
 }
 ```
 
-Response
---------
+## Response
 
 ```json
 {

@@ -1,4 +1,4 @@
-# Criar Proposta
+# Proposta
 
 ### Endpoint
 
@@ -10,11 +10,11 @@ POST: {{url_ambiente}}/v1/quotation/proposal
 
 !!! Aviso
 
-```
-  Esse json abaixo contém as informações onde TODOS os produtos utilizam, na pagina do produto é necessário adicionar os campos (contém exemplo nos produtos)
+{% hint style="warning" %}
+Esse json abaixo contém as informações onde **TODOS** os produtos utilizam, na pagina do produto é necessário adicionar os campos (contém exemplo nos produtos)
 
-  As respostas estão usando valores referentes a um produto, no caso "Bike"
-```
+As respostas estão usando valores referentes a um produto, no caso "Bike"
+{% endhint %}
 
 ```json
 {
@@ -152,8 +152,6 @@ POST: {{url_ambiente}}/v1/quotation/proposal
 > Campo usado para definir qual a cotação será enviada para proposta e checkout.\
 >
 
-***
-
 > **Field**: OperationCode\
 > **Tipo**: `text`\
 > ❗ Campo Obrigatório.\
@@ -161,14 +159,16 @@ POST: {{url_ambiente}}/v1/quotation/proposal
 >
 > Campo usado para definir qual produto está sendo cotado. Neste caso, o produto é "Bike", representado pelo operation code "BIKE-MULTIPLE-PERIL-PARTNER".
 
-***
-
 > **Field**: Answers\
 > **Tipo**: `array<answer>`\
 > ❗ Campo Obrigatório.\
 >
 >
 > Campo usado para enviar perguntas mais gerais de uma cotação – um exemplo de pergunta seria se a pessoa é Jurídica ou Física. Mais detalhes sobre essas perguntas a seguir, na documentação.
+
+***
+
+***
 
 ***
 
