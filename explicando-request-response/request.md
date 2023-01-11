@@ -1,152 +1,48 @@
 # Proposta
 
-### Endpoint
+## <mark style="color:blue;">Request</mark>
 
-```
-POST: {{url_ambiente}}/v1/quotation/proposal
-```
-
-## Request
-
-!!! Aviso
-
-{% hint style="warning" %}
-Esse json abaixo contém as informações onde **TODOS** os produtos utilizam, na pagina do produto é necessário adicionar os campos (contém exemplo nos produtos)
-
-As respostas estão usando valores referentes a um produto, no caso "Bike"
-{% endhint %}
-
-```json
-{
-   "identifier":"2aea86d1-a9e5-4220-ab29-68c3fba8483f",
-   "operationCode":"BIKE-MULTIPLE-PERIL-PARTNER",
-   "answers":[
-      {
-         "code": "MODALITY",
-         "answer": "BIKE-MULTIPLE-PERIL"
-      },
-      {
-         "code": "PERSON-TYPE",
-         "answer": "NATURAL"
-      },
-      {
-         "code": "CONGENER",
-         "answer": "RENEWAL"
-      },
-      {
-         "code": "PREVIOUS-INSURER",
-         "answer": "0"
-      },
-      {
-         "code": "PREVIOUS-INSURER-NAME",
-         "answer": "Seguradora anterior"
-      },
-      {
-         "code": "START-VIGENCY-DATE",
-         "answer": "2022-11-20T03:00:00.000Z"
-      },
-      {
-         "code": "IDENTITY",
-         "answer": "000.111.222-33"
-      },
-      {
-         "code": "INSURED-NAME",
-         "answer": "Nome segurado"
-      },
-      {
-         "code": "INSURED-EMAIL",
-         "answer": "email@segurado.com"
-      },
-      {
-         "code": "INSURED-CELLPHONE",
-         "answer": "(11) 91111-2222"
-      },
-      {
-         "code": "INSURED-ADDRESS-ZIPCODE",
-         "answer": "12345-123"
-      },
-      {
-         "code": "INSURED-ADDRESS-STREET",
-         "answer": "Nome da rua"
-      },
-      {
-         "code": "INSURED-ADDRESS-NUMBER",
-         "answer": "Número"
-      },
-      {
-         "code": "INSURED-ADDRESS-COMPLEMENT",
-         "answer": ""
-      },
-      {
-         "code": "INSURED-ADDRESS-NEIGHBORHOOD",
-         "answer": "Bairro"
-      },
-      {
-         "code": "INSURED-ADDRESS-CITY",
-         "answer": "São Paulo"
-      },
-      {
-         "code": "INSURED-ADDRESS-STATE",
-         "answer": "SP"
-      },
-      {
-         "code":"GENDER",
-         "answer":"I"
-      },
-      {
-         "code":"COMMISSION",
-         "answer":20
-      },
-      {
-         "code":"GRIEVANCE-DISCOUNT",
-         "answer":0
-      },
-      {
-         "code":"PAYMENT-METHOD",
-         "answer":"CREDIT-CARD"
-      },
-      {
-         "code":"INSURED-BIRTH-DATE",
-         "answer":"1990-09-08T03:00:00.000Z"
-      },
-      {
-         "code":"DUE-DAY",
-         "answer":15
-      },
-      {
-         "code":"PAYMENT-INSTALLMENT-IDENTIFIER",
-         "answer":"ee88a83c-1764-4e28-8272-e27d49d32dc8"
-      }
-   ]
-}
-```
-
-
-
-{% hint style="warning" %}
-Isso é um padrão de envio para todos produtos.
-
-Verifique os campos adicionais para cada produto para adicionar no array de **Answers**
-{% endhint %}
-
-{% swagger method="post" path="/proposal" baseUrl="{{url_ambiente}}/v1/quotation" summary="Create Proposal" %}
+{% swagger method="post" path="/proposal" baseUrl="{{url_ambiente}}/v1/quotation" summary="Create Proposal" expanded="true" %}
 {% swagger-description %}
 
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="identifier" required="true" type="string" %}
-Campo usado para definir qual a cotação será enviada para proposta e checkout.
+Identificador da cotação.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="operationCode" required="true" type="string" %}
-Campo usado para definir qual produto está sendo cotado. Neste caso, o produto é "Bike", representado pelo operation code "BIKE-MULTIPLE-PERIL-PARTNER".
+Identificador da operação. 
+
+\
+
+
+
+
+_<mark style="color:red;">Obrigatório o uso do mesmo código utilizado no processo de cotação.</mark>_
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="answers" type="array" required="true" %}
-Campo usado para enviar perguntas mais gerais de uma cotação – um exemplo de pergunta seria se a pessoa é Jurídica ou Física. Mais detalhes sobre essas perguntas a seguir, na documentação.
+Array de respostas necessárias para a criação da proposta.
+
+\
+
+
+
+
+\
+
+
+
+
+_Saiba mais sobre o modelo de objeto de resposta na seção de **formulários**._
 {% endswagger-parameter %}
 
-{% swagger-response status="200: OK" description="" %}
+{% swagger-parameter in="header" name="Ocp-Apim-Subscription-Key" type="string" %}
+chave de acesso da api
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="Retorno de sucesso" %}
 ```javascript
 {
   "item": {
@@ -555,7 +451,7 @@ Campo usado para enviar perguntas mais gerais de uma cotação – um exemplo de
 ```
 {% endswagger-response %}
 
-{% swagger-response status="400: Bad Request" description="" %}
+{% swagger-response status="400: Bad Request" description="Retorno de erro com mensagem" %}
 ```javascript
 {
     "success": false,
@@ -573,6 +469,127 @@ Campo usado para enviar perguntas mais gerais de uma cotação – um exemplo de
 ```
 {% endswagger-response %}
 {% endswagger %}
+
+{% hint style="warning" %}
+Esse **JSON** abaixo contém as informações onde **TODOS** os produtos utilizam, na pagina do produto é necessário adicionar os campos (contém exemplo nos produtos)
+
+As respostas estão usando valores referentes a um produto, no caso "Bike"
+{% endhint %}
+
+{% code title="Exemplo de Request - BIKE" %}
+```json
+{
+   "identifier":"2aea86d1-a9e5-4220-ab29-68c3fba8483f",
+   "operationCode":"BIKE-MULTIPLE-PERIL-PARTNER",
+   "answers":[
+      {
+         "code": "MODALITY",
+         "answer": "BIKE-MULTIPLE-PERIL"
+      },
+      {
+         "code": "PERSON-TYPE",
+         "answer": "NATURAL"
+      },
+      {
+         "code": "CONGENER",
+         "answer": "RENEWAL"
+      },
+      {
+         "code": "PREVIOUS-INSURER",
+         "answer": "0"
+      },
+      {
+         "code": "PREVIOUS-INSURER-NAME",
+         "answer": "Seguradora anterior"
+      },
+      {
+         "code": "START-VIGENCY-DATE",
+         "answer": "2022-11-20T03:00:00.000Z"
+      },
+      {
+         "code": "IDENTITY",
+         "answer": "000.111.222-33"
+      },
+      {
+         "code": "INSURED-NAME",
+         "answer": "Nome segurado"
+      },
+      {
+         "code": "INSURED-EMAIL",
+         "answer": "email@segurado.com"
+      },
+      {
+         "code": "INSURED-CELLPHONE",
+         "answer": "(11) 91111-2222"
+      },
+      {
+         "code": "INSURED-ADDRESS-ZIPCODE",
+         "answer": "12345-123"
+      },
+      {
+         "code": "INSURED-ADDRESS-STREET",
+         "answer": "Nome da rua"
+      },
+      {
+         "code": "INSURED-ADDRESS-NUMBER",
+         "answer": "Número"
+      },
+      {
+         "code": "INSURED-ADDRESS-COMPLEMENT",
+         "answer": ""
+      },
+      {
+         "code": "INSURED-ADDRESS-NEIGHBORHOOD",
+         "answer": "Bairro"
+      },
+      {
+         "code": "INSURED-ADDRESS-CITY",
+         "answer": "São Paulo"
+      },
+      {
+         "code": "INSURED-ADDRESS-STATE",
+         "answer": "SP"
+      },
+      {
+         "code":"GENDER",
+         "answer":"I"
+      },
+      {
+         "code":"COMMISSION",
+         "answer":20
+      },
+      {
+         "code":"GRIEVANCE-DISCOUNT",
+         "answer":0
+      },
+      {
+         "code":"PAYMENT-METHOD",
+         "answer":"CREDIT-CARD"
+      },
+      {
+         "code":"INSURED-BIRTH-DATE",
+         "answer":"1990-09-08T03:00:00.000Z"
+      },
+      {
+         "code":"DUE-DAY",
+         "answer":15
+      },
+      {
+         "code":"PAYMENT-INSTALLMENT-IDENTIFIER",
+         "answer":"ee88a83c-1764-4e28-8272-e27d49d32dc8"
+      }
+   ]
+}
+```
+{% endcode %}
+
+
+
+{% hint style="warning" %}
+Isso é um padrão de envio para todos produtos.
+
+Verifique os campos adicionais para cada produto para adicionar no array de **Answers**
+{% endhint %}
 
 
 
