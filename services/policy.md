@@ -1,8 +1,14 @@
-# Serviço de apólice
+# Consulta de apólice
 
 ## Consulta Apólice única
 
 #### Endpoint
+
+{% swagger method="get" path="/policy/{policyNumber}" baseUrl="{{url_ambiente}}/v1" summary="Consulta Apólice Única" %}
+{% swagger-description %}
+retorna informações da apólice solicitada
+{% endswagger-description %}
+{% endswagger %}
 
 ```
 GET: {{url_ambiente}}/v1/policy/{policyNumber}

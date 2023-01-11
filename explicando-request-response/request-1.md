@@ -1,117 +1,494 @@
-# Criar cotação
+# Proposta
 
-### Endpoint
+## <mark style="color:blue;">Request</mark>
 
-```
-POST: {{url_ambiente}}/v1/quotation
-```
+{% swagger method="post" path="/quotation/proposal" baseUrl="{{url_ambiente}}/v1" summary="Criar Proposta" expanded="true" %}
+{% swagger-description %}
+Cria uma proposta.
+{% endswagger-description %}
 
-## Request
+{% swagger-parameter in="body" name="identifier" required="true" type="guid" %}
+Identificador da cotação.
+{% endswagger-parameter %}
 
-!!! Aviso
+{% swagger-parameter in="body" name="operationCode" required="true" type="string" %}
+Identificador da operação. \
+_<mark style="color:red;">Obrigatório o uso do mesmo código utilizado no processo de cotação.</mark>_\
+_<mark style="color:red;"></mark>_
 
-```
-  Esse json abaixo contém as informações onde TODOS os produtos utilizam, na pagina do produto é necessário adicionar os campos (contém exemplo nos produtos)
+_O identificador da **operação** de cada produto está localizado na sua seção._
+{% endswagger-parameter %}
 
-  As respostas estão usando valores referentes a um produto, no caso "Bike"
-```
-
-```json
-{
-    "operationCode": "BIKE-MULTIPLE-PERIL-PARTNER",
-    "answers": [
-        {
-          "code": "MODALITY",
-          "answer": "BIKE-MULTIPLE-PERIL"
-        },
-        {
-          "code": "PERSON-TYPE",
-          "answer": "NATURAL"
-        },
-        {
-          "code": "CONGENER",
-          "answer": "RENEWAL"
-        },
-        {
-          "code": "PREVIOUS-INSURER",
-          "answer": "0"
-        },
-        {
-          "code": "PREVIOUS-INSURER-NAME",
-          "answer": "Seguradora anterior"
-        },
-        {
-          "code": "START-VIGENCY-DATE",
-          "answer": "2022-11-20T03:00:00.000Z"
-        },
-        {
-          "code": "IDENTITY",
-          "answer": "000.111.222-33"
-        },
-        {
-          "code": "INSURED-NAME",
-          "answer": "Nome segurado"
-        },
-        {
-          "code": "INSURED-EMAIL",
-          "answer": "email@segurado.com"
-        },
-        {
-          "code": "INSURED-CELLPHONE",
-          "answer": "(11) 91111-2222"
-        },
-        {
-          "code": "INSURED-ADDRESS-ZIPCODE",
-          "answer": "12345-123"
-        },
-        {
-          "code": "INSURED-ADDRESS-STREET",
-          "answer": "Nome da rua"
-        },
-        {
-          "code": "INSURED-ADDRESS-NUMBER",
-          "answer": "Número"
-        },
-        {
-          "code": "INSURED-ADDRESS-COMPLEMENT",
-          "answer": ""
-        },
-        {
-          "code": "INSURED-ADDRESS-NEIGHBORHOOD",
-          "answer": "Bairro"
-        },
-        {
-          "code": "INSURED-ADDRESS-CITY",
-          "answer": "São Paulo"
-        },
-        {
-          "code": "INSURED-ADDRESS-STATE",
-          "answer": "SP"
-        },
-        {
-          "code": "COMMISSION",
-          "answer": 20
-        },
-        {
-          "code": "GRIEVANCE-DISCOUNT",
-          "answer": 0
-        }
-    ]
-}
-```
+{% swagger-parameter in="body" name="answers" type="array" required="true" %}
+Array de respostas necessárias para a criação da proposta.
 
 \
 
 
-!!! Aviso "Aviso sobre os campos documentados abaixo."
 
-````
-  Isso é um padrão de envio para todos produtos.
-  
-  Verifique os campos adicionais para cada produto para adicionar no array de **```Answers```**
-````
+
+\
+
+
+
+
+_Saiba mais sobre o modelo de objeto de resposta na seção de **formulários**._
+{% endswagger-parameter %}
+
+{% swagger-parameter in="header" name="Ocp-Apim-Subscription-Key" type="md5" required="true" %}
+chave de acesso da api.
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="Retorno sucesso." %}
+```javascript
+{
+  "item": {
+    "quotationIdentifier": "2aea86d1-a9e5-4220-ab29-68c3fba8483f",
+    "status": 0,
+    "expiredAt": null,
+    "quotationDocumentUrl": null,
+    "proposal": {
+      "number": "89678023660002",
+      "date": "0001-01-01T00:00:00Z"
+    },
+    "pricing": [
+      {
+        "variantIdentifier": "92cc00b4-9ba6-4f50-bf5a-38b76ade9370",
+        "underwriting": {
+          "approved": true,
+          "evaluations": []
+        },
+        "price": {
+          "commission": 150.84,
+          "grievanceDiscount": 0,
+          "itemValue": 11696.4,
+          "netValue": 754.22,
+          "interestValue": 0,
+          "taxValue": 55.66,
+          "totalValue": 809.88,
+          "policyLimit": 23977.62,
+          "rates": [
+            {
+              "code": "DAMAGE-COVERAGE",
+              "description": "Danos à bike",
+              "limit": 11696.4,
+              "netValue": 122.85,
+              "deductible": {
+                "code": "INCREASED",
+                "text": "Majorada",
+                "description": "10% dos prejuízos indenizáveis com o mínimo de R$ 1.100,00"
+              }
+            },
+            {
+              "code": "THEFT-COVERAGE",
+              "description": "Roubo e/ou furto qualificado",
+              "limit": 11696.4,
+              "netValue": 343.99,
+              "deductible": {
+                "code": "INCREASED",
+                "text": "Majorada",
+                "description": "10% dos prejuízos indenizáveis com o mínimo de R$ 1.100,00"
+              }
+            },
+            {
+              "code": "CIVIL-LIABILITY-COVERAGE",
+              "description": "Danos Materiais E/ou Corporais a Terceiros (RC)",
+              "limit": 11696.4,
+              "netValue": 143.69,
+              "deductible": {
+                "code": "INCREASED",
+                "text": "Majorada",
+                "description": "R$ 500,00"
+              }
+            },
+            {
+              "code": "ACCESSORIES-COVERAGE",
+              "description": "Acessórios",
+              "limit": 584.82,
+              "netValue": 39.19,
+              "deductible": {
+                "code": "INCREASED",
+                "text": "Majorada",
+                "description": "15% dos prejuízos indenizáveis com o mínimo de R$ 300,00"
+              }
+            },
+            {
+              "code": "INTERNATIONAL-COVERAGE",
+              "description": "Cobertura internacional",
+              "limit": 11696.4,
+              "netValue": 104.5,
+              "deductible": {
+                "code": "INCREASED",
+                "text": "Majorada",
+                "description": "Conforme cobertura a ser acionada"
+              }
+            }
+          ]
+        },
+        "payment": {
+          "financialType": "Charge",
+          "paymentOptions": [
+            {
+              "paymentMethod": "All",
+              "paymentType": "CreditCard",
+              "installments": [
+                {
+                  "identifier": "ee88a83c-1764-4e28-8272-e27d49d32dc8",
+                  "number": 1,
+                  "commissionValue": 150.84,
+                  "netValue": 754.22,
+                  "interestValue": 0,
+                  "taxValue": 55.66,
+                  "totalValue": 809.88,
+                  "installmentValue": 809.88,
+                  "installmentInterest": 0,
+                  "installmentTax": 55.66,
+                  "dueDates": [
+                    "2022-09-22T00:00:00Z"
+                  ]
+                },
+                {
+                  "identifier": "572b39db-f139-4dff-96b7-fbb972484b1a",
+                  "number": 2,
+                  "commissionValue": 150.84,
+                  "netValue": 754.22,
+                  "interestValue": 0,
+                  "taxValue": 55.66,
+                  "totalValue": 809.88,
+                  "installmentValue": 404.94,
+                  "installmentInterest": 0,
+                  "installmentTax": 27.83,
+                  "dueDates": [
+                    "2022-09-22T00:00:00Z",
+                    "2022-10-15T12:00:00Z"
+                  ]
+                },
+                {
+                  "identifier": "296a576b-9a49-43af-9408-22850993cf34",
+                  "number": 3,
+                  "commissionValue": 150.84,
+                  "netValue": 754.22,
+                  "interestValue": 0,
+                  "taxValue": 55.66,
+                  "totalValue": 809.88,
+                  "installmentValue": 269.96,
+                  "installmentInterest": 0,
+                  "installmentTax": 18.55,
+                  "dueDates": [
+                    "2022-09-22T00:00:00Z",
+                    "2022-10-15T12:00:00Z",
+                    "2022-11-15T12:00:00Z"
+                  ]
+                },
+                {
+                  "identifier": "9b341236-7fab-4053-a746-e06cda830af2",
+                  "number": 4,
+                  "commissionValue": 150.84,
+                  "netValue": 754.22,
+                  "interestValue": 0,
+                  "taxValue": 55.66,
+                  "totalValue": 809.88,
+                  "installmentValue": 202.47,
+                  "installmentInterest": 0,
+                  "installmentTax": 13.92,
+                  "dueDates": [
+                    "2022-09-22T00:00:00Z",
+                    "2022-10-15T12:00:00Z",
+                    "2022-11-15T12:00:00Z",
+                    "2022-12-15T12:00:00Z"
+                  ]
+                },
+                {
+                  "identifier": "16074860-0465-4695-9211-19c8ad3b1106",
+                  "number": 5,
+                  "commissionValue": 150.84,
+                  "netValue": 754.22,
+                  "interestValue": 0,
+                  "taxValue": 55.66,
+                  "totalValue": 809.88,
+                  "installmentValue": 161.98,
+                  "installmentInterest": 0,
+                  "installmentTax": 11.13,
+                  "dueDates": [
+                    "2022-09-22T00:00:00Z",
+                    "2022-10-15T12:00:00Z",
+                    "2022-11-15T12:00:00Z",
+                    "2022-12-15T12:00:00Z",
+                    "2023-01-15T12:00:00Z"
+                  ]
+                },
+                {
+                  "identifier": "e7abdcd3-67e2-4538-9319-735adca855e3",
+                  "number": 6,
+                  "commissionValue": 150.84,
+                  "netValue": 754.22,
+                  "interestValue": 0,
+                  "taxValue": 55.66,
+                  "totalValue": 809.88,
+                  "installmentValue": 134.98,
+                  "installmentInterest": 0,
+                  "installmentTax": 9.28,
+                  "dueDates": [
+                    "2022-09-22T00:00:00Z",
+                    "2022-10-15T12:00:00Z",
+                    "2022-11-15T12:00:00Z",
+                    "2022-12-15T12:00:00Z",
+                    "2023-01-15T12:00:00Z",
+                    "2023-02-15T12:00:00Z"
+                  ]
+                },
+                {
+                  "identifier": "a737a7d4-f9b7-4c49-b8f1-e1c9da737204",
+                  "number": 7,
+                  "commissionValue": 150.84,
+                  "netValue": 754.22,
+                  "interestValue": 0,
+                  "taxValue": 55.66,
+                  "totalValue": 809.88,
+                  "installmentValue": 115.7,
+                  "installmentInterest": 0,
+                  "installmentTax": 7.95,
+                  "dueDates": [
+                    "2022-09-22T00:00:00Z",
+                    "2022-10-15T12:00:00Z",
+                    "2022-11-15T12:00:00Z",
+                    "2022-12-15T12:00:00Z",
+                    "2023-01-15T12:00:00Z",
+                    "2023-02-15T12:00:00Z",
+                    "2023-03-15T12:00:00Z"
+                  ]
+                },
+                {
+                  "identifier": "321f86b9-3769-4d63-8639-b4f251519d9f",
+                  "number": 8,
+                  "commissionValue": 150.84,
+                  "netValue": 754.22,
+                  "interestValue": 0,
+                  "taxValue": 55.66,
+                  "totalValue": 809.88,
+                  "installmentValue": 101.24,
+                  "installmentInterest": 0,
+                  "installmentTax": 6.96,
+                  "dueDates": [
+                    "2022-09-22T00:00:00Z",
+                    "2022-10-15T12:00:00Z",
+                    "2022-11-15T12:00:00Z",
+                    "2022-12-15T12:00:00Z",
+                    "2023-01-15T12:00:00Z",
+                    "2023-02-15T12:00:00Z",
+                    "2023-03-15T12:00:00Z",
+                    "2023-04-15T12:00:00Z"
+                  ]
+                }
+              ]
+            },
+            {
+              "paymentMethod": "Ticket",
+              "paymentType": "Ticket",
+              "installments": [
+                {
+                  "identifier": "f8702529-a575-407a-9636-d3703eb50937",
+                  "number": 1,
+                  "commissionValue": 150.84,
+                  "netValue": 754.22,
+                  "interestValue": 0,
+                  "taxValue": 55.66,
+                  "totalValue": 809.88,
+                  "installmentValue": 809.88,
+                  "installmentInterest": 0,
+                  "installmentTax": 55.66,
+                  "dueDates": [
+                    "2022-09-22T00:00:00Z"
+                  ]
+                },
+                {
+                  "identifier": "db3582c3-3465-436e-a336-e76b7392c632",
+                  "number": 2,
+                  "commissionValue": 150.84,
+                  "netValue": 754.22,
+                  "interestValue": 0,
+                  "taxValue": 55.66,
+                  "totalValue": 809.88,
+                  "installmentValue": 404.94,
+                  "installmentInterest": 0,
+                  "installmentTax": 27.83,
+                  "dueDates": [
+                    "2022-09-22T00:00:00Z",
+                    "2022-10-15T12:00:00Z"
+                  ]
+                },
+                {
+                  "identifier": "f671ba0a-6b6a-4aa2-a9d5-e2267d7a7672",
+                  "number": 3,
+                  "commissionValue": 150.84,
+                  "netValue": 754.22,
+                  "interestValue": 0,
+                  "taxValue": 55.66,
+                  "totalValue": 809.88,
+                  "installmentValue": 269.96,
+                  "installmentInterest": 0,
+                  "installmentTax": 18.55,
+                  "dueDates": [
+                    "2022-09-22T00:00:00Z",
+                    "2022-10-15T12:00:00Z",
+                    "2022-11-15T12:00:00Z"
+                  ]
+                },
+                {
+                  "identifier": "a8d655d6-7218-4f11-ac19-f717d5df3a78",
+                  "number": 4,
+                  "commissionValue": 150.84,
+                  "netValue": 754.22,
+                  "interestValue": 0,
+                  "taxValue": 55.66,
+                  "totalValue": 809.88,
+                  "installmentValue": 202.47,
+                  "installmentInterest": 0,
+                  "installmentTax": 13.92,
+                  "dueDates": [
+                    "2022-09-22T00:00:00Z",
+                    "2022-10-15T12:00:00Z",
+                    "2022-11-15T12:00:00Z",
+                    "2022-12-15T12:00:00Z"
+                  ]
+                },
+                {
+                  "identifier": "2cf29028-0328-421e-8075-2fc20e4be78d",
+                  "number": 5,
+                  "commissionValue": 150.84,
+                  "netValue": 754.22,
+                  "interestValue": 0,
+                  "taxValue": 55.66,
+                  "totalValue": 809.88,
+                  "installmentValue": 161.98,
+                  "installmentInterest": 0,
+                  "installmentTax": 11.13,
+                  "dueDates": [
+                    "2022-09-22T00:00:00Z",
+                    "2022-10-15T12:00:00Z",
+                    "2022-11-15T12:00:00Z",
+                    "2022-12-15T12:00:00Z",
+                    "2023-01-15T12:00:00Z"
+                  ]
+                },
+                {
+                  "identifier": "b829ce1c-44bf-4ec4-9dcc-fc7ccb664acd",
+                  "number": 6,
+                  "commissionValue": 150.84,
+                  "netValue": 754.22,
+                  "interestValue": 0,
+                  "taxValue": 55.66,
+                  "totalValue": 809.88,
+                  "installmentValue": 134.98,
+                  "installmentInterest": 0,
+                  "installmentTax": 9.28,
+                  "dueDates": [
+                    "2022-09-22T00:00:00Z",
+                    "2022-10-15T12:00:00Z",
+                    "2022-11-15T12:00:00Z",
+                    "2022-12-15T12:00:00Z",
+                    "2023-01-15T12:00:00Z",
+                    "2023-02-15T12:00:00Z"
+                  ]
+                },
+                {
+                  "identifier": "ff8151ef-25b7-4b77-9d84-d81564637117",
+                  "number": 7,
+                  "commissionValue": 150.84,
+                  "netValue": 754.22,
+                  "interestValue": 0,
+                  "taxValue": 55.66,
+                  "totalValue": 809.88,
+                  "installmentValue": 115.7,
+                  "installmentInterest": 0,
+                  "installmentTax": 7.95,
+                  "dueDates": [
+                    "2022-09-22T00:00:00Z",
+                    "2022-10-15T12:00:00Z",
+                    "2022-11-15T12:00:00Z",
+                    "2022-12-15T12:00:00Z",
+                    "2023-01-15T12:00:00Z",
+                    "2023-02-15T12:00:00Z",
+                    "2023-03-15T12:00:00Z"
+                  ]
+                },
+                {
+                  "identifier": "abf68d10-613b-4c85-82cb-e07e58df476c",
+                  "number": 8,
+                  "commissionValue": 150.84,
+                  "netValue": 754.22,
+                  "interestValue": 0,
+                  "taxValue": 55.66,
+                  "totalValue": 809.88,
+                  "installmentValue": 101.24,
+                  "installmentInterest": 0,
+                  "installmentTax": 6.96,
+                  "dueDates": [
+                    "2022-09-22T00:00:00Z",
+                    "2022-10-15T12:00:00Z",
+                    "2022-11-15T12:00:00Z",
+                    "2022-12-15T12:00:00Z",
+                    "2023-01-15T12:00:00Z",
+                    "2023-02-15T12:00:00Z",
+                    "2023-03-15T12:00:00Z",
+                    "2023-04-15T12:00:00Z"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "success": true,
+  "executed": "2022-09-15T15:15:13.9056702Z",
+  "errors": null
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="400: Bad Request" description="Retorno erro com código. " %}
+```javascript
+{
+    "success": false,
+    "executed": "2022-10-06T19:58:31.2050064Z",
+    "errors": [
+        {
+            "code": "ANSWERS-NOT-EVALUATED",
+            "message": "One or more answers could not be evaluated.",
+            "properties": [
+                "INSURED-NAME"
+            ]
+        }
+    ]
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="401: Unauthorized" description="Retorno não autorizado." %}
+```javascript
+{
+    "statusCode": 401,
+    "message": "Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API."
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
+
+
+{% hint style="success" %}
+É possível encontrar um **JSON de envio** completo para dentro da seção de **Criar Cotação** respectiva de cada produto. Veja todos os **produtos** [aqui](../produtos/).
+{% endhint %}
+
+
+
+
 
 ### 💡Desmistificando o json de request
+
+***
 
 ```json
 {
@@ -120,21 +497,7 @@ POST: {{url_ambiente}}/v1/quotation
 }
 ```
 
-> **Field**: OperationCode\
-> **Tipo**: `text`\
-> ❗ Campo Obrigatório.\
->
->
-> Campo usado para definir qual produto está sendo cotado. Neste caso, o produto é "Bike", representado pelo operation code "BIKE-MULTIPLE-PERIL-PARTNER".
-
 ***
-
-> **Field**: Answers\
-> **Tipo**: `array<answer>`\
-> ❗ Campo Obrigatório.\
->
->
-> Campo usado para enviar perguntas mais gerais de uma cotação – um exemplo de pergunta seria se a pessoa é Jurídica ou Física. Mais detalhes sobre essas perguntas a seguir, na documentação.
 
 ***
 
@@ -164,10 +527,11 @@ POST: {{url_ambiente}}/v1/quotation
 > **Code**: PERSON-TYPE\
 > **Tipo**: `text`\
 > ❗ Obrigatório que esteja incluído no array.\
-> ❗ O produto de D\&O não contém pessoa física, apenas pessoa jurídica.\
 >
 >
-> Pergunta usada para saber se a cotação está sendo preenchida por uma Pessoa Física ou Jurídica. Os valores possíveis para esta pergunta são:\
+> Pergunta usada para saber se a cotação está sendo preenchida por uma Pessoa Física ou Jurídica.\
+> \
+> Os valores possíveis para esta pergunta são:\
 >
 >
 > * **NATURAL** = significa que a pessoa em questão é física.\
@@ -181,13 +545,14 @@ POST: {{url_ambiente}}/v1/quotation
 > ❗ Obrigatório que esteja incluído no array.\
 >
 >
-> Pergunta usada para definir se a cotação em questão é um Seguro Novo ou uma Renovação. Os valores possíveis para esta pergunta são:\
+> Pergunta usada para definir se a cotação em questão é um Seguro Novo ou uma Renovação.\
 > \
+> Os valores possíveis para esta pergunta são:\
 >
 >
 > * **NEW** = indica que é um novo seguro.\
 >
-> * **RENEWAL** = indica que é a renovação de um seguro.
+> * **RENEW** = indica que é a renovação de um seguro.
 
 ***
 
@@ -327,6 +692,25 @@ POST: {{url_ambiente}}/v1/quotation
 
 ***
 
+> **Code**: GENDER\
+> **Tipo**: `text`\
+> ❗ Obrigatório que esteja incluído no array.\
+>
+>
+> Pergunta usada para definir o gênero do segurado.\
+> \
+> Os possíveis valores para esta pergunta são:\
+>
+>
+> **M** = masculino\
+> **F** = feminino\
+> **I** = não informado.\
+>
+>
+> O valor padrão é "**I**".
+
+***
+
 > **Code**: COMMISSION\
 > **Tipo**: `decimal`\
 > ❗Obrigatório que esteja incluído\
@@ -345,6 +729,48 @@ POST: {{url_ambiente}}/v1/quotation
 > Pergunta usada para definir Agravo (aumento de preço sobre o netValue\* da cotação).\
 > O Padrão é 0.\
 > \* Preço líquido do produto sem IOF.
+
+***
+
+> **Code**: INSURED-BIRTH-DATE\
+> **Type**: `date`\
+> ❗ Obrigatório que esteja incluído no array.\
+>
+>
+> Pergunta usada para definir a data de nascimento do segurado.
+
+***
+
+> **Code**: PAYMENT-METHOD\
+> **Type**: `text`\
+> ❗ Obrigatório que esteja incluído no array.\
+>
+>
+> Pergunta usada para definir o método de pagamento.\
+> Os possíveis valores para esta pergunta são:
+>
+> * _CREDIT-CARD_
+> * _TICKET_
+
+***
+
+> **Code**: DUE-DAY\
+> **Type**: `integer`\
+> ❗ Obrigatório que esteja incluído no array. (apenas quando o PAYMENT-METHOD for TICKET).\
+>
+>
+> Pergunta usada para definir o dia de vencimento quando o PAYMENT-METHOD for TICKET (boleto).\
+>
+
+***
+
+> **Code**: PAYMENT-INSTALLMENT-IDENTIFIER\
+> **Type**: `guid`\
+> ❗ Obrigatório que esteja incluído no array.\
+>
+>
+> O guid que será enviado nesse campo é retornado no array de installments, no retorno do endpoint de criar cotação.\
+>
 
 ***
 
@@ -387,7 +813,10 @@ POST: {{url_ambiente}}/v1/quotation
     "status": 0,
     "expiredAt": null,
     "quotationDocumentUrl": null,
-    "proposal": null,
+    "proposal": {
+      "number": "89678023660002",
+      "date": "0001-01-01T00:00:00Z"
+    },
     "pricing": [
       {
         "variantIdentifier": "92cc00b4-9ba6-4f50-bf5a-38b76ade9370",
@@ -476,7 +905,7 @@ POST: {{url_ambiente}}/v1/quotation
                   "netValue": 754.22,
                   "interestValue": 0,
                   "taxValue": 55.66,
-                  "totalValue": 809.88, 
+                  "totalValue": 809.88,
                   "installmentValue": 809.88,
                   "installmentInterest": 0,
                   "installmentTax": 55.66,
@@ -497,7 +926,7 @@ POST: {{url_ambiente}}/v1/quotation
                   "installmentTax": 27.83,
                   "dueDates": [
                     "2022-09-22T00:00:00Z",
-                    "2022-10-01T12:00:00Z"
+                    "2022-10-15T12:00:00Z"
                   ]
                 },
                 {
@@ -513,8 +942,8 @@ POST: {{url_ambiente}}/v1/quotation
                   "installmentTax": 18.55,
                   "dueDates": [
                     "2022-09-22T00:00:00Z",
-                    "2022-10-01T12:00:00Z",
-                    "2022-11-01T12:00:00Z"
+                    "2022-10-15T12:00:00Z",
+                    "2022-11-15T12:00:00Z"
                   ]
                 },
                 {
@@ -530,9 +959,9 @@ POST: {{url_ambiente}}/v1/quotation
                   "installmentTax": 13.92,
                   "dueDates": [
                     "2022-09-22T00:00:00Z",
-                    "2022-10-01T12:00:00Z",
-                    "2022-11-01T12:00:00Z",
-                    "2022-12-01T12:00:00Z"
+                    "2022-10-15T12:00:00Z",
+                    "2022-11-15T12:00:00Z",
+                    "2022-12-15T12:00:00Z"
                   ]
                 },
                 {
@@ -548,10 +977,10 @@ POST: {{url_ambiente}}/v1/quotation
                   "installmentTax": 11.13,
                   "dueDates": [
                     "2022-09-22T00:00:00Z",
-                    "2022-10-01T12:00:00Z",
-                    "2022-11-01T12:00:00Z",
-                    "2022-12-01T12:00:00Z",
-                    "2023-01-01T12:00:00Z"
+                    "2022-10-15T12:00:00Z",
+                    "2022-11-15T12:00:00Z",
+                    "2022-12-15T12:00:00Z",
+                    "2023-01-15T12:00:00Z"
                   ]
                 },
                 {
@@ -567,11 +996,11 @@ POST: {{url_ambiente}}/v1/quotation
                   "installmentTax": 9.28,
                   "dueDates": [
                     "2022-09-22T00:00:00Z",
-                    "2022-10-01T12:00:00Z",
-                    "2022-11-01T12:00:00Z",
-                    "2022-12-01T12:00:00Z",
-                    "2023-01-01T12:00:00Z",
-                    "2023-02-01T12:00:00Z"
+                    "2022-10-15T12:00:00Z",
+                    "2022-11-15T12:00:00Z",
+                    "2022-12-15T12:00:00Z",
+                    "2023-01-15T12:00:00Z",
+                    "2023-02-15T12:00:00Z"
                   ]
                 },
                 {
@@ -587,12 +1016,12 @@ POST: {{url_ambiente}}/v1/quotation
                   "installmentTax": 7.95,
                   "dueDates": [
                     "2022-09-22T00:00:00Z",
-                    "2022-10-01T12:00:00Z",
-                    "2022-11-01T12:00:00Z",
-                    "2022-12-01T12:00:00Z",
-                    "2023-01-01T12:00:00Z",
-                    "2023-02-01T12:00:00Z",
-                    "2023-03-01T12:00:00Z"
+                    "2022-10-15T12:00:00Z",
+                    "2022-11-15T12:00:00Z",
+                    "2022-12-15T12:00:00Z",
+                    "2023-01-15T12:00:00Z",
+                    "2023-02-15T12:00:00Z",
+                    "2023-03-15T12:00:00Z"
                   ]
                 },
                 {
@@ -608,13 +1037,13 @@ POST: {{url_ambiente}}/v1/quotation
                   "installmentTax": 6.96,
                   "dueDates": [
                     "2022-09-22T00:00:00Z",
-                    "2022-10-01T12:00:00Z",
-                    "2022-11-01T12:00:00Z",
-                    "2022-12-01T12:00:00Z",
-                    "2023-01-01T12:00:00Z",
-                    "2023-02-01T12:00:00Z",
-                    "2023-03-01T12:00:00Z",
-                    "2023-04-01T12:00:00Z"
+                    "2022-10-15T12:00:00Z",
+                    "2022-11-15T12:00:00Z",
+                    "2022-12-15T12:00:00Z",
+                    "2023-01-15T12:00:00Z",
+                    "2023-02-15T12:00:00Z",
+                    "2023-03-15T12:00:00Z",
+                    "2023-04-15T12:00:00Z"
                   ]
                 }
               ]
@@ -651,7 +1080,7 @@ POST: {{url_ambiente}}/v1/quotation
                   "installmentTax": 27.83,
                   "dueDates": [
                     "2022-09-22T00:00:00Z",
-                    "2022-10-01T12:00:00Z"
+                    "2022-10-15T12:00:00Z"
                   ]
                 },
                 {
@@ -667,8 +1096,8 @@ POST: {{url_ambiente}}/v1/quotation
                   "installmentTax": 18.55,
                   "dueDates": [
                     "2022-09-22T00:00:00Z",
-                    "2022-10-01T12:00:00Z",
-                    "2022-11-01T12:00:00Z"
+                    "2022-10-15T12:00:00Z",
+                    "2022-11-15T12:00:00Z"
                   ]
                 },
                 {
@@ -684,9 +1113,9 @@ POST: {{url_ambiente}}/v1/quotation
                   "installmentTax": 13.92,
                   "dueDates": [
                     "2022-09-22T00:00:00Z",
-                    "2022-10-01T12:00:00Z",
-                    "2022-11-01T12:00:00Z",
-                    "2022-12-01T12:00:00Z"
+                    "2022-10-15T12:00:00Z",
+                    "2022-11-15T12:00:00Z",
+                    "2022-12-15T12:00:00Z"
                   ]
                 },
                 {
@@ -702,10 +1131,10 @@ POST: {{url_ambiente}}/v1/quotation
                   "installmentTax": 11.13,
                   "dueDates": [
                     "2022-09-22T00:00:00Z",
-                    "2022-10-01T12:00:00Z",
-                    "2022-11-01T12:00:00Z",
-                    "2022-12-01T12:00:00Z",
-                    "2023-01-01T12:00:00Z"
+                    "2022-10-15T12:00:00Z",
+                    "2022-11-15T12:00:00Z",
+                    "2022-12-15T12:00:00Z",
+                    "2023-01-15T12:00:00Z"
                   ]
                 },
                 {
@@ -721,11 +1150,11 @@ POST: {{url_ambiente}}/v1/quotation
                   "installmentTax": 9.28,
                   "dueDates": [
                     "2022-09-22T00:00:00Z",
-                    "2022-10-01T12:00:00Z",
-                    "2022-11-01T12:00:00Z",
-                    "2022-12-01T12:00:00Z",
-                    "2023-01-01T12:00:00Z",
-                    "2023-02-01T12:00:00Z"
+                    "2022-10-15T12:00:00Z",
+                    "2022-11-15T12:00:00Z",
+                    "2022-12-15T12:00:00Z",
+                    "2023-01-15T12:00:00Z",
+                    "2023-02-15T12:00:00Z"
                   ]
                 },
                 {
@@ -741,12 +1170,12 @@ POST: {{url_ambiente}}/v1/quotation
                   "installmentTax": 7.95,
                   "dueDates": [
                     "2022-09-22T00:00:00Z",
-                    "2022-10-01T12:00:00Z",
-                    "2022-11-01T12:00:00Z",
-                    "2022-12-01T12:00:00Z",
-                    "2023-01-01T12:00:00Z",
-                    "2023-02-01T12:00:00Z",
-                    "2023-03-01T12:00:00Z"
+                    "2022-10-15T12:00:00Z",
+                    "2022-11-15T12:00:00Z",
+                    "2022-12-15T12:00:00Z",
+                    "2023-01-15T12:00:00Z",
+                    "2023-02-15T12:00:00Z",
+                    "2023-03-15T12:00:00Z"
                   ]
                 },
                 {
@@ -762,13 +1191,13 @@ POST: {{url_ambiente}}/v1/quotation
                   "installmentTax": 6.96,
                   "dueDates": [
                     "2022-09-22T00:00:00Z",
-                    "2022-10-01T12:00:00Z",
-                    "2022-11-01T12:00:00Z",
-                    "2022-12-01T12:00:00Z",
-                    "2023-01-01T12:00:00Z",
-                    "2023-02-01T12:00:00Z",
-                    "2023-03-01T12:00:00Z",
-                    "2023-04-01T12:00:00Z"
+                    "2022-10-15T12:00:00Z",
+                    "2022-11-15T12:00:00Z",
+                    "2022-12-15T12:00:00Z",
+                    "2023-01-15T12:00:00Z",
+                    "2023-02-15T12:00:00Z",
+                    "2023-03-15T12:00:00Z",
+                    "2023-04-15T12:00:00Z"
                   ]
                 }
               ]
@@ -779,7 +1208,7 @@ POST: {{url_ambiente}}/v1/quotation
     ]
   },
   "success": true,
-  "executed": "2022-09-15T15:04:10.4663707Z",
+  "executed": "2022-09-15T15:15:13.9056702Z",
   "errors": null
 }
 ```
@@ -845,13 +1274,29 @@ POST: {{url_ambiente}}/v1/quotation
 
 ***
 
+> **Field**: item.proposal.number\
+> **Type**: `text`\
+>
+>
+> Número da proposta.
+
+***
+
+> **Field**: item.proposal.date\
+> **Type**: `text`\
+>
+>
+> Data da proposta.
+
+***
+
 > **Field**: item.pricing\
 > **Type**: `array`\
 >
 >
 > Retorna as propriedades do item, taxas, valores, tipos de pagamentos.\
 > Array de items cotados. Ele pode retornar mais de 1 item também.\
-> Ex: seriam dois obj's dentro do array se duas bikes fossem cotadas.
+> Ex. seriam dois obj's dentro do array se duas bikes fossem cotadas.
 
 ***
 
@@ -915,7 +1360,7 @@ POST: {{url_ambiente}}/v1/quotation
 > **Type**: `decimal`\
 >
 >
-> Valor de juros (Por enquanto nenhum produto possui juros, nem para boleto e nem para cartão, mas futuramente terá para boleto).
+> Valor de juros (Por enquanto nenhum produto possui juros, nem para boleto e nem para cartão, mas futuramente terá a princípio para boleto).
 
 ***
 
@@ -1133,208 +1578,3 @@ POST: {{url_ambiente}}/v1/quotation
 >
 >
 > Datas de vencimento da parcela caso a forma de pagamento seja boleto.
-
-## Editação de cotação
-
-Para edição de cotação não é necessário fazer nada de diferente.
-
-Para editar vai ser necessário enviar o identifier da cotação no request, independentemente do produto utilizado. (neste exemplo foi utilizado um request de Bikes também)
-
-Exemplo de request com identifier
-
-```json
-{
-    "identifier": "2badb55a-a785-4bf3-b35e-c551578bde85",
-    "operationCode": "BIKE-MULTIPLE-PERIL-PARTNER",
-    "answers": [
-        {
-            "code": "MODALITY",
-            "answer": "BIKE-MULTIPLE-PERIL"
-        },
-        {
-            "code": "PERSON-TYPE",
-            "answer": "NATURAL"
-        },
-        {
-            "code": "START-VIGENCY-DATE",
-            "answer": "2022-11-30T03:00:00.000Z"
-        },
-        {
-            "code": "VIGENCY-DURATION",
-            "answer": 1
-        },
-        {
-            "code": "CONGENER",
-            "answer": "NEW"
-        },
-        {
-            "code": "INSURED-NAME",
-            "answer": "Teste proposta vazia"
-        },
-        {
-            "code": "INSURED-EMAIL",
-            "answer": "teste@email.com"
-        },
-        {
-            "code": "IDENTITY",
-            "answer": "28214722268"
-        },
-        {
-            "code": "GENDER",
-            "answer": "I"
-        },
-        {
-            "code": "INSURED-CELLPHONE",
-            "answer": "(11) 91111-2222"
-        },
-        {
-            "code": "INSURED-ADDRESS-ZIPCODE",
-            "answer": "12345-123"
-        },
-        {
-            "code": "INSURED-ADDRESS-STREET",
-            "answer": "Nome da rua"
-        },
-        {
-            "code": "INSURED-ADDRESS-NUMBER",
-            "answer": "44"
-        },
-        {
-            "code": "INSURED-ADDRESS-COMPLEMENT",
-            "answer": "Não é obrigatório"
-        },
-        {
-            "code": "INSURED-ADDRESS-NEIGHBORHOOD",
-            "answer": "Bairro"
-        },
-        {
-            "code": "INSURED-ADDRESS-CITY",
-            "answer": "São Paulo"
-        },
-        {
-            "code": "INSURED-ADDRESS-STATE",
-            "answer": "SP"
-        },
-        {
-            "code": "COMMISSION",
-            "answer": 20
-        },
-        {
-            "code": "GRIEVANCE-DISCOUNT",
-            "answer": 0
-        },
-        {
-            "code": "ITEMS",
-            "answer": [
-                [
-                    {
-                        "code": "SERIAL-NUMBER",
-                        "answer": "13"
-                    },
-                    {
-                        "code": "ITEM-TYPE",
-                        "answer": "TRADITIONAL"
-                    },
-                    {
-                        "code": "MANUFACTURE-YEAR",
-                        "answer": 2022
-                    },
-                    {
-                        "code": "MODEL",
-                        "answer": "12"
-                    },
-                    {
-                        "code": "COMPETITIONS",
-                        "answer": false
-                    },
-                    {
-                        "code": "ORIGINAL-VALUE",
-                        "answer": 3500
-                    },
-                    {
-                        "code": "NEW",
-                        "answer": false
-                    },
-                    {
-                        "code": "BRAND",
-                        "answer": "ACCELL"
-                    },
-                    {
-                        "code": "BRAND-NAME",
-                        "answer": "ACCELL"
-                    },
-                    {
-                        "code": "FRAME-TYPE",
-                        "answer": "CARBON"
-                    },
-                    {
-                        "code": "FRAME-TYPE-AGREEMENT",
-                        "answer": true
-                    },
-                    {
-                        "code": "CLAIMS",
-                        "answer": "0"
-                    },
-                    {
-                        "code": "DEDUCTIBLE",
-                        "answer": "DEFAULT"
-                    },
-                    {
-                        "code": "PARTS",
-                        "answer": [
-                            [
-                                {
-                                    "code": "PART-TYPE",
-                                    "answer": "UNMODIFIED"
-                                },
-                                {
-                                    "code": "PART-BRAND"
-                                },
-                                {
-                                    "code": "PART-MODEL"
-                                },
-                                {
-                                    "code": "PART-VALUE"
-                                }
-                            ]
-                        ]
-                    },
-                    {
-                        "code": "COVERAGES",
-                        "answer": [
-                            [
-                                {
-                                    "code": "COVERAGE-TYPE",
-                                    "answer": "DAMAGE-COVERAGE"
-                                }
-                            ],
-                            [
-                                {
-                                    "code": "COVERAGE-TYPE",
-                                    "answer": "THEFT-COVERAGE"
-                                }
-                            ]
-                        ]
-                    },
-                    {
-                        "code": "RENT",
-                        "answer": false
-                    },
-                    {
-                        "code": "INVOICE",
-                        "answer": true
-                    },
-                    {
-                        "code": "INVOICE-AGREEMENT",
-                        "answer": true
-                    },
-                    {
-                        "code": "VALUE-AGREEMENT",
-                        "answer": true
-                    }
-                ]
-            ]
-        }
-    ]
-}
-```

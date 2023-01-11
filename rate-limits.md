@@ -9,7 +9,7 @@ Para conseguirmos prover maior segurança e tempo de resposta para os usuarios d
 | Receber apólice única  | GET /{versão}/get/{registerNumber} | 20 solicitações   | 20 segundos     |
 | Receber lista apólices | GET /{versão}/get-all              | 10 solicitações   | 20 segundos     |
 
-{% hint style="info" %}
+{% hint style="warning" %}
 Ressaltamos a orientação para o parceiro que também limite as chamadas como medida de segurança, para complementar as travas já existentes na API. &#x20;
 {% endhint %}
 
