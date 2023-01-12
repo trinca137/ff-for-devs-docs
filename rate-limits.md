@@ -15,7 +15,7 @@ Ressaltamos a orientação para o parceiro que também limite as chamadas como m
 
 ## Retornos
 
-**Erro 429, muitas chamadas**
+**Erro 429, Chamdas excedidas**
 
 ```json
 {
@@ -24,7 +24,7 @@ Ressaltamos a orientação para o parceiro que também limite as chamadas como m
 }
 ```
 
-**Erro 403, limites de chamadas da chave atingido**
+**Erro 403, limites de chamadas da chave atingida.**
 
 ```json
 {

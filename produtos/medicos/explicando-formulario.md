@@ -1,4 +1,4 @@
-# Informações e explicações a mais para o produto de Médicos.
+# Explicando formulário de Médicos.
 
 ***
 
@@ -17,7 +17,6 @@
 >
 >
 > Pergunta usada para definir a especialidade médica.\
-> \
 >
 >
 > Pode-se enviar mais de uma resposta dentro desse array de string, sendo elas:\
@@ -65,7 +64,7 @@
 >
 > Pergunta usada para definir se o profissional é residente ou não.
 
-***
+
 
 > **Code**: PROCEDURES-ACTIVITIES\
 > **Type**: `array<string>`\

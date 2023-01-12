@@ -1,12 +1,12 @@
 # Criar Cotação
 
 #### Endpoint
+
 ```
 POST: {{url_ambiente}}/v1/quotation
 ```
 
-Request
--------
+## Request
 
 ```json
 {
@@ -162,8 +162,9 @@ Request
 }
 ```
 
-Response
---------
+## Response
+
+Expicamos os campos de retorno neste [link](../../explicando-request-response/request.md#response)
 
 ```json
 {

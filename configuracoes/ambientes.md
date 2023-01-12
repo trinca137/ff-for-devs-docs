@@ -1,6 +1,6 @@
 # Ambientes
 
-A API do 4Devs possui um ambiente de homologação para realização de testes e um ambiente de produção, cada um com sua respectiva Chave de Acesso.
+A API possui um ambiente de homologação para realização de testes e um ambiente de produção, cada um com sua respectiva _Chave de Acesso_.
 
 ### <mark style="color:blue;">Homologação</mark>
 
@@ -9,9 +9,9 @@ https://azuh1-br-fairfax-gateway.azure-api.net/partner/
 ```
 
 {% hint style="warning" %}
-Para os checkouts em homologação, é necessário que a cotação tenha um valor **PAR** quando a opção de pagamento for **cartão de crédito** (isso é um requerimento do nosso serviço de pagamento que utilizamos).
+Para os checkouts em homologação, é necessário que a cotação tenha um valor **PAR** quando a opção de pagamento for **cartão de crédito** (isso é um requerimento do serviço de pagamento que utilizamos).
 
-Os testes que utilizamos caso queira copiar tudo, já foi preparado para que os cálculos retornem valor par.
+Os testes que utilizamos caso queira copiar, já foi preparado para que os cálculos retornem valor par.
 {% endhint %}
 
 ### <mark style="color:blue;">Produção</mark> <a href="#producao" id="producao"></a>

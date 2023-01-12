@@ -1,6 +1,4 @@
-# Informações e explicações a mais para o produto de Dentistas.
-
-***
+# Explicando formulário de Dentistas.
 
 > **Code**: PROFESSIONAL-REGISTER\
 > **Type**: `text`\
@@ -17,7 +15,6 @@
 >
 >
 > Pergunta usada para definir as especialidades Odontológicas.\
-> \
 >
 >
 > Pode-se enviar mais de uma resposta dentro desse array de string, sendo elas:\
@@ -41,7 +38,6 @@
 >
 >
 > Pergunta usada para definir Característica da PJ.\
-> \
 >
 >
 > Os possiveis valores para esta pergunta são:\
@@ -62,7 +58,6 @@
 >
 >
 > Pergunta usada para definir a retroatividade.\
-> \
 >
 >
 > Os possíveis valores para esta pergunta são:\
@@ -92,7 +87,6 @@
 >
 >
 > Pergunta usada para definir o Faturamento nos últimos 12 meses.\
-> \
 >
 >
 > Os possíveis valores para esta pergunta são:\
@@ -117,7 +111,6 @@
 >
 >
 > Pergunta usada para definir se houve sinistros nos últimos 24 meses.\
-> \
 >
 >
 > Os valores possíveis para esta pergunta são:\
@@ -160,7 +153,6 @@
 > **Type**: `text`\
 > ❗ Obrigatório que esteja incluído no array. Atualmente so atendemos dentistas que atendem no Brasil\
 > Pergunta usada para definir a territorialidade.\
-> \
 >
 >
 > Os valores possíveis para esta pergunta são:\
@@ -174,7 +166,6 @@
 > **Type**: `text`\
 > ❗ Obrigatório que esteja incluído no array. Atualmente só atender dentistas com trabalhos nacionais.\
 > Pergunta usada para definir o Âmbito de trabalho do dentista.\
-> \
 >
 >
 > Os possíveis valores para esta pergunta são:\
@@ -239,7 +230,6 @@
 > **Code**: LIMIT\
 > **Type**: `decimal`\
 > ❗ Obrigatório que esteja incluído no array.\
-> \
 >
 >
 > Os valores possíveis para esta pergunta são:\

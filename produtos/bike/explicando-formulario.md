@@ -1,6 +1,6 @@
-# explicando-formulario
+# Explicando Formulário de bikes
 
-> ❕ O campo **items** dentro do **array de answer** tem como finalidade enviar perguntas mais específicas do de _bike_. A seguir, você verá os valores que poderão/deverão estar inclusos nesse array.\
+> ❕O campo **items** dentro do **array de answer** tem como finalidade enviar perguntas mais específicas de _**bike**_. A seguir, você verá os valores que poderão/deverão estar inclusos nesse array.\
 > Ao final dessa explicação, sua resposta de _items_ deverá parecer algo no json abaixo.
 
 ```json

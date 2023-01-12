@@ -1,12 +1,12 @@
 # Criar Proposta
 
 #### Endpoint
+
 ```
 POST: {{url_ambiente}}/v1/quotation/proposal
 ```
 
-Request
--------
+## Request
 
 ```json
 {
@@ -14,162 +14,8 @@ Request
     "operationCode": "MEDICAL-CIVIL-LIABILITY-PARTNER",
     "answers": [
         {
-            "code": "MODALITY",
-            "answer": "MEDICAL-CIVIL-LIABILITY"
-        },
-        {
-            "code": "PERSON-TYPE",
-            "answer": "NATURAL"
-        },
-        {
-            "code": "CONGENER",
-            "answer": "NEW"
-        },
-        {
-            "code": "PREVIOUS-INSURER",
-            "answer": "0"
-        },
-        {
-            "code": "PREVIOUS-INSURER-NAME",
-            "answer": null
-        },
-        {
-            "code": "START-VIGENCY-DATE",
-            "answer": "2022-11-20T03:00:00.000Z"
-        },
-        {
-            "code": "IDENTITY",
-            "answer": "000.111.222-33"
-        },
-        {
-            "code": "INSURED-NAME",
-            "answer": "Nome segurado"
-        },
-        {
-            "code": "INSURED-EMAIL",
-            "answer": "email@segurado.com"
-        },
-        {
-            "code": "INSURED-CELLPHONE",
-            "answer": "(11) 91111-2222"
-        },
-        {
-            "code": "INSURED-ADDRESS-ZIPCODE",
-            "answer": "12345-123"
-        },
-        {
-            "code": "INSURED-ADDRESS-STREET",
-            "answer": "Nome da rua"
-        },
-        {
-            "code": "INSURED-ADDRESS-NUMBER",
-            "answer": "Número"
-        },
-        {
-            "code": "INSURED-ADDRESS-COMPLEMENT",
-            "answer": ""
-        },
-        {
-            "code": "INSURED-ADDRESS-NEIGHBORHOOD",
-            "answer": "Bairro"
-        },
-        {
-            "code": "INSURED-ADDRESS-CITY",
-            "answer": "São Paulo"
-        },
-        {
-            "code": "INSURED-ADDRESS-STATE",
-            "answer": "SP"
-        },
-        {
-            "code": "COMMISSION",
-            "answer": 20
-        },
-        {
-            "code": "GRIEVANCE-DISCOUNT",
-            "answer": 0
-        },
-        {
-            "code": "PROFESSIONAL-REGISTER",
-            "answer": "568568567"
-        },
-        {
-            "code": "CATEGORIES",
-            "answer": [
-                "OBSTETRICIAN"
-            ]
-        },
-        {
-            "code": "RESIDENT",
-            "answer": true
-        },
-        {
-            "code": "PROCEDURES-ACTIVITIES",
-            "answer": [
-                "AESTHETIC-PROCEDURES",
-                "ENDOSCOPY-COLONOSCOPY",
-                "RADIOTHERAPY-CHEMOTHERAPY-IMMUNOTHERAPY",
-                "AESTHETIC-PROCEDURES-MEDICAL-SPECIALTY"
-            ]
-        },
-        {
-            "code": "RETROACTIVITY",
-            "answer": 0
-        },
-        {
-            "code": "RETROACTIVITY-AGREEMENT"
-        },
-        {
-            "code": "VIGENCY-RETROACTIVITY-AGREEMENT"
-        },
-        {
-            "code": "CLAIMS",
-            "answer": "0"
-        },
-        {
-            "code": "CLAIM-EXPECTATION",
-            "answer": false
-        },
-        {
-            "code": "CLAIM-EXPECTATION-THIRD-PARTY"
-        },
-        {
-            "code": "CLAIM-EXPECTATION-AGREEMENT"
-        },
-        {
-            "code": "TERRITORIALITY",
-            "answer": "BR"
-        },
-        {
-            "code": "SCOPE",
-            "answer": "NATIONAL"
-        },
-        {
-            "code": "LIMIT-DEDUCTIBLE",
-            "answer": [
-                [
-                    {
-                        "code": "LIMIT",
-                        "answer": 100000
-                    },
-                    {
-                        "code": "DEDUCTIBLE",
-                        "answer": "DEFAULT"
-                    },
-                    {
-                        "code": "VARIANT-IDENTIFIER",
-                        "answer": "96abb261-b6a1-418a-bcca-bc9b1b51cda3"
-                    }
-                ]
-            ]
-        },
-        {
             "code": "INSURED-BIRTH-DATE",
             "answer": "2001-09-15T03:00:00.000Z"
-        },
-        {
-            "code": "SELECTED-VARIANT-IDENTIFIER",
-            "answer": "96abb261-b6a1-418a-bcca-bc9b1b51cda3"
         },
         {
             "code": "DUE-DAY",
@@ -187,8 +33,9 @@ Request
 }
 ```
 
-Response
---------
+## Response
+
+Expicamos os campos de retorno neste [link](../../explicando-request-response/request-1.md#response)
 
 ```json
 {

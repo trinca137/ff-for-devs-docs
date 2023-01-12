@@ -1,24 +1,22 @@
 # Consulta de apólice
 
-## Consulta Apólice única
 
-#### Endpoint
 
 {% swagger method="get" path="/policy/{policyNumber}" baseUrl="{{url_ambiente}}/v1" summary="Consulta Apólice Única" %}
 {% swagger-description %}
-retorna informações da apólice solicitada
+Retorna informações da apólice solicitada
 {% endswagger-description %}
-{% endswagger %}
 
-```
-GET: {{url_ambiente}}/v1/policy/{policyNumber}
-```
+{% swagger-parameter in="path" name="PolicyNumber" type="string" required="true" %}
+Número da apólice
+{% endswagger-parameter %}
 
-> ❕ Chamada GET, passando como paramêtro o numero da apólice.
+{% swagger-parameter in="header" name="Ocp-Apim-Subscription-Key" type="md5" required="true" %}
+Chave de acesso
+{% endswagger-parameter %}
 
-#### Response
-
-```json
+{% swagger-response status="200: OK" description="Retorno da apólice contratada" %}
+```javascript
 {
     "policy": {
         "identifier": "ca523a8b-01d3-4927-a41d-75f1d1982894",
@@ -97,22 +95,109 @@ GET: {{url_ambiente}}/v1/policy/{policyNumber}
     "executed": "2022-11-22T13:47:30.0768846Z"
 }
 ```
+{% endswagger-response %}
+{% endswagger %}
 
-## Listagem Apólice
 
-#### Endpoint
 
+{% swagger method="get" path="/v1/policy/all" baseUrl="{{url_ambiente}}" summary="Listagem apólice" expanded="false" %}
+{% swagger-description %}
+Retorna lista de apólices.
+{% endswagger-description %}
+
+{% swagger-parameter in="header" name="Ocp-Apim-Subscription-Key" type="md5" required="true" %}
+Chave de acesso
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="page" type="string" %}
+Passar o número da chave
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="" %}
+```json
+{
+    "totalItems": 1,
+    "itemsPerPage": 10,
+    "list": [
+        {
+            "identifier": "ca523a8b-01d3-4927-a41d-75f1d1982894",
+            "number": "046692022100101710000820",
+            "policyNumber": "1007100000820",
+            "status": "Issued",
+            "insuredName": "nome do segurado",
+            "insuredIdentity": "66941973064",
+            "vigencyStartedAt": "2022-09-08T03:00:00Z",
+            "vigencyExpiredAt": "2023-09-08T03:00:00Z",
+            "createdAt": "2022-11-07T18:28:04.9078375Z",
+            "quotationIdentifier": "00000000-0000-0000-0000-000000000000",
+            "quotationDocumentUrl": "http://127.0.0.1:10000/devstoreaccount1/document/policy/046692022100101710000820/apolice_046692022100101710000820_v01.00_j3oc.pdf",
+            "installments": [
+                {
+                    "installmentNumber": 1,
+                    "extraValue": 0.00,
+                    "dueDate": "2022-09-23T00:00:00Z",
+                    "valueIof": 82.23,
+                    "tariffPremiumValue": 1114.29,
+                    "premiumTotalValue": 1196.52,
+                    "status": "pendente",
+                    "interestValue": 0.00,
+                    "createdAt": "2022-09-16T17:02:30.0584567Z"
+                },
+                {
+                    "installmentNumber": 2,
+                    "extraValue": 0.00,
+                    "dueDate": "2022-09-27T00:00:00Z",
+                    "valueIof": 16.68,
+                    "tariffPremiumValue": 225.98,
+                    "premiumTotalValue": 242.66,
+                    "status": "pendente",
+                    "interestValue": 0.00,
+                    "createdAt": "2022-09-16T20:41:07.3162239Z"
+                },
+                {
+                    "installmentNumber": 3,
+                    "extraValue": 0.00,
+                    "dueDate": "2022-09-27T00:00:00Z",
+                    "valueIof": 18.74,
+                    "tariffPremiumValue": 253.91,
+                    "premiumTotalValue": 272.65,
+                    "status": "pendente",
+                    "interestValue": 0.00,
+                    "createdAt": "2022-09-20T15:54:46.5951803Z"
+                },
+                {
+                    "installmentNumber": 4,
+                    "extraValue": 0.00,
+                    "dueDate": "2022-10-19T00:00:00Z",
+                    "valueIof": 85.64,
+                    "tariffPremiumValue": 1160.48,
+                    "premiumTotalValue": 1246.12,
+                    "status": "pendente",
+                    "interestValue": 0.00,
+                    "createdAt": "2022-10-05T19:44:14.2735256Z"
+                },
+                {
+                    "installmentNumber": 5,
+                    "extraValue": 0.00,
+                    "dueDate": "2022-11-14T00:00:00Z",
+                    "valueIof": 52.32,
+                    "tariffPremiumValue": 708.97,
+                    "premiumTotalValue": 761.29,
+                    "status": "pendente",
+                    "interestValue": 0.00,
+                    "createdAt": "2022-11-07T18:28:07.2086256Z"
+                }
+            ],
+            "version": "01.00",
+            "totalClaims": 0
+        }
+    ],
+    "success": true,
+    "executed": "2022-11-22T13:49:41.0776542Z"
+}
 ```
-GET: {{url_ambiente}}/v1/policy/all
-```
-
-#### Query Parameters
-
-> **Field**: page\
-> **Type**: `string`\
->
->
-> Possível passar número da pagina.
+{% endswagger-response %}
+{% endswagger %}
 
 ***
 
@@ -204,91 +289,6 @@ GET: {{url_ambiente}}/v1/policy/all
 > * **Canceled** = Cancelada.
 
 ***
-
-#### Response
-
-```json
-{
-    "totalItems": 1,
-    "itemsPerPage": 10,
-    "list": [
-        {
-            "identifier": "ca523a8b-01d3-4927-a41d-75f1d1982894",
-            "number": "046692022100101710000820",
-            "policyNumber": "1007100000820",
-            "status": "Issued",
-            "insuredName": "nome do segurado",
-            "insuredIdentity": "66941973064",
-            "vigencyStartedAt": "2022-09-08T03:00:00Z",
-            "vigencyExpiredAt": "2023-09-08T03:00:00Z",
-            "createdAt": "2022-11-07T18:28:04.9078375Z",
-            "quotationIdentifier": "00000000-0000-0000-0000-000000000000",
-            "quotationDocumentUrl": "http://127.0.0.1:10000/devstoreaccount1/document/policy/046692022100101710000820/apolice_046692022100101710000820_v01.00_j3oc.pdf",
-            "installments": [
-                {
-                    "installmentNumber": 1,
-                    "extraValue": 0.00,
-                    "dueDate": "2022-09-23T00:00:00Z",
-                    "valueIof": 82.23,
-                    "tariffPremiumValue": 1114.29,
-                    "premiumTotalValue": 1196.52,
-                    "status": "pendente",
-                    "interestValue": 0.00,
-                    "createdAt": "2022-09-16T17:02:30.0584567Z"
-                },
-                {
-                    "installmentNumber": 2,
-                    "extraValue": 0.00,
-                    "dueDate": "2022-09-27T00:00:00Z",
-                    "valueIof": 16.68,
-                    "tariffPremiumValue": 225.98,
-                    "premiumTotalValue": 242.66,
-                    "status": "pendente",
-                    "interestValue": 0.00,
-                    "createdAt": "2022-09-16T20:41:07.3162239Z"
-                },
-                {
-                    "installmentNumber": 3,
-                    "extraValue": 0.00,
-                    "dueDate": "2022-09-27T00:00:00Z",
-                    "valueIof": 18.74,
-                    "tariffPremiumValue": 253.91,
-                    "premiumTotalValue": 272.65,
-                    "status": "pendente",
-                    "interestValue": 0.00,
-                    "createdAt": "2022-09-20T15:54:46.5951803Z"
-                },
-                {
-                    "installmentNumber": 4,
-                    "extraValue": 0.00,
-                    "dueDate": "2022-10-19T00:00:00Z",
-                    "valueIof": 85.64,
-                    "tariffPremiumValue": 1160.48,
-                    "premiumTotalValue": 1246.12,
-                    "status": "pendente",
-                    "interestValue": 0.00,
-                    "createdAt": "2022-10-05T19:44:14.2735256Z"
-                },
-                {
-                    "installmentNumber": 5,
-                    "extraValue": 0.00,
-                    "dueDate": "2022-11-14T00:00:00Z",
-                    "valueIof": 52.32,
-                    "tariffPremiumValue": 708.97,
-                    "premiumTotalValue": 761.29,
-                    "status": "pendente",
-                    "interestValue": 0.00,
-                    "createdAt": "2022-11-07T18:28:07.2086256Z"
-                }
-            ],
-            "version": "01.00",
-            "totalClaims": 0
-        }
-    ],
-    "success": true,
-    "executed": "2022-11-22T13:49:41.0776542Z"
-}
-```
 
 ## Explicando campos de response da apólice
 
