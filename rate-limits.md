@@ -1,6 +1,6 @@
 # Rate Limits
 
-Para conseguirmos prover maior segurança e tempo de resposta para os usuarios das apis, utilizamos os limites de requests. Nossos limities funcionam da seguinte forma:
+Para conseguirmos prover maior segurança e tempo de resposta para os usuarios das apis, utilizamos os limites de requests. Nossos limites funcionam da seguinte forma:
 
 | Grupo                  | Chamadas                           | Política          | Tempo de espera |
 | ---------------------- | ---------------------------------- | ----------------- | --------------- |
