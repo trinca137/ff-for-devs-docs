@@ -37,3 +37,4 @@
     * [Explicando formulário de Corretores.](produtos/corretores/explicando-formulario.md)
 * [Serviços Pós Venda](services/README.md)
   * [Consulta de apólice](services/policy.md)
+  * [Sinistro](services/sinistro.md)
