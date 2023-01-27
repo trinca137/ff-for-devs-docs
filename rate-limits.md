@@ -10,7 +10,7 @@ Para conseguirmos prover maior segurança e tempo de resposta para os usuarios d
 | Receber lista apólices | GET /{versão}/get-all              | 10 solicitações   | 20 segundos     |
 
 {% hint style="warning" %}
-Ressaltamos a orientação para o parceiro que também limite as chamadas como medida de segurança, para complementar as travas já existentes na API. &#x20;
+É importante ressaltar que o parceiro deverá configurar uma limitação de requisições nas API'S em seus ambientes. A medida visa a segurança, para complementar as travas já existentes na API.&#x20;
 {% endhint %}
 
 ## Retornos
