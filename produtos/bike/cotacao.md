@@ -3,7 +3,7 @@
 #### Endpoint
 
 ```
-POST: {{url_ambiente}}/v1/quotation
+POST: {{url_ambiente}}/v1/quotation/contracting
 ```
 
 ## Request
