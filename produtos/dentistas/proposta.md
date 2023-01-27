@@ -1,151 +1,33 @@
-# Criar cotação
+# Criar Proposta
 
 #### Endpoint
 
 ```
-POST: {{url_ambiente}}/v1/quotation/contracting
+POST: {{url_ambiente}}/v1/quotation/proposal
 ```
 
 ## Request
 
 ```json
 {
-    "operationCode": "DENTIST-CIVIL-LIABILITY-PARTNER",
     "identifier": "8324a438-c765-44ee-a7ea-bcfc4b810d22",
+    "operationCode": "DENTIST-CIVIL-LIABILITY-PARTNER",
     "answers": [
         {
-            "code": "MODALITY",
-            "answer": "DENTIST-CIVIL-LIABILITY"
+            "code": "DUE-DAY",
+            "answer": "1"
         },
         {
-            "code": "PERSON-TYPE",
-            "answer": "NATURAL"
+            "code": "INSURED-BIRTH-DATE",
+            "answer": "1990-09-09T03:00:00.000Z"
         },
         {
-            "code": "CONGENER",
-            "answer": "NEW"
+            "code": "PAYMENT-INSTALLMENT-IDENTIFIER",
+            "answer": "5acb297e-08d3-4561-bb54-9a194c2ab9fb"
         },
         {
-            "code": "PREVIOUS-INSURER",
-            "answer": "0"
-        },
-        {
-            "code": "PREVIOUS-INSURER-NAME"
-        },
-        {
-            "code": "START-VIGENCY-DATE",
-            "answer": "2022-11-23T03:00:00.000Z"
-        },
-        {
-            "code": "IDENTITY",
-            "answer": "000.111.222-33"
-        },
-        {
-            "code": "INSURED-NAME",
-            "answer": "Nome segurado"
-        },
-        {
-            "code": "INSURED-EMAIL",
-            "answer": "email@segurado.com"
-        },
-        {
-            "code": "INSURED-CELLPHONE",
-            "answer": "(11) 91111-2222"
-        },
-        {
-            "code": "INSURED-ADDRESS-ZIPCODE",
-            "answer": "12345-123"
-        },
-        {
-            "code": "INSURED-ADDRESS-STREET",
-            "answer": "Nome da rua"
-        },
-        {
-            "code": "INSURED-ADDRESS-NUMBER",
-            "answer": "Número"
-        },
-        {
-            "code": "INSURED-ADDRESS-COMPLEMENT",
-            "answer": ""
-        },
-        {
-            "code": "INSURED-ADDRESS-NEIGHBORHOOD",
-            "answer": "Bairro"
-        },
-        {
-            "code": "INSURED-ADDRESS-CITY",
-            "answer": "São Paulo"
-        },
-        {
-            "code": "INSURED-ADDRESS-STATE",
-            "answer": "SP"
-        },
-        {
-            "code": "COMMISSION",
-            "answer": 20
-        },
-        {
-            "code": "GRIEVANCE-DISCOUNT",
-            "answer": 0
-        },
-        {
-            "code": "PROFESSIONAL-REGISTER",
-            "answer": "567657"
-        },
-        {
-            "code": "CATEGORIES",
-            "answer": [
-                "OROFACIAL-HARMONIZATION",
-                "FACIAL-FILLERS",
-                "GENERAL-PROCEDURES"
-            ]
-        },
-        {
-            "code": "RETROACTIVITY",
-            "answer": 0
-        },
-        {
-            "code": "RETROACTIVITY-AGREEMENT"
-        },
-        {
-            "code": "VIGENCY-RETROACTIVITY-AGREEMENT"
-        },
-        {
-            "code": "CLAIMS",
-            "answer": "0"
-        },
-        {
-            "code": "CLAIM-EXPECTATION",
-            "answer": false
-        },
-        {
-            "code": "CLAIM-EXPECTATION-THIRD-PARTY"
-        },
-        {
-            "code": "CLAIM-EXPECTATION-AGREEMENT"
-        },
-        {
-            "code": "TERRITORIALITY",
-            "answer": "BR"
-        },
-        {
-            "code": "SCOPE",
-            "answer": "NATIONAL"
-        },
-        {
-            "code": "LIMIT-DEDUCTIBLE",
-            "answer": [
-                [
-                    {
-                        "code": "LIMIT",
-                        "answer": 100000
-                    },
-                    {
-                        "code": "DEDUCTIBLE",
-                        "answer": "DEFAULT"
-                    }
-                ]
-            ]
+            "code": "PAYMENT-METHOD",
+            "answer": "CREDIT-CARD"
         }
     ]
 }
@@ -153,7 +35,7 @@ POST: {{url_ambiente}}/v1/quotation/contracting
 
 ## Response
 
-Expicamos os campos de retorno neste [link](../../explicando-request-response/request.md#response)
+Expicamos os campos de retorno neste [link](../../explicando-request-response/request-1.md#response)
 
 ```json
 {
