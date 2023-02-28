@@ -9,6 +9,14 @@ Retorna métrica de requisições
 Chave de acesso
 {% endswagger-parameter %}
 
+{% swagger-parameter in="query" name="startDate" type="" %}
+example: startDate=2023-02-27T00:00:00
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="endDate" type="" %}
+example: endDate=2023-02-27T23:59:00
+{% endswagger-parameter %}
+
 {% swagger-response status="200: OK" description="Retorno da métrica de requsições" %}
 ```json
 {
@@ -43,7 +51,9 @@ Chave de acesso
 {% endswagger-response %}
 {% endswagger %}
 
-
+{% hint style="info" %}
+Se não for passando nenhum range de datas, por padrão a busca será feita com base no primeiro ao ultimo dia do mes.
+{% endhint %}
 
 > **Field**: value\[].apiId\
 > **Type**: `string`\\
