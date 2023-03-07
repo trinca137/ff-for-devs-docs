@@ -5,6 +5,7 @@
   * [Ambientes](configuracoes/ambientes.md)
   * [Autenticação e Autorização](configuracoes/autenticacao.md)
 * [Rate Limits](rate-limits.md)
+* [Metrics](metrics.md)
 * [Fluxo de Venda](explicando-request-response/README.md)
   * [Cotação](explicando-request-response/request.md)
   * [Proposta](explicando-request-response/request-1.md)

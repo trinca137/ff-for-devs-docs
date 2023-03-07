@@ -2,15 +2,15 @@
 
 ## <mark style="color:blue;">Request</mark>
 
-{% swagger method="post" path="/quotation/contracting" baseUrl="{{url_ambiente}}/v1" summary="Criar Cotação" expanded="true" %}
+{% swagger method="post" path="/quotation/contracting" baseUrl="{{url_ambiente}}/v1" summary="Criar Cotação" %}
 {% swagger-description %}
 Cria ou edita uma cotação.
 {% endswagger-description %}
 
-{% swagger-parameter in="body" name="identifier" type="guid" %}
+{% swagger-parameter in="body" name="identifier" type="guid" required="false" %}
 identificador da cotação.\
 \
-_Utilizado para edição de uma cotação já existente. <mark style="color:red;"></mark>_&#x20;
+_Utilizado para edição de uma cotação já existente._
 
 _<mark style="color:red;">Deixar esse campo em branco resulta na criação de uma nova cotação.</mark>_
 {% endswagger-parameter %}
@@ -20,25 +20,17 @@ chave de acesso da api.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="operationCode" type="string" required="true" %}
-Identificador da operação. 
+Identificador da operação.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="answers" type="string" required="true" %}
 Array de respostas necessárias para a criação da proposta.
 
-\
+\\
 
-
-
-
-\
-
-
-
+\\
 
 _Saiba mais sobre o modelo de objeto de resposta na seção de_
-
- 
 
 [_**formulários**_](../produtos/bike/explicando-formulario.md)
 
@@ -488,64 +480,56 @@ _._
 ### **Explicando campos do retorno**
 
 > **Field**: success\
-> **Type**: `boolean`\
->
+> **Type**: `boolean`
 >
 > Indica se a requisição foi feita com sucesso.
 
 ***
 
 > **Field**: executed\
-> **Type**: `date`\
->
+> **Type**: `date`
 >
 > Data em que a requisição foi feita.
 
 ***
 
 > **Field**: errors\
-> **Type**: `array`\
->
+> **Type**: `array`
 >
 > Array de erros ao fazer a requisição.
 
 ***
 
 > **Field**: item.quotationIdentifier\
-> **Type**: `guid`\
->
+> **Type**: `guid`
 >
 > Identificador da cotação.
 
 ***
 
 > **Field**: item.status\
-> **Type**: `integer`\
->
+> **Type**: `integer`
 >
 > Status da cotação.
 
 ***
 
 > **Field**: item.expiredAt\
-> **Type**: `date`\
->
+> **Type**: `date`
 >
 > Data de expiração da cotação.
 
 ***
 
 > **Field**: item.quotationDocumentUrl\
-> **Type**: `text`\
->
+> **Type**: `text`
 >
 > Url do documento de cotação.
 
 ***
 
 > **Field**: item.pricing\
-> **Type**: `array`\
->
+> **Type**: `array`
 >
 > Retorna as propriedades do item, taxas, valores, tipos de pagamentos.\
 > Array de items cotados. Ele pode retornar mais de 1 item também.\
@@ -554,200 +538,175 @@ _._
 ***
 
 > **Field**: item.pricing\[].variantIdentifier\
-> **Type**: `guid`\
->
+> **Type**: `guid`
 >
 > Identificador do item cotado.
 
 ***
 
 > **Field**: item.pricing\[].underwriting.approved\
-> **Type**: `boolean`\
->
+> **Type**: `boolean`
 >
 > Retorna true ou false referente as regras de subscrição do produto.
 
 ***
 
 > **Field**: item.pricing\[].underwriting.evaluations\
-> **Type**: `array`\
->
+> **Type**: `array`
 >
 > Retorna aviso referente as questões do questionário de risco do produto.
 
 ***
 
 > **Field**: item.pricing\[].price.commission\
-> **Type**: `decimal`\
->
+> **Type**: `decimal`
 >
 > Comissão de corretagem.
 
 ***
 
 > **Field**: item.pricing\[].price.grievanceDiscount\
-> **Type**: `decimal`\
->
+> **Type**: `decimal`
 >
 > Porcentagem de agravo adicionada ao valor da cotação, onde os valores permitidos vão de 0% até 500%.
 
 ***
 
 > **Field**: item.pricing\[].price.itemValue\
-> **Type**: `decimal`\
->
+> **Type**: `decimal`
 >
 > Valor do item.
 
 ***
 
 > **Field**: item.pricing\[].price.netValue\
-> **Type**: `decimal`\
->
+> **Type**: `decimal`
 >
 > Valor de prêmio líquido sem o IOF.
 
 ***
 
 > **Field**: item.pricing\[].price.interestValue\
-> **Type**: `decimal`\
->
+> **Type**: `decimal`
 >
 > Valor de juros (Por enquanto nenhum produto possui juros, nem para boleto e nem para cartão, mas futuramente terá para boleto).
 
 ***
 
 > **Field**: item.pricing\[].price.taxValue\
-> **Type**: `decimal`\
->
+> **Type**: `decimal`
 >
 > Valor de IOF.
 
 ***
 
 > **Field**: item.pricing\[].price.totalValue\
-> **Type**: `decimal`\
->
+> **Type**: `decimal`
 >
 > Valor de Prêmio Total, composto pelo prêmio líquido somado ao IOF.
 
 ***
 
 > **Field**: item.pricing\[].price.policyLimit\
-> **Type**: `decimal`\
->
+> **Type**: `decimal`
 >
 > Valor de Limite da apólice (no caso de Bikes, o valor do limite da apólice é igual ao valor informado para a bike).
 
 ***
 
 > **Field**: item.pricing\[].price.rates\
-> **Type**: `array`\
->
+> **Type**: `array`
 >
 > Trata-se de um array, que retornará todas as coberturas contratadas para o produto.
 
 ***
 
 > **Field**: item.pricing\[].payment.financialType\
-> **Type**: `text`\
->
+> **Type**: `text`
 >
 > Trata-se do tipo de financeiro que no caso é "Cobrança".
 
 ***
 
 > **Field**: item.pricing\[].payment.paymentOptions\
-> **Type**: `array`\
->
+> **Type**: `array`
 >
 > Retorna as opções de pagamento disponíveis que são: Boleto e Cartão de crédito.
 
 ***
 
 > **Field**: item.pricing\[].price.rates\[].code\
-> **Type**: `text`\
->
+> **Type**: `text`
 >
 > Exibe o código que identifica a ou as coberturas contratadas. Ex: DAMAGE-COVERAGE, trata-se da cobertura de Danos à Bike.
 
 ***
 
 > **Field**: item.pricing\[].price.rates\[].description\
-> **Type**: `text`\
->
+> **Type**: `text`
 >
 > Trata-se do nome da cobertura em português. Ex: "Danos à Bike".
 
 ***
 
 > **Field**: item.pricing\[].price.rates\[].limit\
-> **Type**: `decimal`\
->
+> **Type**: `decimal`
 >
 > Trata-se do valor do limite da cobertura.
 
 ***
 
 > **Field**: item.pricing\[].price.rates\[].netValue\
-> **Type**: `decimal`\
->
+> **Type**: `decimal`
 >
 > Valor do prêmio específico de cada cobertura contratada.
 
 ***
 
 > **Field**: item.pricing\[].price.rates\[].deductible.code\
-> **Type**: `text`\
->
+> **Type**: `text`
 >
 > Trata-se do código identificador de cada franquia.
 
 ***
 
 > **Field**: item.pricing\[].price.rates\[].deductible.text\
-> **Type**: `text`\
->
+> **Type**: `text`
 >
 > Nome da franquia selecionada em português - Ex: "Padrão".
 
 ***
 
 > **Field**: item.pricing\[].price.rates\[].deductible.description\
-> **Type**: `text`\
->
+> **Type**: `text`
 >
 > Descrição da franquia.
 
 ***
 
 > **Field**: item.pricing\[].payment.paymentOptions\[].paymentMethod\
-> **Type**: `text`\
->
+> **Type**: `text`
 >
 > Retorna o nome da forma de pagamento que pode ser: Ticket (Boleto) ou CreditCard (Cartão de Crédito).
 
 ***
 
 > **Field**: item.pricing\[].payment.paymentOptions\[].paymentType\
-> **Type**: `text`\
->
+> **Type**: `text`
 >
 > Forma de pagamento que pode ser escolhida: Boleto ou Cartão de crédito.
 
 ***
 
 > **Field**: item.pricing\[].payment.paymentOptions\[].installments\
-> **Type**: `array`\
->
+> **Type**: `array`
 >
 > Retorna a quantidade de parcelas disponíveis para realizar o pagamento referente ao tipo de pagamento.
 
 ***
 
 > **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].identifier\
-> **Type**: `guid`\
->
+> **Type**: `guid`
 >
 > Código identificador da parcela.\
 > Esté é o código necessário enviar ao selecionar o método de pagamento. Exemplo: Se foi selecionado cartão de crédito, enviar o identificador daquele meio de pagamento
@@ -755,80 +714,70 @@ _._
 ***
 
 > **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].number\
-> **Type**: `integer`\
->
+> **Type**: `integer`
 >
 > Número da respectiva parcela (2 parcela, número 2).
 
 ***
 
 > **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].commissionValue\
-> **Type**: `decimal`\
->
+> **Type**: `decimal`
 >
 > Valor de comissão de cada parcela.
 
 ***
 
 > **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].netValue\
-> **Type**: `decimal`\
->
+> **Type**: `decimal`
 >
 > Valor de prêmio líquido de cada parcela, ou seja, sem o IOF.
 
 ***
 
 > **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].interestValue\
-> **Type**: `decimal`\
->
+> **Type**: `decimal`
 >
 > Valor de juros de cada parcela.
 
 ***
 
 > **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].taxValue\
-> **Type**: `decimal`\
->
+> **Type**: `decimal`
 >
 > IOF que implica em cada parcela.
 
 ***
 
 > **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].totalValue\
-> **Type**: `decimal`\
->
+> **Type**: `decimal`
 >
 > Valor total de cada parcela que é composto do valor líquido + IOF.
 
 ***
 
 > **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].installmentValue\
-> **Type**: `decimal`\
->
+> **Type**: `decimal`
 >
 > Valor total da parcela.
 
 ***
 
 > **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].installmentInterest\
-> **Type**: `decimal`\
->
+> **Type**: `decimal`
 >
 > Valor de juros da parcela.
 
 ***
 
 > **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].installmentTax\
-> **Type**: `decimal`\
->
+> **Type**: `decimal`
 >
 > Valor de IOF de cada parcela.
 
 ***
 
 > **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].dueDates\
-> **Type**: `array<string>`\
->
+> **Type**: `array<string>`
 >
 > Datas de vencimento da parcela caso a forma de pagamento seja boleto.
 
@@ -843,6 +792,7 @@ Exemplo de request com identifier
 ```json
 {
     "identifier": "2badb55a-a785-4bf3-b35e-c551578bde85",
+    "registerNumber": "100000",
     "operationCode": "BIKE-MULTIPLE-PERIL-PARTNER",
     "answers": [
         {

@@ -11,6 +11,7 @@ POST: {{url_ambiente}}/v1/quotation/contracting
 ```json
 {
     "operationCode": "DIRECTORS-OFFICERS-CIVIL-LIABILITY-PARTNER",
+    "registerNumber": "100000",
     "answers": [
         {
             "code": "MODALITY",
@@ -163,7 +164,7 @@ POST: {{url_ambiente}}/v1/quotation/contracting
 
 ## Response
 
-Expicamos os campos de retorno neste [link](../../explicando-request-response/request.md#response)&#x20;
+Expicamos os campos de retorno neste [link](../../explicando-request-response/request.md#response)
 
 ```json
 {
