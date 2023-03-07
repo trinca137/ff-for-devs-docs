@@ -1,4 +1,4 @@
-# Informações e explicações a mais para o produto de corretores de seguros.
+# Explicando formulário de Corretores.
 
 > **Code**: PROFESSIONAL-REGISTER\
 > **Type**: `text`\
@@ -10,12 +10,11 @@
 > **Code**: REGISTER-NUMBER-TYPE\
 > **Type**: `text`\
 > ❗ Obrigatório que esteja incluído no array.\
-> Pergunta usada para definir o tipo de susep.\
-> \
+> Pergunta usada para definir o tipo de susep.
 >
 >
-> Os possíveis valores para esta pergunta são:\
 >
+> Os possíveis valores para esta pergunta são:
 >
 > * **FULL =** Plena
 > * **BASIC =** Susepinha
@@ -27,32 +26,21 @@
 > ❗ Obrigatório que esteja incluído no array.\
 > Pergunta usada para definir as especialidades comercializados pelo corretor\
 > \
-> Pode-se enviar mais de uma resposta e depende do tipo de susep escolhido:\
->
+> Pode-se enviar mais de uma resposta e depende do tipo de susep escolhido:
 >
 > **REGISTER-NUMBER-TYPE for FULL (Plena)**
 >
-> \
 >
 >
-> * **CAR** = Automóvel\
->
-> * **HEALTH-INSURANCE** = Planos de Saúde\
->
-> * **AERONAUTICAL** = Aeronáutico\
->
-> * **CONSORTIUM** = Consórcio\
->
-> * **OTHERS** = Demais seguros não listados\
->
-> * **BENEFITS-HEALTH-LIFE-PENSION** = Seguro Saúde, Seguro de Vida e/ou Previdência Privada\
->
-> * **GUARANTEE** = Garantia\
->
-> * **GENERAL-PROFESSIONAL-CIVIL-LIABILITY** = RC Geral e RC Profissional\
->
-> * **ENGINEERING-RISKS** = Riscos de Engenharia\
->
+> * **CAR** = Automóvel
+> * **HEALTH-INSURANCE** = Planos de Saúde
+> * **AERONAUTICAL** = Aeronáutico
+> * **CONSORTIUM** = Consórcio
+> * **OTHERS** = Demais seguros não listados
+> * **BENEFITS-HEALTH-LIFE-PENSION** = Seguro Saúde, Seguro de Vida e/ou Previdência Privada
+> * **GUARANTEE** = Garantia
+> * **GENERAL-PROFESSIONAL-CIVIL-LIABILITY** = RC Geral e RC Profissional
+> * **ENGINEERING-RISKS** = Riscos de Engenharia
 > * **TRANSPORT** = Transportes
 
 > **REGISTER-NUMBER-TYPE for BASIC (Susepinha)**
@@ -71,11 +59,9 @@
 ***
 
 > **Code**: RETROACTIVITY\
-> **Type**: `integer`\
+> **Type**: `integer`
 >
->
-> Pergunta usada para definir a retroatividade. Os possíveis valores para esta pergunta são:\
->
+> Pergunta usada para definir a retroatividade. Os possíveis valores para esta pergunta são:\\
 >
 > * **0** = Sem retroatividade
 > * **1** = 1 ano
@@ -88,8 +74,7 @@
 
 > **Code**: RETROACTIVITY-AGREEMENT\
 > **Type**: `boolean`\
-> ❗ Obrigatório que esteja incluído no array.\
->
+> ❗ Obrigatório que esteja incluído no array.
 >
 > Pergunta usada para definir "Entendimento e concordância de retroatividade" se defida como true, indica que "**Estou ciente e de acordo que a confirmação da data de retroatividade ocorrerá apenas num eventual sinistro, sendo obrigatório apresentar as apólices anteriores para comprovação. A apólice anterior não ode ter sido cancelada ou ter tido interrupção de vigência.**"
 
@@ -99,11 +84,9 @@
 > **Type**: `text`\
 > ❗ Obrigatório que esteja incluído no array para pessoa jurídica (se o PERSON-TYPE for LEGAL).\
 > Pergunta usada para definir o Faturamento nos últimos 12 meses.\
-> \
 >
 >
-> Os possíveis valores para esta pergunta são:\
->
+> Os possíveis valores para esta pergunta são:
 >
 > * **0.00-100000.00**= Entre R$ 0,00 e R$ 100.000,00
 > * **100000.01-300000.00**= Entre R$ 100.000,01 e R$ 300.000,00
@@ -122,15 +105,12 @@
 > **Type**: `text`\
 > ❗ Obrigatório que esteja incluído no array.\
 > Pergunta usada para definir se ha Sinistro nos últimos 24 meses.\
-> \
 >
 >
 > _Um sinistro é qualquer tipo de reclamação extrajudicial, processo judicial civil, criminal ou ético administrativo ou de qualquer tipo similar de pedido de reparação de dano(s) causados(s) pela prestação de seus serviços._\
-> \
 >
 >
-> Os possíveis valores para esta pergunta são:\
->
+> Os possíveis valores para esta pergunta são:
 >
 > * **0 =** nenhum
 > * **1 =** 1 reclamação
@@ -141,8 +121,7 @@
 
 > **Code**: CLAIM-EXPECTATION\
 > **Type**: `boolean`\
-> ❗ Obrigatório que esteja incluído no array.\
->
+> ❗ Obrigatório que esteja incluído no array.
 >
 > Pergunta usada para definir se o segurado tem conhecimento ou Expectativas de Sinistro (alguma circunstância que possa gerar um sinistro).
 
@@ -150,8 +129,7 @@
 
 > **Code**: CLAIM-EXPECTATION-THIRD-PARTY\
 > **Type**: `text`\
-> ❗ Obrigatório que esteja incluído no array (se CLAIM-EXPECTATION for TRUE).\
->
+> ❗ Obrigatório que esteja incluído no array (se CLAIM-EXPECTATION for TRUE).
 >
 > Pergunta usada para definir Possíveis terceiros reclamantes de expectativas de sinistro.
 
@@ -159,8 +137,7 @@
 
 > **Code**: CLAIM-EXPECTATION-AGREEMENT\
 > **Type**: `boolean`\
-> ❗ Obrigatório que esteja incluído no array (se CLAIM-EXPECTATION for TRUE).\
->
+> ❗ Obrigatório que esteja incluído no array (se CLAIM-EXPECTATION for TRUE).
 >
 > Pergunta usada para definir "**Entendimento e concordância de expectativas de sinistro**" se defida como true, indica que "**Entendido e acordado que não haverá cobertura securitária para qualquer tipo de fato já conhecido pelo segurado.**"
 
@@ -170,11 +147,9 @@
 > **Type**: `text`\
 > ❗ Obrigatório que esteja incluído no array. Atualmente so atendemos corretores/corretoras que atendem no Brasil\
 > Pergunta usada para definir a Territorialidade.\
-> \
 >
 >
-> Os possíveis valores para esta pergunta são:\
->
+> Os possíveis valores para esta pergunta são:
 >
 > * **BR =** Brasil
 
@@ -184,11 +159,9 @@
 > **Type**: `text`\
 > ❗ Obrigatório que esteja incluído no array. Atualmente só atender corretoras/corretores com trabalhos nacionais.\
 > Pergunta usada para definir o Âmbito de trabalho do corretor/corretora.\
-> \
 >
 >
-> Os possíveis valores para esta pergunta são:\
->
+> Os possíveis valores para esta pergunta são:
 >
 > * **NATIONAL =** nacional
 
@@ -205,7 +178,7 @@
 
 ```json
 {
-	 "identifier":"2942faa1-09b8-4345-9bdd-6764c4f1ad35",
+   "identifier":"2942faa1-09b8-4345-9bdd-6764c4f1ad35",
    "operationCode":"INSURANCE-BROKER-CIVIL-LIABILITY-PARTNER",
    "answers":[
       {
@@ -237,8 +210,7 @@
 
 > **Code**: VARIANT-IDENTIFIER\
 > **Type**: `guid`\
-> ❗ Obrigatório que esteja incluído no array de **proposta**.\
->
+> ❗ Obrigatório que esteja incluído no array de **proposta**.
 >
 > Pergunta usada para definir o identificador da variante.
 
@@ -247,11 +219,9 @@
 > **Code**: LIMIT\
 > **Type**: `decimal`\
 > ❗ Obrigatório que esteja incluído no array.\
-> \
 >
 >
-> Os valores possíveis para esta pergunta são:\
->
+> Os valores possíveis para esta pergunta são:
 >
 > * **30000.0** = R$ 30.000.
 > * **50000.0** = R$ 50.000.
@@ -272,224 +242,139 @@
 
 > **Code**: DEDUCTIBLE\
 > **Type**: `text`\
-> ❗ Obrigatório que esteja incluído no array. Essa é uma parte um pouco mais complicada\
->
+> ❗ Obrigatório que esteja incluído no array. Essa é uma parte um pouco mais complicada\\
 >
 > Pergunta usada para definir o tipo da franquia.\
 > Verifique abaixo como funciona a regra de franquias:\
-> \
 >
 >
 > **Dependendo do tipo de categoria definido no campo CATEGORIES e o tipo de PESSOA (física ou jurídica), a resposta será diferente. Abaixo, você pode ver detalhadamente:**\
-> \
 >
 >
 > **Para pessoa física (PERSON-TYPE = NATURAL)**
 >
-> \
 >
 >
-> Se for **AERONAUTICAL**\
+> Se for **AERONAUTICAL**
 >
+> * **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00 e o máximo de R$ 7.000,00
+> * **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00 e o máximo de R$ 8.000,00
+> * **REDUCED =** Reduzida - 10% dos Prejuízos com Mínimo de R$ 1.500,00 e o Máximo de R$ 6.000,00
 >
-> * **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00 e o máximo de R$ 7.000,00\
+> Se for **CAR**
 >
-> * **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00 e o máximo de R$ 8.000,00\
+> * **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00 e o máximo de R$ 7.000,00
+> * **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00 e o máximo de R$ 8.000,00
+> * **REDUCED =** Reduzida - 10% dos Prejuízos com Mínimo de R$ 1.500,00 e o Máximo de R$ 6.000,00
 >
-> * **REDUCED =** Reduzida - 10% dos Prejuízos com Mínimo de R$ 1.500,00 e o Máximo de R$ 6.000,00\
+> Se for **GUARANTEE**
 >
+> * **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00 e o máximo de R$ 7.000,00
+> * **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00 e o máximo de R$ 8.000,00
+> * **REDUCED =** Reduzida - 10% dos Prejuízos com Mínimo de R$ 1.500,00 e o Máximo de R$ 6.000,00
 >
-> Se for **CAR**\
+> Se for **GENERAL-PROFESSIONAL-CIVIL-LIABILITY**
 >
+> * **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00 e o máximo de R$ 7.000,00
+> * **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00 e o máximo de R$ 8.000,00
+> * **REDUCED =** Reduzida - 10% dos Prejuízos com Mínimo de R$ 1.500,00 e o Máximo de R$ 6.000,00
 >
-> * **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00 e o máximo de R$ 7.000,00\
+> Se for **ENGINEERING-RISKS**
 >
-> * **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00 e o máximo de R$ 8.000,00\
+> * **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00 e o máximo de R$ 7.000,00
+> * **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00 e o máximo de R$ 8.000,00
+> * **REDUCED =** Reduzida - 10% dos Prejuízos com Mínimo de R$ 1.500,00 e o Máximo de R$ 6.000,00
 >
-> * **REDUCED =** Reduzida - 10% dos Prejuízos com Mínimo de R$ 1.500,00 e o Máximo de R$ 6.000,00\
+> Se for **TRANSPORT**
 >
+> * **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00 e o máximo de R$ 7.000,00
+> * **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00 e o máximo de R$ 8.000,00
+> * **REDUCED =** Reduzida - 10% dos Prejuízos com Mínimo de R$ 1.500,00 e o Máximo de R$ 6.000,00
 >
-> Se for **GUARANTEE**\
+> Se for **CONSORTIUM**
 >
+> * **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00 e o máximo de R$ 7.000,00
+> * **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00 e o máximo de R$ 8.000,00
+> * **REDUCED =** Reduzida - 10% dos Prejuízos com Mínimo de R$ 1.500,00 e o Máximo de R$ 6.000,00
 >
-> * **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00 e o máximo de R$ 7.000,00\
+> Se for **BENEFITS-HEALTH-LIFE-PENSION**
 >
-> * **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00 e o máximo de R$ 8.000,00\
+> * **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00 e o máximo de R$ 7.000,00
+> * **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00 e o máximo de R$ 8.000,00
+> * **REDUCED =** Reduzida - 10% dos Prejuízos com Mínimo de R$ 1.500,00 e o Máximo de R$ 6.000,00
 >
-> * **REDUCED =** Reduzida - 10% dos Prejuízos com Mínimo de R$ 1.500,00 e o Máximo de R$ 6.000,00\
+> Se for **HEALTH-INSURANCE**
 >
+> * **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00 e o máximo de R$ 7.000,00
+> * **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00 e o máximo de R$ 8.000,00
+> * **REDUCED =** Reduzida - 10% dos Prejuízos com Mínimo de R$ 1.500,00 e o Máximo de R$ 6.000,00
 >
-> Se for **GENERAL-PROFESSIONAL-CIVIL-LIABILITY**\
+> Se for **OTHERS**
 >
->
-> * **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00 e o máximo de R$ 7.000,00\
->
-> * **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00 e o máximo de R$ 8.000,00\
->
-> * **REDUCED =** Reduzida - 10% dos Prejuízos com Mínimo de R$ 1.500,00 e o Máximo de R$ 6.000,00\
->
->
-> Se for **ENGINEERING-RISKS**\
->
->
-> * **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00 e o máximo de R$ 7.000,00\
->
-> * **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00 e o máximo de R$ 8.000,00\
->
-> * **REDUCED =** Reduzida - 10% dos Prejuízos com Mínimo de R$ 1.500,00 e o Máximo de R$ 6.000,00\
->
->
-> Se for **TRANSPORT**\
->
->
-> * **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00 e o máximo de R$ 7.000,00\
->
-> * **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00 e o máximo de R$ 8.000,00\
->
-> * **REDUCED =** Reduzida - 10% dos Prejuízos com Mínimo de R$ 1.500,00 e o Máximo de R$ 6.000,00\
->
->
-> Se for **CONSORTIUM**\
->
->
-> * **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00 e o máximo de R$ 7.000,00\
->
-> * **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00 e o máximo de R$ 8.000,00\
->
-> * **REDUCED =** Reduzida - 10% dos Prejuízos com Mínimo de R$ 1.500,00 e o Máximo de R$ 6.000,00\
->
->
-> Se for **BENEFITS-HEALTH-LIFE-PENSION**\
->
->
-> * **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00 e o máximo de R$ 7.000,00\
->
-> * **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00 e o máximo de R$ 8.000,00\
->
-> * **REDUCED =** Reduzida - 10% dos Prejuízos com Mínimo de R$ 1.500,00 e o Máximo de R$ 6.000,00\
->
->
-> Se for **HEALTH-INSURANCE**\
->
->
-> * **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00 e o máximo de R$ 7.000,00\
->
-> * **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00 e o máximo de R$ 8.000,00\
->
-> * **REDUCED =** Reduzida - 10% dos Prejuízos com Mínimo de R$ 1.500,00 e o Máximo de R$ 6.000,00\
->
->
-> Se for **OTHERS**\
->
->
-> * **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00 e o máximo de R$ 7.000,00\
->
-> * **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00 e o máximo de R$ 8.000,00\
->
-> * **REDUCED =** Reduzida - 10% dos Prejuízos com Mínimo de R$ 1.500,00 e o Máximo de R$ 6.000,00\
->
+> * **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00 e o máximo de R$ 7.000,00
+> * **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00 e o máximo de R$ 8.000,00
+> * **REDUCED =** Reduzida - 10% dos Prejuízos com Mínimo de R$ 1.500,00 e o Máximo de R$ 6.000,00
 >
 > **Para pessoa jurídica (PERSON-TYPE = LEGAL)**
 >
-> \
 >
 >
-> Se for **AERONAUTICAL**\
+> Se for **AERONAUTICAL**
 >
+> * **DEFAULT =** Padrão - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 3.000,00
+> * **INCREASED =** Majorada - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 5.000,00
+> * **REDUCED =** Reduzida - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 2.500,00
 >
-> * **DEFAULT =** Padrão - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 3.000,00\
+> Se for **CAR**
 >
-> * **INCREASED =** Majorada - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 5.000,00\
+> * **DEFAULT =** Padrão - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 3.000,00
+> * **INCREASED =** Majorada - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 5.000,00
+> * **REDUCED =** Reduzida - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 2.500,00
 >
-> * **REDUCED =** Reduzida - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 2.500,00\
+> Se for **GUARANTEE**
 >
+> * **DEFAULT =** Padrão - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 3.000,00
+> * **INCREASED =** Majorada - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 5.000,00
+> * **REDUCED =** Reduzida - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 2.500,00
 >
-> Se for **CAR**\
+> Se for **GENERAL-PROFESSIONAL-CIVIL-LIABILITY**
 >
+> * **DEFAULT =** Padrão - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 3.000,00
+> * **INCREASED =** Majorada - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 5.000,00
+> * **REDUCED =** Reduzida - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 2.500,00
 >
-> * **DEFAULT =** Padrão - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 3.000,00\
+> Se for **ENGINEERING-RISKS**
 >
-> * **INCREASED =** Majorada - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 5.000,00\
+> * **DEFAULT =** Padrão - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 3.000,00
+> * **INCREASED =** Majorada - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 5.000,00
+> * **REDUCED =** Reduzida - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 2.500,00
 >
-> * **REDUCED =** Reduzida - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 2.500,00\
+> Se for **TRANSPORT**
 >
+> * **DEFAULT =** Padrão - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 3.000,00
+> * **INCREASED =** Majorada - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 5.000,00
+> * **REDUCED =** Reduzida - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 2.500,00
 >
-> Se for **GUARANTEE**\
+> Se for **CONSORTIUM**
 >
+> * **DEFAULT =** Padrão - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 3.000,00
+> * **INCREASED =** Majorada - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 5.000,00
+> * **REDUCED =** Reduzida - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 2.500,00
 >
-> * **DEFAULT =** Padrão - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 3.000,00\
+> Se for **BENEFITS-HEALTH-LIFE-PENSION**
 >
-> * **INCREASED =** Majorada - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 5.000,00\
->
-> * **REDUCED =** Reduzida - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 2.500,00\
->
->
-> Se for **GENERAL-PROFESSIONAL-CIVIL-LIABILITY**\
->
->
-> * **DEFAULT =** Padrão - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 3.000,00\
->
-> * **INCREASED =** Majorada - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 5.000,00\
->
-> * **REDUCED =** Reduzida - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 2.500,00\
->
->
-> Se for **ENGINEERING-RISKS**\
->
->
-> * **DEFAULT =** Padrão - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 3.000,00\
->
-> * **INCREASED =** Majorada - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 5.000,00\
->
-> * **REDUCED =** Reduzida - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 2.500,00\
->
->
-> Se for **TRANSPORT**\
->
->
-> * **DEFAULT =** Padrão - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 3.000,00\
->
-> * **INCREASED =** Majorada - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 5.000,00\
->
-> * **REDUCED =** Reduzida - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 2.500,00\
->
->
-> Se for **CONSORTIUM**\
->
->
-> * **DEFAULT =** Padrão - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 3.000,00\
->
-> * **INCREASED =** Majorada - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 5.000,00\
->
-> * **REDUCED =** Reduzida - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 2.500,00\
->
->
-> Se for **BENEFITS-HEALTH-LIFE-PENSION**\
->
->
-> * **DEFAULT =** Padrão - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 3.000,00\
->
-> * **INCREASED =** Majorada - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 5.000,00\
->
-> * **REDUCED =** Reduzida - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 2.500,00\
->
+> * **DEFAULT =** Padrão - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 3.000,00
+> * **INCREASED =** Majorada - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 5.000,00
+> * **REDUCED =** Reduzida - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 2.500,00
 
-> Se for **HEALTH-INSURANCE**\
+> Se for **HEALTH-INSURANCE**
 >
+> * **DEFAULT =** Padrão - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 3.000,00
+> * **INCREASED =** Majorada - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 5.000,00
+> * **REDUCED =** Reduzida - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 2.500,00
 >
-> * **DEFAULT =** Padrão - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 3.000,00\
+> Se for **OTHERS**
 >
-> * **INCREASED =** Majorada - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 5.000,00\
->
-> * **REDUCED =** Reduzida - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 2.500,00\
->
->
-> Se for **OTHERS**\
->
->
-> * **DEFAULT =** Padrão - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 3.000,00\
->
-> * **INCREASED =** Majorada - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 5.000,00\
->
-> * **REDUCED =** Reduzida - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 2.500,00\
->
+> * **DEFAULT =** Padrão - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 3.000,00
+> * **INCREASED =** Majorada - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 5.000,00
+> * **REDUCED =** Reduzida - 10% dos Prejuízos Indenizáveis com o Mínimo de R$ 2.500,00

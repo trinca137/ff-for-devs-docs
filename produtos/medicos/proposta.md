@@ -11,6 +11,7 @@ POST: {{url_ambiente}}/v1/quotation/proposal
 ```json
 {
     "identifier": "606af046-2a40-4688-af2c-148d65f73aef",
+    "registerNumber": "100000",
     "operationCode": "MEDICAL-CIVIL-LIABILITY-PARTNER",
     "answers": [
         {

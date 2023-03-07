@@ -11,6 +11,7 @@ POST: {{url_ambiente}}/v1/quotation/proposal
 ```json
 {
     "identifier": "8324a438-c765-44ee-a7ea-bcfc4b810d22",
+    "registerNumber": "100000",
     "operationCode": "DENTIST-CIVIL-LIABILITY-PARTNER",
     "answers": [
         {

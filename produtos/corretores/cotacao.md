@@ -11,6 +11,7 @@ POST: {{url_ambiente}}/v1/quotation/contracting
 ```json
 {
     "operationCode": "INSURANCE-BROKER-CIVIL-LIABILITY-PARTNER",
+    "registerNumber": "100000",
     "answers": [
         {
           "code": "MODALITY",

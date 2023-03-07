@@ -6,36 +6,40 @@ Esse json abaixo contém as informações onde TODOS os produtos utilizam, na pa
 As respostas estão usando valores referentes ao produto "Bike"
 {% endhint %}
 
-### Explicando formulário&#x20;
+### Explicando formulário
 
 ```json
 {
-	"operationCode":"BIKE-MULTIPLE-PERIL-PARTNER",
+	"operationCode": "BIKE-MULTIPLE-PERIL-PARTNER",
+	"registerNumber": "100000",
 	"answers":[],
 }
 ```
 
 > **Field**: OperationCode\
 > **Tipo**: `text`\
-> ❗ Campo Obrigatório.\
->
+> ❗ Campo Obrigatório.
 >
 > Campo usado para definir qual produto está sendo cotado. Neste caso, o produto é "Bike", representado pelo operation code "BIKE-MULTIPLE-PERIL-PARTNER".
 
-
+> **Field:** RegisterNumber
+>
+> **Tipo:** `text`&#x20;
+>
+> ❗ Campo Obrigatório.
+>
+> Campo usado para definir qual o SusepNumber da corretora está sendo cotada. Neste caso, o susep da corretora é "100000".
 
 > **Field**: Answers\
 > **Tipo**: `array<answer>`\
-> ❗ Campo Obrigatório.\
->
+> ❗ Campo Obrigatório.
 >
 > Campo usado para enviar perguntas gerais de uma cotação.
-
-
 
 ```json
 {
     "operationCode": "BIKE-MULTIPLE-PERIL-PARTNER",
+    "registerNumber": "100000",
     "answers": [
         {
             "code": "MODALITY",
@@ -47,37 +51,28 @@ As respostas estão usando valores referentes ao produto "Bike"
 
 > **Code**: MODALITY\
 > **Tipo**: `text`\
-> ❗ Obrigatório que esteja incluído no array.\
->
+> ❗ Obrigatório que esteja incluído no array.
 >
 > Pergunta usada para definir qual modalidade está sendo cotado. Neste caso, a modalidade é "Bike", representado pelo código **"BIKE-MULTIPLE-PERIL"**.
 
 > **Code**: PERSON-TYPE\
 > **Tipo**: `text`\
 > ❗ Obrigatório que esteja incluído no array.\
-> ❗ O produto de D\&O não contém pessoa física, apenas pessoa jurídica.\
+> ❗ O produto de D\&O não contém pessoa física, apenas pessoa jurídica.
 >
+> Pergunta usada para saber se a cotação está sendo preenchida por uma Pessoa Física ou Jurídica. Os valores possíveis para esta pergunta são:
 >
-> Pergunta usada para saber se a cotação está sendo preenchida por uma Pessoa Física ou Jurídica. Os valores possíveis para esta pergunta são:\
->
->
-> * **NATURAL** = significa que a pessoa em questão é física.\
->
+> * **NATURAL** = significa que a pessoa em questão é física.
 > * **LEGAL** = significa que a pessoa em questão é jurídica.
-
-
 
 > **Code**: CONGENER\
 > **Tipo**: `text`\
-> ❗ Obrigatório que esteja incluído no array.\
->
+> ❗ Obrigatório que esteja incluído no array.
 >
 > Pergunta usada para definir se a cotação em questão é um Seguro Novo ou uma Renovação. Os valores possíveis para esta pergunta são:\
-> \
+> \\
 >
->
-> * **NEW** = indica que é um novo seguro.\
->
+> * **NEW** = indica que é um novo seguro.
 > * **RENEWAL** = indica que é a renovação de um seguro.
 
 ***
@@ -93,8 +88,7 @@ As respostas estão usando valores referentes ao produto "Bike"
 
 > **Code**: PREVIOUS-INSURER-NAME\
 > **Tipo**: `text`\
-> ❗ Obrigatório que esteja incluído no array. (se a cotação for uma renovação de outra seguradora).\
->
+> ❗ Obrigatório que esteja incluído no array. (se a cotação for uma renovação de outra seguradora).
 >
 > Pergunta usada para definir o nome da seguradora anterior.
 
@@ -102,8 +96,7 @@ As respostas estão usando valores referentes ao produto "Bike"
 
 > **Code**: START-VIGENCY-DATE\
 > **Tipo**: `date`\
-> ❗ Obrigatório que esteja incluído no array.\
->
+> ❗ Obrigatório que esteja incluído no array.
 >
 > Pergunta usada para definir o início da vigência do seguro.
 
@@ -111,8 +104,7 @@ As respostas estão usando valores referentes ao produto "Bike"
 
 > **Code**: VIGENCY-DURATION\
 > **Tipo**: `integer`\
-> No momento so é possivel o padrão, não sendo possível mudar a duração da vigência.\
->
+> No momento so é possivel o padrão, não sendo possível mudar a duração da vigência.
 >
 > Pergunta usada para definir a duração da vigência em anos. O valor padrão é 1.\
 > ❗Atualmente não é possivel colocar mais do que 1 ano.
@@ -121,8 +113,7 @@ As respostas estão usando valores referentes ao produto "Bike"
 
 > **Code**: IDENTITY\
 > **Tipo**: `text`\
-> ❗ Obrigatório que esteja incluído no array.\
->
+> ❗ Obrigatório que esteja incluído no array.
 >
 > Pergunta usada para definir a identificação do segurado, seja ela um **CPF** ou um **CNPJ**.
 
@@ -130,8 +121,7 @@ As respostas estão usando valores referentes ao produto "Bike"
 
 > **Code**: INSURED-NAME\
 > **Tipo**: `text`\
-> ❗ Obrigatório que esteja incluído no array.\
->
+> ❗ Obrigatório que esteja incluído no array.
 >
 > Pergunta usada para definir o nome do segurado.
 
@@ -139,8 +129,7 @@ As respostas estão usando valores referentes ao produto "Bike"
 
 > **Code**: INSURED-EMAIL\
 > **Tipo**: `text`\
-> ❗ Obrigatório que esteja incluído no array.\
->
+> ❗ Obrigatório que esteja incluído no array.
 >
 > Pergunta usada para definir o e-mail do segurado.
 
@@ -148,8 +137,7 @@ As respostas estão usando valores referentes ao produto "Bike"
 
 > **Code**: INSURED-CELLPHONE\
 > **Tipo**: `text`\
-> ❗ Obrigatório que esteja incluído no array.\
->
+> ❗ Obrigatório que esteja incluído no array.
 >
 > Pergunta usada para definir o telefone ou celular do segurado.
 
@@ -157,8 +145,7 @@ As respostas estão usando valores referentes ao produto "Bike"
 
 > **Code**: INSURED-ADDRESS-ZIPCODE\
 > **Tipo**: `text`\
-> ❗ Obrigatório que esteja incluído no array.\
->
+> ❗ Obrigatório que esteja incluído no array.
 >
 > Pergunta usada para definir o código postal (CEP) do segurado.
 
@@ -166,8 +153,7 @@ As respostas estão usando valores referentes ao produto "Bike"
 
 > **Code**: INSURED-ADDRESS-STREET\
 > **Tipo**: `text`\
-> ❗ Obrigatório que esteja incluído no array.\
->
+> ❗ Obrigatório que esteja incluído no array.
 >
 > Pergunta usada para definir a rua do segurado.
 
@@ -175,8 +161,7 @@ As respostas estão usando valores referentes ao produto "Bike"
 
 > **Code**: INSURED-ADDRESS-NUMBER\
 > **Tipo**: `text`\
-> ❗ Obrigatório que esteja incluído no array.\
->
+> ❗ Obrigatório que esteja incluído no array.
 >
 > Pergunta usada para definir o número da moradia do segurado.
 
@@ -184,8 +169,7 @@ As respostas estão usando valores referentes ao produto "Bike"
 
 > **Code**: INSURED-ADDRESS-COMPLEMENT\
 > **Tipo**: `text`\
-> ❗ Obrigatório que esteja incluído no array.\
->
+> ❗ Obrigatório que esteja incluído no array.
 >
 > Pergunta usada para definir o número da moradia do segurado.
 
@@ -193,8 +177,7 @@ As respostas estão usando valores referentes ao produto "Bike"
 
 > **Code**: INSURED-ADDRESS-NEIGHBORHOOD\
 > **Tipo**: `text`\
-> ❗ Obrigatório que esteja incluído no array.\
->
+> ❗ Obrigatório que esteja incluído no array.
 >
 > Pergunta usada para definir o bairro do segurado.
 
@@ -202,8 +185,7 @@ As respostas estão usando valores referentes ao produto "Bike"
 
 > **Code**: INSURED-ADDRESS-CITY\
 > **Tipo**: `text`\
-> ❗ Obrigatório que esteja incluído no array.\
->
+> ❗ Obrigatório que esteja incluído no array.
 >
 > Pergunta usada para definir a cidade do segurado.
 
@@ -211,8 +193,7 @@ As respostas estão usando valores referentes ao produto "Bike"
 
 > **Code**: INSURED-ADDRESS-STATE\
 > **Tipo**: `text`\
-> ❗Obrigatório que esteja incluído no array.\
->
+> ❗Obrigatório que esteja incluído no array.
 >
 > Pergunta usada para definir o estado do segurado.
 
@@ -221,8 +202,7 @@ As respostas estão usando valores referentes ao produto "Bike"
 > **Code**: COMMISSION\
 > **Tipo**: `decimal`\
 > ❗Obrigatório que esteja incluído\
-> Pergunta usada para definir a comissão.\
->
+> Pergunta usada para definir a comissão.
 >
 > Pode ser enviado valores entre 1 e 30.\
 > Valor padrão é 20.00.
@@ -230,8 +210,7 @@ As respostas estão usando valores referentes ao produto "Bike"
 ***
 
 > **Code**: GRIEVANCE-DISCOUNT\
-> **Tipo**: `decimal`\
->
+> **Tipo**: `decimal`
 >
 > Pergunta usada para definir Agravo (aumento de preço sobre o netValue\* da cotação).\
 > O Padrão é 0.\

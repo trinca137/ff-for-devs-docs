@@ -11,6 +11,7 @@ POST: {{url_ambiente}}/v1/quotation/proposal
 ```json
 {
     "identifier": "4ebed38e-db7a-40df-ae51-87edef9d2d69",
+    "registerNumber": "100000",
     "operationCode": "BIKE-MULTIPLE-PERIL-PARTNER",
         {
             "code": "PAYMENT-METHOD",

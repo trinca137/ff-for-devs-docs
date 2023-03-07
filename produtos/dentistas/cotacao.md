@@ -11,6 +11,7 @@ POST: {{url_ambiente}}/v1/quotation/contracting
 ```json
 {
     "operationCode": "DENTIST-CIVIL-LIABILITY-PARTNER",
+    "registerNumber": "100000",
     "identifier": "8324a438-c765-44ee-a7ea-bcfc4b810d22",
     "answers": [
         {

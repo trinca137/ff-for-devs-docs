@@ -11,6 +11,7 @@ As respostas estão usando valores referentes ao produto de "Bike".
 ```json
 {
    "identifier":"2aea86d1-a9e5-4220-ab29-68c3fba8483f",
+   "registerNumber": "100000",
    "operationCode":"BIKE-MULTIPLE-PERIL-PARTNER",
    "answers":[
       {
@@ -37,15 +38,21 @@ As respostas estão usando valores referentes ao produto de "Bike".
 
 > **Code**: INSURED-BIRTH-DATE\
 > **Type**: `date`\
-> ❗ Obrigatório que esteja incluído no array.\
->
+> ❗ Obrigatório que esteja incluído no array.
 >
 > Pergunta usada para definir a data de nascimento do segurado.
 
+> **Field:** RegisterNumber
+>
+> **Tipo:** `text`&#x20;
+>
+> ❗ Campo Obrigatório.
+>
+> Campo usado para definir qual o SusepNumber da corretora que está sendo cotada. Neste caso, o susep da corretora é "100000".
+
 > **Code**: PAYMENT-METHOD\
 > **Type**: `text`\
-> ❗ Obrigatório que esteja incluído no array.\
->
+> ❗ Obrigatório que esteja incluído no array.
 >
 > Pergunta usada para definir o método de pagamento.\
 > Os possíveis valores para esta pergunta são:
@@ -55,16 +62,12 @@ As respostas estão usando valores referentes ao produto de "Bike".
 
 > **Code**: DUE-DAY\
 > **Type**: `integer`\
-> ❗ Obrigatório que esteja incluído no array. (apenas quando o PAYMENT-METHOD for TICKET).\
+> ❗ Obrigatório que esteja incluído no array. (apenas quando o PAYMENT-METHOD for TICKET).
 >
->
-> Pergunta usada para definir o dia de vencimento quando o PAYMENT-METHOD for TICKET (boleto).\
->
+> Pergunta usada para definir o dia de vencimento quando o PAYMENT-METHOD for TICKET (boleto).
 
 > **Code**: PAYMENT-INSTALLMENT-IDENTIFIER\
 > **Type**: `guid`\
-> ❗ Obrigatório que esteja incluído no array.\
+> ❗ Obrigatório que esteja incluído no array.
 >
->
-> O guid que será enviado nesse campo é retornado no array de installments, no retorno do endpoint de criar cotação.\
->
+> O guid que será enviado nesse campo é retornado no array de installments, no retorno do endpoint de criar cotação.
