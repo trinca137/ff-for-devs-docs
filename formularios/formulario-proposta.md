@@ -1,9 +1,13 @@
 # Formulário proposta
 
 {% hint style="info" %}
-Esse json abaixo contém as informações onde TODOS os produtos utilizam, na pagina do produto é necessário adicionar os campos (contém exemplo nos produtos)
+Esse json abaixo contém as informações onde **TODOS** os produtos utilizam.&#x20;
 
-As respostas estão usando valores referentes ao produto de "Bike".
+Na pagina do produto é possível encontrar um **JSON de envio** completo dentro da seção de cada produto. Veja todos os **produtos** [aqui](../produtos/)
+
+
+
+As respostas estão usando valores referentes ao produto "Bike"
 {% endhint %}
 
 ### Explicando formulário

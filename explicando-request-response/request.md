@@ -1,5 +1,11 @@
 # Cotação
 
+{% hint style="danger" %}
+A página de [formulários](../formularios/formulario-cotacao.md) explica as informamações que todos os produtos necessitam de enviar para cotação.
+
+**(vale lembrar que todos produtos possui informações a mais para enviar junto ao json explicado na aba formulários)**
+{% endhint %}
+
 ## <mark style="color:blue;">Request</mark>
 
 {% swagger method="post" path="/quotation/contracting" baseUrl="{{url_ambiente}}/v1" summary="Criar Cotação" %}
@@ -470,10 +476,6 @@ _._
 ```
 {% endswagger-response %}
 {% endswagger %}
-
-{% hint style="success" %}
-É possível encontrar um **JSON de envio** completo dentro da seção de cada produto. Veja todos os **produtos** [aqui](../produtos/).
-{% endhint %}
 
 ## Response
 

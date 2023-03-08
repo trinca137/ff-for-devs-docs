@@ -1,5 +1,13 @@
 # Proposta
 
+{% hint style="danger" %}
+A página de [formulários](../formularios/formulario-proposta.md) explica as informamações que todos os produtos necessitam de enviar para a proposta.
+
+**(vale lembrar que todos produtos possui informações a mais para enviar junto ao json explicado na aba formulários)**
+{% endhint %}
+
+<mark style="color:blue;"></mark>
+
 ## <mark style="color:blue;">Request</mark>
 
 {% swagger method="post" path="/quotation/proposal" baseUrl="{{url_ambiente}}/v1" summary="Criar Proposta" %}
@@ -473,10 +481,6 @@ chave de acesso da api.
 ```
 {% endswagger-response %}
 {% endswagger %}
-
-{% hint style="success" %}
-É possível encontrar um **JSON de envio** completo dentro da seção de cada produto. Veja todos os **produtos** [aqui](../produtos/)
-{% endhint %}
 
 ## Response
 
