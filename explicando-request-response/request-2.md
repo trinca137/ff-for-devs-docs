@@ -1,8 +1,12 @@
 # Checkout
 
+{% hint style="danger" %}
+A página de [formulários](../formularios/formulario-de-checkout.md) explica as informamações que todos os produtos necessitam de enviar para o checkout.
+{% endhint %}
+
 ## Request
 
-{% swagger method="post" path="/checkout" baseUrl="{{url_ambiente}}/v1" summary="Criar Checkout" expanded="true" %}
+{% swagger method="post" path="/checkout" baseUrl="{{url_ambiente}}/v1" summary="Criar Checkout" %}
 {% swagger-description %}
 Realiza o checkout e solicita emissão de apólice.
 {% endswagger-description %}
@@ -15,10 +19,8 @@ chave de acesso da api.
 identificador da cotação.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="creditCard" type="string" %}
+{% swagger-parameter in="body" name="creditCard" type="string" required="false" %}
 informações do cartão de crédito.
-
-
 
 _<mark style="color:red;">Obrigatório quando foi informada a opção de pagamento por cartão de crédito, caso contrário, não é necessário o envio no request.</mark>_
 {% endswagger-parameter %}

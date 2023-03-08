@@ -1,7 +1,5 @@
 # Sumário
 
-
-
 <figure><img src="img/FF4Desenvolvedores-positive.png" alt=""><figcaption></figcaption></figure>
 
 ### <mark style="color:blue;">Descrição da API</mark>
@@ -15,13 +13,21 @@ Na seção de [**Configurações** ](configuracoes/)você vai encontrar informa�
 ### **Fluxo de venda**
 
 {% hint style="info" %}
-Na seção [**Fluxo de Venda**](explicando-request-response/) **** você poderá ver uma documentação sobre os campos que serão necessarios enviar na cotação de qualquer produto e suas explicações de cada campo, e também os endpoints para o fluxo, esses campos deverão sempre ser enviados juntos aos campos extras de um determinado produto.
+Na seção [**Fluxo de Venda**](explicando-request-response/) você poderá ver uma documentação e suas explicações de cada campo, e também os endpoints para o fluxo.
+{% endhint %}
+
+### Formulários
+
+{% hint style="info" %}
+Na seção de [**Formulários**](formularios/) você poderá ver uma documentação sobre os campos que serão necessarios enviar na cotação de qualquer produto.
+
+Esses campos deverão sempre ser enviados juntos aos campos extras de um determinado produto.
 {% endhint %}
 
 ### **Produtos**
 
 {% hint style="info" %}
-Atualmente esses produtos estão ativos, selecione qual deseja utilizar e entender os seus respectivos fluxos.&#x20;
+Atualmente esses produtos estão ativos, selecione qual deseja utilizar e entender os seus respectivos fluxos.
 
 Produtos disponíveis:
 
@@ -35,6 +41,5 @@ Produtos disponíveis:
 ### **Serviços de pós venda**
 
 {% hint style="info" %}
-Na seção [**serviços de pós venda**](./#servicos-de-pos-venda)  ****  encontrara alguns serviços que disponibilizamos como pós venda (Ex.: Consulta apólice) e suas respectivas documentações.
+Na seção [**serviços de pós venda**](./#servicos-de-pos-venda) **** encontrara alguns serviços que disponibilizamos como pós venda (Ex.: Consulta apólice) e suas respectivas documentações.
 {% endhint %}
-
