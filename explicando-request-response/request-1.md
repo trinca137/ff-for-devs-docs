@@ -27,18 +27,16 @@ _<mark style="color:red;">Obrigatório o uso do mesmo código utilizado no proce
 _O identificador da **operação** de cada produto está localizado na sua seção._
 {% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="registerNumber" type="string" required="true" %}
+Número de Susep.
+{% endswagger-parameter %}
+
 {% swagger-parameter in="body" name="answers" type="array" required="true" %}
 Array de respostas necessárias para a criação da proposta.
 
-\\
-
-\\
-
 _Saiba mais sobre o modelo de objeto de resposta na seção de_
 
-[_**formulários**_](../formularios/)
-
-_._
+[_**formulários**_](../formularios/)_**.**_
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="Ocp-Apim-Subscription-Key" type="md5" required="true" %}

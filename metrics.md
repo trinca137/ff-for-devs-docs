@@ -1,6 +1,6 @@
 # Metrics
 
-{% swagger method="get" path="/metrics" baseUrl="{{url_ambiente}}/v1" summary="Consulta Métricas de Requisições" %}
+{% swagger method="get" path="/infra/metrics" baseUrl="{{url_ambiente}}/v1" summary="Consulta Métricas de Requisições" %}
 {% swagger-description %}
 Retorna métrica de requisições
 {% endswagger-description %}

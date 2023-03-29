@@ -29,18 +29,18 @@ chave de acesso da api.
 Identificador da operação.
 {% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="registerNumber" type="string" required="true" %}
+Número de Susep.
+{% endswagger-parameter %}
+
 {% swagger-parameter in="body" name="answers" type="string" required="true" %}
 Array de respostas necessárias para a criação da proposta.
 
-\\
 
-\\
 
 _Saiba mais sobre o modelo de objeto de resposta na seção de_
 
-[_**formulários**_](../produtos/bike/explicando-formulario.md)
-
-_._
+[_**formulários**_](../produtos/bike/explicando-formulario.md)_**.**_
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="Retorno sucesso. (retorno de exemplo do produto de bikes)" %}
@@ -783,7 +783,7 @@ _._
 >
 > Datas de vencimento da parcela caso a forma de pagamento seja boleto.
 
-## Editação de cotação
+## Editando uma cotação
 
 Para edição de cotação não é necessário fazer nada de diferente.
 
