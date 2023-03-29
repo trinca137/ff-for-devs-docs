@@ -5,7 +5,7 @@ A API possui um ambiente de homologação para realização de testes e um ambie
 ### <mark style="color:blue;">Homologação</mark>
 
 ```url
-https://azuh1-br-fairfax-gateway.azure-api.net/partner/
+https://azuh1-br-fairfax-gateway.azure-api.net/partner/api
 ```
 
 {% hint style="warning" %}
@@ -17,7 +17,7 @@ Os testes que utilizamos caso queira copiar, já foi preparado para que os cálc
 ### <mark style="color:blue;">Produção</mark> <a href="#producao" id="producao"></a>
 
 ```url
-https://azup-br-fairfax-gateway.azure-api.net/partner/
+https://azup-br-fairfax-gateway.azure-api.net/partner/api
 ```
 
 <mark style="color:blue;">**Sobre**</mark>
@@ -27,4 +27,3 @@ A URL de cada recurso vai conter o parametro **\{{url\_ambiente\}}** como prefix
 
 Exemplo de chamada: _**`https://azuh1-br-fairfax-gateway.azure-api.net/partner/api/v1/quotation`**_
 {% endhint %}
-
