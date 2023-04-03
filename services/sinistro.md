@@ -45,8 +45,7 @@
 ***
 
 > **Field**: files\
-> **Type**: `array<string>`\
->
+> **Type**: `array<string>`
 >
 > Campo usado para enviar um array de arquivos no formato de base64.
 
@@ -65,8 +64,7 @@
 💡 **Explicando o JSON de response**
 
 > **Field**: protocol\
-> **Type**: `string`\
->
+> **Type**: `string`
 >
 > Numero de protocolo gerado vinculado ao sinistro.
 
@@ -85,16 +83,14 @@ GET: {{url_ambiente}}/v1/claim/046692022100101710000820
 #### Query Parameters
 
 > **Field**: page\
-> **Type**: `string`\
->
+> **Type**: `string`
 >
 > Possível passar número da pagina.
 
 ***
 
 > **Field**: protocol\
-> **Type**: `string`\
->
+> **Type**: `string`
 >
 > Possível passar número do protocolo.
 
@@ -224,65 +220,55 @@ GET: {{url_ambiente}}/v1/claim/046692022100101710000820
 💡 **Explicando o JSON de response**
 
 > **Field**: list.updatedAt\
-> **Type**: `date`\
->
+> **Type**: `date`
 >
 > Data de atualização do sinistro.
 
 ***
 
 > **Field**: list.createdAt\
-> **Type**: `date`\
->
+> **Type**: `date`
 >
 > Data de criação do sinistro.
 
 ***
 
 > **Field**: list.description\
-> **Type**: `string`\
->
+> **Type**: `string`
 >
 > Descrição do sinistro.
 
 ***
 
 > **Field**: list.protocol\
-> **Type**: `string`\
->
+> **Type**: `string`
 >
 > Protocolo do sinistro.
 
 ***
 
 > **Field**: list.notificationEmail\
-> **Type**: `string`\
->
+> **Type**: `string`
 >
 > Email que recebeu a notificação do sinistro.
 
 ***
 
 > **Field**: list.notificationEmail\
-> **Type**: `string`\
->
+> **Type**: `string`
 >
 > Email que recebeu a notificação do sinistro.
 
 ***
 
 > **Field**: list.files\
-> **Type**: `array`\
->
+> **Type**: `array`
 >
 > Array contendo os arquivos vinculados ao sinistro.
 
 ***
 
 > **Field**: list.files\[].url\
-> **Type**: `string`\
->
+> **Type**: `string`
 >
 > Link do arquivo.
-
-***

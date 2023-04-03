@@ -9,5 +9,5 @@ Para obter autorização no consumo dos recursos da API, você deve enviar a Cha
 A chave de acesso deve ser enviada como valor da propriedade: **Ocp-Apim-Subscription-Key**
 
 ```
-curl -H 'Ocp-Apim-Subscription-Key: {Chave de Acesso}'
+Ocp-Apim-Subscription-Key: {Chave de Acesso}
 ```

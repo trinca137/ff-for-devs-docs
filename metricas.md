@@ -1,4 +1,12 @@
-# Metrics
+---
+description: >-
+  Nesta página de métricas futuramente terá mais endpoint relacionados as
+  métricas que disponibilizamos para o parceiro.
+---
+
+# Métricas
+
+Neste endpoint temos um endpoint onde conseguimos identificar quantas chamadas você realizou, quantas deram erros, quais deram sucesso, etc.
 
 {% swagger method="get" path="/infra/metrics" baseUrl="{{url_ambiente}}/v1" summary="Consulta Métricas de Requisições" %}
 {% swagger-description %}
@@ -51,138 +59,140 @@ example: endDate=2023-02-27T23:59:00
 {% endswagger-response %}
 {% endswagger %}
 
+
+
 {% hint style="info" %}
 Se não for passando nenhum range de datas, por padrão a busca será feita com base no primeiro ao ultimo dia do mes.
 {% endhint %}
 
 > **Field**: value\[].apiId\
-> **Type**: `string`\\
+> **Type**: `string`
 >
 > Path identificador de API - /apis/{apiId}.
 
 > **Field**: value\[].apiRegion\
-> **Type**: `string`\\
+> **Type**: `string`
 >
 > Identificador da região API.
 
 > **Field**: value\[].apiTimeAvg\
-> **Type**: number\\
+> **Type**: number
 >
 > Tempo médio que levou para processar a solicitção.
 
 > **Field**: value\[].apiTimeMax\
-> **Type**: `number`\\
+> **Type**: `number`
 >
 > Tempo maximo que levou para processar a solicitação.
 
 > **Field**: value\[].apiTimeMin\
-> **Type**: `number`\\
+> **Type**: `number`
 >
 > Tempo minimo que levou para processar a solicitação.
 
 > **Field**: value\[].bandwidth\
-> **Type**: `interger`\\
+> **Type**: `interger`
 >
 > Largura de banda consumida.
 
 > **Field**: value\[].cacheHitCount\
-> **Type**: `interger`\\
+> **Type**: `interger`
 >
 > Numero de vezes em que o conteúdo foi exibido a partir da politica de cache.
 
 > **Field**: value\[].cacheMissCount\
-> **Type**: `interger`\\
+> **Type**: `interger`
 >
 > Numero de vezes em que o conteúdo foi obtido do backend.
 
 > **Field**: value\[].callCountBlocked\
-> **Type**: `interger`\\
+> **Type**: `interger`
 >
 > Número de chamadas bloqueadas devido a credenciais inválidas. Isso inclui chamadas que retornam HttpStatusCode.Unauthorized e HttpStatusCode.Forbidden e HttpStatusCode.TooManyRequests.
 
 > **Field**: value\[].callCountFailed\
-> **Type**: `interger`\\
+> **Type**: `interger`
 >
 > Número de chamadas com falha devido a erros de proxy ou back-end. Isso inclui chamadas que retornam HttpStatusCode.BadRequest(400) e qualquer código entre HttpStatusCode.InternalServerError (500) e 600.
 
 > **Field**: value\[].callCountOther\
-> **Type**: `interger`\\
+> **Type**: `interger`
 >
 > Número de outras chamadas.
 
 > **Field**: value\[].callCountSuccess\
-> **Type**: `interger`\\
+> **Type**: `interger`
 >
 > Número de chamadas bem-sucedidas. Isso inclui chamadas que retornam HttpStatusCode <= 301 e HttpStatusCode.NotModified e HttpStatusCode.TemporaryRedirect.
 
 > **Field**: value\[].callCountTotal\
-> **Type**: `interger`\\
+> **Type**: `interger`
 >
 > Número total de chamadas.
 
 > **Field**: value\[].country\
-> **Type**: `string`\\
+> **Type**: `string`
 >
 > País ao qual os dados deste registro estão relacionados.
 
 > **Field**: value\[].interval\
-> **Type**: `string`\\
+> **Type**: `string`
 >
 > Duração do período de agregação. O intervalo deve ser múltiplo de 15 minutos e não pode ser zero. O valor deve estar no formato ISO 8601.
 >
 > ([http://en.wikipedia.org/wiki/ISO\_8601#Durations](http://en.wikipedia.org/wiki/ISO\_8601#Durations)).
 
 > **Field**: value\[].name\
-> **Type**: `string`\\
+> **Type**: `string`
 >
 > O nome, dependendo do endpoint do relatório, especifica o nome do produto, API, operação ou desenvolvedor.
 
 > **Field**: value\[].operationId\
-> **Type**: `string`\\
+> **Type**: `string`
 >
 > Caminho do identificador de operação - /apis/{apiId}/operations/{operationId}.
 
 > **Field**: value\[].productId\
-> **Type**: `string`\\
+> **Type**: `string`
 >
 > Caminho do identificador do produto - /products/{productId}.
 
 > **Field**: value\[].region\
-> **Type**: `string`\\
+> **Type**: `string`
 >
 > Região do país à qual esses dados de registro estão relacionados.
 
 > **Field**: value\[].serviceTimeAvg\
-> **Type**: `number`\\
+> **Type**: `number`
 >
 > Tempo médio que levou para processar a solicitação no backend.
 
 > **Field**: value\[].serviceTimeMax\
-> **Type**: `number`\\
+> **Type**: `number`
 >
 > Tempo máximo que levou para processar a solicitação no backend.
 
 > **Field**: value\[].serviceTimeMin\
-> **Type**: `number`\\
+> **Type**: `number`
 >
 > Tempo minimo que levou para processar a solicitação no backend.
 
 > **Field**: value\[].subscriptionId\
-> **Type**: `string`\\
+> **Type**: `string`
 >
 > Caminho do identificador de assinatura - /subscriptions/{subscriptionId}.
 
 > **Field**: value\[].timestamp\
-> **Type**: `string`\\
+> **Type**: `string`
 >
 > Início do período de agregação. A data segue o seguinte formato: aaaa-MM-ddTHH:mm:ssZ conforme especificado pelo padrão ISO 8601.
 
 > **Field**: value\[].userId\
-> **Type**: `string`\\
+> **Type**: `string`
 >
 > Caminho do identificador do usuário - /users/{userId}.
 
 > **Field**: value\[].zip\
-> **Type**: `string`\\
+> **Type**: `string`
 >
 > Código postal ao qual os dados deste registro estão relacionados.

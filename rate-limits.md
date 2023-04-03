@@ -1,6 +1,6 @@
 # Rate Limits
 
-Para conseguirmos prover maior segurança e tempo de resposta para os usuarios das apis, utilizamos os limites de requests. Nossos limites funcionam da seguinte forma:
+Para conseguirmos prover maior segurança e tempo de resposta para os usuarios das APIs, utilizamos os limites de requests. Nossos limites funcionam da seguinte forma:
 
 | Grupo                  | Chamadas                           | Política          | Tempo de espera |
 | ---------------------- | ---------------------------------- | ----------------- | --------------- |
@@ -10,7 +10,7 @@ Para conseguirmos prover maior segurança e tempo de resposta para os usuarios d
 | Receber lista apólices | GET /{versão}/get-all              | 10 solicitações   | 20 segundos     |
 
 {% hint style="warning" %}
-É importante ressaltar que o parceiro deverá configurar uma limitação de requisições nas API'S em seus ambientes. A medida visa a segurança, para complementar as travas já existentes na API.&#x20;
+É importante ressaltar que o parceiro deverá configurar uma limitação de requisições nas APIs em seus ambientes. A medida visa a segurança, para complementar as travas já existentes na API.
 {% endhint %}
 
 ## Retornos
