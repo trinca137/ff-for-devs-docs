@@ -136,7 +136,7 @@ Se não for passando nenhum range de datas, por padrão a busca será feita com 
 > País ao qual os dados deste registro estão relacionados.
 
 > **Field**: value\[].interval\
-> **Type**: `string`\\
+> **Type**: `string`
 >
 > Duração do período de agregação. O intervalo deve ser múltiplo de 15 minutos e não pode ser zero. O valor deve estar no formato ISO 8601.
 >
