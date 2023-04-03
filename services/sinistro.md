@@ -10,6 +10,7 @@
 
 ```json
 {
+    "registerNumber":"100000"
     "description":"descricao para o sinistro",
     "policyNumber":"046692022100101710000820",
     "notificationEmail":"email@gmail.com",
@@ -18,6 +19,16 @@
 ```
 
 💡 **Explicando o JSON de request**
+
+****
+
+> **Field**: registerNumber\
+> **Type**: `string`\
+> ❗Campo obrigatório.
+>
+> Campo usado para definir o susep.
+
+****
 
 > **Field**: description\
 > **Type**: `string`\
@@ -74,29 +85,33 @@
 
 #### Endpoint
 
-```
-GET: {{url_ambiente}}/v1/claim/046692022100101710000820
-```
+{% swagger method="get" path="" baseUrl="{{url_ambiente}}/v1/{policyNumber}/{registerNumber}" summary="" expanded="false" %}
+{% swagger-description %}
+Chamada GET, para consultar o sinistro, passando como route parameter o numero da apolice e susep.
+{% endswagger-description %}
 
-> ❕ Chamada GET, para consultar o sinistro, passando como route parameter o numero da apolice.
+{% swagger-parameter in="path" name="policyNumber" type="" required="true" %}
+Número da apólice
+{% endswagger-parameter %}
 
-#### Query Parameters
+{% swagger-parameter in="path" name="registerNumber" required="true" %}
+Número Susep
+{% endswagger-parameter %}
 
-> **Field**: page\
-> **Type**: `string`
->
-> Possível passar número da pagina.
+{% swagger-parameter in="query" name="page" %}
+Possível passar número da pagina.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="protocol" %}
+Possível passar número do protocolo.
+{% endswagger-parameter %}
+{% endswagger %}
 
 ***
 
-> **Field**: protocol\
-> **Type**: `string`
->
-> Possível passar número do protocolo.
-
 ***
 
-#### response
+#### Response
 
 ```json
 {
