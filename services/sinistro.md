@@ -85,7 +85,7 @@
 
 #### Endpoint
 
-{% swagger method="get" path="" baseUrl="{{url_ambiente}}/v1/{policyNumber}/{registerNumber}" summary="" expanded="false" %}
+{% swagger method="get" path="" baseUrl="{{url_ambiente}}/v1/{registerNumber}/{policyNumber}" summary="" expanded="false" %}
 {% swagger-description %}
 Chamada GET, para consultar o sinistro, passando como route parameter o numero da apolice e susep.
 {% endswagger-description %}
