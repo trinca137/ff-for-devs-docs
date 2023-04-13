@@ -1,6 +1,6 @@
 # Consulta de apólice
 
-{% swagger method="get" path="/policy/{policyNumber}" baseUrl="{{url_ambiente}}/v1" summary="Consulta Apólice Única" %}
+{% swagger method="get" path="/policy/{registerNumber}/{policyNumber}" baseUrl="{{url_ambiente}}/v1" summary="Consulta Apólice Única" %}
 {% swagger-description %}
 Retorna informações da apólice solicitada
 {% endswagger-description %}
@@ -11,6 +11,10 @@ Número da apólice
 
 {% swagger-parameter in="header" name="Ocp-Apim-Subscription-Key" type="md5" required="true" %}
 Chave de acesso
+{% endswagger-parameter %}
+
+{% swagger-parameter in="path" name="registerNumber" %}
+Número Susep
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="Retorno da apólice contratada" %}
@@ -96,7 +100,7 @@ Chave de acesso
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger method="get" path="/v1/policy/all" baseUrl="{{url_ambiente}}" summary="Listagem apólice" %}
+{% swagger method="get" path="/v1/policy/{registerNumber}/all" baseUrl="{{url_ambiente}}" summary="Listagem apólice" %}
 {% swagger-description %}
 Retorna lista de apólices.
 {% endswagger-description %}
@@ -107,6 +111,10 @@ Chave de acesso
 
 {% swagger-parameter in="query" name="page" type="string" required="false" %}
 Passar o número da chave
+{% endswagger-parameter %}
+
+{% swagger-parameter in="path" name="registerNumber" %}
+Número Susep
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
