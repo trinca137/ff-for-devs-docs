@@ -35,11 +35,12 @@ Produtos disponíveis:
 [Médicos](produtos/medicos/)\
 [Dentistas](produtos/dentistas/)\
 [D\&O\
-](produtos/dao/)[Corretores de Seguros](produtos/corretores/)
+](produtos/dao/)[Corretores de Seguros](produtos/corretores/)\
+[RD Equipamentos](produtos/corretores-1/)
 {% endhint %}
 
 ### **Serviços de pós venda**
 
 {% hint style="info" %}
-Na seção [**serviços de pós venda**](./#servicos-de-pos-venda) **** encontrara alguns serviços que disponibilizamos como pós venda (Ex.: Consulta apólice) e suas respectivas documentações.
+Na seção [**serviços de pós venda**](./#servicos-de-pos-venda) encontrara alguns serviços que disponibilizamos como pós venda (Ex.: Consulta apólice) e suas respectivas documentações.
 {% endhint %}
