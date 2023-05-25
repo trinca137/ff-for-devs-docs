@@ -1,10 +1,58 @@
 # Criar Proposta
 
-#### Endpoint
+{% swagger method="post" path="{{version}}/quotation/proposal" baseUrl="{{url_ambiente}}/" summary="Criar proposta" expanded="true" fullWidth="true" %}
+{% swagger-description %}
+Cria uma proposta (atualiza informações adicionais)
+{% endswagger-description %}
 
+{% swagger-parameter in="header" name="Ocp-Apim_Subscription-Key" type="key" required="true" %}
+chave de acesso da api.
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="Retorno sucesso " %}
+
+
+[#response](proposta.md#response "mention")
+
+
+{% endswagger-response %}
+
+{% swagger-response status="400: Bad Request" description="Retorno com mensagem do local do erro" %}
+```json
+Neste caso não foi enviado o PAYMENT-INSTALLMENT-IDENTIFIER resultando nos outros
+erros como aparece abaixo.
+{
+    "success": false,
+    "executed": "2023-05-25T15:04:47.1182243Z",
+    "errors": [
+        {
+            "code": "ANSWERS-NOT-EVALUATED",
+            "message": "One or more answers could not be evaluated.",
+            "properties": [
+                "PAYMENT-INSTALLMENT-IDENTIFIER",
+                "NET-VALUE",
+                "INTEREST-VALUE",
+                "TAX-VALUE",
+                "TOTAL-VALUE",
+                "INSTALLMENT-NUMBER"
+            ]
+        }
+    ]
+}
 ```
-POST: {{url_ambiente}}/v1/quotation/proposal
+{% endswagger-response %}
+
+{% swagger-response status="401: Unauthorized" description="Caso não envie uma "chave" ou envie uma inválida" %}
+{% code overflow="wrap" %}
+```json
+{
+    "statusCode": 401,
+    "message": "Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API."
+}
 ```
+{% endcode %}
+{% endswagger-response %}
+{% endswagger %}
 
 ## Request
 
@@ -34,15 +82,63 @@ POST: {{url_ambiente}}/v1/quotation/proposal
 }
 ```
 
-## Response
+### Detalhamento request de proposta
 
-Expicamos os campos de retorno neste [link](../../explicando-request-response/request-1.md#response)
+> **Code**: INSURED-BIRTH-DATE\
+> **Type**: `date`\
+> ❗ Obrigatório que esteja incluído no array (apenas se o segurado for Pessoa Fisica).
+>
+> Pergunta usada para definir a data de nascimento do segurado.
+
+
+
+> **Field:** RegisterNumber
+>
+> **Tipo:** `text`&#x20;
+>
+> ❗ Campo Obrigatório.
+>
+> Campo usado para definir qual o SusepNumber da corretora que está sendo cotada. Neste caso, o susep da corretora é "100000".
+
+
+
+> **Code**: PAYMENT-METHOD\
+> **Type**: `text`\
+> ❗ Obrigatório que esteja incluído no array.
+>
+> Pergunta usada para definir o método de pagamento.\
+> Os possíveis valores para esta pergunta são:
+>
+> * _CREDIT-CARD_
+> * _TICKET_
+
+
+
+> **Code**: DUE-DAY\
+> **Type**: `integer`\
+> ❗ Obrigatório que esteja incluído no array. (apenas quando o PAYMENT-METHOD for TICKET).
+>
+> Pergunta usada para definir o dia de vencimento quando o PAYMENT-METHOD for TICKET (boleto).
+
+
+
+> **Code**: PAYMENT-INSTALLMENT-IDENTIFIER\
+> **Type**: `guid`\
+> ❗ Obrigatório que esteja incluído no array.
+>
+> O guid que será enviado nesse campo é retornado no array de installments, no retorno do endpoint de criar cotação.
+
+## Response
 
 ```json
 {
     "item": {
-        "quotationIdentifier": "663fa4d0-05e6-4e5a-9395-a225bc22d571",
+        "quotationIdentifier": "fd553149-0a95-4c5b-b94d-e9377d099cf3",
         "status": "Draft",
+        "proposal": {
+            "number": "04958103120001",
+            "date": "2023-05-23T00:00:00Z"
+        },
         "pricing": [
             {
                 "variantIdentifier": "3aabec8a-45ca-433a-9954-e6ae7853d299",
@@ -51,20 +147,20 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                     "evaluations": []
                 },
                 "price": {
-                    "commission": 715.89,
+                    "commission": 1964.84,
                     "grievanceDiscount": 0.0,
-                    "itemValue": 100000.0,
-                    "netValue": 3579.45,
+                    "itemValue": 1000000.0,
+                    "netValue": 9824.21,
                     "interestValue": 0.0,
-                    "taxValue": 264.16,
-                    "totalValue": 3843.61,
-                    "policyLimit": 160000.0,
+                    "taxValue": 725.03,
+                    "totalValue": 10549.24,
+                    "policyLimit": 1060000.0,
                     "rates": [
                         {
                             "code": "DAMAGE-COVERAGE",
                             "description": "Danos à bike",
-                            "limit": 100000.0,
-                            "netValue": 1163.14,
+                            "limit": 1000000.0,
+                            "netValue": 6719.57,
                             "deductible": {
                                 "code": "DEFAULT",
                                 "text": "10% dos prejuízos indenizáveis com o mínimo de 1,5% do valor do equipamento",
@@ -74,8 +170,8 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                         {
                             "code": "THEFT-COVERAGE",
                             "description": "Roubo e/ou furto qualificado",
-                            "limit": 100000.0,
-                            "netValue": 945.0,
+                            "limit": 1000000.0,
+                            "netValue": 2728.69,
                             "deductible": {
                                 "code": "DEFAULT",
                                 "text": "10% dos prejuízos indenizáveis com o mínimo de 1,5% do valor do equipamento",
@@ -83,43 +179,21 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                             }
                         },
                         {
-                            "code": "OPERATIONS-WATER-COVERAGE",
-                            "description": "Operações em Proximidade de Água",
-                            "limit": 100000.0,
-                            "netValue": 525.0,
-                            "deductible": {
-                                "code": "DEFAULT",
-                                "text": "10% dos prejuízos indenizáveis com o mínimo de 1,5% do valor do equipamento",
-                                "description": "10% dos prejuízos indenizáveis com o mínimo de 1,5% do valor do equipamento"
-                            }
-                        },
-                        {
                             "code": "ELECTRICAL-DAMAGE-COVERAGE",
                             "description": "Danos elétricos",
                             "limit": 70000.0,
-                            "netValue": 183.75,
+                            "netValue": 212.23,
                             "deductible": {
                                 "code": "DEFAULT",
                                 "text": "10% dos prejuízos indenizáveis com o mínimo de 1,5% do valor do equipamento",
                                 "description": "10% dos prejuízos indenizáveis com o mínimo de 1,5% do valor do equipamento"
-                            }
-                        },
-                        {
-                            "code": "CIVIL-LIABILITY-COVERAGE",
-                            "description": "Danos Materiais E/ou Corporais a Terceiros (RC)",
-                            "limit": 50000.0,
-                            "netValue": 132.56,
-                            "deductible": {
-                                "code": "DEFAULT",
-                                "text": "10% dos prejuízos indenizáveis com o mínimo de 1,5% do valor do equipamento",
-                                "description": "10% dos prejuízos indenizáveis com o mínimo de R$ 5.000,00 por evento"
                             }
                         },
                         {
                             "code": "LOSS-RENT-COVERAGE",
                             "description": "Perda de Aluguel",
                             "limit": 30000.0,
-                            "netValue": 315.0,
+                            "netValue": 81.86,
                             "deductible": {
                                 "code": "DEFAULT",
                                 "text": "10% dos prejuízos indenizáveis com o mínimo de 1,5% do valor do equipamento",
@@ -130,7 +204,7 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                             "code": "PAYMENT-THIRD-PARTIES-COVERAGE",
                             "description": "Pagamento de Aluguel a Terceiros",
                             "limit": 30000.0,
-                            "netValue": 315.0,
+                            "netValue": 81.86,
                             "deductible": {
                                 "code": "DEFAULT",
                                 "text": "10% dos prejuízos indenizáveis com o mínimo de 1,5% do valor do equipamento",
@@ -147,125 +221,84 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                             "paymentType": "CreditCard",
                             "installments": [
                                 {
-                                    "identifier": "c71b76e8-9478-4826-b688-4bf2086f4444",
+                                    "identifier": "f14a0bfa-4bb3-4650-97df-9a2ccbbd7f4c",
                                     "number": 1,
-                                    "commissionValue": 715.89,
-                                    "netValue": 3579.45,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
                                     "interestValue": 0.0,
-                                    "taxValue": 264.16,
-                                    "totalValue": 3843.61,
-                                    "installmentValue": 3843.61,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 10549.24,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 264.16,
+                                    "installmentTax": 725.03,
                                     "dueDates": [
-                                        "2023-04-25T00:00:00Z"
+                                        "2023-06-01T00:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "9e4f6512-a080-4832-947f-a60cbb2e8899",
+                                    "identifier": "22fd848b-b3dc-481b-9d6a-e9b51a44e525",
                                     "number": 2,
-                                    "commissionValue": 715.89,
-                                    "netValue": 3579.45,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
                                     "interestValue": 0.0,
-                                    "taxValue": 264.16,
-                                    "totalValue": 3843.61,
-                                    "installmentValue": 1921.8,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 5274.62,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 132.08,
+                                    "installmentTax": 362.52,
                                     "dueDates": [
-                                        "2023-04-25T00:00:00Z",
-                                        "2023-05-01T12:00:00Z"
-                                    ]
-                                },
-                                {
-                                    "identifier": "ea313604-56f9-4ab3-9d40-247fa30ea965",
-                                    "number": 3,
-                                    "commissionValue": 715.89,
-                                    "netValue": 3579.45,
-                                    "interestValue": 0.0,
-                                    "taxValue": 264.16,
-                                    "totalValue": 3843.61,
-                                    "installmentValue": 1281.2,
-                                    "installmentInterest": 0.0,
-                                    "installmentTax": 88.05,
-                                    "dueDates": [
-                                        "2023-04-25T00:00:00Z",
-                                        "2023-05-01T12:00:00Z",
-                                        "2023-06-01T12:00:00Z"
-                                    ]
-                                },
-                                {
-                                    "identifier": "c9cc7ac7-fa40-4a0c-a6aa-af538032e904",
-                                    "number": 4,
-                                    "commissionValue": 715.89,
-                                    "netValue": 3579.45,
-                                    "interestValue": 0.0,
-                                    "taxValue": 264.16,
-                                    "totalValue": 3843.61,
-                                    "installmentValue": 960.9,
-                                    "installmentInterest": 0.0,
-                                    "installmentTax": 66.04,
-                                    "dueDates": [
-                                        "2023-04-25T00:00:00Z",
-                                        "2023-05-01T12:00:00Z",
-                                        "2023-06-01T12:00:00Z",
+                                        "2023-06-01T00:00:00Z",
                                         "2023-07-01T12:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "a9eaab18-1259-4360-bf9a-8eac8554f0b4",
-                                    "number": 5,
-                                    "commissionValue": 715.89,
-                                    "netValue": 3579.45,
+                                    "identifier": "22fe57bf-996e-4c8a-8500-7c0b4b53e62b",
+                                    "number": 3,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
                                     "interestValue": 0.0,
-                                    "taxValue": 264.16,
-                                    "totalValue": 3843.61,
-                                    "installmentValue": 768.72,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 3516.41,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 52.83,
+                                    "installmentTax": 241.68,
                                     "dueDates": [
-                                        "2023-04-25T00:00:00Z",
-                                        "2023-05-01T12:00:00Z",
-                                        "2023-06-01T12:00:00Z",
+                                        "2023-06-01T00:00:00Z",
                                         "2023-07-01T12:00:00Z",
                                         "2023-08-01T12:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "fbc4e973-9e21-440f-86cd-e3ffd2cf1167",
-                                    "number": 6,
-                                    "commissionValue": 715.89,
-                                    "netValue": 3579.45,
+                                    "identifier": "79d8da7a-fb6f-4333-8d6c-c625012bd469",
+                                    "number": 4,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
                                     "interestValue": 0.0,
-                                    "taxValue": 264.16,
-                                    "totalValue": 3843.61,
-                                    "installmentValue": 640.6,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 2637.31,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 44.03,
+                                    "installmentTax": 181.26,
                                     "dueDates": [
-                                        "2023-04-25T00:00:00Z",
-                                        "2023-05-01T12:00:00Z",
-                                        "2023-06-01T12:00:00Z",
+                                        "2023-06-01T00:00:00Z",
                                         "2023-07-01T12:00:00Z",
                                         "2023-08-01T12:00:00Z",
                                         "2023-09-01T12:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "b1527188-366b-4fd3-ad3f-d13f2dd0e4c3",
-                                    "number": 7,
-                                    "commissionValue": 715.89,
-                                    "netValue": 3579.45,
+                                    "identifier": "738da76b-b370-4a33-add0-11f6b71cc621",
+                                    "number": 5,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
                                     "interestValue": 0.0,
-                                    "taxValue": 264.16,
-                                    "totalValue": 3843.61,
-                                    "installmentValue": 549.09,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 2109.85,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 37.74,
+                                    "installmentTax": 145.01,
                                     "dueDates": [
-                                        "2023-04-25T00:00:00Z",
-                                        "2023-05-01T12:00:00Z",
-                                        "2023-06-01T12:00:00Z",
+                                        "2023-06-01T00:00:00Z",
                                         "2023-07-01T12:00:00Z",
                                         "2023-08-01T12:00:00Z",
                                         "2023-09-01T12:00:00Z",
@@ -273,20 +306,18 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                                     ]
                                 },
                                 {
-                                    "identifier": "de863745-4007-49af-ad83-6e85a686d0a8",
-                                    "number": 8,
-                                    "commissionValue": 715.89,
-                                    "netValue": 3579.45,
+                                    "identifier": "1c2f4934-2cf3-49d1-91ec-83567a4feb2d",
+                                    "number": 6,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
                                     "interestValue": 0.0,
-                                    "taxValue": 264.16,
-                                    "totalValue": 3843.61,
-                                    "installmentValue": 480.45,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 1758.21,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 33.02,
+                                    "installmentTax": 120.84,
                                     "dueDates": [
-                                        "2023-04-25T00:00:00Z",
-                                        "2023-05-01T12:00:00Z",
-                                        "2023-06-01T12:00:00Z",
+                                        "2023-06-01T00:00:00Z",
                                         "2023-07-01T12:00:00Z",
                                         "2023-08-01T12:00:00Z",
                                         "2023-09-01T12:00:00Z",
@@ -295,20 +326,18 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                                     ]
                                 },
                                 {
-                                    "identifier": "71424dcb-c3ea-43e6-9662-466f191ecb0b",
-                                    "number": 9,
-                                    "commissionValue": 715.89,
-                                    "netValue": 3579.45,
+                                    "identifier": "f8c9522d-8c96-4631-a364-3a0e64eba9c5",
+                                    "number": 7,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
                                     "interestValue": 0.0,
-                                    "taxValue": 264.16,
-                                    "totalValue": 3843.61,
-                                    "installmentValue": 427.07,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 1507.03,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 29.35,
+                                    "installmentTax": 103.58,
                                     "dueDates": [
-                                        "2023-04-25T00:00:00Z",
-                                        "2023-05-01T12:00:00Z",
-                                        "2023-06-01T12:00:00Z",
+                                        "2023-06-01T00:00:00Z",
                                         "2023-07-01T12:00:00Z",
                                         "2023-08-01T12:00:00Z",
                                         "2023-09-01T12:00:00Z",
@@ -318,20 +347,18 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                                     ]
                                 },
                                 {
-                                    "identifier": "9f147fd6-8cbb-4668-b8b1-b68f70c66f95",
-                                    "number": 10,
-                                    "commissionValue": 715.89,
-                                    "netValue": 3579.45,
+                                    "identifier": "9d5f6724-7bbe-4bf4-b47c-8745585f0d1e",
+                                    "number": 8,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
                                     "interestValue": 0.0,
-                                    "taxValue": 264.16,
-                                    "totalValue": 3843.61,
-                                    "installmentValue": 384.36,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 1318.66,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 26.42,
+                                    "installmentTax": 90.63,
                                     "dueDates": [
-                                        "2023-04-25T00:00:00Z",
-                                        "2023-05-01T12:00:00Z",
-                                        "2023-06-01T12:00:00Z",
+                                        "2023-06-01T00:00:00Z",
                                         "2023-07-01T12:00:00Z",
                                         "2023-08-01T12:00:00Z",
                                         "2023-09-01T12:00:00Z",
@@ -339,6 +366,53 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                                         "2023-11-01T12:00:00Z",
                                         "2023-12-01T12:00:00Z",
                                         "2024-01-01T12:00:00Z"
+                                    ]
+                                },
+                                {
+                                    "identifier": "7c4857fe-2459-4b64-9343-44a872a5a0e2",
+                                    "number": 9,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
+                                    "interestValue": 0.0,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 1172.14,
+                                    "installmentInterest": 0.0,
+                                    "installmentTax": 80.56,
+                                    "dueDates": [
+                                        "2023-06-01T00:00:00Z",
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z",
+                                        "2023-09-01T12:00:00Z",
+                                        "2023-10-01T12:00:00Z",
+                                        "2023-11-01T12:00:00Z",
+                                        "2023-12-01T12:00:00Z",
+                                        "2024-01-01T12:00:00Z",
+                                        "2024-02-01T12:00:00Z"
+                                    ]
+                                },
+                                {
+                                    "identifier": "f1915552-a7a7-4dd1-9cee-d54c0a061271",
+                                    "number": 10,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
+                                    "interestValue": 0.0,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 1054.92,
+                                    "installmentInterest": 0.0,
+                                    "installmentTax": 72.5,
+                                    "dueDates": [
+                                        "2023-06-01T00:00:00Z",
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z",
+                                        "2023-09-01T12:00:00Z",
+                                        "2023-10-01T12:00:00Z",
+                                        "2023-11-01T12:00:00Z",
+                                        "2023-12-01T12:00:00Z",
+                                        "2024-01-01T12:00:00Z",
+                                        "2024-02-01T12:00:00Z",
+                                        "2024-03-01T12:00:00Z"
                                     ]
                                 }
                             ]
@@ -348,108 +422,494 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                             "paymentType": "Ticket",
                             "installments": [
                                 {
-                                    "identifier": "8079e241-effe-4888-bce2-a3101fad03f6",
+                                    "identifier": "80f592dc-162d-4eba-a98f-25751e9da9e9",
                                     "number": 1,
-                                    "commissionValue": 715.89,
-                                    "netValue": 3579.45,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
                                     "interestValue": 0.0,
-                                    "taxValue": 264.16,
-                                    "totalValue": 3843.61,
-                                    "installmentValue": 3843.61,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 10549.24,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 264.16,
+                                    "installmentTax": 725.03,
                                     "dueDates": [
-                                        "2023-04-25T00:00:00Z"
+                                        "2023-06-01T00:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "dcbc3eff-f3e6-4e0c-88d6-4ea60d0fca42",
+                                    "identifier": "668c687b-5e57-4003-aa6d-eeb38ebdc1c3",
                                     "number": 2,
-                                    "commissionValue": 715.89,
-                                    "netValue": 3579.45,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
                                     "interestValue": 0.0,
-                                    "taxValue": 264.16,
-                                    "totalValue": 3843.61,
-                                    "installmentValue": 1921.8,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 5274.62,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 132.08,
+                                    "installmentTax": 362.52,
                                     "dueDates": [
-                                        "2023-04-25T00:00:00Z",
-                                        "2023-05-01T12:00:00Z"
-                                    ]
-                                },
-                                {
-                                    "identifier": "85c9c1f6-0f65-4c3f-8b85-66a612dff465",
-                                    "number": 3,
-                                    "commissionValue": 715.89,
-                                    "netValue": 3579.45,
-                                    "interestValue": 0.0,
-                                    "taxValue": 264.16,
-                                    "totalValue": 3843.61,
-                                    "installmentValue": 1281.2,
-                                    "installmentInterest": 0.0,
-                                    "installmentTax": 88.05,
-                                    "dueDates": [
-                                        "2023-04-25T00:00:00Z",
-                                        "2023-05-01T12:00:00Z",
-                                        "2023-06-01T12:00:00Z"
-                                    ]
-                                },
-                                {
-                                    "identifier": "f9622045-a7dc-451c-a6cb-f030430c56be",
-                                    "number": 4,
-                                    "commissionValue": 715.89,
-                                    "netValue": 3579.45,
-                                    "interestValue": 0.0,
-                                    "taxValue": 264.16,
-                                    "totalValue": 3843.61,
-                                    "installmentValue": 960.9,
-                                    "installmentInterest": 0.0,
-                                    "installmentTax": 66.04,
-                                    "dueDates": [
-                                        "2023-04-25T00:00:00Z",
-                                        "2023-05-01T12:00:00Z",
-                                        "2023-06-01T12:00:00Z",
+                                        "2023-06-01T00:00:00Z",
                                         "2023-07-01T12:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "6809ef70-19e0-4933-a1ac-bea4d384d645",
-                                    "number": 5,
-                                    "commissionValue": 715.89,
-                                    "netValue": 3579.45,
+                                    "identifier": "166f90eb-d47b-4bfe-9294-6b8b51998d52",
+                                    "number": 3,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
                                     "interestValue": 0.0,
-                                    "taxValue": 264.16,
-                                    "totalValue": 3843.61,
-                                    "installmentValue": 768.72,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 3516.41,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 52.83,
+                                    "installmentTax": 241.68,
                                     "dueDates": [
-                                        "2023-04-25T00:00:00Z",
-                                        "2023-05-01T12:00:00Z",
-                                        "2023-06-01T12:00:00Z",
+                                        "2023-06-01T00:00:00Z",
                                         "2023-07-01T12:00:00Z",
                                         "2023-08-01T12:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "b3ad5d00-d845-4264-9c32-7566982748ce",
-                                    "number": 6,
-                                    "commissionValue": 715.89,
-                                    "netValue": 3579.45,
+                                    "identifier": "e87bbb03-13ce-4698-acbf-3008755b117f",
+                                    "number": 4,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
                                     "interestValue": 0.0,
-                                    "taxValue": 264.16,
-                                    "totalValue": 3843.61,
-                                    "installmentValue": 640.6,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 2637.31,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 44.03,
+                                    "installmentTax": 181.26,
                                     "dueDates": [
-                                        "2023-04-25T00:00:00Z",
-                                        "2023-05-01T12:00:00Z",
-                                        "2023-06-01T12:00:00Z",
+                                        "2023-06-01T00:00:00Z",
                                         "2023-07-01T12:00:00Z",
                                         "2023-08-01T12:00:00Z",
                                         "2023-09-01T12:00:00Z"
+                                    ]
+                                },
+                                {
+                                    "identifier": "88060f40-70c4-4c46-9b56-bf1fdbd9c612",
+                                    "number": 5,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
+                                    "interestValue": 0.0,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 2109.85,
+                                    "installmentInterest": 0.0,
+                                    "installmentTax": 145.01,
+                                    "dueDates": [
+                                        "2023-06-01T00:00:00Z",
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z",
+                                        "2023-09-01T12:00:00Z",
+                                        "2023-10-01T12:00:00Z"
+                                    ]
+                                },
+                                {
+                                    "identifier": "5d857030-9c6f-42a7-bb11-b97f2abbc3fd",
+                                    "number": 6,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
+                                    "interestValue": 0.0,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 1758.21,
+                                    "installmentInterest": 0.0,
+                                    "installmentTax": 120.84,
+                                    "dueDates": [
+                                        "2023-06-01T00:00:00Z",
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z",
+                                        "2023-09-01T12:00:00Z",
+                                        "2023-10-01T12:00:00Z",
+                                        "2023-11-01T12:00:00Z"
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "variantIdentifier": "00000000-0000-0000-0000-000000000000",
+                "price": {
+                    "commission": 1964.84,
+                    "grievanceDiscount": 0.0,
+                    "netValue": 9824.21,
+                    "interestValue": 0.0,
+                    "taxValue": 725.03,
+                    "totalValue": 10549.24,
+                    "policyLimit": 1060000.0,
+                    "rates": [
+                        {
+                            "code": "DAMAGE-COVERAGE",
+                            "description": "Danos à bike",
+                            "limit": 1000000.0,
+                            "netValue": 6719.57,
+                            "deductible": {
+                                "code": "DEFAULT",
+                                "text": "10% dos prejuízos indenizáveis com o mínimo de 1,5% do valor do equipamento",
+                                "description": "10% dos prejuízos indenizáveis com o mínimo de 1,5% do valor do equipamento"
+                            }
+                        },
+                        {
+                            "code": "THEFT-COVERAGE",
+                            "description": "Roubo e/ou furto qualificado",
+                            "limit": 1000000.0,
+                            "netValue": 2728.69,
+                            "deductible": {
+                                "code": "DEFAULT",
+                                "text": "10% dos prejuízos indenizáveis com o mínimo de 1,5% do valor do equipamento",
+                                "description": "15% dos prejuízos indenizáveis com o mínimo de 2,5% do valor do equipamento"
+                            }
+                        },
+                        {
+                            "code": "ELECTRICAL-DAMAGE-COVERAGE",
+                            "description": "Danos elétricos",
+                            "limit": 70000.0,
+                            "netValue": 212.23,
+                            "deductible": {
+                                "code": "DEFAULT",
+                                "text": "10% dos prejuízos indenizáveis com o mínimo de 1,5% do valor do equipamento",
+                                "description": "10% dos prejuízos indenizáveis com o mínimo de 1,5% do valor do equipamento"
+                            }
+                        },
+                        {
+                            "code": "LOSS-RENT-COVERAGE",
+                            "description": "Perda de Aluguel",
+                            "limit": 30000.0,
+                            "netValue": 81.86,
+                            "deductible": {
+                                "code": "DEFAULT",
+                                "text": "10% dos prejuízos indenizáveis com o mínimo de 1,5% do valor do equipamento",
+                                "description": "5 dias"
+                            }
+                        },
+                        {
+                            "code": "PAYMENT-THIRD-PARTIES-COVERAGE",
+                            "description": "Pagamento de Aluguel a Terceiros",
+                            "limit": 30000.0,
+                            "netValue": 81.86,
+                            "deductible": {
+                                "code": "DEFAULT",
+                                "text": "10% dos prejuízos indenizáveis com o mínimo de 1,5% do valor do equipamento",
+                                "description": "5 dias"
+                            }
+                        }
+                    ]
+                },
+                "payment": {
+                    "financialType": "Charge",
+                    "paymentOptions": [
+                        {
+                            "paymentMethod": "All",
+                            "paymentType": "CreditCard",
+                            "installments": [
+                                {
+                                    "identifier": "d2da28ca-61f9-4000-918c-f936862b5454",
+                                    "number": 1,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
+                                    "interestValue": 0.0,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 10549.24,
+                                    "installmentInterest": 0.0,
+                                    "installmentTax": 725.03,
+                                    "dueDates": [
+                                        "2023-06-01T00:00:00Z"
+                                    ]
+                                },
+                                {
+                                    "identifier": "c6468fe2-c8b4-4aea-8da4-82cb311e7ef0",
+                                    "number": 2,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
+                                    "interestValue": 0.0,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 5274.62,
+                                    "installmentInterest": 0.0,
+                                    "installmentTax": 362.52,
+                                    "dueDates": [
+                                        "2023-06-01T00:00:00Z",
+                                        "2023-07-01T12:00:00Z"
+                                    ]
+                                },
+                                {
+                                    "identifier": "ef5cadff-1152-4ca3-b0ca-49253ff22601",
+                                    "number": 3,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
+                                    "interestValue": 0.0,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 3516.41,
+                                    "installmentInterest": 0.0,
+                                    "installmentTax": 241.68,
+                                    "dueDates": [
+                                        "2023-06-01T00:00:00Z",
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z"
+                                    ]
+                                },
+                                {
+                                    "identifier": "e61e6f1b-7901-4933-b66e-fd0c40db024a",
+                                    "number": 4,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
+                                    "interestValue": 0.0,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 2637.31,
+                                    "installmentInterest": 0.0,
+                                    "installmentTax": 181.26,
+                                    "dueDates": [
+                                        "2023-06-01T00:00:00Z",
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z",
+                                        "2023-09-01T12:00:00Z"
+                                    ]
+                                },
+                                {
+                                    "identifier": "9562b1dc-4ab7-4008-a69a-a19d81577995",
+                                    "number": 5,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
+                                    "interestValue": 0.0,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 2109.85,
+                                    "installmentInterest": 0.0,
+                                    "installmentTax": 145.01,
+                                    "dueDates": [
+                                        "2023-06-01T00:00:00Z",
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z",
+                                        "2023-09-01T12:00:00Z",
+                                        "2023-10-01T12:00:00Z"
+                                    ]
+                                },
+                                {
+                                    "identifier": "2f7954dc-e61f-4ac2-8054-e2464a19d493",
+                                    "number": 6,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
+                                    "interestValue": 0.0,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 1758.21,
+                                    "installmentInterest": 0.0,
+                                    "installmentTax": 120.84,
+                                    "dueDates": [
+                                        "2023-06-01T00:00:00Z",
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z",
+                                        "2023-09-01T12:00:00Z",
+                                        "2023-10-01T12:00:00Z",
+                                        "2023-11-01T12:00:00Z"
+                                    ]
+                                },
+                                {
+                                    "identifier": "e0977305-63f6-4b83-9f03-38c8f13764b5",
+                                    "number": 7,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
+                                    "interestValue": 0.0,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 1507.03,
+                                    "installmentInterest": 0.0,
+                                    "installmentTax": 103.58,
+                                    "dueDates": [
+                                        "2023-06-01T00:00:00Z",
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z",
+                                        "2023-09-01T12:00:00Z",
+                                        "2023-10-01T12:00:00Z",
+                                        "2023-11-01T12:00:00Z",
+                                        "2023-12-01T12:00:00Z"
+                                    ]
+                                },
+                                {
+                                    "identifier": "53f77cae-0098-4260-bbe4-a7e837d835ab",
+                                    "number": 8,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
+                                    "interestValue": 0.0,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 1318.66,
+                                    "installmentInterest": 0.0,
+                                    "installmentTax": 90.63,
+                                    "dueDates": [
+                                        "2023-06-01T00:00:00Z",
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z",
+                                        "2023-09-01T12:00:00Z",
+                                        "2023-10-01T12:00:00Z",
+                                        "2023-11-01T12:00:00Z",
+                                        "2023-12-01T12:00:00Z",
+                                        "2024-01-01T12:00:00Z"
+                                    ]
+                                },
+                                {
+                                    "identifier": "7968a66b-b9ed-4f78-9ee7-0dd3c03e7e23",
+                                    "number": 9,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
+                                    "interestValue": 0.0,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 1172.14,
+                                    "installmentInterest": 0.0,
+                                    "installmentTax": 80.56,
+                                    "dueDates": [
+                                        "2023-06-01T00:00:00Z",
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z",
+                                        "2023-09-01T12:00:00Z",
+                                        "2023-10-01T12:00:00Z",
+                                        "2023-11-01T12:00:00Z",
+                                        "2023-12-01T12:00:00Z",
+                                        "2024-01-01T12:00:00Z",
+                                        "2024-02-01T12:00:00Z"
+                                    ]
+                                },
+                                {
+                                    "identifier": "c5176b03-c0b1-443d-b57f-e58c90027789",
+                                    "number": 10,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
+                                    "interestValue": 0.0,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 1054.92,
+                                    "installmentInterest": 0.0,
+                                    "installmentTax": 72.5,
+                                    "dueDates": [
+                                        "2023-06-01T00:00:00Z",
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z",
+                                        "2023-09-01T12:00:00Z",
+                                        "2023-10-01T12:00:00Z",
+                                        "2023-11-01T12:00:00Z",
+                                        "2023-12-01T12:00:00Z",
+                                        "2024-01-01T12:00:00Z",
+                                        "2024-02-01T12:00:00Z",
+                                        "2024-03-01T12:00:00Z"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "paymentMethod": "Ticket",
+                            "paymentType": "Ticket",
+                            "installments": [
+                                {
+                                    "identifier": "cabcc32c-18cd-4f18-b742-502f68e07e02",
+                                    "number": 1,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
+                                    "interestValue": 0.0,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 10549.24,
+                                    "installmentInterest": 0.0,
+                                    "installmentTax": 725.03,
+                                    "dueDates": [
+                                        "2023-06-01T00:00:00Z"
+                                    ]
+                                },
+                                {
+                                    "identifier": "9d4c85c8-9891-40b8-9085-f18ed3da0ff4",
+                                    "number": 2,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
+                                    "interestValue": 0.0,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 5274.62,
+                                    "installmentInterest": 0.0,
+                                    "installmentTax": 362.52,
+                                    "dueDates": [
+                                        "2023-06-01T00:00:00Z",
+                                        "2023-07-01T12:00:00Z"
+                                    ]
+                                },
+                                {
+                                    "identifier": "d16c6a49-32d8-40fe-ba8d-a32696062fa5",
+                                    "number": 3,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
+                                    "interestValue": 0.0,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 3516.41,
+                                    "installmentInterest": 0.0,
+                                    "installmentTax": 241.68,
+                                    "dueDates": [
+                                        "2023-06-01T00:00:00Z",
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z"
+                                    ]
+                                },
+                                {
+                                    "identifier": "e2ec4a20-dd46-4224-9100-69d44b8ae24e",
+                                    "number": 4,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
+                                    "interestValue": 0.0,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 2637.31,
+                                    "installmentInterest": 0.0,
+                                    "installmentTax": 181.26,
+                                    "dueDates": [
+                                        "2023-06-01T00:00:00Z",
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z",
+                                        "2023-09-01T12:00:00Z"
+                                    ]
+                                },
+                                {
+                                    "identifier": "3994139b-0e1d-425b-b91b-629b198159ba",
+                                    "number": 5,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
+                                    "interestValue": 0.0,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 2109.85,
+                                    "installmentInterest": 0.0,
+                                    "installmentTax": 145.01,
+                                    "dueDates": [
+                                        "2023-06-01T00:00:00Z",
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z",
+                                        "2023-09-01T12:00:00Z",
+                                        "2023-10-01T12:00:00Z"
+                                    ]
+                                },
+                                {
+                                    "identifier": "478d4108-2f6a-4a7d-a362-77af3c592d0c",
+                                    "number": 6,
+                                    "commissionValue": 1964.84,
+                                    "netValue": 9824.21,
+                                    "interestValue": 0.0,
+                                    "taxValue": 725.03,
+                                    "totalValue": 10549.24,
+                                    "installmentValue": 1758.21,
+                                    "installmentInterest": 0.0,
+                                    "installmentTax": 120.84,
+                                    "dueDates": [
+                                        "2023-06-01T00:00:00Z",
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z",
+                                        "2023-09-01T12:00:00Z",
+                                        "2023-10-01T12:00:00Z",
+                                        "2023-11-01T12:00:00Z"
                                     ]
                                 }
                             ]
@@ -457,6 +917,20 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                     ]
                 }
             }
-        }
+        ]
+    },
+    "success": true,
+    "executed": "2023-05-25T20:52:49.0805476Z"
 }
+```
+
+### Explicando campos de retorno
+
+Diferente do Response de Cotação, o de proposta possui um campo a mais logo após o "Status", que seria o proposal:
+
+```json
+"proposal": {
+            "number": "04958103120001",
+            "date": "2023-05-23T19:09:27.6820058Z"
+        }
 ```

@@ -1,22 +1,72 @@
 # Criar Proposta
 
-#### Endpoint
+{% swagger method="post" path="{{version}}/quotation/proposal" baseUrl="{{url_ambiente}}/" summary="Criar proposta" expanded="true" fullWidth="true" %}
+{% swagger-description %}
+Cria uma proposta (atualiza informações adicionais)
+{% endswagger-description %}
 
+{% swagger-parameter in="header" name="Ocp-Apim_Subscription-Key" type="key" required="true" %}
+chave de acesso da api.
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="Retorno sucesso" %}
+
+
+[#response](proposta.md#response "mention")
+
+
+{% endswagger-response %}
+
+{% swagger-response status="400: Bad Request" description="Retorno com mensagem do local do erro" %}
+{% code overflow="wrap" %}
+```json
+Neste caso não foi enviado o PAYMENT-INSTALLMENT-IDENTIFIER resultando nos outros
+erros como aparece abaixo.
+{
+    "success": false,
+    "executed": "2023-05-25T15:04:47.1182243Z",
+    "errors": [
+        {
+            "code": "ANSWERS-NOT-EVALUATED",
+            "message": "One or more answers could not be evaluated.",
+            "properties": [
+                "PAYMENT-INSTALLMENT-IDENTIFIER",
+                "NET-VALUE",
+                "INTEREST-VALUE",
+                "TAX-VALUE",
+                "TOTAL-VALUE",
+                "INSTALLMENT-NUMBER"
+            ]
+        }
+    ]
+}
 ```
-POST: {{url_ambiente}}/v1/quotation/proposal
+{% endcode %}
+{% endswagger-response %}
+
+{% swagger-response status="401: Unauthorized" description="Caso não envie uma "chave" ou envie uma inválida" %}
+{% code overflow="wrap" %}
+```json
+{
+    "statusCode": 401,
+    "message": "Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API."
+}
 ```
+{% endcode %}
+{% endswagger-response %}
+{% endswagger %}
 
 ## Request
 
 ```json
 {
-    "identifier": "1698b961-f72d-4e34-80a6-4133291889b9",
+    "identifier": "4c6781df-b736-4158-8948-f91daa00e65a",
     "registerNumber": "100000",
     "operationCode": "DIRECTORS-OFFICERS-CIVIL-LIABILITY-PARTNER",
     "answers": [
         {
             "code": "PAYMENT-INSTALLMENT-IDENTIFIER",
-            "answer": "96cbe205-5e41-43c3-a5c4-e334cb9cde1c"
+            "answer": "d9048f5a-1899-404d-8b33-db9a625167f6"
         },
         {
             "code": "DUE-DAY",
@@ -24,15 +74,52 @@ POST: {{url_ambiente}}/v1/quotation/proposal
         },
         {
             "code": "PAYMENT-METHOD",
-            "answer":"TICKET"
+            "answer": "TICKET"
         }
     ]
 }
 ```
 
-## Response
+### Detalhamento request de proposta
 
-Expicamos os campos de retorno neste [link](../../explicando-request-response/request-1.md#response)
+> **Field:** RegisterNumber
+>
+> **Tipo:** `text`&#x20;
+>
+> ❗ Campo Obrigatório.
+>
+> Campo usado para definir qual o SusepNumber da corretora que está sendo cotada. Neste caso, o susep da corretora é "100000".
+
+
+
+> **Code**: PAYMENT-METHOD\
+> **Type**: `text`\
+> ❗ Obrigatório que esteja incluído no array.
+>
+> Pergunta usada para definir o método de pagamento.
+>
+> \
+> Para D\&O so é possivel pagamento por boleto:
+>
+> * _TICKET_
+
+
+
+> **Code**: DUE-DAY\
+> **Type**: `integer`\
+> ❗ Obrigatório que esteja incluído no array. (apenas quando o PAYMENT-METHOD for TICKET).
+>
+> Pergunta usada para definir o dia de vencimento quando o PAYMENT-METHOD for TICKET (boleto).
+
+
+
+> **Code**: PAYMENT-INSTALLMENT-IDENTIFIER\
+> **Type**: `guid`\
+> ❗ Obrigatório que esteja incluído no array.
+>
+> O guid que será enviado nesse campo é retornado no array de installments, no retorno do endpoint de criar cotação.
+
+## Response
 
 ```json
 {
@@ -223,4 +310,15 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
     "success": true,
     "executed": "2022-11-23T17:29:37.5394123Z"
 }
+```
+
+### Explicando campos de retorno&#x20;
+
+Diferente do Response de Cotação, o de proposta possui um campo a mais logo após o "Status", que seria o proposal:
+
+```json
+"proposal": {
+            "number": "77475047170001",
+            "date": "2023-05-23T19:09:27.6820058Z"
+        }
 ```

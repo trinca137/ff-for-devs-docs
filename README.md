@@ -2,8 +2,6 @@
 
 <figure><img src="img/FF4Desenvolvedores-positive.png" alt=""><figcaption></figcaption></figure>
 
-### <mark style="color:blue;">Descrição da API</mark>
-
 ### **Configurações**
 
 {% hint style="info" %}
@@ -13,15 +11,9 @@ Na seção de [**Configurações** ](configuracoes/)você vai encontrar informa�
 ### **Fluxo de venda**
 
 {% hint style="info" %}
-Na seção [**Fluxo de Venda**](explicando-request-response/) você poderá ver uma documentação e suas explicações de cada campo, e também os endpoints para o fluxo.
-{% endhint %}
-
-### Formulários
-
-{% hint style="info" %}
-Na seção de [**Formulários**](formularios/) você poderá ver uma documentação sobre os campos que serão necessarios enviar na cotação de qualquer produto.
-
-Esses campos deverão sempre ser enviados juntos aos campos extras de um determinado produto.
+Na seção de [**Produtos**](produtos/), temos uma descrição do fluxo de contratação dos produtos.\
+\
+Para cada produto, suas respectivas explicações para realizar uma contratação.
 {% endhint %}
 
 ### **Produtos**

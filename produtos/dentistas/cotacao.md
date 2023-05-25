@@ -1,10 +1,86 @@
-# Criar cotação
+# Criar Cotação
 
-#### Endpoint
 
+
+{% swagger method="post" path="{{version}}/quotation/contracting" baseUrl="{{url_ambiente}}/" summary="Criar Cotação" fullWidth="true" expanded="true" %}
+{% swagger-description %}
+Cria ou edita uma cotação.
+{% endswagger-description %}
+
+{% swagger-parameter in="header" name="Ocp-Apim-Subscription-Key" required="true" type="key" %}
+chave de acesso da api.
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="Retorno sucesso. " %}
+
+
+[#response](cotacao.md#response "mention")
+
+
+{% endswagger-response %}
+
+{% swagger-response status="400: Bad Request" description="Retorno com mensagem do local do erro" %}
+```json
+{
+    "success": false,
+    "executed": "2023-05-22T20:10:41.1631988Z",
+    "errors": [
+        {
+            "code": "ANSWERS-NOT-EVALUATED",
+            "message": "One or more answers could not be evaluated.",
+            "properties": [
+                "INSURED-NAME"
+            ]
+        }
+    ]
+}
 ```
-POST: {{url_ambiente}}/v1/quotation/contracting
+{% endswagger-response %}
+
+{% swagger-response status="400: Bad Request" description="Erro de "register number"" %}
+```json
+{
+    "success": false,
+    "executed": "2023-05-22T20:11:50.6875419Z",
+    "errors": [
+        {
+            "code": "INCORRECT-OR-NONEXISTENT"
+        },
+        {
+            "code": "TOKEN-ERROR"
+        }
+    ]
+}
 ```
+{% endswagger-response %}
+
+{% swagger-response status="401: Unauthorized" description="Caso não envie uma "chave" ou envie uma inválida" %}
+{% code overflow="wrap" %}
+```json
+{
+    "statusCode": 401,
+    "message": "Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription."
+}
+```
+{% endcode %}
+{% endswagger-response %}
+{% endswagger %}
+
+{% hint style="info" %}
+Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
+
+```json
+{
+    "operationCode": "DENTIST-CIVIL-LIABILITY-PARTNER",
+    "quotationIdentifier": "ea0da0ea-1623-47b7-bbbe-75e8eee15ee0", 
+    "registerNumber": "100000",
+    "answers": [
+    ...
+    ...
+    ]
+}
+```
+{% endhint %}
 
 ## Request
 
@@ -12,7 +88,6 @@ POST: {{url_ambiente}}/v1/quotation/contracting
 {
     "operationCode": "DENTIST-CIVIL-LIABILITY-PARTNER",
     "registerNumber": "100000",
-    "identifier": "8324a438-c765-44ee-a7ea-bcfc4b810d22",
     "answers": [
         {
             "code": "MODALITY",
@@ -152,9 +227,532 @@ POST: {{url_ambiente}}/v1/quotation/contracting
 }
 ```
 
-## Response
+### Explicando campos de envio.
 
-Expicamos os campos de retorno neste [link](../../explicando-request-response/request.md#response)
+```json
+{
+	"operationCode": "MEDICAL-CIVIL-LIABILITY-PARTNER",
+	"registerNumber": "100000",
+	"answers":[],
+}
+```
+
+> **Field**: OperationCode\
+> **Tipo**: `text`\
+> ❗ Campo Obrigatório.
+>
+> Campo usado para definir qual produto está sendo cotado. Neste caso, o produto é "Médicos", representado pelo operation code "MEDICAL-CIVIL-LIABILITY-PARTNER".
+
+
+
+> **Field:** RegisterNumber
+>
+> **Tipo:** `text`&#x20;
+>
+> ❗ Campo Obrigatório.
+>
+> Campo usado para definir qual o SusepNumber da corretora está sendo cotada. Neste caso, o susep da corretora é "100000".
+
+
+
+> **Field**: Answers\
+> **Tipo**: `array<answer>`\
+> ❗ Campo Obrigatório.
+>
+> Campo usado para enviar perguntas gerais de uma cotação
+
+
+
+> **Code**: INSURED-ADDRESS-COMPLEMENT\
+> **Tipo**: `text`\
+>
+>
+> Pergunta usada para definir o número da moradia do segurado.
+
+
+
+> **Code**: INSURED-ADDRESS-NEIGHBORHOOD\
+> **Tipo**: `text`\
+> ❗ Obrigatório que esteja incluído no array.
+>
+> Pergunta usada para definir o bairro do segurado.
+
+
+
+> **Code**: INSURED-ADDRESS-CITY\
+> **Tipo**: `text`\
+> ❗ Obrigatório que esteja incluído no array.
+>
+> Pergunta usada para definir a cidade do segurado.
+
+
+
+> **Code**: INSURED-ADDRESS-STATE\
+> **Tipo**: `text`\
+> ❗Obrigatório que esteja incluído no array.
+>
+> Pergunta usada para definir o estado do segurado.
+
+
+
+> **Code**: COMMISSION\
+> **Tipo**: `decimal`\
+> ❗Obrigatório que esteja incluído\
+> Pergunta usada para definir a comissão.
+>
+> Pode ser enviado valores entre 1 e 30.\
+> Valor padrão é 20.00.
+
+
+
+> **Code**: GRIEVANCE-DISCOUNT\
+> **Tipo**: `decimal`
+>
+> Pergunta usada para definir Agravo (aumento de preço sobre o netValue\* da cotação).\
+> O Padrão é 0.\
+> \* Preço líquido do produto sem IOF.
+
+
+
+> **Code**: PROFESSIONAL-REGISTER\
+> **Type**: `text`\
+> ❗ Obrigatório que esteja incluído no array.
+>
+> Pergunta usada para definir o registro do profissional.
+
+***
+
+> **Code**: CATEGORIES\
+> **Type**: `array<string>`\
+> ❗ Obrigatório que esteja incluído no array.
+>
+> Pergunta usada para definir as especialidades Odontológicas.
+>
+> Pode-se enviar mais de uma resposta dentro desse array de string, sendo elas:
+
+<details>
+
+<summary>Categorias</summary>
+
+* **OROFACIAL-HARMONIZATION** = Harmonização Orofacial (HOF)
+
+<!---->
+
+* **IMPLANTS** = Implantodontia
+
+<!---->
+
+* **ORALMAXILLOFACIAL-SURGERY** = Cirurgia Bucomaxilofacial
+
+<!---->
+
+* **FACIAL-FILLERS** = Preenchedores Faciais (não-estético)
+
+<!---->
+
+* **GENERAL-PROCEDURES** = Procedimentos Clínicos em Geral
+
+</details>
+
+***
+
+> **Code**: LEGAL-TYPE\
+> **Type**: `array<string>`\
+> ❗ Obrigatorio que esteja incluído no array se for pessoa jurídica (PERSON-TYPE for LEGAL).
+>
+> Pergunta usada para definir Característica da PJ.
+>
+> Os possiveis valores para esta pergunta são:
+
+<details>
+
+<summary>Perfil PJ</summary>
+
+* **PRIVATE-OFFICE** = Consultório Particular
+
+<!---->
+
+* **HIGHER-EDUCATION-INSTITUTION** = Instituição de Ensino Superior
+
+<!---->
+
+* **DENTAL-PLAN-OPERATOR** = Operadora de Planos Odontológicos
+
+<!---->
+
+* **MASTER-FRANCHISOR** = Franqueador Master
+
+</details>
+
+***
+
+> **Code**: RETROACTIVITY\
+> **Type**: `integer`
+>
+> Pergunta usada para definir a retroatividade.
+>
+> Os possíveis valores para esta pergunta são:
+
+<details>
+
+<summary>Retroatividade</summary>
+
+* **0** = Sem retroatividade.
+
+<!---->
+
+* **1** = 1 ano.
+
+<!---->
+
+* **2** = 2 anos.
+
+<!---->
+
+* **3** = 3 anos.
+
+<!---->
+
+* **4** = 4 anos.
+
+<!---->
+
+* **5** = 5 anos.
+
+</details>
+
+***
+
+> **Code**: RETROACTIVITY-AGREEMENT\
+> **Type**: `boolean`\
+> ❗ Obrigatório que esteja incluído no array. (se o RETROACTIVITY for maior que zero).
+>
+> Pergunta usada para definir **"Entendimento e concordância de retroatividade"**. Se definida como true, indica que _**Estou ciente e de acordo que a confirmação da data de retroatividade ocorrerá apenas num eventual sinistro, sendo obrigatório apresentar as apólices anteriores para comprovação. A apólice anterior não pode ter sido cancelada ou ter tido interrupção de vigência.**_
+
+***
+
+> **Code**: REVENUES\
+> **Type**: `text`\
+> ❗ Obrigatório que esteja incluído no array se for pessoa jurídica (PERSON-TYPE for LEGAL).
+>
+> Pergunta usada para definir o Faturamento nos últimos 12 meses.
+>
+> Os possíveis valores para esta pergunta são:
+
+<details>
+
+<summary>Faturamento</summary>
+
+* **0.00-100000.00** = Entre R$ 0,00 e R$ 100.000,00.
+
+<!---->
+
+* **100000.01-300000.00** = Entre R$ 100.000,01 e R$ 300.000,00.
+
+<!---->
+
+* **300000.01-500000.00** = Entre R$ 300.000,01 e R$ 500.000,00.
+
+<!---->
+
+* **500000.01-1000000.00** = Entre R$ 500.000,01 e R$ 1.000.000,00.
+
+<!---->
+
+* **1000000.01-1500000.00** = Entre R$ 1.000.000,01 e R$ 1.500.000,00.
+
+<!---->
+
+* **1500000.01-2000000.00** = Entre R$ 1.500.000,01 e R$ 2.000.000,00.
+
+<!---->
+
+* **2000000.01-3000000.00** = Entre R$ 2.000.000,01 e R$ 3.000.000,00.
+
+<!---->
+
+* **3000000.01-5000000.00** = Entre R$ 3.000.000,01 e R$ 5.000.000,00.
+
+<!---->
+
+* **5000000.01-7500000.00** = Entre R$ 5.000.000,01 e R$ 7.500.000,00.
+
+<!---->
+
+* **7500000.01-10000000.00** = Entre R$ 7.500.000,01 e R$ 10.000.000,00.
+
+</details>
+
+***
+
+> **Code**: CLAIMS\
+> **Type**: `text`\
+> ❗ Obrigatório que esteja incluído no array.
+>
+> Pergunta usada para definir se houve sinistros nos últimos 24 meses.
+>
+> Os valores possíveis para esta pergunta são:
+>
+> * **0 =** nenhum.
+> * **1 =** 1 reclamação.
+> * **2 =** 2 reclamações.
+
+***
+
+> **Code**: CLAIM-EXPECTATION\
+> **Type**: `boolean`\
+> ❗ Obrigatório que esteja incluído no array.
+>
+> Pergunta usada para definir se o segurado tem conhecimento ou Expectativas de Sinistro (alguma circunstância que possa gerar um sinistro).
+
+***
+
+> **Code**: CLAIM-EXPECTATION-THIRD-PARTY\
+> **Type**: `text`\
+> ❗ Obrigatório que esteja incluído no array (se CLAIM-EXPECTATION for TRUE).
+>
+> Pergunta usada para definir possíveis terceiros reclamantes de expectativas de sinistro.
+
+***
+
+> **Code**: CLAIM-EXPECTATION-AGREEMENT\
+> **Type**: `boolean`\
+> ❗ Obrigatório que esteja incluído no array (se CLAIM-EXPECTATION for TRUE).
+>
+> Pergunta usada para definir "**Entendimento e concordância de expectativas de sinistro**". Se definida como true, indica que "**Entendido e acordado que não haverá cobertura securitária para qualquer tipo de fato já conhecido pelo segurado.**"
+
+***
+
+> **Code**: TERRITORIALITY\
+> **Type**: `text`\
+> ❗ Obrigatório que esteja incluído no array. Atualmente so atendemos dentistas que atendem no Brasil\
+> Pergunta usada para definir a territorialidade.
+>
+> Os valores possíveis para esta pergunta são:
+>
+> * **BR =** Brasil.
+
+***
+
+> **Code**: SCOPE\
+> **Type**: `text`\
+> ❗ Obrigatório que esteja incluído no array. Atualmente só atender dentistas com trabalhos nacionais.\
+> Pergunta usada para definir o Âmbito de trabalho do dentista.
+>
+> Os possíveis valores para esta pergunta são:
+>
+> * **NATIONAL =** Nacional.
+
+***
+
+> **Code**: LIMIT-DEDUCTIBLE\
+> **Type**: `array<array<answer>>`\
+> ❗ Obrigatório que esteja incluído no array.
+>
+> Campo para definir limite e franquia. Abordaremos mais detalhadamente a seguir.
+
+```json
+{
+  "identifier": "7dfac165-a63e-40d8-b6bb-23431e057982",
+  "operationCode": "DENTIST-CIVIL-LIABILITY-PARTNER",
+  "answers": [
+    {
+      "code": "MODALITY",
+      "answer": "DENTIST-CIVIL-LIABILITY"
+    },
+    {
+      "code": "LIMIT-DEDUCTIBLE",
+      "answer": [
+        [
+          {
+            "code": "LIMIT",
+            "answer": 30000
+          },
+          {
+            "code": "DEDUCTIBLE",
+            "answer": "DEFAULT"
+          }
+        ]
+      ]
+    }
+  ]
+}
+```
+
+> **Code**: LIMIT\
+> **Type**: `decimal`\
+> ❗ Obrigatório que esteja incluído no array.
+>
+> Os valores possíveis para esta pergunta são:
+
+<details>
+
+<summary>Limites</summary>
+
+* **30000.0** = R$ 30.000.
+
+<!---->
+
+* **50000.0** = R$ 50.000.
+
+<!---->
+
+* **100000.0** = R$ 100.000.
+
+<!---->
+
+* **150000.0** = R$ 150.000.
+
+<!---->
+
+* **200000.0** = R$ 200.000.
+
+<!---->
+
+* **250000.0** = R$ 250.000.
+
+<!---->
+
+* **300000.0** = R$ 300.000.
+
+<!---->
+
+* **400000.0** = R$ 400.000.
+
+<!---->
+
+* **500000.0** = R$ 500.000.
+
+<!---->
+
+* **600000.0** = R$ 600.000.
+
+<!---->
+
+* **700000.0** = R$ 700.000.
+
+<!---->
+
+* **800000.0** = R$ 800.000.
+
+<!---->
+
+* **900000.0** = R$ 900.000.
+
+<!---->
+
+* **1000000.0** = R$ 1.000.000.
+
+</details>
+
+***
+
+> **Code**: DEDUCTIBLE\
+> **Type**: `text`\
+> ❗ Obrigatório que esteja incluído no array.
+>
+> Pergunta usada para definir o tipo da franquia.
+>
+>
+>
+> <mark style="color:yellow;">**Dependendo do tipo de categoria definido no campo CATEGORIES e o tipo de PESSOA (física ou jurídica), a resposta será diferente. Abaixo, você pode ver detalhadamente nos campos expandiveis:**</mark>
+
+<details>
+
+<summary>Pessoa fisica (PERSON-TYPE = NATURAL)</summary>
+
+Franquias para **GENERAL-PROCEDURES**
+
+* **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.000,00.
+* **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 3.000,00.
+* **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 500,00.
+* **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 400,00.\
+
+
+Franquia para **IMPLANTS**
+
+* **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.000,00.
+* **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 3.000,00.
+* **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 500,00.
+* **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 400,00.\
+
+
+Franquia para **FACIAL-FILLERS**
+
+* **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.000,00.
+* **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 3.000,00.
+* **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 500,00.
+* **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 400,00.\
+
+
+Franquia para **ORALMAXILLOFACIAL-SURGERY**
+
+* **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00.
+* **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 4.500,00.
+* **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.500,00.
+* **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.000,00.\
+
+
+Franquia para **OROFACIAL-HARMONIZATION**
+
+* **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 3.000,00.
+* **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 5.000,00.
+* **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00.
+* **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.500,00.\
+
+
+</details>
+
+<details>
+
+<summary>Pessoa juridica (PERSON-TYPE = LEGAL)</summary>
+
+
+
+Franquia para **GENERAL-PROCEDURES**
+
+* **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00.
+* **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$4.500,00.
+* **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 1,500,00.
+* **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.000,00.\
+
+
+Franquia para **IMPLANTS**
+
+* **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00.
+* **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$4.500,00.
+* **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 1,500,00.
+* **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.000,00.\
+
+
+Franquia para **FACIAL-FILLERS**
+
+* **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00.
+* **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$4.500,00.
+* **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 1,500,00.
+* **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.000,00.\
+
+
+Franquia para **ORALMAXILLOFACIAL-SURGERY**
+
+* **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.500,00.
+* **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 4.500,00.
+* **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.500,00.
+* **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.000,00.\
+
+
+Franquia para **OROFACIAL-HARMONIZATION**
+
+* **DEFAULT =** Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 3.000,00.
+* **INCREASED =** Majorada - 10% dos prejuízos indenizáveis com o mínimo de R$ 5.000,00.
+* **REDUCED =** Reduzida - 10% dos prejuízos indenizáveis com o mínimo de R$ 2.000,00.
+* **MINIMUM =** Mínima - 10% dos prejuízos indenizáveis com o mínimo de R$ 1.500,00.
+
+</details>
+
+
+
+## Response
 
 ```json
 {
@@ -590,3 +1188,306 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
     "executed": "2022-11-23T18:16:57.5122616Z"
 }
 ```
+
+### Explicando campos de retorno
+
+> **Field**: success\
+> **Type**: `boolean`
+>
+> Indica se a requisição foi feita com sucesso.
+
+***
+
+> **Field**: executed\
+> **Type**: `date`
+>
+> Data em que a requisição foi feita.
+
+***
+
+> **Field**: errors\
+> **Type**: `array`
+>
+> Array de erros ao fazer a requisição.
+
+***
+
+> **Field**: item.quotationIdentifier\
+> **Type**: `guid`
+>
+> Identificador da cotação.
+
+***
+
+> **Field**: item.status\
+> **Type**: `integer`
+>
+> Status da cotação.
+
+***
+
+> **Field**: item.expiredAt\
+> **Type**: `date`
+>
+> Data de expiração da cotação.
+
+***
+
+> **Field**: item.quotationDocumentUrl\
+> **Type**: `text`
+>
+> Url do documento de cotação.
+
+***
+
+> **Field**: item.pricing\
+> **Type**: `array`
+>
+> Retorna as propriedades do item, taxas, valores, tipos de pagamentos.\
+> Array de items cotados. Ele pode retornar mais de 1 item também.
+
+***
+
+> **Field**: item.pricing\[].variantIdentifier\
+> **Type**: `guid`
+>
+> Identificador do item cotado.
+
+***
+
+> **Field**: item.pricing\[].underwriting.approved\
+> **Type**: `boolean`
+>
+> Retorna true ou false referente as regras de subscrição do produto.
+
+***
+
+> **Field**: item.pricing\[].underwriting.evaluations\
+> **Type**: `array`
+>
+> Retorna aviso referente as questões do questionário de risco do produto.
+
+***
+
+> **Field**: item.pricing\[].price.commission\
+> **Type**: `decimal`
+>
+> Comissão de corretagem.
+
+***
+
+> **Field**: item.pricing\[].price.grievanceDiscount\
+> **Type**: `decimal`
+>
+> Porcentagem de agravo adicionada ao valor da cotação, onde os valores permitidos vão de 0% até 500%.
+
+***
+
+> **Field**: item.pricing\[].price.itemValue\
+> **Type**: `decimal`
+>
+> Valor do item.
+
+***
+
+> **Field**: item.pricing\[].price.netValue\
+> **Type**: `decimal`
+>
+> Valor de prêmio líquido sem o IOF.
+
+***
+
+> **Field**: item.pricing\[].price.interestValue\
+> **Type**: `decimal`
+>
+> Valor de juros (Por enquanto nenhum produto possui juros, nem para boleto e nem para cartão, mas futuramente terá para boleto).
+
+***
+
+> **Field**: item.pricing\[].price.taxValue\
+> **Type**: `decimal`
+>
+> Valor de IOF.
+
+***
+
+> **Field**: item.pricing\[].price.totalValue\
+> **Type**: `decimal`
+>
+> Valor de Prêmio Total, composto pelo prêmio líquido somado ao IOF.
+
+***
+
+> **Field**: item.pricing\[].price.policyLimit\
+> **Type**: `decimal`
+>
+> Valor de Limite da apólice (no caso de Bikes, o valor do limite da apólice é igual ao valor informado para a bike).
+
+***
+
+> **Field**: item.pricing\[].price.rates\
+> **Type**: `array`
+>
+> Trata-se de um array, que retornará todas as coberturas contratadas para o produto.
+
+***
+
+> **Field**: item.pricing\[].payment.financialType\
+> **Type**: `text`
+>
+> Trata-se do tipo de financeiro que no caso é "Cobrança".
+
+***
+
+> **Field**: item.pricing\[].payment.paymentOptions\
+> **Type**: `array`
+>
+> Retorna as opções de pagamento disponíveis que são: Boleto e Cartão de crédito.
+
+***
+
+> **Field**: item.pricing\[].price.rates\[].code\
+> **Type**: `text`
+>
+> Exibe o código que identifica a ou as coberturas contratadas. Ex: DAMAGE-COVERAGE, trata-se da cobertura de Danos à Bike.
+
+***
+
+> **Field**: item.pricing\[].price.rates\[].description\
+> **Type**: `text`
+>
+> Trata-se do nome da cobertura em português. Ex: "Danos à Bike".
+
+***
+
+> **Field**: item.pricing\[].price.rates\[].limit\
+> **Type**: `decimal`
+>
+> Trata-se do valor do limite da cobertura.
+
+***
+
+> **Field**: item.pricing\[].price.rates\[].netValue\
+> **Type**: `decimal`
+>
+> Valor do prêmio específico de cada cobertura contratada.
+
+***
+
+> **Field**: item.pricing\[].price.rates\[].deductible.code\
+> **Type**: `text`
+>
+> Trata-se do código identificador de cada franquia.
+
+***
+
+> **Field**: item.pricing\[].price.rates\[].deductible.text\
+> **Type**: `text`
+>
+> Nome da franquia selecionada em português - Ex: "Padrão".
+
+***
+
+> **Field**: item.pricing\[].price.rates\[].deductible.description\
+> **Type**: `text`
+>
+> Descrição da franquia.
+
+***
+
+> **Field**: item.pricing\[].payment.paymentOptions\[].paymentMethod\
+> **Type**: `text`
+>
+> Retorna o nome da forma de pagamento que pode ser: Ticket (Boleto) ou CreditCard (Cartão de Crédito).
+
+***
+
+> **Field**: item.pricing\[].payment.paymentOptions\[].paymentType\
+> **Type**: `text`
+>
+> Forma de pagamento que pode ser escolhida: Boleto ou Cartão de crédito.
+
+***
+
+> **Field**: item.pricing\[].payment.paymentOptions\[].installments\
+> **Type**: `array`
+>
+> Retorna a quantidade de parcelas disponíveis para realizar o pagamento referente ao tipo de pagamento.
+
+***
+
+> **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].identifier\
+> **Type**: `guid`
+>
+> Código identificador da parcela.\
+> Esté é o código necessário enviar ao selecionar o método de pagamento. Exemplo: Se foi selecionado cartão de crédito, enviar o identificador daquele meio de pagamento
+
+***
+
+> **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].number\
+> **Type**: `integer`
+>
+> Número da respectiva parcela (2 parcela, número 2).
+
+***
+
+> **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].commissionValue\
+> **Type**: `decimal`
+>
+> Valor de comissão de cada parcela.
+
+***
+
+> **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].netValue\
+> **Type**: `decimal`
+>
+> Valor de prêmio líquido de cada parcela, ou seja, sem o IOF.
+
+***
+
+> **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].interestValue\
+> **Type**: `decimal`
+>
+> Valor de juros de cada parcela.
+
+***
+
+> **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].taxValue\
+> **Type**: `decimal`
+>
+> IOF que implica em cada parcela.
+
+***
+
+> **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].totalValue\
+> **Type**: `decimal`
+>
+> Valor total de cada parcela que é composto do valor líquido + IOF.
+
+***
+
+> **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].installmentValue\
+> **Type**: `decimal`
+>
+> Valor total da parcela.
+
+***
+
+> **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].installmentInterest\
+> **Type**: `decimal`
+>
+> Valor de juros da parcela.
+
+***
+
+> **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].installmentTax\
+> **Type**: `decimal`
+>
+> Valor de IOF de cada parcela.
+
+***
+
+> **Field**: item.pricing\[].payment.paymentOptions\[].installments\[].dueDates\
+> **Type**: `array<string>`
+>
+> Datas de vencimento da parcela caso a forma de pagamento seja boleto.

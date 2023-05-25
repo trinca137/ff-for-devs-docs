@@ -1,6 +1,57 @@
-# Formulário de checkout
+# Page 1
 
-{% code title="Resquest para cartão de crédito" %}
+{% swagger method="post" path="{{version}}/checkout" baseUrl="{{url_ambiente}}/" summary="Inicia processo de checkout" fullWidth="true" expanded="true" %}
+{% swagger-description %}
+Envia a cotação para a fila de checkout para gerarmos a apólice.
+{% endswagger-description %}
+
+{% swagger-parameter in="header" name="Ocp-Apim-Subscription-Key" required="true" type="key" %}
+chave de acesso da api.
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="Retorno sucesso." %}
+Simples retorno informando true ou false:
+
+```json
+{
+    "success": true,
+    "executed": "2023-05-25T20:27:49.1872173Z"
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="400: Bad Request" description="Falha ao encontrar a cotação " %}
+```json
+{
+    "success": false,
+    "executed": "2023-05-25T20:27:49.1872173Z",
+    "errors": [
+        {
+            "code": "QUOTATION-NOT-FOUND"
+        }
+    ]
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="401: Unauthorized" description="Caso não envie uma "chave" ou envie uma inválida" %}
+{% code overflow="wrap" %}
+```json
+{
+    "statusCode": 401,
+    "message": "Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription."
+}
+```
+{% endcode %}
+{% endswagger-response %}
+{% endswagger %}
+
+## Request
+
+<details>
+
+<summary>Request para Cartão de Crédito</summary>
+
 ```json
 {
    "quotationIdentifier":"2aea86d1-a9e5-4220-ab29-68c3fba8483f",
@@ -24,26 +75,31 @@
    }
 }
 ```
-{% endcode %}
 
-{% code title="Request para boleto" %}
-```json
+</details>
+
+<details>
+
+<summary>Request para Boleto</summary>
+
+```
 {
    "quotationIdentifier":"2aea86d1-a9e5-4220-ab29-68c3fba8483f"
 }
 ```
-{% endcode %}
 
-💡 **Explicando o JSON de request**
+</details>
 
-> **Field**: **QuotationIdentifier**\
+## **Detalhando campos de envio.**
+
+> **Code**: **Quotation Identifier**\
 > **Type**: `guid`\
 > ❗Campo obrigatório.
 >
 > Campo usado para definir qual cotação será enviada para checkout. É o mesmo identifier que é recebido quando se cria uma cotação.
 
 {% hint style="warning" %}
-Os campos referentes a cartão de credito so são obrigatorios no caso do tipo de pagamento definido na proposta tenha sido _CREDIT-CARD._
+Os campos referentes a cartão de credito so são obrigatorios no caso do tipo de pagamento definido na proposta tenha sido cartão de crédito ( PAYMENT-TYPE = _CREDIT-CARD )._
 {% endhint %}
 
 > **Field**: **CreditCard.Number**\

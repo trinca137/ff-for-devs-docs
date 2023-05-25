@@ -1,10 +1,58 @@
 # Criar Proposta
 
-#### Endpoint
+{% swagger method="post" path="{{version}}/quotation/proposal" baseUrl="{{url_ambiente}}/" summary="Criar proposta" expanded="true" fullWidth="true" %}
+{% swagger-description %}
+Cria uma proposta (atualiza informações adicionais)
+{% endswagger-description %}
 
+{% swagger-parameter in="header" name="Ocp-Apim_Subscription-Key" type="key" required="true" %}
+chave de acesso da api.
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="Retorno sucesso " %}
+
+
+[#response](proposta.md#response "mention")
+
+
+{% endswagger-response %}
+
+{% swagger-response status="400: Bad Request" description="Retorno com mensagem do local do erro" %}
+```json
+Neste caso não foi enviado o PAYMENT-INSTALLMENT-IDENTIFIER resultando nos outros
+erros como aparece abaixo.
+{
+    "success": false,
+    "executed": "2023-05-25T15:04:47.1182243Z",
+    "errors": [
+        {
+            "code": "ANSWERS-NOT-EVALUATED",
+            "message": "One or more answers could not be evaluated.",
+            "properties": [
+                "PAYMENT-INSTALLMENT-IDENTIFIER",
+                "NET-VALUE",
+                "INTEREST-VALUE",
+                "TAX-VALUE",
+                "TOTAL-VALUE",
+                "INSTALLMENT-NUMBER"
+            ]
+        }
+    ]
+}
 ```
-POST: {{url_ambiente}}/v1/quotation/proposal
+{% endswagger-response %}
+
+{% swagger-response status="401: Unauthorized" description="Caso não envie uma "chave" ou envie uma inválida" %}
+{% code overflow="wrap" %}
+```json
+{
+    "statusCode": 401,
+    "message": "Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API."
+}
 ```
+{% endcode %}
+{% endswagger-response %}
+{% endswagger %}
 
 ## Request
 
@@ -34,18 +82,66 @@ POST: {{url_ambiente}}/v1/quotation/proposal
 }
 ```
 
-## Response
+### Detalhamento request de proposta
 
-Expicamos os campos de retorno neste [link](../../explicando-request-response/request-1.md#response)
+> **Code**: INSURED-BIRTH-DATE\
+> **Type**: `date`\
+> ❗ Obrigatório que esteja incluído no array (apenas se o segurado for Pessoa Fisica).
+>
+> Pergunta usada para definir a data de nascimento do segurado.
+
+
+
+> **Field:** RegisterNumber
+>
+> **Tipo:** `text`&#x20;
+>
+> ❗ Campo Obrigatório.
+>
+> Campo usado para definir qual o SusepNumber da corretora que está sendo cotada. Neste caso, o susep da corretora é "100000".
+
+
+
+> **Code**: PAYMENT-METHOD\
+> **Type**: `text`\
+> ❗ Obrigatório que esteja incluído no array.
+>
+> Pergunta usada para definir o método de pagamento.\
+> Os possíveis valores para esta pergunta são:
+>
+> * _CREDIT-CARD_
+> * _TICKET_
+
+
+
+> **Code**: DUE-DAY\
+> **Type**: `integer`\
+> ❗ Obrigatório que esteja incluído no array. (apenas quando o PAYMENT-METHOD for TICKET).
+>
+> Pergunta usada para definir o dia de vencimento quando o PAYMENT-METHOD for TICKET (boleto).
+
+
+
+> **Code**: PAYMENT-INSTALLMENT-IDENTIFIER\
+> **Type**: `guid`\
+> ❗ Obrigatório que esteja incluído no array.
+>
+> O guid que será enviado nesse campo é retornado no array de installments, no retorno do endpoint de criar cotação.
+
+## Response
 
 ```json
 {
     "item": {
-        "quotationIdentifier": "8324a438-c765-44ee-a7ea-bcfc4b810d22",
+        "quotationIdentifier": "ff5324b7-1d2d-4c31-8a70-8afe1d7d1b4e",
         "status": "Draft",
+        "proposal": {
+            "number": "17848685910001",
+            "date": "0001-01-01T00:00:00Z"
+        },
         "pricing": [
             {
-                "variantIdentifier": "a5802d31-650d-441a-be7b-35578da2c25d",
+                "variantIdentifier": "36856c9a-b19b-4a39-b572-f5384dc3393f",
                 "underwriting": {
                     "approved": true,
                     "evaluations": []
@@ -66,7 +162,7 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                             "paymentType": "CreditCard",
                             "installments": [
                                 {
-                                    "identifier": "5acb297e-08d3-4561-bb54-9a194c2ab9fb",
+                                    "identifier": "2279bda1-39a1-4c57-8054-7b24dfd2300a",
                                     "number": 1,
                                     "commissionValue": 196.11,
                                     "netValue": 980.57,
@@ -77,11 +173,11 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                                     "installmentInterest": 0.0,
                                     "installmentTax": 72.37,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z"
+                                        "2023-05-31T00:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "50a436dd-1595-4afc-8d00-aebbd5e5b82a",
+                                    "identifier": "072d7612-8323-4954-9c71-6ac5a96ec95a",
                                     "number": 2,
                                     "commissionValue": 196.11,
                                     "netValue": 980.57,
@@ -92,12 +188,12 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                                     "installmentInterest": 0.0,
                                     "installmentTax": 36.18,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
-                                        "2022-12-01T12:00:00Z"
+                                        "2023-05-31T00:00:00Z",
+                                        "2023-06-01T12:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "0b8e498d-3f5a-4653-b011-26f5e93e28bc",
+                                    "identifier": "6bfda74c-4dc3-4137-9eea-97c4f2032729",
                                     "number": 3,
                                     "commissionValue": 196.11,
                                     "netValue": 980.57,
@@ -108,13 +204,13 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                                     "installmentInterest": 0.0,
                                     "installmentTax": 24.12,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
-                                        "2022-12-01T12:00:00Z",
-                                        "2023-01-01T12:00:00Z"
+                                        "2023-05-31T00:00:00Z",
+                                        "2023-06-01T12:00:00Z",
+                                        "2023-07-01T12:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "54b4a4b4-36e8-4faf-83c6-f00ecdd87b50",
+                                    "identifier": "646c8e9f-8f64-4924-8c1c-a063461b08ae",
                                     "number": 4,
                                     "commissionValue": 196.11,
                                     "netValue": 980.57,
@@ -125,14 +221,14 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                                     "installmentInterest": 0.0,
                                     "installmentTax": 18.09,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
-                                        "2022-12-01T12:00:00Z",
-                                        "2023-01-01T12:00:00Z",
-                                        "2023-02-01T12:00:00Z"
+                                        "2023-05-31T00:00:00Z",
+                                        "2023-06-01T12:00:00Z",
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "b8199a1f-300f-4fc5-bea6-bf728cf79f6f",
+                                    "identifier": "f3326c4b-2b37-41e4-a212-ccf87a27528c",
                                     "number": 5,
                                     "commissionValue": 196.11,
                                     "netValue": 980.57,
@@ -143,15 +239,15 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                                     "installmentInterest": 0.0,
                                     "installmentTax": 14.47,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
-                                        "2022-12-01T12:00:00Z",
-                                        "2023-01-01T12:00:00Z",
-                                        "2023-02-01T12:00:00Z",
-                                        "2023-03-01T12:00:00Z"
+                                        "2023-05-31T00:00:00Z",
+                                        "2023-06-01T12:00:00Z",
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z",
+                                        "2023-09-01T12:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "f955afcd-60f3-4cbf-b7e9-dd5c3c93e323",
+                                    "identifier": "5f4afdbb-7c09-4c77-9b95-bf02e3c190d3",
                                     "number": 6,
                                     "commissionValue": 196.11,
                                     "netValue": 980.57,
@@ -162,16 +258,16 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                                     "installmentInterest": 0.0,
                                     "installmentTax": 12.06,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
-                                        "2022-12-01T12:00:00Z",
-                                        "2023-01-01T12:00:00Z",
-                                        "2023-02-01T12:00:00Z",
-                                        "2023-03-01T12:00:00Z",
-                                        "2023-04-01T12:00:00Z"
+                                        "2023-05-31T00:00:00Z",
+                                        "2023-06-01T12:00:00Z",
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z",
+                                        "2023-09-01T12:00:00Z",
+                                        "2023-10-01T12:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "317c153c-ccc3-4c25-b996-23798ced8651",
+                                    "identifier": "55f6375f-28f0-4a49-9827-7984c7252674",
                                     "number": 7,
                                     "commissionValue": 196.11,
                                     "netValue": 980.57,
@@ -182,17 +278,17 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                                     "installmentInterest": 0.0,
                                     "installmentTax": 10.34,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
-                                        "2022-12-01T12:00:00Z",
-                                        "2023-01-01T12:00:00Z",
-                                        "2023-02-01T12:00:00Z",
-                                        "2023-03-01T12:00:00Z",
-                                        "2023-04-01T12:00:00Z",
-                                        "2023-05-01T12:00:00Z"
+                                        "2023-05-31T00:00:00Z",
+                                        "2023-06-01T12:00:00Z",
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z",
+                                        "2023-09-01T12:00:00Z",
+                                        "2023-10-01T12:00:00Z",
+                                        "2023-11-01T12:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "cb13b262-7f92-4747-9566-b8432ff16adb",
+                                    "identifier": "ef95f1aa-22a6-4962-b714-8ce281cad3b0",
                                     "number": 8,
                                     "commissionValue": 196.11,
                                     "netValue": 980.57,
@@ -203,18 +299,18 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                                     "installmentInterest": 0.0,
                                     "installmentTax": 9.05,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
-                                        "2022-12-01T12:00:00Z",
-                                        "2023-01-01T12:00:00Z",
-                                        "2023-02-01T12:00:00Z",
-                                        "2023-03-01T12:00:00Z",
-                                        "2023-04-01T12:00:00Z",
-                                        "2023-05-01T12:00:00Z",
-                                        "2023-06-01T12:00:00Z"
+                                        "2023-05-31T00:00:00Z",
+                                        "2023-06-01T12:00:00Z",
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z",
+                                        "2023-09-01T12:00:00Z",
+                                        "2023-10-01T12:00:00Z",
+                                        "2023-11-01T12:00:00Z",
+                                        "2023-12-01T12:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "38ba064f-5798-42e8-837f-a31854762462",
+                                    "identifier": "8e2b8126-e12e-4416-85f2-5497cb9c24b8",
                                     "number": 9,
                                     "commissionValue": 196.11,
                                     "netValue": 980.57,
@@ -225,19 +321,19 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                                     "installmentInterest": 0.0,
                                     "installmentTax": 8.04,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
-                                        "2022-12-01T12:00:00Z",
-                                        "2023-01-01T12:00:00Z",
-                                        "2023-02-01T12:00:00Z",
-                                        "2023-03-01T12:00:00Z",
-                                        "2023-04-01T12:00:00Z",
-                                        "2023-05-01T12:00:00Z",
+                                        "2023-05-31T00:00:00Z",
                                         "2023-06-01T12:00:00Z",
-                                        "2023-07-01T12:00:00Z"
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z",
+                                        "2023-09-01T12:00:00Z",
+                                        "2023-10-01T12:00:00Z",
+                                        "2023-11-01T12:00:00Z",
+                                        "2023-12-01T12:00:00Z",
+                                        "2024-01-01T12:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "c9ae667e-1a85-40ae-bca6-2e4ddae0843c",
+                                    "identifier": "5465ff18-64bb-4271-813e-54cffaa14778",
                                     "number": 10,
                                     "commissionValue": 196.11,
                                     "netValue": 980.57,
@@ -248,16 +344,16 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                                     "installmentInterest": 0.0,
                                     "installmentTax": 7.24,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
-                                        "2022-12-01T12:00:00Z",
-                                        "2023-01-01T12:00:00Z",
-                                        "2023-02-01T12:00:00Z",
-                                        "2023-03-01T12:00:00Z",
-                                        "2023-04-01T12:00:00Z",
-                                        "2023-05-01T12:00:00Z",
+                                        "2023-05-31T00:00:00Z",
                                         "2023-06-01T12:00:00Z",
                                         "2023-07-01T12:00:00Z",
-                                        "2023-08-01T12:00:00Z"
+                                        "2023-08-01T12:00:00Z",
+                                        "2023-09-01T12:00:00Z",
+                                        "2023-10-01T12:00:00Z",
+                                        "2023-11-01T12:00:00Z",
+                                        "2023-12-01T12:00:00Z",
+                                        "2024-01-01T12:00:00Z",
+                                        "2024-02-01T12:00:00Z"
                                     ]
                                 }
                             ]
@@ -267,7 +363,7 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                             "paymentType": "Ticket",
                             "installments": [
                                 {
-                                    "identifier": "6dd8ad5e-4f35-48da-b1e5-f8d4e6f3d094",
+                                    "identifier": "6ed41ba6-ceec-423d-acc4-da9dcbdba92f",
                                     "number": 1,
                                     "commissionValue": 196.11,
                                     "netValue": 980.57,
@@ -278,11 +374,11 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                                     "installmentInterest": 0.0,
                                     "installmentTax": 72.37,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z"
+                                        "2023-05-31T00:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "628dff00-0575-4b5c-b1af-141973d1aa96",
+                                    "identifier": "77242ec3-afb8-41dd-a5ef-655e40c7cdc0",
                                     "number": 2,
                                     "commissionValue": 196.11,
                                     "netValue": 980.57,
@@ -293,12 +389,12 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                                     "installmentInterest": 0.0,
                                     "installmentTax": 36.18,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
-                                        "2022-12-01T12:00:00Z"
+                                        "2023-05-31T00:00:00Z",
+                                        "2023-06-01T12:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "eff81616-34f7-4e07-973b-8344c372a2f6",
+                                    "identifier": "9e6bdbcd-7b20-4632-8f8d-9ac9abed0381",
                                     "number": 3,
                                     "commissionValue": 196.11,
                                     "netValue": 980.57,
@@ -309,13 +405,13 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                                     "installmentInterest": 0.0,
                                     "installmentTax": 24.12,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
-                                        "2022-12-01T12:00:00Z",
-                                        "2023-01-01T12:00:00Z"
+                                        "2023-05-31T00:00:00Z",
+                                        "2023-06-01T12:00:00Z",
+                                        "2023-07-01T12:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "56031475-16e0-411e-a61c-d70eb94b0a37",
+                                    "identifier": "0d992d83-536e-4712-91d6-cd830619b389",
                                     "number": 4,
                                     "commissionValue": 196.11,
                                     "netValue": 980.57,
@@ -326,14 +422,14 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                                     "installmentInterest": 0.0,
                                     "installmentTax": 18.09,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
-                                        "2022-12-01T12:00:00Z",
-                                        "2023-01-01T12:00:00Z",
-                                        "2023-02-01T12:00:00Z"
+                                        "2023-05-31T00:00:00Z",
+                                        "2023-06-01T12:00:00Z",
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "962c2e09-2c33-4d99-b2e0-f464bdb5d6b2",
+                                    "identifier": "97eb995a-9284-4d60-ae0c-d790823f7471",
                                     "number": 5,
                                     "commissionValue": 196.11,
                                     "netValue": 980.57,
@@ -344,15 +440,15 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                                     "installmentInterest": 0.0,
                                     "installmentTax": 14.47,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
-                                        "2022-12-01T12:00:00Z",
-                                        "2023-01-01T12:00:00Z",
-                                        "2023-02-01T12:00:00Z",
-                                        "2023-03-01T12:00:00Z"
+                                        "2023-05-31T00:00:00Z",
+                                        "2023-06-01T12:00:00Z",
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z",
+                                        "2023-09-01T12:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "618c2480-d451-4b45-bcfa-007c77426703",
+                                    "identifier": "d00a5b1a-86ee-4716-bac8-0ae0ae55ad69",
                                     "number": 6,
                                     "commissionValue": 196.11,
                                     "netValue": 980.57,
@@ -363,16 +459,16 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                                     "installmentInterest": 0.0,
                                     "installmentTax": 12.06,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
-                                        "2022-12-01T12:00:00Z",
-                                        "2023-01-01T12:00:00Z",
-                                        "2023-02-01T12:00:00Z",
-                                        "2023-03-01T12:00:00Z",
-                                        "2023-04-01T12:00:00Z"
+                                        "2023-05-31T00:00:00Z",
+                                        "2023-06-01T12:00:00Z",
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z",
+                                        "2023-09-01T12:00:00Z",
+                                        "2023-10-01T12:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "c0eaeeec-ad63-48f4-bfd7-2c7f22425689",
+                                    "identifier": "5f112303-9609-4d7e-a140-fbdab6fb7225",
                                     "number": 7,
                                     "commissionValue": 196.11,
                                     "netValue": 980.57,
@@ -383,17 +479,17 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                                     "installmentInterest": 0.0,
                                     "installmentTax": 10.34,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
-                                        "2022-12-01T12:00:00Z",
-                                        "2023-01-01T12:00:00Z",
-                                        "2023-02-01T12:00:00Z",
-                                        "2023-03-01T12:00:00Z",
-                                        "2023-04-01T12:00:00Z",
-                                        "2023-05-01T12:00:00Z"
+                                        "2023-05-31T00:00:00Z",
+                                        "2023-06-01T12:00:00Z",
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z",
+                                        "2023-09-01T12:00:00Z",
+                                        "2023-10-01T12:00:00Z",
+                                        "2023-11-01T12:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "c08e9ab2-8bb9-4c82-ada5-f2e3b6dd9898",
+                                    "identifier": "b520d5be-7677-4aeb-8185-fced440fc833",
                                     "number": 8,
                                     "commissionValue": 196.11,
                                     "netValue": 980.57,
@@ -404,18 +500,18 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                                     "installmentInterest": 0.0,
                                     "installmentTax": 9.05,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
-                                        "2022-12-01T12:00:00Z",
-                                        "2023-01-01T12:00:00Z",
-                                        "2023-02-01T12:00:00Z",
-                                        "2023-03-01T12:00:00Z",
-                                        "2023-04-01T12:00:00Z",
-                                        "2023-05-01T12:00:00Z",
-                                        "2023-06-01T12:00:00Z"
+                                        "2023-05-31T00:00:00Z",
+                                        "2023-06-01T12:00:00Z",
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z",
+                                        "2023-09-01T12:00:00Z",
+                                        "2023-10-01T12:00:00Z",
+                                        "2023-11-01T12:00:00Z",
+                                        "2023-12-01T12:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "a29eef1a-eab0-4ecd-8d42-24cbf2f6a301",
+                                    "identifier": "7372ea73-b294-48da-82ed-ea326a043100",
                                     "number": 9,
                                     "commissionValue": 196.11,
                                     "netValue": 980.57,
@@ -426,19 +522,19 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                                     "installmentInterest": 0.0,
                                     "installmentTax": 8.04,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
-                                        "2022-12-01T12:00:00Z",
-                                        "2023-01-01T12:00:00Z",
-                                        "2023-02-01T12:00:00Z",
-                                        "2023-03-01T12:00:00Z",
-                                        "2023-04-01T12:00:00Z",
-                                        "2023-05-01T12:00:00Z",
+                                        "2023-05-31T00:00:00Z",
                                         "2023-06-01T12:00:00Z",
-                                        "2023-07-01T12:00:00Z"
+                                        "2023-07-01T12:00:00Z",
+                                        "2023-08-01T12:00:00Z",
+                                        "2023-09-01T12:00:00Z",
+                                        "2023-10-01T12:00:00Z",
+                                        "2023-11-01T12:00:00Z",
+                                        "2023-12-01T12:00:00Z",
+                                        "2024-01-01T12:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "d03bd19e-fedd-4dab-9f4e-42cedcbf59c6",
+                                    "identifier": "920f3bd0-e526-4478-bd5b-0c32f0201bbf",
                                     "number": 10,
                                     "commissionValue": 196.11,
                                     "netValue": 980.57,
@@ -449,16 +545,16 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                                     "installmentInterest": 0.0,
                                     "installmentTax": 7.24,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
-                                        "2022-12-01T12:00:00Z",
-                                        "2023-01-01T12:00:00Z",
-                                        "2023-02-01T12:00:00Z",
-                                        "2023-03-01T12:00:00Z",
-                                        "2023-04-01T12:00:00Z",
-                                        "2023-05-01T12:00:00Z",
+                                        "2023-05-31T00:00:00Z",
                                         "2023-06-01T12:00:00Z",
                                         "2023-07-01T12:00:00Z",
-                                        "2023-08-01T12:00:00Z"
+                                        "2023-08-01T12:00:00Z",
+                                        "2023-09-01T12:00:00Z",
+                                        "2023-10-01T12:00:00Z",
+                                        "2023-11-01T12:00:00Z",
+                                        "2023-12-01T12:00:00Z",
+                                        "2024-01-01T12:00:00Z",
+                                        "2024-02-01T12:00:00Z"
                                     ]
                                 }
                             ]
@@ -469,6 +565,17 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
         ]
     },
     "success": true,
-    "executed": "2022-11-23T18:16:57.5122616Z"
+    "executed": "2023-05-24T20:49:58.3856737Z"
 }
+```
+
+### Explicando campos de retorno
+
+Diferente do Response de Cotação, o de proposta possui um campo a mais logo após o "Status", que seria o proposal:
+
+```json
+"proposal": {
+            "number": "17848685910001",
+            "date": "2023-05-23T19:09:27.6820058Z"
+        }
 ```

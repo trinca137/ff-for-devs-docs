@@ -1,81 +1,194 @@
 # Criar Proposta
 
-#### Endpoint
+{% swagger method="post" path="{{version}}/quotation/proposal" baseUrl="{{url_ambiente}}/" summary="Criar proposta" expanded="true" fullWidth="true" %}
+{% swagger-description %}
+Cria uma proposta (atualiza informações adicionais).
+{% endswagger-description %}
 
+{% swagger-parameter in="header" name="Ocp-Apim_Subscription-Key" type="key" required="true" %}
+chave de acesso da api.
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="Retorno sucesso " %}
+
+
+[#response](proposta.md#response "mention")
+
+
+{% endswagger-response %}
+
+{% swagger-response status="400: Bad Request" description="Retorno com mensagem do local do erro" %}
+```json
+{
+    "success": false,
+    "executed": "2023-05-22T20:25:43.6362739Z",
+    "errors": [
+        {
+            "code": "INVALID-FORM-FIELD",
+            "message": "'Item Identifier' must not be empty.",
+            "properties": {
+                "validationType": "NotEmptyValidator",
+                "field": "Documents[0].ItemIdentifier"
+            }
+        }
+    ]
+}
 ```
-POST: {{url_ambiente}}/v1/quotation/proposal
+{% endswagger-response %}
+
+{% swagger-response status="401: Unauthorized" description="Caso não envie uma "chave" ou envie uma inválida" %}
+{% code overflow="wrap" %}
+```json
+{
+    "statusCode": 401,
+    "message": "Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API."
+}
 ```
+{% endcode %}
+{% endswagger-response %}
+{% endswagger %}
 
 ## Request
 
 ```json
 {
-    "identifier": "4ebed38e-db7a-40df-ae51-87edef9d2d69",
-    "registerNumber": "100000",
-    "operationCode": "BIKE-MULTIPLE-PERIL-PARTNER",
-        {
-            "code": "PAYMENT-METHOD",
-            "answer": "CREDIT-CARD"
-        },
-        {
-            "code": "INSURED-BIRTH-DATE",
-            "answer": "1990-09-08T03:00:00.000Z"
-        },
-        {
-            "code": "DUE-DAY",
-            "answer": 15
-        },
-        {
-            "code": "PAYMENT-INSTALLMENT-IDENTIFIER",
-            "answer": "adee1bc9-154f-4fa2-937d-34d2610bed83"
-        },
-    "documents": [
-        {
-            "itemIdentifier": "1634aa56-f096-43a2-bd47-11ecd4600c7e",
-            "files": [
+   "identifier":"2aea86d1-a9e5-4220-ab29-68c3fba8483f",
+   "registerNumber": "100000",
+   "operationCode":"BIKE-MULTIPLE-PERIL-PARTNER",
+   "answers":[
+      {
+         "code":"PAYMENT-METHOD",
+         "answer":"CREDIT-CARD"
+      },
+      {
+         "code":"INSURED-BIRTH-DATE",
+         "answer":"1990-09-08T03:00:00.000Z"
+      },
+      {
+         "code":"DUE-DAY",
+         "answer":15
+      },
+      {
+         "code":"PAYMENT-INSTALLMENT-IDENTIFIER",
+         "answer":"ee88a83c-1764-4e28-8272-e27d49d32dc8"
+      }
+   ]
+   "documents":[
+      {
+         "itemIdentifier":"92cc00b4-9ba6-4f50-bf5a-38b76ade9370",
+         "files": [
                 "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gIoSUNDX1BST0ZJTEUAAQEAAAIYAAAAAAQwAABtbnRyUkdCIFhZWiAAAAAAAAAAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAAHRyWFlaAAABZAAAABRnWFlaAAABeAAAABRiWFlaAAABjAAAABRyVFJDAAABoAAAAChnVFJDAAABoAAAAChiVFJDAAABoAAAACh3dHB0AAAByAAAABRjcHJ0AAAB3AAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAFgAAAAcAHMAUgBHAEIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFhZWiAAAAAAAABvogAAOPUAAAOQWFlaIAAAAAAAAGKZAAC3hQAAGNpYWVogAAAAAAAAJKAAAA+EAAC2z3BhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABYWVogAAAAAAAA9tYAAQAAAADTLW1sdWMAAAAAAAAAAQAAAAxlblVTAAAAIAAAABwARwBvAG8AZwBsAGUAIABJAG4AYwAuACAAMgAwADEANv/bAEMAAwICAgICAwICAgMDAwMEBgQEBAQECAYGBQYJCAoKCQgJCQoMDwwKCw4LCQkNEQ0ODxAQERAKDBITEhATDxAQEP/bAEMBAwMDBAMECAQECBALCQsQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEP/AABEIAZoCgAMBIgACEQEDEQH/xAAVAAEBAAAAAAAAAAAAAAAAAAAAB//EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAVAQEBAAAAAAAAAAAAAAAAAAAACP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AKwAkRWYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//2Q==",
                 "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gIoSUNDX1BST0ZJTEUAAQEAAAIYAAAAAAQwAABtbnRyUkdCIFhZWiAAAAAAAAAAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAAHRyWFlaAAABZAAAABRnWFlaAAABeAAAABRiWFlaAAABjAAAABRyVFJDAAABoAAAAChnVFJDAAABoAAAAChiVFJDAAABoAAAACh3dHB0AAAByAAAABRjcHJ0AAAB3AAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAFgAAAAcAHMAUgBHAEIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFhZWiAAAAAAAABvogAAOPUAAAOQWFlaIAAAAAAAAGKZAAC3hQAAGNpYWVogAAAAAAAAJKAAAA+EAAC2z3BhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABYWVogAAAAAAAA9tYAAQAAAADTLW1sdWMAAAAAAAAAAQAAAAxlblVTAAAAIAAAABwARwBvAG8AZwBsAGUAIABJAG4AYwAuACAAMgAwADEANv/bAEMAAwICAgICAwICAgMDAwMEBgQEBAQECAYGBQYJCAoKCQgJCQoMDwwKCw4LCQkNEQ0ODxAQERAKDBITEhATDxAQEP/bAEMBAwMDBAMECAQECBALCQsQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEP/AABEIAZoCgAMBIgACEQEDEQH/xAAVAAEBAAAAAAAAAAAAAAAAAAAAB//EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAVAQEBAAAAAAAAAAAAAAAAAAAACP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AKwAkRWYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//2Q=="
             ]
-        }
-    ]
+      }
+   ]
 }
 ```
 
+### Detalhamento request de proposta
+
+> **Code**: INSURED-BIRTH-DATE\
+> **Type**: `date`\
+> ❗ Obrigatório que esteja incluído no array (apenas se o segurado for Pessoa Fisica).
+>
+> Pergunta usada para definir a data de nascimento do segurado.
+
+
+
+> **Field:** RegisterNumber
+>
+> **Tipo:** `text`&#x20;
+>
+> ❗ Campo Obrigatório.
+>
+> Campo usado para definir qual o SusepNumber da corretora que está sendo cotada. Neste caso, o susep da corretora é "100000".
+
+
+
+> **Code**: PAYMENT-METHOD\
+> **Type**: `text`\
+> ❗ Obrigatório que esteja incluído no array.
+>
+> Pergunta usada para definir o método de pagamento.\
+> Os possíveis valores para esta pergunta são:
+>
+> * _CREDIT-CARD_
+> * _TICKET_
+
+
+
+> **Code**: DUE-DAY\
+> **Type**: `integer`\
+> ❗ Obrigatório que esteja incluído no array. (apenas quando o PAYMENT-METHOD for TICKET).
+>
+> Pergunta usada para definir o dia de vencimento quando o PAYMENT-METHOD for TICKET (boleto).
+
+
+
+> **Code**: PAYMENT-INSTALLMENT-IDENTIFIER\
+> **Type**: `guid`\
+> ❗ Obrigatório que esteja incluído no array.
+>
+> O guid que será enviado nesse campo é retornado no array de installments, no retorno do endpoint de criar cotação.
+
+
+
+> **Field**: documents\
+> **Type**: `array<document>`\
+> ❗ Campo Obrigatório
+>
+> Campo usado para enviar as fotos referentes a bike que está sendo cotada. A seguir, veremos também a modelagem de documents.
+
+***
+
+> **Field**: item Identifier\
+> **Type**: `text`\
+> ❗ Campo Obrigatório.
+>
+> Campo usado para enviar um guid que será vinculado às fotos no array de files, **esse guid é retornado como variantIdentifier dentro do objeto de retorno quando se cria uma cotação.**
+
+***
+
+> **Field**: files\
+> **Type**: `array<string>`\
+> ❗ Campo Obrigatório. é necessário 2 ou mais fotos
+>
+> Campo usado como resposta para enviar as fotos no formato de **base64**.
+
 ## Response
 
-Expicamos os campos de retorno neste [link](../../explicando-request-response/request-1.md#response)
-
+{% code overflow="wrap" %}
 ```json
 {
     "item": {
-        "quotationIdentifier": "4ebed38e-db7a-40df-ae51-87edef9d2d69",
+        "quotationIdentifier": "210117cf-2a0b-4f2a-8a7f-04c301e9cf49",
         "status": "Draft",
         "proposal": {
-            "number": "80473385610001",
-            "date": "0001-01-01T00:00:00Z"
+            "number": "34990940670001",
+            "date": "2023-05-23T00:00:00Z"
         },
         "pricing": [
             {
-                "variantIdentifier": "1634aa56-f096-43a2-bd47-11ecd4600c7e",
+                "variantIdentifier": "423fcec9-2fb9-4c22-a14d-4ff3427974f6",
                 "underwriting": {
                     "approved": true,
                     "evaluations": []
                 },
                 "price": {
-                    "commission": 45.2,
+                    "commission": 37.72,
                     "grievanceDiscount": 0.0,
-                    "itemValue": 3500.0,
-                    "netValue": 225.98,
+                    "itemValue": 3000.0,
+                    "netValue": 188.6,
                     "interestValue": 0.0,
-                    "taxValue": 16.68,
-                    "totalValue": 242.66,
-                    "policyLimit": 3500.0,
+                    "taxValue": 13.92,
+                    "totalValue": 202.52,
+                    "policyLimit": 3000.0,
                     "rates": [
                         {
                             "code": "DAMAGE-COVERAGE",
                             "description": "Danos à bike",
-                            "limit": 3500.0,
-                            "netValue": 59.47,
+                            "limit": 3000.0,
+                            "netValue": 49.63,
                             "deductible": {
                                 "code": "DEFAULT",
                                 "text": "Padrão",
@@ -85,8 +198,8 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                         {
                             "code": "THEFT-COVERAGE",
                             "description": "Roubo e/ou furto qualificado",
-                            "limit": 3500.0,
-                            "netValue": 166.51,
+                            "limit": 3000.0,
+                            "netValue": 138.97,
                             "deductible": {
                                 "code": "DEFAULT",
                                 "text": "Padrão",
@@ -103,34 +216,69 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                             "paymentType": "CreditCard",
                             "installments": [
                                 {
-                                    "identifier": "adee1bc9-154f-4fa2-937d-34d2610bed83",
+                                    "identifier": "6360803f-2969-410a-be77-7a835a339c4f",
                                     "number": 1,
-                                    "commissionValue": 45.2,
-                                    "netValue": 225.98,
+                                    "commissionValue": 37.72,
+                                    "netValue": 188.6,
                                     "interestValue": 0.0,
-                                    "taxValue": 16.68,
-                                    "totalValue": 242.66,
-                                    "installmentValue": 242.66,
+                                    "taxValue": 13.92,
+                                    "totalValue": 202.52,
+                                    "installmentValue": 202.52,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 16.68,
+                                    "installmentTax": 13.92,
                                     "dueDates": [
-                                        "2022-11-29T00:00:00Z"
+                                        "2023-05-30T00:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "cc10c58c-e644-43aa-8522-f7b83ffec506",
+                                    "identifier": "1ba6df3d-68e4-45d2-8c97-504017fb2a14",
                                     "number": 2,
-                                    "commissionValue": 45.2,
-                                    "netValue": 225.98,
+                                    "commissionValue": 37.72,
+                                    "netValue": 188.6,
                                     "interestValue": 0.0,
-                                    "taxValue": 16.68,
-                                    "totalValue": 242.66,
-                                    "installmentValue": 121.33,
+                                    "taxValue": 13.92,
+                                    "totalValue": 202.52,
+                                    "installmentValue": 101.26,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 8.34,
+                                    "installmentTax": 6.96,
                                     "dueDates": [
-                                        "2022-11-29T00:00:00Z",
-                                        "2022-12-15T12:00:00Z"
+                                        "2023-05-30T00:00:00Z",
+                                        "2023-06-15T12:00:00Z"
+                                    ]
+                                },
+                                {
+                                    "identifier": "5b3ed249-abb6-4060-b17a-08c2a7257b2b",
+                                    "number": 3,
+                                    "commissionValue": 37.72,
+                                    "netValue": 188.6,
+                                    "interestValue": 0.0,
+                                    "taxValue": 13.92,
+                                    "totalValue": 202.52,
+                                    "installmentValue": 67.51,
+                                    "installmentInterest": 0.0,
+                                    "installmentTax": 4.64,
+                                    "dueDates": [
+                                        "2023-05-30T00:00:00Z",
+                                        "2023-06-15T12:00:00Z",
+                                        "2023-07-15T12:00:00Z"
+                                    ]
+                                },
+                                {
+                                    "identifier": "ec4d3238-b4c4-4192-bc9e-4e8d3193aa09",
+                                    "number": 4,
+                                    "commissionValue": 37.72,
+                                    "netValue": 188.6,
+                                    "interestValue": 0.0,
+                                    "taxValue": 13.92,
+                                    "totalValue": 202.52,
+                                    "installmentValue": 50.63,
+                                    "installmentInterest": 0.0,
+                                    "installmentTax": 3.48,
+                                    "dueDates": [
+                                        "2023-05-30T00:00:00Z",
+                                        "2023-06-15T12:00:00Z",
+                                        "2023-07-15T12:00:00Z",
+                                        "2023-08-15T12:00:00Z"
                                     ]
                                 }
                             ]
@@ -140,34 +288,34 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                             "paymentType": "Ticket",
                             "installments": [
                                 {
-                                    "identifier": "81ac6741-e675-4815-bde5-5c8e2b0115cf",
+                                    "identifier": "251bb938-01c6-405a-b1af-1adb2dfec7e5",
                                     "number": 1,
-                                    "commissionValue": 45.2,
-                                    "netValue": 225.98,
+                                    "commissionValue": 37.72,
+                                    "netValue": 188.6,
                                     "interestValue": 0.0,
-                                    "taxValue": 16.68,
-                                    "totalValue": 242.66,
-                                    "installmentValue": 242.66,
+                                    "taxValue": 13.92,
+                                    "totalValue": 202.52,
+                                    "installmentValue": 202.52,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 16.68,
+                                    "installmentTax": 13.92,
                                     "dueDates": [
-                                        "2022-11-29T00:00:00Z"
+                                        "2023-05-30T00:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "db715e00-13d7-4902-98d4-26d4fdfe0717",
+                                    "identifier": "65f488a0-d5a6-4cb2-b4e2-5599010236eb",
                                     "number": 2,
-                                    "commissionValue": 45.2,
-                                    "netValue": 225.98,
+                                    "commissionValue": 37.72,
+                                    "netValue": 188.6,
                                     "interestValue": 0.0,
-                                    "taxValue": 16.68,
-                                    "totalValue": 242.66,
-                                    "installmentValue": 121.33,
+                                    "taxValue": 13.92,
+                                    "totalValue": 202.52,
+                                    "installmentValue": 101.26,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 8.34,
+                                    "installmentTax": 6.96,
                                     "dueDates": [
-                                        "2022-11-29T00:00:00Z",
-                                        "2022-12-15T12:00:00Z"
+                                        "2023-05-30T00:00:00Z",
+                                        "2023-06-15T12:00:00Z"
                                     ]
                                 }
                             ]
@@ -178,6 +326,18 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
         ]
     },
     "success": true,
-    "executed": "2022-11-22T19:05:53.5943162Z"
+    "executed": "2023-05-23T19:07:19.6820058Z"
 }
 ```
+{% endcode %}
+
+Diferente do Response de Cotação, o de proposta possui um campo a mais logo após o "Status", que seria o proposal:
+
+```json
+"proposal": {
+            "number": "34990940670001",
+            "date": "2023-05-23T19:09:27.6820058Z"
+        }
+```
+
+Onde temos o número da proposta, e a data que foi realizada a chamada da proposta
