@@ -35,3 +35,4 @@
 * [Serviços Pós Venda](services/README.md)
   * [Consulta de apólice](services/policy.md)
   * [Sinistro](services/sinistro.md)
+* [Consulta de cotação](consulta-de-cotacao.md)
