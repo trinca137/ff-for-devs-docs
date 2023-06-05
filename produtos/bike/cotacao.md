@@ -111,10 +111,6 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
             "answer": "2023-05-02T03:00:00.000Z"
         },
         {
-            "code": "VIGENCY-DURATION",
-            "answer": 1
-        },
-        {
             "code": "CONGENER",
             "answer": "RENEWAL"
         },
@@ -331,6 +327,44 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > ❗ Campo Obrigatório.
 >
 > Campo usado para enviar perguntas gerais de uma cotação
+
+
+
+> **Field**: PERSON-TYPE\
+> **Tipo**: `string`\
+> ❗ Campo Obrigatório.
+>
+> Campo usado para definir o tipo de pessoa, sendo possivel enviar:
+>
+> * **NATURAL** = Pessoa Fisíca
+> * **LEGAL** = Pessoa Jurídica
+
+
+
+> **Field**: CONGENER\
+> **Tipo**: `string`\
+> ❗ Campo Obrigatório.
+>
+> Campo usado para definir o tipo de cotação, sendo possivel enviar:
+>
+> * **NEW** = Cotação Nova.
+> * **RENEW** = Renovação vinda de outra corretora.
+
+
+
+> **Field**: PREVIOUS-INSURER\
+> **Tipo**: `string`\
+> ❗ Campo Obrigatório caso <mark style="color:yellow;">CONGENER = RENEW</mark>.
+>
+> Campo usado para definir o cnpj que vem a cotação marcada com renovação.
+
+
+
+> **Field**: PREVIOUS-INSURER-NAME\
+> **Tipo**: `string`\
+> ❗ Campo Obrigatório caso <mark style="color:yellow;">CONGENER = RENEW</mark>.
+>
+> Campo usado para definir o nome que vem a cotação marcada com renovação.
 
 
 

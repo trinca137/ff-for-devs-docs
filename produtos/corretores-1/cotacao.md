@@ -306,7 +306,18 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > **Tipo**: `array<answer>`\
 > ❗ Campo Obrigatório.
 >
-> Campo usado para enviar perguntas gerais de uma cotação
+> Campo usado para enviar perguntas gerais de uma cotação.
+
+
+
+> **Field**: PERSON-TYPE\
+> **Tipo**: `string`\
+> ❗ Campo Obrigatório.
+>
+> Campo usado para definir o tipo de pessoa, sendo possivel enviar:
+>
+> * **NATURAL** = Pessoa Fisíca
+> * **LEGAL** = Pessoa Jurídica
 
 
 
@@ -373,7 +384,87 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > ❗ Obrigatório que esteja incluído no array.\
 > Qual o tipo do equipamento.
 
-***
+<details>
+
+<summary>Tipos de equipamentos (os codigos estão da maneira que devem ser enviados)</summary>
+
+**PILE-DRIVER** = Bate estaca
+
+**CONCRETE-MIXERS** = Betoneiras
+
+**BOMB-SPEAR** = Bomba Lança
+
+**SUCTION-BOOSTER-PUMPS** = Bombas de Sucção ou Recalque
+
+**CRUSHER** = Britador
+
+**BULLDOZERS** = Bulldozers
+
+**WHEEL-LOADER** = Carregadeira Sobre Rodas
+
+**SOIL-COMPACTOR** = Compactador de Solo
+
+**AIR-COMPRESSOR** = Compressor de Ar
+
+**EARTHMOVER** = Earthmover
+
+**CONSTRUCTION-ELEVATOR** = Elevador de Obras
+
+**SCISSOR-LIFT-WITH-WHEELS** = Elevador de Tesoura (com rodas)
+
+**PANTOGRAPHIC-HYDRAULIC-ELEVATOR** = Elevador Hidráulico Pantográfico
+
+**FORK-LIFT** = Empilhadeira
+
+**EXCAVATOR-MACHINE** = Escavadeira
+
+**GENERATOR** = Gerador
+
+**WINCHES-EXCLUSIVELY-CONSTRUCTION** = Guinchos (exclusivamente em canteiros de obras)
+
+**TELESCOPIC-MANIPULATOR** = Manipulador de Telescópio
+
+**HYDRAULIC-HAMMER** = Martelo Hidráulico
+
+**VIBRATING-HAMMER** = Martelo Vibratório
+
+**SMALL-LOADER** = Mini Carregadeira
+
+**SMALL-EXCAVATOR** = Mini Escavadeira
+
+**SMALL-BACKHOE-LOADER** = Mini Retroescavedeira
+
+**GRADER** = Motoniveladora
+
+**WHEEL-SHOVER** = Pá Carregadeira
+
+**SHEEP-FEET** = Pés de Carneiro
+
+**AERIAL-WORK-PLATFORM** = Plataforma Aérea de Trabalho
+
+**LIFTING-PLATFORM** = Plataforma Elevatória
+
+**BACKHOE** = Retroescavadeira
+
+**ROAD-ROLLER** = Rolo Compactador
+
+**BREAKER** = Rompedor
+
+**SCRAPERS** = Scrapers
+
+**LIGHTING-TOWER** = Torre de Iluminação
+
+**FIXED-CONVEYORS** = Transportadores Fixos (de correia, esteira, rosca sem fim o caçambas)
+
+**TRACTOR** = Trator
+
+**ASPHALT-PLANT** = Usina de Asfalto
+
+**VIBRATORS-CONCRETE** = Vibradores para Concreto
+
+**ASPHALT-PAVER** = Vibroacabadora de Asfalto
+
+</details>
 
 > **Code**: BRAND\
 > **Type**: `text`\
@@ -427,7 +518,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 >
 > Usada para informar o ano que o equipamento foi feito.\
 > \
-> São permitidos equipamentos com fabricação do ano anterior ou atual.
+> São permitidos equipamentos com fabricação do ano atual ou anterior.
 
 ***
 
