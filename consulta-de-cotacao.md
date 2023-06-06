@@ -894,7 +894,7 @@ Número Susep
 > **Field**: item.operationCode\
 > **Type**: `string`
 >
-> Codigo da operacao usada para fazer a cotação.
+> Código da operação usada para fazer a cotação.
 
 > **Field**: item.status\
 > **Type**: `string`
@@ -929,7 +929,7 @@ Número Susep
 > **Field**: item.answers\[].code\
 > **Type**: `string`
 >
-> Codigo da pergunta.
+> Código da pergunta.
 
 > **Field**: item.answers\[].answer\
 > **Type**: dynamic
@@ -940,11 +940,32 @@ Número Susep
 >
 >
 >
-> `{ "answer' : "value" }`
+>
+>
+> ```postman_json
+> {
+>     "code": "code",
+>     "answer": ""
+> }
+> ```
 >
 > `OU`
 >
-> `{ "answer' : [[{"answer' : "value"}]] }`
+>
+>
+> ```postman_json
+> {
+>     "code":"code",
+>     "answer":[
+>         [
+>             {
+>                 "code":"code",
+>                 "answer":""
+>             }
+>         ]
+>     ]
+> }
+> ```
 >
 >
 
@@ -966,7 +987,7 @@ Número Susep
 > **Field**: item.proposal.number\
 > **Type**: `string`
 >
-> Numero da proposta.
+> Número da proposta.
 
 
 
@@ -1150,7 +1171,7 @@ Número Susep
 > **Type**: `guid`
 >
 > Código identificador da parcela.\
-> Esté é o código necessário enviar ao selecionar o método de pagamento. Exemplo: Se foi selecionado cartão de crédito, enviar o identificador daquele meio de pagamento
+> Este é o código necessário enviar ao selecionar o método de pagamento. Exemplo: Se foi selecionado cartão de crédito, enviar o identificador daquele meio de pagamento.
 
 ***
 
@@ -1252,7 +1273,7 @@ Número Susep
 > **Field**: item.modality.product.branch\
 > **Type**: `string`
 >
-> Ramo do seguro
+> Ramo do seguro.
 
 > **Field**: item.modality.product.segment.name\
 > **Type**: `string`
@@ -1267,7 +1288,7 @@ Número Susep
 > **Field**: item.brokerage.name\
 > **Type**: `string`
 >
-> Nome da corretora
+> Nome da corretora.
 
 > **Field**: item.brokerage.identity\
 > **Type**: `string`
@@ -1699,7 +1720,7 @@ Os valores possíveis para esta query parameter são:
 > **Field**: list\[].previousPolicyNumber\
 > **Type**: `string`
 >
-> Numero da apólice anterior
+> Numero da apólice anterior.
 
 
 
