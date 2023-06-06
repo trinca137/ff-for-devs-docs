@@ -1,7 +1,7 @@
 # Ambientes
 
 {% hint style="info" %}
-Atualmente nossas APIs possuem as versões **1.0** e **2.0.**&#x20;
+Atualmente nossas APIs possuem as versões **1.0**
 
 
 
@@ -36,4 +36,4 @@ https://azup-br-fairfax-gateway.azure-api.net/partner/api
     https://azuh1-br-fairfax-gateway.azure-api.net/partner/api
     ```
 
-[^2]: v1 ou v2
+[^2]: v1
