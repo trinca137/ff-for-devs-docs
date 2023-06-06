@@ -46,6 +46,10 @@ chave de acesso da api.
 ```
 {% endcode %}
 {% endswagger-response %}
+
+{% swagger-response status="500: Internal Server Error" description="Erro de aplicação/servidor" %}
+
+{% endswagger-response %}
 {% endswagger %}
 
 ## Request
@@ -151,9 +155,12 @@ chave de acesso da api.
 
 > **Field**: files\
 > **Type**: `array<string>`\
-> ❗ Campo Obrigatório. é necessário 2 ou mais fotos
+> ❗ Campo Obrigatório. É obrigatório 2 fotos, sendo elas uma foto da bike inteira e o número de série da mesma.
 >
 > Campo usado como resposta para enviar as fotos no formato de **base64**.
+>
+> \
+> OBS: em homologação pode ser enviada qualquer foto.
 
 ## Response
 
@@ -331,6 +338,8 @@ chave de acesso da api.
 ```
 {% endcode %}
 
+### Explicando campos de retorno
+
 Diferente do Response de Cotação, o de proposta possui um campo a mais logo após o "Status", que seria o proposal:
 
 ```json
@@ -340,4 +349,4 @@ Diferente do Response de Cotação, o de proposta possui um campo a mais logo ap
         }
 ```
 
-Onde temos o número da proposta, e a data que foi realizada a chamada da proposta
+Onde temos o número da proposta, e a data que foi realizada a chamada da proposta.

@@ -62,6 +62,10 @@ chave de acesso da api.
 ```
 {% endcode %}
 {% endswagger-response %}
+
+{% swagger-response status="500: Internal Server Error" description="Erro de aplicação/servidor" %}
+
+{% endswagger-response %}
 {% endswagger %}
 
 {% hint style="info" %}
@@ -268,7 +272,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > **Tipo**: `array<answer>`\
 > ❗ Campo Obrigatório.
 >
-> Campo usado para enviar perguntas gerais de uma cotação
+> Campo usado para enviar perguntas gerais de uma cotação.
 
 
 
@@ -615,7 +619,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > **Code**: SCOPE\
 > **Type**: `text`\
 > ❗ Obrigatório que esteja incluído no array. Atualmente so atendemos seguros de D\&O nacionais.\
-> Pergunta usada para definir o Âmbito de trabalho da empresa\
+> Pergunta usada para definir o Âmbito de trabalho da empresa.\
 >
 >
 > Os possíveis valores para esta pergunta são:
@@ -630,7 +634,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > Pergunta usada para definir o método de pagamento.\
 >
 >
-> Os possíveis valores para esta pergunta são:\\
+> Os possíveis valores para esta pergunta são:
 >
 > * **TICKET**
 
@@ -978,7 +982,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > **Field**: item.pricing\[].price.policyLimit\
 > **Type**: `decimal`
 >
-> Valor de Limite da apólice (no caso de Bikes, o valor do limite da apólice é igual ao valor informado para a bike).
+> Valor de Limite da apólice.
 
 ***
 
@@ -1006,14 +1010,14 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > **Field**: item.pricing\[].price.rates\[].code\
 > **Type**: `text`
 >
-> Exibe o código que identifica a ou as coberturas contratadas. Ex: DAMAGE-COVERAGE, trata-se da cobertura de Danos à Bike.
+> Exibe o código que identifica a ou as coberturas contratadas.
 
 ***
 
 > **Field**: item.pricing\[].price.rates\[].description\
 > **Type**: `text`
 >
-> Trata-se do nome da cobertura em português. Ex: "Danos à Bike".
+> Trata-se do nome da cobertura em português.
 
 ***
 
@@ -1077,7 +1081,9 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > **Type**: `guid`
 >
 > Código identificador da parcela.\
-> Esté é o código necessário enviar ao selecionar o método de pagamento. Exemplo: Se foi selecionado cartão de crédito, enviar o identificador daquele meio de pagamento
+> Esté é o código necessário enviar ao selecionar o método de pagamento.
+>
+> Exemplo: Se foi selecionado cartão de crédito, enviar o identificador daquele meio de pagamento.
 
 ***
 

@@ -52,6 +52,10 @@ erros como aparece abaixo.
 ```
 {% endcode %}
 {% endswagger-response %}
+
+{% swagger-response status="500: Internal Server Error" description="Erro de aplicação/servidor" %}
+
+{% endswagger-response %}
 {% endswagger %}
 
 ## Request
@@ -321,3 +325,5 @@ Diferente do Response de Cotação, o de proposta possui um campo a mais logo ap
             "date": "2023-05-23T19:09:27.6820058Z"
         }
 ```
+
+Onde temos o número da proposta, e a data que foi realizada a chamada da proposta.

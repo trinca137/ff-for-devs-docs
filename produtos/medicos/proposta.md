@@ -52,6 +52,10 @@ erros como aparece abaixo.
 ```
 {% endcode %}
 {% endswagger-response %}
+
+{% swagger-response status="500: Internal Server Error" description="Erro de aplicação/servidor" %}
+
+{% endswagger-response %}
 {% endswagger %}
 
 ## Request
@@ -621,9 +625,13 @@ erros como aparece abaixo.
 
 ### Explicando campos de retorno
 
+Diferente do Response de Cotação, o de proposta possui um campo a mais logo após o "Status", que seria o proposal:
+
 ```json
 "proposal": {
             "number": "41125730650001",
             "date": "2023-05-23T19:09:27.6820058Z"
         }
 ```
+
+Onde temos o número da proposta, e a data que foi realizada a chamada da proposta.

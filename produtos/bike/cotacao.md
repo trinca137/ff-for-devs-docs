@@ -71,9 +71,11 @@ chave de acesso da api.
 ```
 {% endcode %}
 {% endswagger-response %}
-{% endswagger %}
 
-a
+{% swagger-response status="500: Internal Server Error" description="Erro de aplicação/servidor" %}
+
+{% endswagger-response %}
+{% endswagger %}
 
 {% hint style="info" %}
 Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
@@ -326,7 +328,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > **Tipo**: `array<answer>`\
 > ❗ Campo Obrigatório.
 >
-> Campo usado para enviar perguntas gerais de uma cotação
+> Campo usado para enviar perguntas gerais de uma cotação.
 
 
 
@@ -416,6 +418,18 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > Pergunta usada para definir Agravo (aumento de preço sobre o netValue\* da cotação).\
 > O Padrão é 0.\
 > \* Preço líquido do produto sem IOF.
+
+***
+
+> **Code**: ITEMS\
+> **Tipo**: `array<answer>`\
+> ❗ Obrigatório que esteja incluído no array.
+>
+> Pergunta em formato de array de answer é usada para enviar perguntas mais específicas do produto em questão. Neste caso, o "Bike". Mais detalhes sobre essas perguntas a seguir, na documentação.
+
+<details>
+
+<summary>Exemplo do array de items</summary>
 
 ```json
 {
@@ -532,21 +546,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 }
 ```
 
-***
-
-> **Code**: ITEMS\
-> **Tipo**: `array<answer>`\
-> ❗ Obrigatório que esteja incluído no array.
->
-> Pergunta em formato de array de answer é usada para enviar perguntas mais específicas do produto em questão. Neste caso, o "Bike". Mais detalhes sobre essas perguntas a seguir, na documentação.
-
-
-
-> **Code**: ITEM-IDENTIFIER\
-> **Tipo**: `guid`\
-> ❗ Obrigatório que esteja incluído no array (quando for na PROPOSTA).
->
-> Pergunta usada para definir o número de série da bike em questão. Máximo de 30 caracteres.
+</details>
 
 ***
 
@@ -575,9 +575,9 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > **Tipo**: `integer`\
 > ❗ Obrigatório que esteja incluído no array.
 >
-> Pergunta usada para definir o ano de fabricação da bike. Não cobrimos bikes fabricadas em 2017 ou antes.
+> Pergunta usada para definir o ano de fabricação da bike. Não cobrimos bikes fabricadas 4 anos anteriores do atual.
 >
-> **❕São aceitos de 2018 ate 2022**\*
+> **❕São aceitos apenas bikes com ano igual ou 4 anos inferiores ao atual.**
 
 ***
 
@@ -607,7 +607,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 
 > **Code**: VALUE-AGREEMENT\
 > **Tipo**: `boolean`\
-> ❗ Obrigatório que esteja incluído no array.
+> ❗ Obrigatório que esteja incluído no array (se for falso, indica que não concorda com o valor e impossibilitando a contratação).
 >
 > Pergunta usada para definir "**Entendimento e concordância de valor aprovado.**". Se definida como true, indica que "**Estou de acordo com o valor aprovado pela Fairfax.**".
 
@@ -627,7 +627,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > **Tipo**: `text`\
 > ❗ Obrigatório que esteja incluído no array.
 >
-> Mesmo que Brand-Name, porém é necessário enviar essa resposta também.
+> Para este item sempre enviar OTHER.
 
 ***
 
@@ -655,7 +655,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 
 > **Code**: FRAME-TYPE-AGREEMENT\
 > **Tipo**: `boolean`\
-> ❗ Obrigatório que esteja incluído no array.
+> ❗ Obrigatório que esteja incluído no array (se for falso, indica não concordância com o material informado e impossibilitando a contratação).
 >
 > Pergunta usada para definir "**Entendimento e concordância do tipo de quadro.**" Se definida como true, indica que "**Estou ciente e de acordo que o material do quadro da Bicicleta acima indicado está correto. A informação incorreta acarretará perda do direito.**"
 
@@ -1351,7 +1351,9 @@ Pergunta usada para definir o limite de uma cobertura, caso uma delas sejam:
 > **Type**: `guid`
 >
 > Código identificador da parcela.\
-> Esté é o código necessário enviar ao selecionar o método de pagamento. Exemplo: Se foi selecionado cartão de crédito, enviar o identificador daquele meio de pagamento
+> Esté é o código necessário enviar ao selecionar o método de pagamento.
+>
+> Exemplo: Se foi selecionado cartão de crédito, enviar o identificador daquele meio de pagamento.
 
 ***
 

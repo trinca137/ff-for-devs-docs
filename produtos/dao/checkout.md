@@ -1,4 +1,4 @@
-# Page 1
+# Checkout
 
 {% swagger method="post" path="{{version}}/checkout" baseUrl="{{url_ambiente}}/" summary="Inicia processo de checkout" fullWidth="true" expanded="true" %}
 {% swagger-description %}
@@ -43,6 +43,10 @@ Simples retorno informando true ou false:
 }
 ```
 {% endcode %}
+{% endswagger-response %}
+
+{% swagger-response status="500: Internal Server Error" description="Erro de aplicação/servidor" %}
+
 {% endswagger-response %}
 {% endswagger %}
 
@@ -130,7 +134,7 @@ Os campos referentes a cartão de credito so são obrigatorios no caso do tipo d
 > **Type**: `text`\
 > ❗Campo obrigatório.
 >
-> Campo usado para definir o código de seguranca do cartão (3 digitos).
+> Campo usado para definir o código de segurança do cartão (3 digitos).
 
 ***
 
@@ -156,7 +160,7 @@ Os campos referentes a cartão de credito so são obrigatorios no caso do tipo d
 >
 > Campo usado para definir se será usado o endereço que é enviado nessa request através do campo **billingAddress** ou se será usado o endereço definido anteriormente na criação da cotação.
 >
-> * **true =** usara endereço enviado na quoation
+> * **true =** usara endereço enviado na cotação
 > * **false =** usara endereço enviado no **UseCustomerAddress**
 
 ***
