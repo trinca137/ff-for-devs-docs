@@ -1,8 +1,6 @@
 # Ambientes
 
 {% hint style="info" %}
-Atualmente nossas APIs possuem as versões **1.0**
-
 
 
 A URL de cada recurso vai conter o parametro **\{{**[**url\_ambiente**](#user-content-fn-1)[^1]**\}}** e **\{{**[**apiVersion**](#user-content-fn-2)[^2]**\}}** como prefixo, que deve ser substituido de acordo com o ambiente para o qual serão feitas as requisições.
