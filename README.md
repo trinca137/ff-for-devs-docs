@@ -34,5 +34,5 @@ Produtos disponíveis:
 ### **Serviços de pós venda**
 
 {% hint style="info" %}
-Na seção [**serviços de pós venda**](./#servicos-de-pos-venda) encontrara alguns serviços que disponibilizamos como pós venda (Ex.: Consulta apólice) e suas respectivas documentações.
+Na seção [**serviços de pós venda**](./#servicos-de-pos-venda) se encontram alguns serviços que disponibilizamos como pós venda e suas respectivas documentações.
 {% endhint %}

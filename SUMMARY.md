@@ -34,5 +34,5 @@
   * [Sinistro](services/sinistro.md)
 * [Serviços de consulta](services-1/README.md)
   * [Consulta de apólice](services-1/policy.md)
-  * [Consulta de cotação](services-1/consulta-de-cotacao.md)
+  * [Consulta de cotação](consulta-de-cotacao.md)
 * [Métricas](metricas.md)
