@@ -283,6 +283,11 @@ Número Susep
 >
 > Identificação unica da apólice em formatdo de `guid`.
 
+> **Field**: policyIdentifier\
+> **Type**: `guid`
+>
+> Identificação unica da apólice em formatdo de `guid`.
+
 ***
 
 > **Field**: number\
