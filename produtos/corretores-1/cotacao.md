@@ -1722,7 +1722,7 @@ Como podemos perceber, dentro do array de coverages, temos um outro array com du
 > **Field**: item.pricing\[].price.rates\[].deductible.text\
 > **Type**: `text`
 >
-> Nome da franquia atrelada a cobertura (para RD so existem a franquia de "Default" para as coberturas) - Ex: "Default".
+> Nome da franquia atrelada a cobertura (para RD so existem a franquia de "Default" para as coberturas).
 
 ***
 
