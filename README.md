@@ -28,7 +28,7 @@ Produtos disponíveis:
 [Dentistas](produtos/dentistas/)\
 [D\&O\
 ](produtos/dao/)[Corretores de Seguros](produtos/corretores/)\
-[RD Equipamentos](produtos/corretores-1/)
+[Equipamentos para Construção Civil](produtos/corretores-1/)
 {% endhint %}
 
 ### **Serviços de pós venda**

@@ -1,9 +1,9 @@
 # Criar Cotação
 
 {% hint style="info" %}
-Para RD Equipamentos, possuimos algumas diferenças sobre os outros produtos.\
+Para equipamentos de contrução civil, possuimos algumas diferenças sobre os outros produtos.\
 \
-Para motivo de alerta, para RD equipamentos é necessário selecionar o método de pagamento que vem a partir do VariantIdentifier "000...000" pois é onde é agrupado o valor de todos equipamentos.
+Para motivo de alerta, é necessário selecionar o método de pagamento que vem a partir do VariantIdentifier "000...000" pois é onde é agrupado o valor de todos equipamentos.
 {% endhint %}
 
 {% swagger method="post" path="{{version}}/quotation/contracting" baseUrl="{{url_ambiente}}/" summary="Criar Cotação" fullWidth="true" expanded="true" %}
@@ -761,7 +761,7 @@ Como podemos perceber, dentro do array de coverages, temos um outro array com du
                     "rates": [
                         {
                             "code": "DAMAGE-COVERAGE",
-                            "description": "Danos à bike",
+                            "description": "Cobertura Básica",
                             "limit": 1000000.0,
                             "netValue": 6719.57,
                             "deductible": {

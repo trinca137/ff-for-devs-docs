@@ -26,7 +26,7 @@
     * [Criar Cotação](produtos/corretores/cotacao.md)
     * [Criar Proposta](produtos/corretores/proposta.md)
     * [Checkout](produtos/corretores/checkout.md)
-  * [RD Equipamentos](produtos/corretores-1/README.md)
+  * [Equipamentos para Construção Civil](produtos/corretores-1/README.md)
     * [Criar Cotação](produtos/corretores-1/cotacao.md)
     * [Criar Proposta](produtos/corretores-1/proposta.md)
     * [Checkout](produtos/corretores-1/checkout.md)
