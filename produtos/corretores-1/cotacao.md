@@ -282,7 +282,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 
 ```json
 {
-	"operationCode": "DIRECTOR-OFFICERS-CIVIL-LIABILITY-PARTNER",
+	"operationCode": "CONSTRUCTION-EQUIPMENT-MULTIPLE-PERIL-PARTNER",
 	"registerNumber": "100000",
 	"answers":[],
 }
@@ -292,7 +292,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > **Tipo**: `text`\
 > ❗ Campo Obrigatório.
 >
-> Campo usado para definir qual produto está sendo cotado. Neste caso, o produto é "Médicos", representado pelo operation code "MEDICAL-CIVIL-LIABILITY-PARTNER".
+> Campo usado para definir qual produto está sendo cotado.
 
 
 
@@ -1722,7 +1722,7 @@ Como podemos perceber, dentro do array de coverages, temos um outro array com du
 > **Field**: item.pricing\[].price.rates\[].deductible.text\
 > **Type**: `text`
 >
-> Nome da franquia selecionada em português - Ex: "Padrão".
+> Nome da franquia atrelada a cobertura (para RD so existem a franquia de "Default" para as coberturas) - Ex: "Default".
 
 ***
 
