@@ -940,8 +940,6 @@ Número Susep
 >
 >
 >
->
->
 > ```postman_json
 > {
 >     "code": "code",
@@ -950,8 +948,6 @@ Número Susep
 > ```
 >
 > `OU`
->
->
 >
 > ```postman_json
 > {
@@ -966,23 +962,13 @@ Número Susep
 >     ]
 > }
 > ```
->
->
-
-> **Field**: item.quotationDocumentUrl\
-> **Type**: `string`
->
-> Url do pdf de cotação.
 
 > **Field**: item.proposal.date\
 > **Type**: `date`
 >
 > Data da proposta.
 
-> **Field**: item.proposal.documentUrl\
-> **Type**: `string`
->
-> Url do pdf da proposta.
+
 
 > **Field**: item.proposal.number\
 > **Type**: `string`
@@ -1721,15 +1707,3 @@ Os valores possíveis para esta query parameter são:
 > **Type**: `string`
 >
 > Numero da apólice anterior.
-
-
-
-***
-
-***
-
-***
-
-***
-
-***
