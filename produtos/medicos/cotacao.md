@@ -425,15 +425,15 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 
 <summary>Procedimentos e/ou atividades</summary>
 
-* **AESTHETIC-PROCEDURES** = Procedimentos Estéticos Minimamente Invasivos.\\
+* **AESTHETIC-PROCEDURES** = Procedimentos Estéticos Minimamente Invasivos.
 
 <!---->
 
-* **ENDOSCOPY-COLONOSCOPY** = Endoscopia e/ou Colonoscopia.\\
+* **ENDOSCOPY-COLONOSCOPY** = Endoscopia e/ou Colonoscopia.
 
 <!---->
 
-* **RADIOTHERAPY-CHEMOTHERAPY-IMMUNOTHERAPY** = Radioterapia e/ou Quimioterapia e/ou Imunoterapia.\\
+* **RADIOTHERAPY-CHEMOTHERAPY-IMMUNOTHERAPY** = Radioterapia e/ou Quimioterapia e/ou Imunoterapia.
 
 <!---->
 
@@ -518,6 +518,14 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 <!---->
 
 * **7500000.01-10000000.00** = Entre R$ 7.500.000,01 e R$ 10.000.000,00.
+
+<!---->
+
+* **10000000.01-15000000.00** = Entre R$ 10.000.000,01 e R$ 15.000.000,00.
+
+<!---->
+
+* **15000000.01-20000000.00** = Entre R$ 15.000.000,01 e R$ 20.000.000,00.
 
 </details>
 
@@ -680,6 +688,32 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 <!---->
 
 * **1000000.0** = R$ 1.000.000.
+
+<!---->
+
+* **1100000.0** = R$ 1.100.000.
+
+<!---->
+
+* **1200000.0** = R$ 1.200.000.
+
+<!---->
+
+* **1300000.0** = R$ 1.300.000.\
+
+* **1400000.0** = R$ 1.400.000.\
+
+* **1500000.0** = R$ 1.500.000.\
+
+* **1600000.0** = R$ 1.600.000.\
+
+* **1700000.0** = R$ 1.700.000.\
+
+* **1800000.0** = R$ 1.800.000.\
+
+* **1900000.0** = R$ 1.900.000.\
+
+* **2000000.0** = R$ 2.000.000.
 
 </details>
 
