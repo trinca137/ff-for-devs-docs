@@ -156,7 +156,27 @@ erros como aparece abaixo.
                     "netValue": 980.57,
                     "interestValue": 0.0,
                     "taxValue": 72.37,
-                    "totalValue": 1052.94
+                    "totalValue": 1052.94,
+                    "limitDeductible": {
+                        "deductible": {
+                            "answer": [
+                                "DEFAULT"
+                            ],
+                            "questionText": "Franquia",
+                            "answerText": [
+                                "Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 3.000,00"
+                            ]
+                        },
+                        "limits": {
+                            "answer": [
+                                100000.0
+                            ],
+                            "questionText": "Limite de cobertura",
+                            "answerText": [
+                                "R$ 100.000"
+                            ]
+                        }
+                    }
                 },
                 "payment": {
                     "financialType": "Charge",

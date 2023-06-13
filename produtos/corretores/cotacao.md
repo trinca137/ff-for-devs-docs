@@ -1195,6 +1195,41 @@ Se for **OTHERS**
 >
 > Valor de Prêmio Total, composto pelo prêmio líquido somado ao IOF.
 
+
+
+> **Field**: item.pricing\[].price.limitDeductible\
+> **Type**: `object`
+>
+> Limites e franquias selecionadas.
+
+***
+
+> **Field**: item.pricing\[].price.limitDeductible.deductible.answer\
+> **Type**: `text`
+>
+> Tipo de franquia selecionada.&#x20;
+
+***
+
+> **Field**: item.pricing\[].price.limitDeductible.deductible.answerText\
+> **Type**: `text`
+>
+> Texto da franquia selecionada
+
+***
+
+> **Field**: item.pricing\[].price.limitDeductible.limits.answer\
+> **Type**: `decimal`
+>
+> Valor do limite selecionado.&#x20;
+
+***
+
+> **Field**: item.pricing\[].price.limitDeductible.limits.answerText\
+> **Type**: `text`
+>
+> Texto do limite selecionado.
+
 ***
 
 > **Field**: item.pricing\[].price.policyLimit\
