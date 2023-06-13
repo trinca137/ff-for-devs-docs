@@ -889,7 +889,27 @@ Se for **OTHERS**
                     "netValue": 410.47,
                     "interestValue": 0.0,
                     "taxValue": 30.29,
-                    "totalValue": 440.76
+                    "totalValue": 440.76,
+                    "limitDeductible": {
+                        "deductible": {
+                            "answer": [
+                                "DEFAULT"
+                            ],
+                            "questionText": "Franquia",
+                            "answerText": [
+                                "Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 3.000,00"
+                            ]
+                        },
+                        "limits": {
+                            "answer": [
+                                100000.0
+                            ],
+                            "questionText": "Limite de cobertura",
+                            "answerText": [
+                                "R$ 100.000"
+                            ]
+                        }
+                    }
                 },
                 "payment": {
                     "financialType": "Charge",
