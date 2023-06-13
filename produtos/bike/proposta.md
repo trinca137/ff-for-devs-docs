@@ -116,8 +116,18 @@ chave de acesso da api.
 > Pergunta usada para definir o método de pagamento.\
 > Os possíveis valores para esta pergunta são:
 >
+> Se o INVOICE FOR TRUE
+>
 > * _CREDIT-CARD_
 > * _TICKET_
+>
+> _Se o INVOICE FOR FALSE_
+>
+> * _CREDIT-CARD_
+>
+> &#x20;
+
+
 
 
 

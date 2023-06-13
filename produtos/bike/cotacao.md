@@ -878,6 +878,12 @@ Pergunta usada para definir o valor da parte adicionada.
                         "code":"COVERAGE-TYPE",
                         "answer":"INTERNATIONAL-COVERAGE"
                      }
+                  ],
+                  [
+                     {
+                        "code":"COVERAGE-TYPE",
+                        "answer":"MOBILE-THEFT-COVERAGE"
+                     }
                   ]
                ]
             }
@@ -900,6 +906,9 @@ Os possíveis valores para esta pergunta são:
 * **ACCESSORIES-COVERAGE** = Acessórios
 * **ELECTRICAL-DAMAGE-COVERAGE** = Danos elétricos
 * **INTERNATIONAL-COVERAGE** = Cobertura internacional
+* **MOBILE-THEFT-COVERAGE** = Celular/Smartwatch Roubo
+  * Quando for MOBILE-THEFT-COVERAGE o MANUFACTURE-YEAR devera ser maior ou igual a 2 anos
+  * O valor máximo da cobertura é de R$ 10.000,00 limitado a 30% do valor da bike.
 
 ***
 
@@ -921,6 +930,16 @@ Pergunta usada para definir o limite de uma cobertura, caso uma delas sejam:
 **05** - enviar no mesmo array que contiver _**ACCESSORIES-COVERAGE**_\
 **10** - enviar no mesmo array que contiver _**ACCESSORIES-COVERAGE**_
 
+
+
+**Code**: COVERAGE-LIMIT-VALUE\
+**Tipo**: `integer`\
+❗ Obrigatório quando a cobertura for **MOBILE-THEFT-COVERAGE**
+
+Pergunta usada para definir limite de cobertura.
+
+
+
 </details>
 
 
@@ -936,8 +955,7 @@ Pergunta usada para definir o limite de uma cobertura, caso uma delas sejam:
 
 > **Code**: INVOICE\
 > **Tipo**: `boolean`\
-> ❗ Obrigatório que esteja incluído no array.\
-> ❗ É obrigatório que tenha nota fiscal (resposta true).
+> ❗ Obrigatório que esteja incluído no array.
 >
 > Pergunta usada para definir se a bike possui ou não nota fiscal.
 
