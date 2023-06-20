@@ -1,6 +1,16 @@
 # Ambientes
 
-A API possui um ambiente de homologação para realização de testes e um ambiente de produção, cada um com sua respectiva _Chave de Acesso_.
+{% hint style="info" %}
+
+
+A URL de cada recurso vai conter o parametro **\{{**[**url\_ambiente**](#user-content-fn-1)[^1]**\}}** e **\{{**[**apiVersion**](#user-content-fn-2)[^2]**\}}** como prefixo, que deve ser substituido de acordo com o ambiente para o qual serão feitas as requisições.
+
+
+
+Exemplo de chamada:&#x20;
+
+<mark style="color:yellow;">**`https://azuh1-br-fairfax-gateway.azure-api.net/partner/api/v1/quotation/contracting`**</mark>
+{% endhint %}
 
 ### <mark style="color:blue;">Homologação</mark>
 
@@ -20,10 +30,8 @@ Os testes que utilizamos caso queira copiar, já foi preparado para que os cálc
 https://azup-br-fairfax-gateway.azure-api.net/partner/api
 ```
 
-<mark style="color:blue;">**Sobre**</mark>
+[^1]: ```
+    https://azuh1-br-fairfax-gateway.azure-api.net/partner/api
+    ```
 
-{% hint style="info" %}
-A URL de cada recurso vai conter o parametro **\{{url\_ambiente\}}** como prefixo, que deve ser substituido de acordo com o ambiente para o qual serão feitas as requisições.
-
-Exemplo de chamada: _**`https://azuh1-br-fairfax-gateway.azure-api.net/partner/api/v1/quotation/contracting`**_
-{% endhint %}
+[^2]: v1
