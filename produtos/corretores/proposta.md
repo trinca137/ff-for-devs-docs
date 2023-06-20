@@ -1,10 +1,62 @@
 # Criar Proposta
 
-#### Endpoint
+{% swagger method="post" path="{{version}}/quotation/proposal" baseUrl="{{url_ambiente}}/" summary="Criar proposta" expanded="true" fullWidth="true" %}
+{% swagger-description %}
+Cria uma proposta (atualiza informações adicionais)
+{% endswagger-description %}
 
+{% swagger-parameter in="header" name="Ocp-Apim_Subscription-Key" type="key" required="true" %}
+chave de acesso da api.
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="Retorno sucesso " %}
+
+
+[#response](proposta.md#response "mention")
+
+
+{% endswagger-response %}
+
+{% swagger-response status="400: Bad Request" description="Retorno com mensagem do local do erro" %}
+```json
+Neste caso não foi enviado o PAYMENT-INSTALLMENT-IDENTIFIER resultando nos outros
+erros como aparece abaixo.
+{
+    "success": false,
+    "executed": "2023-05-25T15:04:47.1182243Z",
+    "errors": [
+        {
+            "code": "ANSWERS-NOT-EVALUATED",
+            "message": "One or more answers could not be evaluated.",
+            "properties": [
+                "PAYMENT-INSTALLMENT-IDENTIFIER",
+                "NET-VALUE",
+                "INTEREST-VALUE",
+                "TAX-VALUE",
+                "TOTAL-VALUE",
+                "INSTALLMENT-NUMBER"
+            ]
+        }
+    ]
+}
 ```
-POST: {{url_ambiente}}/v1/quotation/proposal
+{% endswagger-response %}
+
+{% swagger-response status="401: Unauthorized" description="Caso não envie uma "chave" ou envie uma inválida" %}
+{% code overflow="wrap" %}
+```json
+{
+    "statusCode": 401,
+    "message": "Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API."
+}
 ```
+{% endcode %}
+{% endswagger-response %}
+
+{% swagger-response status="500: Internal Server Error" description="Erro de aplicação/servidor" %}
+
+{% endswagger-response %}
+{% endswagger %}
 
 ## Request
 
@@ -34,9 +86,53 @@ POST: {{url_ambiente}}/v1/quotation/proposal
 }
 ```
 
-## Response
+### Detalhamento request de proposta
 
-Expicamos os campos de retorno neste [link](../../explicando-request-response/request-1.md#response)
+> **Code**: INSURED-BIRTH-DATE\
+> **Type**: `date`\
+> ❗ Obrigatório que esteja incluído no array (apenas se o segurado for Pessoa Fisica).
+>
+> Pergunta usada para definir a data de nascimento do segurado.
+
+
+
+> **Field:** RegisterNumber
+>
+> **Tipo:** `text`&#x20;
+>
+> ❗ Campo Obrigatório.
+>
+> Campo usado para definir qual o SusepNumber da corretora que está sendo cotada. Neste caso, o susep da corretora é "100000".
+
+
+
+> **Code**: PAYMENT-METHOD\
+> **Type**: `text`\
+> ❗ Obrigatório que esteja incluído no array.
+>
+> Pergunta usada para definir o método de pagamento.\
+> Os possíveis valores para esta pergunta são:
+>
+> * _CREDIT-CARD_
+> * _TICKET_
+
+
+
+> **Code**: DUE-DAY\
+> **Type**: `integer`\
+> ❗ Obrigatório que esteja incluído no array. (apenas quando o PAYMENT-METHOD for TICKET).
+>
+> Pergunta usada para definir o dia de vencimento quando o PAYMENT-METHOD for TICKET (boleto).
+
+
+
+> **Code**: PAYMENT-INSTALLMENT-IDENTIFIER\
+> **Type**: `guid`\
+> ❗ Obrigatório que esteja incluído no array.
+>
+> O guid que será enviado nesse campo é retornado no array de installments, no retorno do endpoint de criar cotação.
+
+## Response
 
 ```json
 {
@@ -60,7 +156,27 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
                     "netValue": 410.47,
                     "interestValue": 0.0,
                     "taxValue": 30.29,
-                    "totalValue": 440.76
+                    "totalValue": 440.76,
+                    "limitDeductible": {
+                        "deductible": {
+                            "answer": [
+                                "DEFAULT"
+                            ],
+                            "questionText": "Franquia",
+                            "answerText": [
+                                "Padrão - 10% dos prejuízos indenizáveis com o mínimo de R$ 3.000,00"
+                            ]
+                        },
+                        "limits": {
+                            "answer": [
+                                100000.0
+                            ],
+                            "questionText": "Limite de cobertura",
+                            "answerText": [
+                                "R$ 100.000"
+                            ]
+                        }
+                    }
                 },
                 "payment": {
                     "financialType": "Charge",
@@ -218,3 +334,16 @@ Expicamos os campos de retorno neste [link](../../explicando-request-response/re
     "executed": "2022-11-23T13:45:40.6711499Z"
 }
 ```
+
+### Explicando campos de retorno
+
+Diferente do Response de Cotação, o de proposta possui um campo a mais logo após o "Status", que seria o proposal:
+
+```json
+"proposal": {
+            "number": "52848305630001",
+            "date": "2023-05-23T19:09:27.6820058Z"
+        }
+```
+
+Onde temos o número da proposta, e a data que foi realizada a chamada da proposta.

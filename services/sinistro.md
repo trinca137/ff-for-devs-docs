@@ -20,7 +20,7 @@
 
 💡 **Explicando o JSON de request**
 
-****
+
 
 > **Field**: registerNumber\
 > **Type**: `string`\
@@ -28,7 +28,7 @@
 >
 > Campo usado para definir o susep.
 
-****
+
 
 > **Field**: description\
 > **Type**: `string`\
