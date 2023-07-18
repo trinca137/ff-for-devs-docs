@@ -384,7 +384,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 
 **Especialidades para pessoa física**
 
-* **NO-SURGERY** = Médico sem Cirurgia e Medicina de Urgência e Emergência (disponível SE PERSON-TYPE for NATURAL).
+* **NO-SURGERY** = Médico sem Cirurgia + Medicina de Urgência e Emergência (disponível SE PERSON-TYPE for NATURAL).
 * **SURGERY-EXCEPT-PLASTIC** = Médico com Cirurgia (exceto Plástico), Anestesiologistas (disponível SE PERSON-TYPE for NATURAL).
 * **OBSTETRICIAN** = Obstetra (disponível SE PERSON-TYPE for NATURAL).
 * **PLASTIC-SURGERY** = Cirurgião(ã) Plástico(a) (disponível SE PERSON-TYPE for NATURAL).
