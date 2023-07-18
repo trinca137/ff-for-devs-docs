@@ -605,6 +605,27 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 
 ***
 
+> **Code**: ORIGINAL-VALUE-FACTOR\
+> **Tipo**: `decimal`\
+> ❗Obrigatório caso a pergunta de **INVOICE** seja **True**. Caso seja **False,** pode enviar mas não é obrigatório.\
+>
+>
+> Esta pergunta serve para o **Valor da Nota Fiscal em %,** onde deixa o cliente com a opção de contratar um valor superior ao valor da bike para cobrir eventuais diferenças cambiais ou desvalorização do bem.
+>
+> \
+> **As respostar permitidas para essa pergunta são:**
+>
+> \
+> **100 =** 100%
+>
+> **105 =** 105%
+>
+> **107 =** 107%
+>
+> **110 =** 110%
+
+***
+
 > **Code**: VALUE-AGREEMENT\
 > **Tipo**: `boolean`\
 > ❗ Obrigatório que esteja incluído no array (se for falso, indica que não concorda com o valor e impossibilitando a contratação).
