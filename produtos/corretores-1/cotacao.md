@@ -470,6 +470,46 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 
 </details>
 
+***
+
+> **Code**: EQUIPMENT-NEW\
+> **Type**: `boolean`\
+> ❗ Obrigatório que esteja incluído no array.\
+> Para sabermos se o equipamento é novo.
+>
+> \
+> Para este item, sempre que for **TRUE,**&#x20;
+
+
+
+<details>
+
+<summary>Caso a pergunta de equipamento novo seja TRUE:</summary>
+
+Se a pergunta de equipamento novo for **TRUE,** será necessário enviar as duas perguntas abaixo:
+
+**Code**: EMISSION-DATE\
+**Type**: `date`
+
+❗ Obrigatório que esteja incluído no array.
+
+Usada para sabermos a data de emissão da nota fiscal.\
+\
+❗ Só é aceito equipamentos com nota fiscal emitida em até 60 dias.
+
+***
+
+**Code**: INVOICE-NUMBER\
+**Type**: `text`
+
+❗ Obrigatório que esteja incluído no array.
+
+Usada para sabermos o número da nota fiscal.
+
+</details>
+
+***
+
 > **Code**: BRAND\
 > **Type**: `text`\
 > ❗ Obrigatório que esteja incluído no array.\
@@ -496,23 +536,36 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 
 ***
 
-> **Code**: EMISSION-DATE\
-> **Type**: `date`
+> **Code**: BENEFIT-CLAUSE\
+> **Type**: `boolean`
 >
 > ❗ Obrigatório que esteja incluído no array.
 >
-> Usada para sabermos a data de emissão da nota fiscal.\
-> \
-> ❗ Só é aceito equipamentos com nota fiscal emitida em até 60 dias.
+> Usada para definir responsável que sera indenizado em caso de sinistro no equipamentos.
 
-***
+<details>
 
-> **Code**: INVOICE-NUMBER\
-> **Type**: `text`
->
-> ❗ Obrigatório que esteja incluído no array.
->
-> Usada para sabermos o número da nota fiscal.
+<summary>Caso BENEFIT-CLAUSE seja enviado TRUE</summary>
+
+Se for **TRUE,** é necessário enviar as duas perguntas abaixo:\
+\
+**Code**: DOCUMENT-NUMBER\
+**Type**: `string`
+
+❗ Obrigatório que esteja incluído no array.
+
+Usada para definir número de CNPJ que sera indenizado.
+
+
+
+**Code**: INSTITUTION-NAME\
+**Type**: `string`
+
+❗ Obrigatório que esteja incluído no array.
+
+Usada para definir o nome da instituição financeira que sera indenizado.
+
+</details>
 
 ***
 
@@ -522,7 +575,12 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 >
 > Usada para informar o ano que o equipamento foi feito.\
 > \
-> São permitidos equipamentos com fabricação do ano atual ou anterior.
+> **OBS:** Se a a pergunta de **equipamento novo** for **TRUE**\
+> &#x20; Será permitidos equipamentos com fabricação do ano atual ou anterior.\
+> \
+> Se for **FALSE:**
+>
+> &#x20; Será permitidos equipamentos com fabricação de até **6 anos** a partir do ano atual.
 
 ***
 
@@ -554,7 +612,9 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > Campo para definir as coberturas para o equipamento (cada equipamento tem suas proprias coberturas).
 
 {% hint style="info" %}
-***
+Segue um exemplo como fica o array de items com o coverages (algumas perguntas/respostas foram apagadas para ficar mais limpo o exemplo com os coverages).\
+\
+Abaixo do json de exemplo, vai ter explicando as perguntas dentro do coverages.
 {% endhint %}
 
 ```json
