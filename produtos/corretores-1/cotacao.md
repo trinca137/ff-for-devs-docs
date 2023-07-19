@@ -478,9 +478,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > Para sabermos se o equipamento é novo.
 >
 > \
-> Para este item, sempre que for **TRUE,**&#x20;
-
-
+> Para este item, sempre que for **TRUE**, a pergunta de [MANUFACTURE-YEAR](cotacao.md#detalhamento-de-regra-para-manufacture-year) terá uma regra especifica.
 
 <details>
 
@@ -569,18 +567,27 @@ Usada para definir o nome da instituição financeira que sera indenizado.
 
 ***
 
+
+
 > **Code**: MANUFACTURE-YEAR\
 > **Type**: `int`\
 > ❗ Obrigatório que esteja incluído no array.
 >
-> Usada para informar o ano que o equipamento foi feito.\
-> \
-> **OBS:** Se a a pergunta de **equipamento novo** for **TRUE**\
-> &#x20; Será permitidos equipamentos com fabricação do ano atual ou anterior.\
-> \
-> Se for **FALSE:**
->
-> &#x20; Será permitidos equipamentos com fabricação de até **6 anos** a partir do ano atual.
+> Usada para informar o ano que o equipamento foi feito.
+
+<details>
+
+<summary>Detalhamento de regra para MANUFACTURE-YEAR</summary>
+
+**Caso TRUE:** Se a a pergunta de <mark style="color:yellow;">**EQUIPMENT-NEW**</mark> for **TRUE:**
+
+&#x20;Será permitidos equipamentos com fabricação do ano atual ou anterior.\
+\
+**Caso FALSE:**
+
+&#x20;Será permitidos equipamentos com fabricação de até **6 anos** a partir do ano atual.
+
+</details>
 
 ***
 
