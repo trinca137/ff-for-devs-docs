@@ -110,23 +110,23 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
         },
         {
             "code": "START-VIGENCY-DATE",
-            "answer": "2023-05-02T03:00:00.000Z"
+            "answer": "2023-08-23T03:00:00.000Z"
         },
         {
             "code": "CONGENER",
-            "answer": "RENEWAL"
+            "answer": "NEW"
         },
         {
             "code": "PREVIOUS-INSURER",
-            "answer": "33065699000127"
+            "answer": ""
         },
         {
             "code": "PREVIOUS-INSURER-NAME",
-            "answer": "SEGUROS SURA S.A."
+            "answer": ""
         },
         {
             "code": "INSURED-NAME",
-            "answer": "Teste RENEW"
+            "answer": "Teste bike"
         },
         {
             "code": "INSURED-EMAIL",
@@ -206,7 +206,11 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
                     },
                     {
                         "code": "ORIGINAL-VALUE",
-                        "answer": 3000
+                        "answer": 5000.00
+                    },
+                    {
+                        "code": "ORIGINAL-VALUE-FACTOR",
+                        "answer": 100
                     },
                     {
                         "code": "NEW",

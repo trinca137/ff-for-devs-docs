@@ -76,7 +76,7 @@ chave de acesso da api.
          "code":"PAYMENT-INSTALLMENT-IDENTIFIER",
          "answer":"ee88a83c-1764-4e28-8272-e27d49d32dc8"
       }
-   ]
+   ],
    "documents":[
       {
          "itemIdentifier":"92cc00b4-9ba6-4f50-bf5a-38b76ade9370",
