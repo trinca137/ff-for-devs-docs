@@ -291,23 +291,23 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > Campo usado para definir o tipo de cotação, sendo possivel enviar:
 >
 > * **NEW** = Cotação Nova.
-> * **RENEW** = Renovação vinda de outra corretora.
+> * **RENEWAL** = Renovação vinda de outra corretora (renovação **congênere**).
 
 
 
 > **Field**: PREVIOUS-INSURER\
 > **Tipo**: `string`\
-> ❗ Campo Obrigatório caso <mark style="color:yellow;">CONGENER = RENEW</mark>.
+> ❗ Campo Obrigatório caso <mark style="color:yellow;">CONGENER = RENEWAL</mark>.
 >
-> Campo usado para definir o cnpj que vem a cotação marcada com renovação.
+> Campo usado para definir o cnpj que vem a cotação marcada com renovação congênere.
 
 
 
 > **Field**: PREVIOUS-INSURER-NAME\
 > **Tipo**: `string`\
-> ❗ Campo Obrigatório caso <mark style="color:yellow;">CONGENER = RENEW</mark>.
+> ❗ Campo Obrigatório caso <mark style="color:yellow;">CONGENER = RENEWAL</mark>.
 >
-> Campo usado para definir o nome que vem a cotação marcada com renovação.
+> Campo usado para definir o nome que vem a cotação marcada com renovação **congênere**.
 
 
 
@@ -459,6 +459,15 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 * **5** = 5 anos
 
 </details>
+
+***
+
+> **Code**: RETROACTIVITY-DATE\
+> **Type**: `date (aaaa-mm-dd)`
+>
+> Pergunta usada para definir a data de retroatividade para renovação **congênere**.\
+> \
+> Para esta pergunta é possivel enviar qualquer data, porém em retroatividade é necessário enviar o "resultado" da data atual menos a data respondida nesta pergunta, caso for maior que 5 anos da data atual, enviar 5 anos em retroactivity.
 
 ***
 

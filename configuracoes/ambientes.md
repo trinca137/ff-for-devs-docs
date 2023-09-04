@@ -1,10 +1,10 @@
 # Ambientes
 
 {% hint style="info" %}
-
-
 A URL de cada recurso vai conter o parametro **\{{**[**url\_ambiente**](#user-content-fn-1)[^1]**\}}** e **\{{**[**apiVersion**](#user-content-fn-2)[^2]**\}}** como prefixo, que deve ser substituido de acordo com o ambiente para o qual serão feitas as requisições.
 
+\
+A api pode sofrer pequenas atualizações, mas quando for alguma atualização de versão dos endpoints ocorrerá um aviso.\
 
 
 Exemplo de chamada:&#x20;
