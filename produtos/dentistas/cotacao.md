@@ -470,7 +470,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 >
 > Pergunta usada para definir a data de retroatividade para renovação **congênere**.\
 > \
-> Para esta pergunta é possivel enviar qualquer data, porém em retroatividade é necessário enviar o "resultado" da data atual menos a data respondida nesta pergunta, caso for maior que 5 anos da data atual, enviar 5 anos em retroactivity.
+> Para esta pergunta é possivel enviar qualquer data, e pode enviar '**RETROACTIVITY**' como 0 (a data de **RETROACTIVITY** vai ser sobreescrita caso envie algum valor, mas ainda sera necessário enviar retroactivity e a resposta para **renovação congênere**).
 
 ***
 
