@@ -452,9 +452,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 
 <summary>Retroatividade</summary>
 
-*
-* \
-  **0** = Sem retroatividade.
+* **0** = Sem retroatividade.
 * **1** = 1 ano.
 * **2** = 2 anos.
 * **3** = 3 anos.
