@@ -469,6 +469,33 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > \
 > Para esta pergunta é possivel enviar qualquer data, e pode enviar '**RETROACTIVITY**' como 0 (a data de **RETROACTIVITY** vai ser sobreescrita caso envie algum valor, mas ainda sera necessário enviar retroactivity e a resposta para **renovação congênere**).
 
+<details>
+
+<summary>Exemplo de json</summary>
+
+```json
+.
+.
+.
+{
+    "code": "CONGENER",
+    "answer": "RENEWAL"
+},
+.
+.
+.
+{
+    "code": "RETROACTIVITY",
+    "answer": 0
+},
+{
+    "code": "RETROACTIVITY-DATE",
+    "answer": "2010-08-31"
+},
+```
+
+</details>
+
 ***
 
 > **Code**: RETROACTIVITY-AGREEMENT\

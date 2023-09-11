@@ -251,7 +251,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 >
 > Campo usado para definir qual produto está sendo cotado. Neste caso, o produto é "Médicos", representado pelo operation code "MEDICAL-CIVIL-LIABILITY-PARTNER".
 
-
+***
 
 > **Field:** RegisterNumber
 >
@@ -261,7 +261,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 >
 > Campo usado para definir qual o SusepNumber da corretora está sendo cotada. Neste caso, o susep da corretora é "100000".
 
-
+***
 
 > **Field**: Answers\
 > **Tipo**: `array<answer>`\
@@ -269,7 +269,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 >
 > Campo usado para enviar perguntas gerais de uma cotação.
 
-
+***
 
 > **Field**: PERSON-TYPE\
 > **Tipo**: `string`\
@@ -280,7 +280,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > * **NATURAL** = Pessoa Fisíca
 > * **LEGAL** = Pessoa Jurídica
 
-
+***
 
 > **Field**: CONGENER\
 > **Tipo**: `string`\
@@ -291,7 +291,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > * **NEW** = Cotação Nova.
 > * **RENEWAL** = Renovação congênere vinda de outra corretora (renovação **congênere**).
 
-
+***
 
 > **Field**: PREVIOUS-INSURER\
 > **Tipo**: `string`\
@@ -299,7 +299,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 >
 > Campo usado para definir o cnpj que vem a cotação marcada com renovação **congênere**.
 
-
+***
 
 > **Field**: PREVIOUS-INSURER-NAME\
 > **Tipo**: `string`\
@@ -307,7 +307,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 >
 > Campo usado para definir o nome que vem a cotação marcada com renovação **congênere**.
 
-
+***
 
 > **Code**: INSURED-ADDRESS-COMPLEMENT\
 > **Tipo**: `text`\
@@ -315,7 +315,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 >
 > Pergunta usada para definir o número da moradia do segurado.
 
-
+***
 
 > **Code**: INSURED-ADDRESS-NEIGHBORHOOD\
 > **Tipo**: `text`\
@@ -323,7 +323,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 >
 > Pergunta usada para definir o bairro do segurado.
 
-
+***
 
 > **Code**: INSURED-ADDRESS-CITY\
 > **Tipo**: `text`\
@@ -331,7 +331,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 >
 > Pergunta usada para definir a cidade do segurado.
 
-
+***
 
 > **Code**: INSURED-ADDRESS-STATE\
 > **Tipo**: `text`\
@@ -339,7 +339,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 >
 > Pergunta usada para definir o estado do segurado.
 
-
+***
 
 > **Code**: COMMISSION\
 > **Tipo**: `decimal`\
@@ -349,7 +349,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > Pode ser enviado valores entre 1 e 30.\
 > Valor padrão é 20.00.
 
-
+***
 
 > **Code**: GRIEVANCE-DISCOUNT\
 > **Tipo**: `decimal`
@@ -412,7 +412,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 >
 > Pergunta usada para definir se o profissional é residente ou não.
 
-
+***
 
 > **Code**: PROCEDURES-ACTIVITIES\
 > **Type**: `array<string>`
@@ -452,7 +452,9 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 
 <summary>Retroatividade</summary>
 
-* **0** = Sem retroatividade.
+*
+* \
+  **0** = Sem retroatividade.
 * **1** = 1 ano.
 * **2** = 2 anos.
 * **3** = 3 anos.
@@ -461,6 +463,8 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 
 </details>
 
+***
+
 > **Code**: RETROACTIVITY-DATE\
 > **Type**: `date (aaaa-mm-dd)`
 >
@@ -468,7 +472,36 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > \
 > Para esta pergunta é possivel enviar qualquer data, e pode enviar '**RETROACTIVITY**' como 0 (a data de **RETROACTIVITY** vai ser sobreescrita caso envie algum valor, mas ainda sera necessário enviar retroactivity e a resposta para **renovação congênere**).
 
+<details>
 
+<summary>Exemplo de json</summary>
+
+```json
+.
+.
+.
+{
+    "code": "CONGENER",
+    "answer": "RENEWAL"
+},
+.
+.
+.
+{
+    "code": "RETROACTIVITY",
+    "answer": 0
+},
+{
+    "code": "RETROACTIVITY-DATE",
+    "answer": "2010-08-31"
+},
+```
+
+
+
+</details>
+
+***
 
 > **Code**: RETROACTIVITY-AGREEMENT\
 > **Type**: `boolean`\
@@ -490,6 +523,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 
 <summary>Faturamento</summary>
 
+*
 * **0.00-100000.00** = Entre R$ 0,00 e R$ 100.000,00.
 
 <!---->
@@ -537,6 +571,8 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 * **15000000.01-20000000.00** = Entre R$ 15.000.000,01 e R$ 20.000.000,00.
 
 </details>
+
+***
 
 > **Code**: CLAIMS\
 > **Type**: `text`\
