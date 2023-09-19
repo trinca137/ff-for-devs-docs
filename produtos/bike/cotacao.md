@@ -137,10 +137,6 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
             "answer": "28214722268"
         },
         {
-            "code": "GENDER",
-            "answer": "I"
-        },
-        {
             "code": "INSURED-CELLPHONE",
             "answer": "(11) 91111-2222"
         },
@@ -798,9 +794,9 @@ Os possíveis valores para esta pergunta são:
 * **BRAKE** = Freios
 * **FORK** = Garfo
 * **HANDLEBAR** = Guidão
-* **STEM** = Tronco
+* **STEM** = Mesa
 * **PEDAL** = Pedal
-* **CRANKSET** =
+* **CRANKSET** = Pedivela
 * **TIRE** = Pneu
 * **FRAME** = Quadro
 * **WHEEL** = Roda
