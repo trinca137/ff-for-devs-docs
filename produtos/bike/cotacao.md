@@ -19,11 +19,7 @@ chave de acesso da api.
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="Retorno sucesso." %}
-
-
 [#response](cotacao.md#response "mention")
-
-
 {% endswagger-response %}
 
 {% swagger-response status="400: Bad Request" description="Retorno com mensagem do local do erro" %}
@@ -995,6 +991,7 @@ Pergunta usada para definir limite de cobertura.
 {
     "item": {
         "quotationIdentifier": "210117cf-2a0b-4f2a-8a7f-04c301e9cf49",
+        "quotationDocumentUrl":"",
         "status": "Draft",
         "pricing": [
             {

@@ -10,11 +10,7 @@ chave de acesso da api.
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="Retorno sucesso " %}
-
-
 [#response](proposta.md#response "mention")
-
-
 {% endswagger-response %}
 
 {% swagger-response status="400: Bad Request" description="Retorno com mensagem do local do erro" %}
@@ -141,7 +137,8 @@ erros como aparece abaixo.
         "status": "Draft",
         "proposal": {
             "number": "17848685910001",
-            "date": "0001-01-01T00:00:00Z"
+            "date": "0001-01-01T00:00:00Z",
+            "documentUrl":""
         },
         "pricing": [
             {
@@ -599,9 +596,29 @@ Diferente do Response de Cotação, o de proposta possui um campo a mais logo ap
 
 ```json
 "proposal": {
-            "number": "17848685910001",
-            "date": "2023-05-23T19:09:27.6820058Z"
+            "number": "34990940670001",
+            "date": "2023-05-23T19:09:27.6820058Z",
+            "documentUrl": ""
         }
 ```
 
-Onde temos o número da proposta, e a data que foi realizada a chamada da proposta.
+
+
+> **Field**: number\
+> **Type**: `text`
+>
+> Número da proposta.
+
+***
+
+> **Field**: date\
+> **Type**: `date`
+>
+> Data que a proposta foi criada.
+
+***
+
+> **Field**: documentUrl\
+> **Type**: `text`
+>
+> Link do documento da proposta.

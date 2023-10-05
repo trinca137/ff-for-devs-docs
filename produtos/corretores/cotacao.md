@@ -10,11 +10,7 @@ chave de acesso da api.
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="Retorno sucesso." %}
-
-
 [#response](cotacao.md#response "mention")
-
-
 {% endswagger-response %}
 
 {% swagger-response status="400: Bad Request" description="Retorno com mensagem do local do erro" %}
@@ -911,6 +907,7 @@ Se for **OTHERS**
 {
     "item": {
         "quotationIdentifier": "3a7d4d0f-905b-4abf-859d-8b1cebddb53a",
+        "quotationDocumentUrl":"",
         "status": "Draft",
         "pricing": [
             {

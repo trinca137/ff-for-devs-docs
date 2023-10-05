@@ -37,7 +37,7 @@
 >
 > Campo usado para definir a descrição do sinistro.
 
-***
+
 
 > **Field**: policyNumber\
 > **Type**: `string`\
@@ -45,7 +45,7 @@
 >
 > Campo usado para definir o vinculo entre apolice e sinistro.
 
-***
+
 
 > **Field**: notificationEmail\
 > **Type**: `string`\
@@ -53,14 +53,14 @@
 >
 > Campo usado para definir o email que recebera uma notificação.
 
-***
+
 
 > **Field**: files\
 > **Type**: `array<string>`
 >
 > Campo usado para enviar um array de arquivos no formato de base64.
 
-***
+
 
 #### Response
 
@@ -79,7 +79,7 @@
 >
 > Numero de protocolo gerado vinculado ao sinistro.
 
-***
+
 
 ## Consultar Sinistro
 
@@ -107,9 +107,9 @@ Possível passar número do protocolo.
 {% endswagger-parameter %}
 {% endswagger %}
 
-***
 
-***
+
+
 
 #### Response
 
@@ -239,49 +239,49 @@ Possível passar número do protocolo.
 >
 > Data de atualização do sinistro.
 
-***
+
 
 > **Field**: list.createdAt\
 > **Type**: `date`
 >
 > Data de criação do sinistro.
 
-***
+
 
 > **Field**: list.description\
 > **Type**: `string`
 >
 > Descrição do sinistro.
 
-***
+
 
 > **Field**: list.protocol\
 > **Type**: `string`
 >
 > Protocolo do sinistro.
 
-***
+
 
 > **Field**: list.notificationEmail\
 > **Type**: `string`
 >
 > Email que recebeu a notificação do sinistro.
 
-***
+
 
 > **Field**: list.notificationEmail\
 > **Type**: `string`
 >
 > Email que recebeu a notificação do sinistro.
 
-***
+
 
 > **Field**: list.files\
 > **Type**: `array`
 >
 > Array contendo os arquivos vinculados ao sinistro.
 
-***
+
 
 > **Field**: list.files\[].url\
 > **Type**: `string`

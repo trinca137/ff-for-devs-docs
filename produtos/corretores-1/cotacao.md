@@ -16,11 +16,7 @@ chave de acesso da api.
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="Retorno sucesso." %}
-
-
 [#response](cotacao.md#response "mention")
-
-
 {% endswagger-response %}
 
 {% swagger-response status="400: Bad Request" description="Retorno com mensagem do local do erro" %}
@@ -808,6 +804,7 @@ Como podemos perceber, dentro do array de coverages, temos um outro array com du
 {
     "item": {
         "quotationIdentifier": "fd553149-0a95-4c5b-b94d-e9377d099cf3",
+        "quotationDocumentUrl":"",
         "status": "Draft",
         "pricing": [
             {

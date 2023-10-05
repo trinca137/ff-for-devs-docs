@@ -10,11 +10,7 @@ chave de acesso da api.
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="Retorno sucesso." %}
-
-
 [#response](cotacao.md#response "mention")
-
-
 {% endswagger-response %}
 
 {% swagger-response status="400: Bad Request" description="Retorno com mensagem do local do erro" %}
@@ -686,6 +682,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 {
     "item": {
         "quotationIdentifier": "9eaee84d-1825-4651-ae06-0e173cdc6df3",
+        "quotationDocumentUrl":"",
         "status": "Draft",
         "pricing": [
             {
