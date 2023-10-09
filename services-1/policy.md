@@ -203,7 +203,7 @@ Número Susep
 {% endswagger-response %}
 {% endswagger %}
 
-***
+
 
 > **Field**: sort\
 > **Type**: `string`
@@ -226,42 +226,42 @@ Número Susep
 > `{{url_ambiente}}/v1/policy/all?sort=-status,insuredname`\
 > No exemplo acima é passado dois campos para a ordenação, onde o status sera em ordem decrescente e o insuredName será em ordem crescente.
 
-***
+
 
 > **Field**: search\
 > **Type**: `string`
 >
 > Campo para buscar pelo nome do segurado.
 
-***
+
 
 > **Field**: modality\
 > **Type**: `string`
 >
 > Campo para buscar pela modalidade.
 
-***
+
 
 > **Field**: product\
 > **Type**: `string`
 >
 > Campo para buscar pelo produto.
 
-***
+
 
 > **Field**: startDate\
 > **Type**: `string`
 >
 > Campo para buscar pela data de inicio de vigencia.
 
-***
+
 
 > **Field**: endDate\
 > **Type**: `string`
 >
 > Campo para buscar pela data final de vigencia.
 
-***
+
 
 > **Field**: status\
 > **Type**: `string`
@@ -274,7 +274,7 @@ Número Susep
 > * **Expired** = Expirada
 > * **Canceled** = Cancelada.
 
-***
+
 
 ## Explicando campos de response da apólice
 
@@ -283,179 +283,178 @@ Número Susep
 >
 > Identificação unica da apólice em formatdo de `guid`.
 
-***
+
 
 > **Field**: number\
 > **Type**: `text`
 >
 > Número referente a apólice .
 
-***
+
 
 > **Field**: policyNumber\
 > **Type**: `text`
 >
 > Número referente a apólice .
 
-***
+
 
 > **Field**: status\
 > **Type**: `text`
 >
 > Status da apólice .
 
-***
+
 
 > **Field**: insuredName\
 > **Type**: `text`
 >
 > Nome do Segurado .
 
-***
+
 
 > **Field**: insuredIdentity\
 > **Type**: `text`
 >
 > Identificação do segurado.
 
-***
+
 
 > **Field**: modalityText\
 > **Type**: `text`
 >
 > Modalidade.
 
-***
+
 
 > **Field**: modalityCode\
 > **Type**: `text`
 >
 > Codigo da modalidade.
 
-***
+
 
 > **Field**: productText\
 > **Type**: `text`
 >
 > Produto.
 
-***
+
 
 > **Field**: productCode\
 > **Type**: `text`
 >
 > Codigo do produto.
 
-***
+
 
 > **Field**: vigencyStartedAt\
 > **Type**: `date`
 >
 > Inicio da vigencia.
 
-***
+
 
 > **Field**: vigencyExpiredAt\
 > **Type**: `date`
 >
 > Final da vigencia.
 
-***
+
 
 > **Field**: createdAt\
 > **Type**: `date`
 >
 > Data de criação.
 
-***
+
 
 > **Field**: quotationIdentifier\
 > **Type**: `string`
 >
 > Identificação refente a cotação.
 
-***
+
 
 > **Field**: quotationDocumentUrl\
 > **Type**: `string`
 >
 > Url do pdf da apólice.
 
-***
+
 
 > **Field**: TicketUrl\
 > **Type**: `string`
 >
 > Url do boleto.
 
-***
+
 
 > **Field**: version\
 > **Type**: `string`
 >
 > Versão da apólice.
 
-***
+
 
 > **Field**: installments\
 > **Type**: `array`
 >
 > Lista das informações de parcelas.
 
-***
+
 
 > **Field**: installments\[].installmentNumber\
 > **Type**: `integer`
 >
 > Número da parcela.
 
-***
+
 
 > **Field**: installments\[].dueDate\
 > **Type**: `date`
 >
 > Data de vencimento.
 
-***
+
 
 > **Field**: installments\[].valueIof\
 > **Type**: `decimal`
 >
 > Valor do IOF.
 
-***
+
 
 > **Field**: installments\[].tariffPremiumValue\
 > **Type**: `decimal`
 >
 > Valor do prêmio tarifário.
 
-***
+
 
 > **Field**: installments\[].premiumTotalValue\
 > **Type**: `decimal`
 >
 > Valor do prêmio total da cotação.
 
-***
+
 
 > **Field**: installments\[].status\
 > **Type**: `string`
 >
 > Status de pagamento.
 
-***
+
 
 > **Field**: installments\[].interestValue\
 > **Type**: `decimal`
 >
 > Valor de juros de cada parcela.
 
-***
+
 
 > **Field**: installments\[].createdAt\
 > **Type**: `date`
 >
 > Data de criação da parcela.
 
-***

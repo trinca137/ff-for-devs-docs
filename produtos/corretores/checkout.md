@@ -58,6 +58,7 @@ Simples retorno informando true ou false:
 
 ```json
 {
+   "registerNumber":"",
    "quotationIdentifier":"2aea86d1-a9e5-4220-ab29-68c3fba8483f",
    "creditCard":{
       "number":"5431315941306755",
@@ -88,6 +89,7 @@ Simples retorno informando true ou false:
 
 ```
 {
+   "registerNumber":"",
    "quotationIdentifier":"2aea86d1-a9e5-4220-ab29-68c3fba8483f"
 }
 ```
@@ -95,6 +97,12 @@ Simples retorno informando true ou false:
 </details>
 
 ## **Detalhando campos de envio.**
+
+> **Code**: **RegisterNumber**\
+> **Type**: text\
+> ❗Campo obrigatório.
+>
+> Número Susep
 
 > **Code**: **Quotation Identifier**\
 > **Type**: `guid`\

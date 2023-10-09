@@ -12,11 +12,7 @@ chave de acesso da api.
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="Retorno sucesso." %}
-
-
 [#response](cotacao.md#response "mention")
-
-
 {% endswagger-response %}
 
 {% swagger-response status="400: Bad Request" description="Retorno com mensagem do local do erro" %}
@@ -888,6 +884,7 @@ Se for **CLINICAL-MULTIDISCIPLINARY**:
 {
     "item": {
         "quotationIdentifier": "606af046-2a40-4688-af2c-148d65f73aef",
+        "quotationDocumentUrl":"",
         "status": "Draft",
         "pricing": [
             {

@@ -12,11 +12,7 @@ chave de acesso da api.
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="Retorno sucesso. " %}
-
-
 [#response](cotacao.md#response "mention")
-
-
 {% endswagger-response %}
 
 {% swagger-response status="400: Bad Request" description="Retorno com mensagem do local do erro" %}
@@ -870,6 +866,7 @@ Franquia para **OROFACIAL-HARMONIZATION**
 {
     "item": {
         "quotationIdentifier": "8324a438-c765-44ee-a7ea-bcfc4b810d22",
+        "quotationDocumentUrl":"",
         "status": "Draft",
         "pricing": [
             {

@@ -58,6 +58,7 @@ Simples retorno informando true ou false:
 
 ```json
 {
+   "registerNumber":"",
    "quotationIdentifier":"2aea86d1-a9e5-4220-ab29-68c3fba8483f",
    "creditCard":{
       "number":"5431315941306755",
@@ -88,6 +89,7 @@ Simples retorno informando true ou false:
 
 ```
 {
+   "registerNumber":"",
    "quotationIdentifier":"2aea86d1-a9e5-4220-ab29-68c3fba8483f"
 }
 ```
@@ -96,6 +98,12 @@ Simples retorno informando true ou false:
 
 ## **Detalhando campos de envio.**
 
+> **Code**: **RegisterNumber**\
+> **Type**: text\
+> ❗Campo obrigatório.
+>
+> Número Susep
+
 > **Code**: **Quotation Identifier**\
 > **Type**: `guid`\
 > ❗Campo obrigatório.
@@ -103,7 +111,7 @@ Simples retorno informando true ou false:
 > Campo usado para definir qual cotação será enviada para checkout. É o mesmo identifier que é recebido quando se cria uma cotação.
 
 {% hint style="warning" %}
-Os campos referentes a cartão de credito so são obrigatorios no caso do tipo de pagamento definido na proposta tenha sido cartão de crédito ( PAYMENT-TYPE = _CREDIT-CARD )._
+Os campos referentes a cartão de credito só são obrigatorios no caso do tipo de pagamento definido na proposta tenha sido cartão de crédito ( PAYMENT-TYPE = _CREDIT-CARD )._
 {% endhint %}
 
 > **Field**: **CreditCard.Number**\
