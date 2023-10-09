@@ -58,6 +58,7 @@ Simples retorno informando true ou false:
 
 ```json
 {
+   "registerNumber":"",
    "quotationIdentifier":"2aea86d1-a9e5-4220-ab29-68c3fba8483f",
    "creditCard":{
       "number":"5431315941306755",
@@ -88,6 +89,7 @@ Simples retorno informando true ou false:
 
 ```
 {
+   "registerNumber":"",
    "quotationIdentifier":"2aea86d1-a9e5-4220-ab29-68c3fba8483f"
 }
 ```
@@ -96,6 +98,12 @@ Simples retorno informando true ou false:
 
 ## **Detalhando campos de envio.**
 
+> **Code**: **RegisterNumber**\
+> **Type**: text\
+> ❗Campo obrigatório.
+>
+> Número Susep
+
 > **Code**: **Quotation Identifier**\
 > **Type**: `guid`\
 > ❗Campo obrigatório.
@@ -103,7 +111,7 @@ Simples retorno informando true ou false:
 > Campo usado para definir qual cotação será enviada para checkout. É o mesmo identifier que é recebido quando se cria uma cotação.
 
 {% hint style="warning" %}
-Os campos referentes a cartão de credito so são obrigatorios no caso do tipo de pagamento definido na proposta tenha sido cartão de crédito ( PAYMENT-TYPE = _CREDIT-CARD )._
+Os campos referentes a cartão de credito só são obrigatorios no caso do tipo de pagamento definido na proposta tenha sido cartão de crédito ( PAYMENT-TYPE = _CREDIT-CARD )._
 {% endhint %}
 
 > **Field**: **CreditCard.Number**\
@@ -112,7 +120,7 @@ Os campos referentes a cartão de credito so são obrigatorios no caso do tipo d
 >
 > Campo usado para definir o número do cartão de crédito.
 
-
+***
 
 > **Field**: **CreditCard.Name**\
 > **Type**: `text`\
@@ -120,7 +128,7 @@ Os campos referentes a cartão de credito so são obrigatorios no caso do tipo d
 >
 > Campo usado para definir o nome do titular do cartão.
 
-
+***
 
 > **Field**: **CreditCard.Identity**\
 > **Type**: `text`\
@@ -128,7 +136,7 @@ Os campos referentes a cartão de credito so são obrigatorios no caso do tipo d
 >
 > Campo usado para definir a identificação do titular do cartão (CPF).
 
-
+***
 
 > **Field**: **CreditCard.Cvv**\
 > **Type**: `text`\
@@ -136,7 +144,7 @@ Os campos referentes a cartão de credito so são obrigatorios no caso do tipo d
 >
 > Campo usado para definir o código de segurança do cartão (3 digitos).
 
-
+***
 
 > **Field**: **CreditCard.ExpiryMonth**\
 > **Type**: `integer`\
@@ -144,7 +152,7 @@ Os campos referentes a cartão de credito so são obrigatorios no caso do tipo d
 >
 > Campo usado para definir o mês de expiração do cartão.
 
-
+***
 
 > **Field**: **CreditCard.ExpiryYear**\
 > **Type**: `integer`\
@@ -152,7 +160,7 @@ Os campos referentes a cartão de credito so são obrigatorios no caso do tipo d
 >
 > Campo usado para definir o ano de expiração do cartão.
 
-
+***
 
 > **Field**: **CreditCard.UseCustomerAddress**\
 > **Type**: `boolean`\
@@ -163,7 +171,7 @@ Os campos referentes a cartão de credito so são obrigatorios no caso do tipo d
 > * **true =** usara endereço enviado na cotação
 > * **false =** usara endereço enviado no **UseCustomerAddress**
 
-
+***
 
 > **Field**: **CreditCard.BillingAddress.ZipCode**\
 > **Type**: `text`\
@@ -171,7 +179,7 @@ Os campos referentes a cartão de credito so são obrigatorios no caso do tipo d
 >
 > Campo usado para definir o CEP.
 
-
+***
 
 > **Field**: **CreditCard.BillingAddress.Street**\
 > **Type**: `text`\
@@ -179,7 +187,7 @@ Os campos referentes a cartão de credito so são obrigatorios no caso do tipo d
 >
 > Campo usado para definir o nome da rua.
 
-
+***
 
 > **Field**: **CreditCard.BillingAddress.Number**\
 > **Type**: `text`\
@@ -187,7 +195,7 @@ Os campos referentes a cartão de credito so são obrigatorios no caso do tipo d
 >
 > Campo usado para definir o número do endereço.
 
-
+***
 
 > **Field**: **CreditCard.BillingAddress.Complement**\
 > **Type**: `text`\
@@ -195,7 +203,7 @@ Os campos referentes a cartão de credito so são obrigatorios no caso do tipo d
 >
 > Campo usado para definir o complemento para o endereço.
 
-
+***
 
 > **Field**: **CreditCard.BillingAddress.Neighborhood**\
 > **Type**: `text`\
@@ -203,7 +211,7 @@ Os campos referentes a cartão de credito so são obrigatorios no caso do tipo d
 >
 > Campo usado para definir o bairro do endereço.
 
-
+***
 
 > **Field**: **CreditCard.BillingAddress.City**\
 > **Type**: `text`\
@@ -211,7 +219,7 @@ Os campos referentes a cartão de credito so são obrigatorios no caso do tipo d
 >
 > Campo usado para definir a cidade.
 
-
+***
 
 > **Field**: **CreditCard.BillingAddress.State**\
 > **Type**: `text`\

@@ -114,10 +114,6 @@ chave de acesso da api.
 >
 > &#x20;
 
-
-
-
-
 > **Code**: DUE-DAY\
 > **Type**: `integer`\
 > ❗ Obrigatório que esteja incluído no array. (apenas quando o PAYMENT-METHOD for TICKET).
@@ -131,12 +127,6 @@ chave de acesso da api.
 > ❗ Obrigatório que esteja incluído no array.
 >
 > O guid que será enviado nesse campo é retornado no array de installments, no retorno do endpoint de criar cotação.
-
-
-
-***
-
-***
 
 ## Response
 
