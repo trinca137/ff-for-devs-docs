@@ -156,7 +156,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
             "answer": "SP"
         },
         {
-            "code": "COMMISSION",
+            "code": "BROKERAGE-COMMISSION",
             "answer": 20
         },
         {
@@ -304,7 +304,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 
 
 
-> **Code**: COMMISSION\
+> **Code**: BROKERAGE-COMMISSION\
 > **Tipo**: `decimal`\
 > ❗Obrigatório que esteja incluído\
 > Pergunta usada para definir a comissão.
