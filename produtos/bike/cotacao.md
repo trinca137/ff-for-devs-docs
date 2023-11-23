@@ -563,7 +563,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > Os valores possíveis para esta pergunta são:
 >
 > * **TRADITIONAL =** bike tradicional.
-> * **ELETRIC =** bike elétrica (até 500W).
+> * **ELECTRIC =** bike elétrica (até 500W).
 
 ***
 
@@ -644,7 +644,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > **Tipo**: `text`\
 > ❗ Obrigatório que esteja incluído no array.
 >
-> Para este item sempre enviar OTHER.
+> Para este item sempre enviar **OTHER**.
 
 ***
 
