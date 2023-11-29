@@ -71,6 +71,18 @@ chave de acesso da api.
       {
          "code":"PAYMENT-INSTALLMENT-IDENTIFIER",
          "answer":"ee88a83c-1764-4e28-8272-e27d49d32dc8"
+      },
+      {
+         "code": "PEP",
+         "answer": "RELATION"
+      },
+      {
+         "code": "PEP-NAME",
+         "answer": "teste"
+      },
+      {
+         "code": "PEP-PARENTING",
+         "answer": "SON/DAUGHTER"
       }
    ]
 }
@@ -128,7 +140,51 @@ chave de acesso da api.
 >
 > O guid que será enviado nesse campo é retornado no array de installments, no retorno do endpoint de criar cotação.
 
-## Response
+
+
+> **Code**: PEP\
+> **Type**: `string`\
+> ❗ Obrigatório que esteja incluído no array quando for **PESSOA FÍSICA**.
+>
+> Pergunta usada para definir se é uma **pessoa exposta publicamente.**
+>
+> \
+> Respostas para PEP:\
+> \
+> **NO:** Não é publicamente exposta.
+>
+> **YES:** É publicamente exposta.
+>
+> **RELATION:** Relacionamento próximo.
+
+<details>
+
+<summary>Caso PEP for RELATION, é necessário o envio de mais duas perguntas, sendo elas:</summary>
+
+```markdown
+Code: PEP-NAME
+Type: string
+❗ Obrigatório que esteja incluído no array.
+Pergunta usada para definir o nome da pessoa com relação.
+```
+
+```markdown
+Code: PEP-PARENTING
+Type: string
+❗ Obrigatório que esteja incluído no array.
+Pergunta usada para definir a relação da pessoa.
+
+Opções de Envio:
+
+- FATHER/MOTHER = Pai/Mãe
+- SON/DAUGHTER = Filho/Filha
+- SPOUSE = Cônjugue
+- PARTNER = Companheiro/Companheira
+- STEPSON = Enteado/Enteada
+- OTHER = Outros
+```
+
+</details>
 
 {% code overflow="wrap" %}
 ```json
