@@ -77,6 +77,18 @@ erros como aparece abaixo.
         {
             "code": "PAYMENT-METHOD",
             "answer": "CREDIT-CARD"
+        },
+        {
+            "code": "PEP",
+            "answer": "RELATION"
+        },
+        {
+            "code": "PEP-NAME",
+            "answer": "teste"
+        },
+        {
+            "code": "PEP-PARENTING",
+            "answer": "SON/DAUGHTER"
         }
     ]
 }
@@ -127,6 +139,50 @@ erros como aparece abaixo.
 > ❗ Obrigatório que esteja incluído no array.
 >
 > O guid que será enviado nesse campo é retornado no array de installments, no retorno do endpoint de criar cotação.
+
+> **Code**: PEP\
+> **Type**: `string`\
+> ❗ Obrigatório que esteja incluído no array.
+>
+> Pergunta usada para definir se é uma **pessoa exposta publicamente.**
+>
+> \
+> Respostas para PEP:\
+> \
+> **NO:** Não é publicamente exposta.
+>
+> **YES:** É publicamente exposta.
+>
+> **RELATION:** Relacionamento próximo.
+
+<details>
+
+<summary>Caso PEP for RELATION, é necessário o envio de mais duas perguntas, sendo elas:</summary>
+
+```markdown
+Code: PEP-NAME
+Type: string
+❗ Obrigatório que esteja incluído no array.
+Pergunta usada para definir o nome da pessoa com relação.
+```
+
+```markdown
+Code: PEP-PARENTING
+Type: string
+❗ Obrigatório que esteja incluído no array.
+Pergunta usada para definir a relação da pessoa.
+
+Opções de Envio:
+
+- FATHER/MOTHER = Pai/Mãe
+- SON/DAUGHTER = Filho/Filha
+- SPOUSE = Cônjugue
+- PARTNER = Companheiro/Companheira
+- STEPSON = Enteado/Enteada
+- OTHER = Outros
+```
+
+</details>
 
 ## Response
 
