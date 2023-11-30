@@ -131,6 +131,9 @@ erros como aparece abaixo.
 > ❗ Obrigatório que esteja incluído no array. (apenas quando o PAYMENT-METHOD for TICKET).
 >
 > Pergunta usada para definir o dia de vencimento quando o PAYMENT-METHOD for TICKET (boleto).
+>
+> \
+> So é possivel envio do dia 1 ao dia 20.
 
 
 

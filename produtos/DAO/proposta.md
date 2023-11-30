@@ -109,7 +109,9 @@ erros como aparece abaixo.
 > **Type**: `integer`\
 > ❗ Obrigatório que esteja incluído no array. (apenas quando o PAYMENT-METHOD for TICKET).
 >
-> Pergunta usada para definir o dia de vencimento quando o PAYMENT-METHOD for TICKET (boleto).
+> Pergunta usada para definir o dia de vencimento quando o PAYMENT-METHOD for TICKET (boleto).\
+> \
+> So é possivel envio do dia 1 ao dia 20.
 
 
 
@@ -208,7 +210,7 @@ erros como aparece abaixo.
                                     "installmentInterest": 0.0,
                                     "installmentTax": 80.79,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z"
+                                        "2022-11-20T00:00:00Z"
                                     ]
                                 },
                                 {
@@ -223,7 +225,7 @@ erros como aparece abaixo.
                                     "installmentInterest": 0.0,
                                     "installmentTax": 40.4,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z"
                                     ]
                                 },
@@ -239,7 +241,7 @@ erros como aparece abaixo.
                                     "installmentInterest": 0.0,
                                     "installmentTax": 26.93,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z"
                                     ]
@@ -256,7 +258,7 @@ erros como aparece abaixo.
                                     "installmentInterest": 0.0,
                                     "installmentTax": 20.2,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z",
                                         "2023-02-01T12:00:00Z"
@@ -274,7 +276,7 @@ erros como aparece abaixo.
                                     "installmentInterest": 0.0,
                                     "installmentTax": 16.16,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z",
                                         "2023-02-01T12:00:00Z",
@@ -293,7 +295,7 @@ erros como aparece abaixo.
                                     "installmentInterest": 0.0,
                                     "installmentTax": 13.46,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z",
                                         "2023-02-01T12:00:00Z",

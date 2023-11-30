@@ -130,7 +130,9 @@ erros como aparece abaixo.
 > **Type**: `integer`\
 > ❗ Obrigatório que esteja incluído no array. (apenas quando o PAYMENT-METHOD for TICKET).
 >
-> Pergunta usada para definir o dia de vencimento quando o PAYMENT-METHOD for TICKET (boleto).
+> Pergunta usada para definir o dia de vencimento quando o PAYMENT-METHOD for TICKET (boleto).\
+> \
+> So é possivel envio do dia 1 ao dia 20.
 
 
 
@@ -250,7 +252,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 30.29,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z"
+                                        "2022-11-20T00:00:00Z"
                                     ]
                                 },
                                 {
@@ -265,7 +267,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 15.14,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z"
                                     ]
                                 },
@@ -281,7 +283,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 10.1,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z"
                                     ]
@@ -298,7 +300,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 7.57,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z",
                                         "2023-02-01T12:00:00Z"
@@ -322,7 +324,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 30.29,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z"
+                                        "2022-11-20T00:00:00Z"
                                     ]
                                 },
                                 {
@@ -337,7 +339,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 15.14,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z"
                                     ]
                                 },
@@ -353,7 +355,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 10.1,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z"
                                     ]
@@ -370,7 +372,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 7.57,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z",
                                         "2023-02-01T12:00:00Z"
