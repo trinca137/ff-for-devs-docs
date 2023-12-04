@@ -131,6 +131,9 @@ erros como aparece abaixo.
 > ❗ Obrigatório que esteja incluído no array. (apenas quando o PAYMENT-METHOD for TICKET).
 >
 > Pergunta usada para definir o dia de vencimento quando o PAYMENT-METHOD for TICKET (boleto).
+>
+> \
+> Só é possivel envio do dia 1 ao dia 20.
 
 
 
@@ -252,7 +255,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 123.35,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z"
+                                        "2022-11-20T00:00:00Z"
                                     ]
                                 },
                                 {
@@ -267,7 +270,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 61.68,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z"
                                     ]
                                 },
@@ -283,7 +286,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 41.12,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z"
                                     ]
@@ -300,7 +303,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 30.84,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z",
                                         "2023-02-01T12:00:00Z"
@@ -318,7 +321,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 24.67,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z",
                                         "2023-02-01T12:00:00Z",
@@ -337,7 +340,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 20.56,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z",
                                         "2023-02-01T12:00:00Z",
@@ -357,7 +360,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 17.62,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z",
                                         "2023-02-01T12:00:00Z",
@@ -378,7 +381,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 15.42,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z",
                                         "2023-02-01T12:00:00Z",
@@ -400,7 +403,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 13.71,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z",
                                         "2023-02-01T12:00:00Z",
@@ -423,7 +426,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 12.34,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z",
                                         "2023-02-01T12:00:00Z",
@@ -447,7 +450,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 11.21,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z",
                                         "2023-02-01T12:00:00Z",
@@ -478,7 +481,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 123.35,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z"
+                                        "2022-11-20T00:00:00Z"
                                     ]
                                 },
                                 {
@@ -493,7 +496,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 61.68,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z"
                                     ]
                                 },
@@ -509,7 +512,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 41.12,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z"
                                     ]
@@ -526,7 +529,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 30.84,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z",
                                         "2023-02-01T12:00:00Z"
@@ -544,7 +547,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 24.67,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z",
                                         "2023-02-01T12:00:00Z",
@@ -563,7 +566,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 20.56,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z",
                                         "2023-02-01T12:00:00Z",
@@ -583,7 +586,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 17.62,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z",
                                         "2023-02-01T12:00:00Z",
@@ -604,7 +607,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 15.42,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z",
                                         "2023-02-01T12:00:00Z",
@@ -626,7 +629,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 13.71,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z",
                                         "2023-02-01T12:00:00Z",
@@ -649,7 +652,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 12.34,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z",
                                         "2023-02-01T12:00:00Z",
@@ -673,7 +676,7 @@ Opções de Envio:
                                     "installmentInterest": 0.0,
                                     "installmentTax": 11.21,
                                     "dueDates": [
-                                        "2022-11-30T00:00:00Z",
+                                        "2022-11-20T00:00:00Z",
                                         "2022-12-01T12:00:00Z",
                                         "2023-01-01T12:00:00Z",
                                         "2023-02-01T12:00:00Z",

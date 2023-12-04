@@ -131,6 +131,9 @@ chave de acesso da api.
 > ❗ Obrigatório que esteja incluído no array. (apenas quando o PAYMENT-METHOD for TICKET).
 >
 > Pergunta usada para definir o dia de vencimento quando o PAYMENT-METHOD for TICKET (boleto).
+>
+> \
+> Só é possivel envio do dia 1 ao dia 20.
 
 
 
@@ -190,51 +193,51 @@ Opções de Envio:
 ```json
 {
     "item": {
-        "quotationIdentifier": "210117cf-2a0b-4f2a-8a7f-04c301e9cf49",
+        "quotationIdentifier": "be73c0d9-da81-450f-9546-570f36813b22",
         "status": "Draft",
         "proposal": {
-            "number": "34990940670001",
-            "date": "2023-05-23T00:00:00Z",
-            "acceptanceUrl": "",
-            "documentUrl": ""
+            "number": "97595175730001",
+            "date": "0001-01-01T00:00:00Z",
+            "acceptanceUrl": "https://bit.ly/47DabRH",
+            "documentUrl": "https://azusbrfairfaxstorage.blob.core.windows.net/document/quotation/be73c0d9-da81-450f-9546-570f36813b22/proposta_Testebike_97595175730001_v01.00_yp0z.pdf"
         },
         "pricing": [
             {
-                "variantIdentifier": "423fcec9-2fb9-4c22-a14d-4ff3427974f6",
+                "variantIdentifier": "6456a551-78e3-4ec6-9318-63c5e8b45990",
                 "underwriting": {
                     "approved": true,
                     "evaluations": []
                 },
                 "price": {
-                    "commission": 37.72,
+                    "commission": 52.89,
                     "grievanceDiscount": 0.0,
-                    "itemValue": 3000.0,
-                    "netValue": 188.6,
+                    "itemValue": 5000.0,
+                    "netValue": 264.44,
                     "interestValue": 0.0,
-                    "taxValue": 13.92,
-                    "totalValue": 202.52,
-                    "policyLimit": 3000.0,
+                    "taxValue": 19.52,
+                    "totalValue": 283.96,
+                    "policyLimit": 5000.0,
                     "rates": [
                         {
                             "code": "DAMAGE-COVERAGE",
                             "description": "Danos à bike",
-                            "limit": 3000.0,
-                            "netValue": 49.63,
+                            "limit": 5000.0,
+                            "netValue": 69.59,
                             "deductible": {
-                                "code": "DEFAULT",
-                                "text": "Padrão",
-                                "description": "15% dos prejuízos indenizáveis com o mínimo de R$ 500,00"
+                                "code": "INCREASED",
+                                "text": "Majorada",
+                                "description": "15% dos prejuízos indenizáveis com o mínimo de R$ 900,00"
                             }
                         },
                         {
                             "code": "THEFT-COVERAGE",
                             "description": "Roubo e/ou furto qualificado",
-                            "limit": 3000.0,
-                            "netValue": 138.97,
+                            "limit": 5000.0,
+                            "netValue": 194.85,
                             "deductible": {
-                                "code": "DEFAULT",
-                                "text": "Padrão",
-                                "description": "10% dos prejuízos indenizáveis com o mínimo de R$ 500,00"
+                                "code": "INCREASED",
+                                "text": "Majorada",
+                                "description": "10% dos prejuízos indenizáveis com o mínimo de R$ 900,00"
                             }
                         }
                     ]
@@ -247,69 +250,88 @@ Opções de Envio:
                             "paymentType": "CreditCard",
                             "installments": [
                                 {
-                                    "identifier": "6360803f-2969-410a-be77-7a835a339c4f",
+                                    "identifier": "51a6ae54-60b7-4888-b287-149056a568eb",
                                     "number": 1,
-                                    "commissionValue": 37.72,
-                                    "netValue": 188.6,
+                                    "commissionValue": 52.89,
+                                    "netValue": 264.44,
                                     "interestValue": 0.0,
-                                    "taxValue": 13.92,
-                                    "totalValue": 202.52,
-                                    "installmentValue": 202.52,
+                                    "taxValue": 19.52,
+                                    "totalValue": 283.96,
+                                    "installmentValue": 283.96,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 13.92,
+                                    "installmentTax": 19.52,
                                     "dueDates": [
-                                        "2023-05-30T00:00:00Z"
+                                        "2023-12-07T00:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "1ba6df3d-68e4-45d2-8c97-504017fb2a14",
+                                    "identifier": "11f610e5-bac0-434e-831c-b4adfbecb9be",
                                     "number": 2,
-                                    "commissionValue": 37.72,
-                                    "netValue": 188.6,
+                                    "commissionValue": 52.89,
+                                    "netValue": 264.44,
                                     "interestValue": 0.0,
-                                    "taxValue": 13.92,
-                                    "totalValue": 202.52,
-                                    "installmentValue": 101.26,
+                                    "taxValue": 19.52,
+                                    "totalValue": 283.96,
+                                    "installmentValue": 141.98,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 6.96,
+                                    "installmentTax": 9.76,
                                     "dueDates": [
-                                        "2023-05-30T00:00:00Z",
-                                        "2023-06-15T12:00:00Z"
+                                        "2023-12-07T00:00:00Z",
+                                        "2024-01-20T12:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "5b3ed249-abb6-4060-b17a-08c2a7257b2b",
+                                    "identifier": "a0121da8-a425-4845-b845-8cd8bc661b11",
                                     "number": 3,
-                                    "commissionValue": 37.72,
-                                    "netValue": 188.6,
+                                    "commissionValue": 52.89,
+                                    "netValue": 264.44,
                                     "interestValue": 0.0,
-                                    "taxValue": 13.92,
-                                    "totalValue": 202.52,
-                                    "installmentValue": 67.51,
+                                    "taxValue": 19.52,
+                                    "totalValue": 283.96,
+                                    "installmentValue": 94.65,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 4.64,
+                                    "installmentTax": 6.51,
                                     "dueDates": [
-                                        "2023-05-30T00:00:00Z",
-                                        "2023-06-15T12:00:00Z",
-                                        "2023-07-15T12:00:00Z"
+                                        "2023-12-07T00:00:00Z",
+                                        "2024-01-20T12:00:00Z",
+                                        "2024-02-20T12:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "ec4d3238-b4c4-4192-bc9e-4e8d3193aa09",
+                                    "identifier": "364ce728-0864-4859-9ec4-01739d1accd1",
                                     "number": 4,
-                                    "commissionValue": 37.72,
-                                    "netValue": 188.6,
+                                    "commissionValue": 52.89,
+                                    "netValue": 264.44,
                                     "interestValue": 0.0,
-                                    "taxValue": 13.92,
-                                    "totalValue": 202.52,
-                                    "installmentValue": 50.63,
+                                    "taxValue": 19.52,
+                                    "totalValue": 283.96,
+                                    "installmentValue": 70.99,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 3.48,
+                                    "installmentTax": 4.88,
                                     "dueDates": [
-                                        "2023-05-30T00:00:00Z",
-                                        "2023-06-15T12:00:00Z",
-                                        "2023-07-15T12:00:00Z",
-                                        "2023-08-15T12:00:00Z"
+                                        "2023-12-07T00:00:00Z",
+                                        "2024-01-20T12:00:00Z",
+                                        "2024-02-20T12:00:00Z",
+                                        "2024-03-20T12:00:00Z"
+                                    ]
+                                },
+                                {
+                                    "identifier": "56eda369-9de8-4bf5-bdcf-f87fc622ab32",
+                                    "number": 5,
+                                    "commissionValue": 52.89,
+                                    "netValue": 264.44,
+                                    "interestValue": 0.0,
+                                    "taxValue": 19.52,
+                                    "totalValue": 283.96,
+                                    "installmentValue": 56.79,
+                                    "installmentInterest": 0.0,
+                                    "installmentTax": 3.9,
+                                    "dueDates": [
+                                        "2023-12-07T00:00:00Z",
+                                        "2024-01-20T12:00:00Z",
+                                        "2024-02-20T12:00:00Z",
+                                        "2024-03-20T12:00:00Z",
+                                        "2024-04-20T12:00:00Z"
                                     ]
                                 }
                             ]
@@ -319,34 +341,34 @@ Opções de Envio:
                             "paymentType": "Ticket",
                             "installments": [
                                 {
-                                    "identifier": "251bb938-01c6-405a-b1af-1adb2dfec7e5",
+                                    "identifier": "22094ea0-2789-4181-b04b-723c8c1e9fe4",
                                     "number": 1,
-                                    "commissionValue": 37.72,
-                                    "netValue": 188.6,
+                                    "commissionValue": 52.89,
+                                    "netValue": 264.44,
                                     "interestValue": 0.0,
-                                    "taxValue": 13.92,
-                                    "totalValue": 202.52,
-                                    "installmentValue": 202.52,
+                                    "taxValue": 19.52,
+                                    "totalValue": 283.96,
+                                    "installmentValue": 283.96,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 13.92,
+                                    "installmentTax": 19.52,
                                     "dueDates": [
-                                        "2023-05-30T00:00:00Z"
+                                        "2023-12-07T00:00:00Z"
                                     ]
                                 },
                                 {
-                                    "identifier": "65f488a0-d5a6-4cb2-b4e2-5599010236eb",
+                                    "identifier": "6c6f271d-d507-4537-bcef-d4324fe4f347",
                                     "number": 2,
-                                    "commissionValue": 37.72,
-                                    "netValue": 188.6,
+                                    "commissionValue": 52.89,
+                                    "netValue": 264.44,
                                     "interestValue": 0.0,
-                                    "taxValue": 13.92,
-                                    "totalValue": 202.52,
-                                    "installmentValue": 101.26,
+                                    "taxValue": 19.52,
+                                    "totalValue": 283.96,
+                                    "installmentValue": 141.98,
                                     "installmentInterest": 0.0,
-                                    "installmentTax": 6.96,
+                                    "installmentTax": 9.76,
                                     "dueDates": [
-                                        "2023-05-30T00:00:00Z",
-                                        "2023-06-15T12:00:00Z"
+                                        "2023-12-07T00:00:00Z",
+                                        "2024-01-20T12:00:00Z"
                                     ]
                                 }
                             ]
@@ -357,7 +379,7 @@ Opções de Envio:
         ]
     },
     "success": true,
-    "executed": "2023-05-23T19:07:19.6820058Z"
+    "executed": "2023-11-30T20:03:36.2261873Z"
 }
 ```
 {% endcode %}
@@ -368,11 +390,11 @@ Diferente do Response de Cotação, o de proposta possui um campo a mais logo ap
 
 ```json
 "proposal": {
-            "number": "34990940670001",
-            "date": "2023-05-23T19:09:27.6820058Z",
-            "acceptanceUrl": "",
-            "documentUrl": ""
-        }
+    "number": "97595175730001",
+    "date": "0001-01-01T00:00:00Z",
+    "acceptanceUrl": "https://bit.ly/47DabRH",
+    "documentUrl": "https://azusbrfairfaxstorage.blob.core.windows.net/document/quotation/be73c0d9-da81-450f-9546-570f36813b22/proposta_Testebike_97595175730001_v01.00_yp0z.pdf"
+}
 ```
 
 
