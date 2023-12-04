@@ -132,7 +132,7 @@ erros como aparece abaixo.
 >
 > Pergunta usada para definir o dia de vencimento quando o PAYMENT-METHOD for TICKET (boleto).\
 > \
-> So é possivel envio do dia 1 ao dia 20.
+> Só é possivel envio do dia 1 ao dia 20.
 
 
 
