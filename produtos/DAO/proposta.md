@@ -69,6 +69,10 @@ erros como aparece abaixo.
             "answer": "d9048f5a-1899-404d-8b33-db9a625167f6"
         },
         {
+            "code": "SELECTED-VARIANT-IDENTIFIER",
+            "answer": "77b5b96a-f55f-4699-b00c-2d11adbf2ca9"
+        },
+        {
             "code": "DUE-DAY",
             "answer": 1
         },
@@ -120,6 +124,14 @@ erros como aparece abaixo.
 > ❗ Obrigatório que esteja incluído no array.
 >
 > O guid que será enviado nesse campo é retornado no array de installments, no retorno do endpoint de criar cotação.
+
+
+
+> **Code**: SELECTED-VARIANT-IDENTIFIER\
+> **Type**: `guid`\
+> ❗ Obrigatório que esteja incluído no array.
+>
+> O guid que será enviado nesse campo é retornado no array de PRICING -> VARIANT-IDENTIFIER, no retorno do endpoint de criar cotação.
 
 ## Response
 
