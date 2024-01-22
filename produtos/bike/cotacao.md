@@ -644,7 +644,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > **Tipo**: `text`\
 > ❗ Obrigatório que esteja incluído no array.
 >
-> Para este item sempre enviar **OTHER**.
+> Pergunta usada para definir o nome da marca da bike, caso tenha algum nome diferente, enviar **OTHER**.
 
 ***
 
@@ -652,7 +652,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > **Tipo**: `text`\
 > ❗ Obrigatório que esteja incluído no array.
 >
-> Pergunta usada para definir o nome da marca da bike.
+> Pergunta também utilizada para definir o nome da marca da bike, porém quando **BRAND = OTHER** enviar o nome da marca como resposta.
 
 ***
 
