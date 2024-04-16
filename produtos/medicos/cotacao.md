@@ -2,20 +2,24 @@
 
 
 
-{% swagger method="post" path="{{version}}/quotation/contracting" baseUrl="{{url_ambiente}}/" summary="Criar Cotação" fullWidth="true" expanded="true" %}
-{% swagger-description %}
+## Criar Cotação
+
+<mark style="color:green;">`POST`</mark> `{{url_ambiente}}/{{version}}/quotation/contracting`
+
 Cria ou edita uma cotação.
-{% endswagger-description %}
 
-{% swagger-parameter in="header" name="Ocp-Apim-Subscription-Key" required="true" type="key" %}
-chave de acesso da api.
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-response status="200: OK" description="Retorno sucesso." %}
+| Name                                                        | Type | Description             |
+| ----------------------------------------------------------- | ---- | ----------------------- |
+| Ocp-Apim-Subscription-Key<mark style="color:red;">\*</mark> | key  | chave de acesso da api. |
+
+{% tabs %}
+{% tab title="200: OK Retorno sucesso." %}
 [#response](cotacao.md#response "mention")
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="400: Bad Request" description="Retorno com mensagem do local do erro" %}
+{% tab title="400: Bad Request Retorno com mensagem do local do erro" %}
 ```json
 {
     "success": false,
@@ -31,9 +35,9 @@ chave de acesso da api.
     ]
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="400: Bad Request" description="Erro de "register number"" %}
+{% tab title="400: Bad Request Erro de "register number"" %}
 ```json
 {
     "success": false,
@@ -48,9 +52,9 @@ chave de acesso da api.
     ]
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="401: Unauthorized" description="Caso não envie uma "chave" ou envie uma inválida" %}
+{% tab title="401: Unauthorized Caso não envie uma "chave" ou envie uma inválida" %}
 {% code overflow="wrap" %}
 ```json
 {
@@ -59,12 +63,12 @@ chave de acesso da api.
 }
 ```
 {% endcode %}
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="500: Internal Server Error" description="Erro de aplicação/servidor" %}
+{% tab title="500: Internal Server Error Erro de aplicação/servidor" %}
 
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 {% hint style="info" %}
 Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
@@ -434,6 +438,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 <!---->
 
 * **AESTHETIC-PROCEDURES-MEDICAL-SPECIALTY** = Procedimentos Estéticos relacionados à Especialidade Médica.
+* **NO-PROCEDURES** = Sem procedimentos.
 
 </details>
 
