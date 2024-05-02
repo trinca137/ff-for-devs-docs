@@ -1,19 +1,23 @@
 # Criar Proposta
 
-{% swagger method="post" path="{{version}}/quotation/proposal" baseUrl="{{url_ambiente}}/" summary="Criar proposta" expanded="true" fullWidth="true" %}
-{% swagger-description %}
+## Criar proposta
+
+<mark style="color:green;">`POST`</mark> `{{url_ambiente}}/{{version}}/quotation/proposal`
+
 Cria uma proposta (atualiza informações adicionais).
-{% endswagger-description %}
 
-{% swagger-parameter in="header" name="Ocp-Apim_Subscription-Key" type="key" required="true" %}
-chave de acesso da api.
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-response status="200: OK" description="Retorno sucesso " %}
+| Name                                                         | Type | Description             |
+| ------------------------------------------------------------ | ---- | ----------------------- |
+| Ocp-Apim\_Subscription-Key<mark style="color:red;">\*</mark> | key  | chave de acesso da api. |
+
+{% tabs %}
+{% tab title="200: OK Retorno sucesso " %}
 [#response](proposta.md#response "mention")
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="400: Bad Request" description="Retorno com mensagem do local do erro" %}
+{% tab title="400: Bad Request Retorno com mensagem do local do erro" %}
 ```json
 {
     "success": false,
@@ -30,9 +34,9 @@ chave de acesso da api.
     ]
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="401: Unauthorized" description="Caso não envie uma "chave" ou envie uma inválida" %}
+{% tab title="401: Unauthorized Caso não envie uma "chave" ou envie uma inválida" %}
 {% code overflow="wrap" %}
 ```json
 {
@@ -41,12 +45,12 @@ chave de acesso da api.
 }
 ```
 {% endcode %}
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="500: Internal Server Error" description="Erro de aplicação/servidor" %}
+{% tab title="500: Internal Server Error Erro de aplicação/servidor" %}
 
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 ## Request
 
@@ -118,6 +122,7 @@ chave de acesso da api.
 > Se o INVOICE FOR TRUE
 >
 > * _CREDIT-CARD_
+>   * _Para o ambiente de homologação, é necessário que o valor do prêmio da cotação, campo "Total Value", seja um número par, para que seja possível obter sucesso no checkout._
 > * _TICKET_
 >
 > _Se o INVOICE FOR FALSE_

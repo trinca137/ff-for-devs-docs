@@ -1,23 +1,26 @@
 # Consulta de apólice
 
-{% swagger method="get" path="/policy/{registerNumber}/{policyNumber}" baseUrl="{{url_ambiente}}/v1" summary="Consulta Apólice Única" %}
-{% swagger-description %}
+## Consulta Apólice Única
+
+<mark style="color:blue;">`GET`</mark> `{{url_ambiente}}/v1/policy/{registerNumber}/{policyNumber}`
+
 Retorna informações da apólice solicitada
-{% endswagger-description %}
 
-{% swagger-parameter in="path" name="PolicyNumber" type="string" required="true" %}
-Número da apólice
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-parameter in="header" name="Ocp-Apim-Subscription-Key" type="md5" required="true" %}
-Chave de acesso
-{% endswagger-parameter %}
+| Name                                           | Type   | Description       |
+| ---------------------------------------------- | ------ | ----------------- |
+| PolicyNumber<mark style="color:red;">\*</mark> | string | Número da apólice |
+| registerNumber                                 | String | Número Susep      |
 
-{% swagger-parameter in="path" name="registerNumber" %}
-Número Susep
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-response status="200: OK" description="Retorno da apólice contratada" %}
+| Name                                                        | Type | Description     |
+| ----------------------------------------------------------- | ---- | --------------- |
+| Ocp-Apim-Subscription-Key<mark style="color:red;">\*</mark> | md5  | Chave de acesso |
+
+{% tabs %}
+{% tab title="200: OK Retorno da apólice contratada" %}
 ```javascript
 {
     "policy": {
@@ -97,27 +100,35 @@ Número Susep
     "executed": "2022-11-22T13:47:30.0768846Z"
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger method="get" path="/v1/policy/{registerNumber}/all" baseUrl="{{url_ambiente}}" summary="Listagem apólice" %}
-{% swagger-description %}
+## Listagem apólice
+
+<mark style="color:blue;">`GET`</mark> `{{url_ambiente}}/v1/policy/{registerNumber}/all`
+
 Retorna lista de apólices.
-{% endswagger-description %}
 
-{% swagger-parameter in="header" name="Ocp-Apim-Subscription-Key" type="md5" required="true" %}
-Chave de acesso
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-parameter in="query" name="page" type="string" required="false" %}
-Passar o número da chave
-{% endswagger-parameter %}
+| Name           | Type   | Description  |
+| -------------- | ------ | ------------ |
+| registerNumber | String | Número Susep |
 
-{% swagger-parameter in="path" name="registerNumber" %}
-Número Susep
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-response status="200: OK" description="" %}
+| Name | Type   | Description              |
+| ---- | ------ | ------------------------ |
+| page | string | Passar o número da chave |
+
+#### Headers
+
+| Name                                                        | Type | Description     |
+| ----------------------------------------------------------- | ---- | --------------- |
+| Ocp-Apim-Subscription-Key<mark style="color:red;">\*</mark> | md5  | Chave de acesso |
+
+{% tabs %}
+{% tab title="200: OK " %}
 ```json
 {
     "totalItems": 1,
@@ -200,10 +211,10 @@ Número Susep
     "executed": "2022-11-22T13:49:41.0776542Z"
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-
+***
 
 > **Field**: sort\
 > **Type**: `string`
@@ -226,42 +237,42 @@ Número Susep
 > `{{url_ambiente}}/v1/policy/all?sort=-status,insuredname`\
 > No exemplo acima é passado dois campos para a ordenação, onde o status sera em ordem decrescente e o insuredName será em ordem crescente.
 
-
+***
 
 > **Field**: search\
 > **Type**: `string`
 >
-> Campo para buscar pelo nome do segurado.
+> Campo para buscar pelo nome do segurado ou CPF/CNPJ.
 
-
+***
 
 > **Field**: modality\
 > **Type**: `string`
 >
 > Campo para buscar pela modalidade.
 
-
+***
 
 > **Field**: product\
 > **Type**: `string`
 >
 > Campo para buscar pelo produto.
 
-
+***
 
 > **Field**: startDate\
 > **Type**: `string`
 >
 > Campo para buscar pela data de inicio de vigencia.
 
-
+***
 
 > **Field**: endDate\
 > **Type**: `string`
 >
 > Campo para buscar pela data final de vigencia.
 
-
+***
 
 > **Field**: status\
 > **Type**: `string`
@@ -274,7 +285,7 @@ Número Susep
 > * **Expired** = Expirada
 > * **Canceled** = Cancelada.
 
-
+***
 
 ## Explicando campos de response da apólice
 
@@ -283,178 +294,179 @@ Número Susep
 >
 > Identificação unica da apólice em formatdo de `guid`.
 
-
+***
 
 > **Field**: number\
 > **Type**: `text`
 >
 > Número referente a apólice .
 
-
+***
 
 > **Field**: policyNumber\
 > **Type**: `text`
 >
 > Número referente a apólice .
 
-
+***
 
 > **Field**: status\
 > **Type**: `text`
 >
 > Status da apólice .
 
-
+***
 
 > **Field**: insuredName\
 > **Type**: `text`
 >
 > Nome do Segurado .
 
-
+***
 
 > **Field**: insuredIdentity\
 > **Type**: `text`
 >
 > Identificação do segurado.
 
-
+***
 
 > **Field**: modalityText\
 > **Type**: `text`
 >
 > Modalidade.
 
-
+***
 
 > **Field**: modalityCode\
 > **Type**: `text`
 >
 > Codigo da modalidade.
 
-
+***
 
 > **Field**: productText\
 > **Type**: `text`
 >
 > Produto.
 
-
+***
 
 > **Field**: productCode\
 > **Type**: `text`
 >
 > Codigo do produto.
 
-
+***
 
 > **Field**: vigencyStartedAt\
 > **Type**: `date`
 >
 > Inicio da vigencia.
 
-
+***
 
 > **Field**: vigencyExpiredAt\
 > **Type**: `date`
 >
 > Final da vigencia.
 
-
+***
 
 > **Field**: createdAt\
 > **Type**: `date`
 >
 > Data de criação.
 
-
+***
 
 > **Field**: quotationIdentifier\
 > **Type**: `string`
 >
 > Identificação refente a cotação.
 
-
+***
 
 > **Field**: quotationDocumentUrl\
 > **Type**: `string`
 >
 > Url do pdf da apólice.
 
-
+***
 
 > **Field**: TicketUrl\
 > **Type**: `string`
 >
 > Url do boleto.
 
-
+***
 
 > **Field**: version\
 > **Type**: `string`
 >
 > Versão da apólice.
 
-
+***
 
 > **Field**: installments\
 > **Type**: `array`
 >
 > Lista das informações de parcelas.
 
-
+***
 
 > **Field**: installments\[].installmentNumber\
 > **Type**: `integer`
 >
 > Número da parcela.
 
-
+***
 
 > **Field**: installments\[].dueDate\
 > **Type**: `date`
 >
 > Data de vencimento.
 
-
+***
 
 > **Field**: installments\[].valueIof\
 > **Type**: `decimal`
 >
 > Valor do IOF.
 
-
+***
 
 > **Field**: installments\[].tariffPremiumValue\
 > **Type**: `decimal`
 >
 > Valor do prêmio tarifário.
 
-
+***
 
 > **Field**: installments\[].premiumTotalValue\
 > **Type**: `decimal`
 >
 > Valor do prêmio total da cotação.
 
-
+***
 
 > **Field**: installments\[].status\
 > **Type**: `string`
 >
 > Status de pagamento.
 
-
+***
 
 > **Field**: installments\[].interestValue\
 > **Type**: `decimal`
 >
 > Valor de juros de cada parcela.
 
-
+***
 
 > **Field**: installments\[].createdAt\
 > **Type**: `date`
 >
 > Data de criação da parcela.
 
+***

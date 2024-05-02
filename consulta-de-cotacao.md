@@ -1,23 +1,26 @@
 # Consulta de cotação
 
-{% swagger method="get" path="/quotation/{registerNumber}/{identifier}" baseUrl="{{url_ambiente}}/v1" summary="Consulta cotação" %}
-{% swagger-description %}
+## Consulta cotação
+
+<mark style="color:blue;">`GET`</mark> `{{url_ambiente}}/v1/quotation/{registerNumber}/{identifier}`
+
 Retorna informações da cotação com base no identifier
-{% endswagger-description %}
 
-{% swagger-parameter in="path" name="identifier" type="string" required="true" %}
-identifier da cotação
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-parameter in="header" name="Ocp-Apim-Subscription-Key" type="md5" required="true" %}
-Chave de acesso
-{% endswagger-parameter %}
+| Name                                         | Type   | Description           |
+| -------------------------------------------- | ------ | --------------------- |
+| identifier<mark style="color:red;">\*</mark> | string | identifier da cotação |
+| registerNumber                               | String | Número Susep          |
 
-{% swagger-parameter in="path" name="registerNumber" %}
-Número Susep
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-response status="200: OK" description="Retorno da cotação" %}
+| Name                                                        | Type | Description     |
+| ----------------------------------------------------------- | ---- | --------------- |
+| Ocp-Apim-Subscription-Key<mark style="color:red;">\*</mark> | md5  | Chave de acesso |
+
+{% tabs %}
+{% tab title="200: OK Retorno da cotação" %}
 ````json
 
 {
@@ -869,8 +872,8 @@ Número Susep
 }
 ```
 ````
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 ## Explicando campos de response de cotação pelo identifier
 
@@ -1316,105 +1319,40 @@ Número Susep
 
 
 
-{% swagger method="get" path="/v1/quotation/{registerNumber}/all" baseUrl="{{url_ambiente}}" summary="Listagem de cotações" %}
-{% swagger-description %}
+## Listagem de cotações
+
+<mark style="color:blue;">`GET`</mark> `{{url_ambiente}}/v1/quotation/{registerNumber}/all`
+
 Retorna lista de cotações
-{% endswagger-description %}
 
-{% swagger-parameter in="header" name="Ocp-Apim-Subscription-Key" type="md5" required="true" %}
-Chave de acesso
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-parameter in="query" name="page" type="" required="false" %}
-Passar o número da chave
-{% endswagger-parameter %}
+| Name           | Type   | Description  |
+| -------------- | ------ | ------------ |
+| registerNumber | String | Número Susep |
 
-{% swagger-parameter in="path" name="registerNumber" %}
-Número Susep
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="query" name="sort" type="" %}
-Possível ordernar pelo campo desejado.\
-\
-Os valores possíveis para esta query parameter são:
+| Name      | Type   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| page      |        | Passar o número da chave                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| sort      |        | <p>Possível ordernar pelo campo desejado.<br><br>Os valores possíveis para esta query parameter são:</p><p>Caso queira definir se a ordem sera crescente ou não, basta passar o operador <code>-</code> quando for decrescente.<br>Caso queria passar mais de um campo para ordenação, tambem é possivel, basta colocar os campos separados por <code>,</code></p><p>Exemplo:<br><code>{{url_ambiente}}/v1/policy/all?sort=-status,insuredname</code><br>No exemplo acima é passado dois campos para a ordenação, onde o status sera em ordem decrescente e o insuredName será em ordem crescente.</p> |
+| Search    |        | Campo para buscar pelo nome do segurado ou CPF/CNPJ.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Modality  |        | Campo para buscar pela modalidade.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Product   |        | Campo para buscar pelo produto.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| startDate | String | Data de inicio de cração da cotação.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| endDate   | String | Data limite de criação da cotação.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| status    | String | <p>Campo para buscar pelo status. Os valores possíveis para esta query parameter são:</p><p></p><p><strong>Draft</strong>= Rascunho.</p><p><strong>Quoted</strong> = Cotada.</p><p><strong>Saved</strong> = Salva.</p><p><strong>Choosed</strong> = Proposta do corretor.</p><p><strong>Proposal</strong> = Proposta enviada.</p><p><strong>Confirmed</strong> = Confirmada.</p><p><strong>Received</strong> = Recebido documentos do segurado.</p><p><strong>Accepted</strong> = Aceita.</p><p><strong>Finished</strong> = Finalizada.</p><p><strong>Expired</strong> = Expirada.</p>                 |
+| type      | String | <p>Buscar pelo tipo da cotação.</p><p>Os valores possíveis para esta query parameter são:</p><p></p><p><strong>Contracting</strong> = Contratação.</p><p><strong>Renewal</strong> = Renovação.</p><p><strong>Endorsement</strong> = Endosso.</p><p><strong>Cancellation</strong> = Cancelamento.</p><p><strong>Simulation</strong> = Simulação.</p><p></p><p></p>                                                                                                                                                                                                                                      |
 
-Caso queira definir se a ordem sera crescente ou não, basta passar o operador `-` quando for decrescente.\
-Caso queria passar mais de um campo para ordenação, tambem é possivel, basta colocar os campos separados por `,`
+#### Headers
 
-Exemplo:\
-`{{url_ambiente}}/v1/policy/all?sort=-status,insuredname`\
-No exemplo acima é passado dois campos para a ordenação, onde o status sera em ordem decrescente e o insuredName será em ordem crescente.
-{% endswagger-parameter %}
+| Name                                                        | Type | Description     |
+| ----------------------------------------------------------- | ---- | --------------- |
+| Ocp-Apim-Subscription-Key<mark style="color:red;">\*</mark> | md5  | Chave de acesso |
 
-{% swagger-parameter in="query" name="Search" type="" %}
-Campo para buscar pelo nome do segurado.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="Modality" type="" %}
-Campo para buscar pela modalidade.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="Product" type="" %}
-Campo para buscar pelo produto.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="startDate" %}
-Data de inicio de cração da cotação.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="endDate" %}
-Data limite de criação da cotação.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="status" %}
-Campo para buscar pelo status. Os valores possíveis para esta query parameter são:
-
-
-
-**Draft**= Rascunho.
-
-**Quoted** = Cotada.
-
-**Saved** = Salva.
-
-**Choosed** = Proposta do corretor.
-
-**Proposal** = Proposta enviada.
-
-**Confirmed** = Confirmada.
-
-**Received** = Recebido documentos do segurado.
-
-**Accepted** = Aceita.
-
-**Finished** = Finalizada.
-
-**Expired** = Expirada.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="type" %}
-Buscar pelo tipo da cotação.
-
-Os valores possíveis para esta query parameter são:
-
-
-
-**Contracting** = Contratação.
-
-**Renewal** = Renovação.
-
-**Endorsement** = Endosso.
-
-**Cancellation** = Cancelamento.
-
-**Simulation** = Simulação.
-
-
-
-
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="Listagem retornada" %}
+{% tabs %}
+{% tab title="200: OK Listagem retornada" %}
 ```json
 {
     "totalItems": 1169,
@@ -1617,8 +1555,8 @@ Os valores possíveis para esta query parameter são:
     "executed": "2023-05-30T11:44:59.990466Z"
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 ***
 
