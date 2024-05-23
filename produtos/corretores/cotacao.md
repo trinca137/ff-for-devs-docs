@@ -1,19 +1,23 @@
 # Criar Cotação
 
-{% swagger method="post" path="{{version}}/quotation/contracting" baseUrl="{{url_ambiente}}/" summary="Criar Cotação" fullWidth="true" expanded="true" %}
-{% swagger-description %}
+## Criar Cotação
+
+<mark style="color:green;">`POST`</mark> `{{url_ambiente}}/{{version}}/quotation/contracting`
+
 Cria ou edita uma cotação.
-{% endswagger-description %}
 
-{% swagger-parameter in="header" name="Ocp-Apim-Subscription-Key" required="true" type="key" %}
-chave de acesso da api.
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-response status="200: OK" description="Retorno sucesso." %}
+| Name                                                        | Type | Description             |
+| ----------------------------------------------------------- | ---- | ----------------------- |
+| Ocp-Apim-Subscription-Key<mark style="color:red;">\*</mark> | key  | chave de acesso da api. |
+
+{% tabs %}
+{% tab title="200: OK Retorno sucesso." %}
 [#response](cotacao.md#response "mention")
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="400: Bad Request" description="Retorno com mensagem do local do erro" %}
+{% tab title="400: Bad Request Retorno com mensagem do local do erro" %}
 ```json
 {
     "success": false,
@@ -29,9 +33,9 @@ chave de acesso da api.
     ]
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="400: Bad Request" description="Erro de "register number"" %}
+{% tab title="400: Bad Request Erro de "register number"" %}
 ```json
 {
     "success": false,
@@ -46,9 +50,9 @@ chave de acesso da api.
     ]
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="401: Unauthorized" description="Caso não envie uma "chave" ou envie uma inválida" %}
+{% tab title="401: Unauthorized Caso não envie uma "chave" ou envie uma inválida" %}
 {% code overflow="wrap" %}
 ```json
 {
@@ -57,12 +61,12 @@ chave de acesso da api.
 }
 ```
 {% endcode %}
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="500: Internal Server Error" description="Erro de aplicação/servidor" %}
+{% tab title="500: Internal Server Error Erro de aplicação/servidor" %}
 
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 {% hint style="info" %}
 Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
@@ -118,6 +122,14 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
         {
           "code": "INSURED-NAME",
           "answer": "Nome segurado"
+        },
+        {
+            "code": "INSURED-SOCIAL-NAME",
+            "answer": "nome teste"
+        },
+        {
+            "code": "INSURED-SOCIAL-NAME-AGREEMENT",
+            "answer": true
         },
         {
           "code": "INSURED-EMAIL",
@@ -304,6 +316,23 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > ❗ Campo Obrigatório caso <mark style="color:yellow;">CONGENER = RENEWAL</mark>.
 >
 > Campo usado para definir o nome que vem a cotação marcada com renovação **congênere**.
+
+
+
+> **Field**: INSURED-SOCIAL-NAME\
+> **Tipo**: `string`
+>
+> Pergunta usada para informar o nome social do segurado, caso o mesmo possua.
+>
+> &#x20;\* Pergunta apenas permitida quando **PERSON-TYPE** for **NATURAL.**
+
+
+
+> **Field**: INSURED-SOCIAL-NAME-AGREEMENT\
+> **Tipo**: `string`\
+> ❗ Obrigatório caso segurado possuir nome social.
+>
+> Pergunta usada para definir "Permitir a utilização de nome social do segurado na cotação". Caso segurado possuir nome social, então este campo deverá obrigatoriamente receber a resposta "true".
 
 
 

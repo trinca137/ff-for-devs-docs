@@ -118,6 +118,14 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
             "answer": "Teste Sistema Sul"
         },
         {
+            "code": "INSURED-SOCIAL-NAME",
+            "answer": "nome teste"
+        },
+        {
+            "code": "INSURED-SOCIAL-NAME-AGREEMENT",
+            "answer": true
+        },
+        {
             "code": "INSURED-EMAIL",
             "answer": "teste@segurado.com"
         },
@@ -308,6 +316,23 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > Campo usado para definir o nome que vem a cotação marcada com renovação **congênere**.
 
 ***
+
+> **Field**: INSURED-SOCIAL-NAME\
+> **Tipo**: `string`
+>
+> Pergunta usada para informar o nome social do segurado, caso o mesmo possua.
+>
+> &#x20;\* Pergunta apenas permitida quando **PERSON-TYPE** for **NATURAL.**
+
+
+
+> **Field**: INSURED-SOCIAL-NAME-AGREEMENT\
+> **Tipo**: `string`\
+> ❗ Obrigatório caso segurado possuir nome social.
+>
+> Pergunta usada para definir "Permitir a utilização de nome social do segurado na cotação". Caso segurado possuir nome social, então este campo deverá obrigatoriamente receber a resposta "true".
+
+
 
 > **Code**: INSURED-ADDRESS-COMPLEMENT\
 > **Tipo**: `text`\
