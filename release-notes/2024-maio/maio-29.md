@@ -1,4 +1,4 @@
-# {release\_day} - {release\_month}
+# Maio - 29
 
 ## ✨ Novo
 

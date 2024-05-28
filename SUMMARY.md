@@ -35,5 +35,5 @@
   * [Sinistro](services/sinistro.md)
 * [Métricas](metricas.md)
 * [Release notes](release-notes/README.md)
-  * [2024 - Maio](release-notes/2024-maio/README.md)
-    * [{release\_day} - {release\_month}](release-notes/2024-maio/release\_day-release\_month.md)
+  * [2024 - Maio](release-notes/maio-2024/README.md)
+    * [Maio - 29](release-notes/2024-maio/maio-29.md)
