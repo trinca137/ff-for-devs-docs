@@ -1,15 +1,19 @@
 # Checkout
 
-{% swagger method="post" path="{{version}}/checkout" baseUrl="{{url_ambiente}}/" summary="Inicia processo de checkout" fullWidth="true" expanded="true" %}
-{% swagger-description %}
+## Inicia processo de checkout
+
+<mark style="color:green;">`POST`</mark> `{{url_ambiente}}/{{version}}/checkout`
+
 Envia a cotação para a fila de checkout para gerarmos a apólice.
-{% endswagger-description %}
 
-{% swagger-parameter in="header" name="Ocp-Apim-Subscription-Key" required="true" type="key" %}
-chave de acesso da api.
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-response status="200: OK" description="Retorno sucesso." %}
+| Name                                                        | Type | Description             |
+| ----------------------------------------------------------- | ---- | ----------------------- |
+| Ocp-Apim-Subscription-Key<mark style="color:red;">\*</mark> | key  | chave de acesso da api. |
+
+{% tabs %}
+{% tab title="200: OK Retorno sucesso." %}
 Simples retorno informando true ou false:
 
 ```json
@@ -18,9 +22,20 @@ Simples retorno informando true ou false:
     "executed": "2023-05-25T20:27:49.1872173Z"
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="400: Bad Request" description="Falha ao encontrar a cotação " %}
+{% tab title="401: Unauthorized Caso não envie uma "chave" ou envie uma inválida" %}
+{% code overflow="wrap" %}
+```json
+{
+    "statusCode": 401,
+    "message": "Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription."
+}
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="400: Bad Request Falha ao encontrar a cotação " %}
 ```json
 {
     "success": false,
@@ -32,23 +47,12 @@ Simples retorno informando true ou false:
     ]
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="401: Unauthorized" description="Caso não envie uma "chave" ou envie uma inválida" %}
-{% code overflow="wrap" %}
-```json
-{
-    "statusCode": 401,
-    "message": "Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription."
-}
-```
-{% endcode %}
-{% endswagger-response %}
+{% tab title="500: Internal Server Error Erro de aplicação/servidor" %}
 
-{% swagger-response status="500: Internal Server Error" description="Erro de aplicação/servidor" %}
-
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 ## Request
 

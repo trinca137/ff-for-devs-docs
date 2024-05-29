@@ -1,10 +1,8 @@
 # Sinistro
 
-{% swagger method="post" path="" baseUrl="{{url_ambiente}}v1/claim" summary="Criar sinistro" %}
-{% swagger-description %}
+## Criar sinistro
 
-{% endswagger-description %}
-{% endswagger %}
+<mark style="color:green;">`POST`</mark> `{{url_ambiente}}v1/claim`
 
 ### Request
 
@@ -37,7 +35,7 @@
 >
 > Campo usado para definir a descrição do sinistro.
 
-
+***
 
 > **Field**: policyNumber\
 > **Type**: `string`\
@@ -45,7 +43,7 @@
 >
 > Campo usado para definir o vinculo entre apolice e sinistro.
 
-
+***
 
 > **Field**: notificationEmail\
 > **Type**: `string`\
@@ -53,14 +51,14 @@
 >
 > Campo usado para definir o email que recebera uma notificação.
 
-
+***
 
 > **Field**: files\
 > **Type**: `array<string>`
 >
 > Campo usado para enviar um array de arquivos no formato de base64.
 
-
+***
 
 #### Response
 
@@ -79,37 +77,33 @@
 >
 > Numero de protocolo gerado vinculado ao sinistro.
 
-
+***
 
 ## Consultar Sinistro
 
 #### Endpoint
 
-{% swagger method="get" path="" baseUrl="{{url_ambiente}}/v1/{registerNumber}/{policyNumber}" summary="" expanded="false" %}
-{% swagger-description %}
+<mark style="color:blue;">`GET`</mark> `{{url_ambiente}}/v1/{registerNumber}/{policyNumber}`
+
 Chamada GET, para consultar o sinistro, passando como route parameter o numero da apolice e susep.
-{% endswagger-description %}
 
-{% swagger-parameter in="path" name="policyNumber" type="" required="true" %}
-Número da apólice
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-parameter in="path" name="registerNumber" required="true" %}
-Número Susep
-{% endswagger-parameter %}
+| Name                                             | Type   | Description       |
+| ------------------------------------------------ | ------ | ----------------- |
+| policyNumber<mark style="color:red;">\*</mark>   |        | Número da apólice |
+| registerNumber<mark style="color:red;">\*</mark> | String | Número Susep      |
 
-{% swagger-parameter in="query" name="page" %}
-Possível passar número da pagina.
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="query" name="protocol" %}
-Possível passar número do protocolo.
-{% endswagger-parameter %}
-{% endswagger %}
+| Name     | Type   | Description                          |
+| -------- | ------ | ------------------------------------ |
+| page     | String | Possível passar número da pagina.    |
+| protocol | String | Possível passar número do protocolo. |
 
+***
 
-
-
+***
 
 #### Response
 
@@ -239,49 +233,49 @@ Possível passar número do protocolo.
 >
 > Data de atualização do sinistro.
 
-
+***
 
 > **Field**: list.createdAt\
 > **Type**: `date`
 >
 > Data de criação do sinistro.
 
-
+***
 
 > **Field**: list.description\
 > **Type**: `string`
 >
 > Descrição do sinistro.
 
-
+***
 
 > **Field**: list.protocol\
 > **Type**: `string`
 >
 > Protocolo do sinistro.
 
-
-
-> **Field**: list.notificationEmail\
-> **Type**: `string`
->
-> Email que recebeu a notificação do sinistro.
-
-
+***
 
 > **Field**: list.notificationEmail\
 > **Type**: `string`
 >
 > Email que recebeu a notificação do sinistro.
 
+***
 
+> **Field**: list.notificationEmail\
+> **Type**: `string`
+>
+> Email que recebeu a notificação do sinistro.
+
+***
 
 > **Field**: list.files\
 > **Type**: `array`
 >
 > Array contendo os arquivos vinculados ao sinistro.
 
-
+***
 
 > **Field**: list.files\[].url\
 > **Type**: `string`
