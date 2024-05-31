@@ -36,4 +36,4 @@
 * [Métricas](metricas.md)
 * [Release notes](release-notes/README.md)
   * [2024 - Maio](release-notes/maio-2024/README.md)
-    * [Maio - 29](release-notes/2024-maio/maio-29.md)
+    * [Maio - 29](release-notes/maio-2024/27-maio.md)
