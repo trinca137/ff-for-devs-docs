@@ -94,6 +94,14 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
     "registerNumber": "100000",
     "answers": [
         {
+             "code": "TEAM-LEADER",
+             "answer": true
+        },
+        {
+             "code": "CLINIC-OR-TECHNICAL-DIRECTOR",
+             "answer": true
+        },
+        {
             "code": "MODALITY",
             "answer": "DENTIST-CIVIL-LIABILITY"
         },
@@ -255,7 +263,17 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 >
 > Campo usado para definir qual produto está sendo cotado. Neste caso, o produto é "Médicos", representado pelo operation code "MEDICAL-CIVIL-LIABILITY-PARTNER".
 
+> **Field**: TEAM-LEADER
+>
+> **Tipo**: `boolean`
+>
+> Campo que expressa se o médico é o líder da equipe, nas quais as respostas possível são **TRUE** ou **FALSE.**
 
+> **Field**: CLINIC-OR-TECHNICAL-DIRECTOR
+>
+> **Tipo**: `boolean`
+>
+> Campo que expressa se o médico é diretor clínico ou técnico, nas quais as respostas possível são **TRUE** ou **FALSE.**
 
 > **Field:** RegisterNumber
 >
