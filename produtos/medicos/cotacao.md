@@ -98,6 +98,10 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
             "answer": "MEDICAL-CIVIL-LIABILITY"
         },
         {
+            "code": "MEDICAL-EXPERT",
+            "answer": true
+        }
+        {
             "code": "PERSON-TYPE",
             "answer": "NATURAL"
         },
@@ -189,7 +193,8 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
                 "AESTHETIC-PROCEDURES",
                 "ENDOSCOPY-COLONOSCOPY",
                 "RADIOTHERAPY-CHEMOTHERAPY-IMMUNOTHERAPY",
-                "AESTHETIC-PROCEDURES-MEDICAL-SPECIALTY"
+                "AESTHETIC-PROCEDURES-MEDICAL-SPECIALTY",
+                "HAIR-IMPLANT-TRANSPLANT"
             ]
         },
         {
@@ -289,6 +294,11 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > * **LEGAL** = Pessoa Jurídica
 
 ***
+
+> **Field**: MEDICAL-EXPERT\
+> **Tipo**: `true`
+>
+> Campo usado para definir se é perito médico.
 
 > **Field**: CONGENER\
 > **Tipo**: `string`\
@@ -464,6 +474,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 
 * **AESTHETIC-PROCEDURES-MEDICAL-SPECIALTY** = Procedimentos Estéticos relacionados à Especialidade Médica.
 * **NO-PROCEDURES** = Sem procedimentos.
+* **HAIR-IMPLANT-TRANSPLANT** = Procedimentos Estéticos relacionados à Implante e Transplante Capilar
 
 </details>
 
