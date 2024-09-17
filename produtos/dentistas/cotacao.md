@@ -311,7 +311,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 > Campo usado para definir o tipo de cotação, sendo possivel enviar:
 >
 > * **NEW** = Cotação Nova.
-> * **RENEWAL** = Renovação vinda de outra corretora (renovação **congênere**).
+> * **RENEWAL** = Renovação vinda de outra seguradora (renovação **congênere**).
 
 
 
