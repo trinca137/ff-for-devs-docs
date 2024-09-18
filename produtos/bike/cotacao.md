@@ -602,7 +602,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 >
 > Pergunta usada para definir o ano de fabricação da bike. Não cobrimos bikes fabricadas 4 anos anteriores do atual.
 >
-> **❕São aceitos apenas bikes com ano igual ou 4 anos inferiores ao atual.**
+> **❕São aceitas apenas bikes fabricadas no ano atual e até 7 anos anteriores.**
 
 ***
 
