@@ -1,4 +1,13 @@
-# Setembro - ??
+# Outubro - 16
+
+## ✨ Novo
+
+Adicionamos a aceitação do procedimento de **Implante e/ou Transplante Capilar (HAIR-IMPLANT-TRANSPLANT)** para segurados do tipo **Pessoa Jurídica,** quando forem contratadas as seguintes especialidades:
+
+* Clínicas medicas sem cirurgia
+* Clínica de cirurgia e/ou anestesiologia
+* Clínica com Obstetrícia
+* Clnica multidisciplinar
 
 ## ➕ Melhoria
 
