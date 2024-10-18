@@ -165,7 +165,7 @@ erros como aparece abaixo.
 
 <details>
 
-<summary>Caso PEP for RELATION, é necessário o envio de mais duas perguntas, sendo elas:</summary>
+<summary>Caso PEP for RELATION, é necessário o envio de mais três perguntas, sendo elas:</summary>
 
 ```markdown
 ode: PEP-NAME
