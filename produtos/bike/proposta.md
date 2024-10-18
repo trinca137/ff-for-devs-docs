@@ -167,19 +167,19 @@ Cria uma proposta (atualiza informações adicionais).
 
 <details>
 
-<summary>Caso PEP for RELATION, é necessário o envio de mais duas perguntas, sendo elas:</summary>
+<summary>Caso PEP for RELATION, é necessário o envio de mais três perguntas, sendo elas:</summary>
 
 ```markdown
 Code: PEP-NAME
 Type: string
-❗ Obrigatório que esteja incluído no array.
+❗ Obrigatório que esteja incluído no array se PEP for igual a RELATION.
 Pergunta usada para definir o nome da pessoa com relação.
 ```
 
 ```markdown
 Code: PEP-PARENTING
 Type: string
-❗ Obrigatório que esteja incluído no array.
+❗ Obrigatório que esteja incluído no array se PEP for igual a RELATION.
 Pergunta usada para definir a relação da pessoa.
 
 Opções de Envio:
@@ -190,6 +190,13 @@ Opções de Envio:
 - PARTNER = Companheiro/Companheira
 - STEPSON = Enteado/Enteada
 - OTHER = Outros
+```
+
+```markdown
+Code: PEP-IDENTIY
+Type: string
+❗ Obrigatório que esteja incluído no array se PEP for igual a RELATION.
+Pergunta usada para informar o CPF do PEP.
 ```
 
 </details>
