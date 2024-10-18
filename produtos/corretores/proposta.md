@@ -190,7 +190,7 @@ Opções de Envio:
 ```
 
 ```markdown
-Code: PEP-IDENTIY
+Code: PEP-IDENTITY
 Type: string
 ❗ Obrigatório que esteja incluído no array se PEP for igual a RELATION.
 Pergunta usada para informar o CPF do PEP.
