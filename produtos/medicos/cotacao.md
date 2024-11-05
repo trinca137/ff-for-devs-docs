@@ -580,7 +580,7 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 
 * **12500000.01-15000000.00** = Entre R$ 12.500.000,01 e R$ 15.000.000,00.\
 
-* **+15000000.00** = Acima de R$ 15.000.000,00. - Esta opção quando selecionada gera declínio automático na cotação.
+* **15000000.00+** = Acima de R$ 15.000.000,00. - Esta opção quando selecionada gera declínio automático na cotação.
 
 </details>
 
