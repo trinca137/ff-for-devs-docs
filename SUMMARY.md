@@ -35,6 +35,7 @@
   * [Sinistro](services/sinistro.md)
 * [Métricas](metricas.md)
 * [Release notes](release-notes/README.md)
+  * [Novembro - ??](release-notes/novembro.md)
   * [Outubro - 16](release-notes/outubro-16.md)
   * [Agosto - 05](release-notes/agosto-05.md)
   * [Maio - 29](release-notes/maio-29.md)

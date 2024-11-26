@@ -462,19 +462,13 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 
 * **AESTHETIC-PROCEDURES** = Procedimentos Estéticos Minimamente Invasivos.
 
-<!---->
-
-* **ENDOSCOPY-COLONOSCOPY** = Endoscopia e/ou Colonoscopia.
-
-<!---->
+- **ENDOSCOPY-COLONOSCOPY** = Endoscopia e/ou Colonoscopia.
 
 * **RADIOTHERAPY-CHEMOTHERAPY-IMMUNOTHERAPY** = Radioterapia e/ou Quimioterapia e/ou Imunoterapia.
 
-<!---->
-
-* **AESTHETIC-PROCEDURES-MEDICAL-SPECIALTY** = Procedimentos Estéticos relacionados à Especialidade Médica.
-* **NO-PROCEDURES** = Sem procedimentos.
-* **HAIR-IMPLANT-TRANSPLANT** = Procedimentos Estéticos relacionados à Implante e Transplante Capilar
+- **AESTHETIC-PROCEDURES-MEDICAL-SPECIALTY** = Procedimentos Estéticos relacionados à Especialidade Médica.
+- **NO-PROCEDURES** = Sem procedimentos.
+- **HAIR-IMPLANT-TRANSPLANT** = Procedimentos Estéticos relacionados à Implante e Transplante Capilar
 
 </details>
 
@@ -576,11 +570,13 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 
 * **7500000.01-10000000.00** = Entre R$ 7.500.000,01 e R$ 10.000.000,00.\
 
-* **10000000.01-15000000.00** = Entre R$ 10.000.000,01 e R$ 12.500.000,00.\
+* **10000000.01-15000000.00** = Entre R$ 10.000.000,01 e R$ 15.000.000,00.\
 
-* **12500000.01-15000000.00** = Entre R$ 12.500.000,01 e R$ 15.000.000,00.\
+* **15000000.01-20000000.00** = Entre R$ 15.000.000,01 e R$ 20.000.000,00.
 
-* **15000000.00+** = Acima de R$ 15.000.000,00. - Esta opção quando selecionada gera declínio automático na cotação.
+- **20000000.01-30000000.00** = Entre R$ 20.000.000,01 e R$ 30.000.000,00.\
+
+- **30000000.00+** = Acima de R$ 30.000.000,00. - Esta opção quando selecionada gera declínio automático na cotação.
 
 </details>
 
@@ -694,67 +690,35 @@ Para editar uma cotação, basta enviar o identifier antes de answers, exemplo:
 
 * **30000.0** = R$ 30.000.
 
-<!---->
-
-* **50000.0** = R$ 50.000.
-
-<!---->
+- **50000.0** = R$ 50.000.
 
 * **100000.0** = R$ 100.000.
 
-<!---->
-
-* **150000.0** = R$ 150.000.
-
-<!---->
+- **150000.0** = R$ 150.000.
 
 * **200000.0** = R$ 200.000.
 
-<!---->
-
-* **250000.0** = R$ 250.000.
-
-<!---->
+- **250000.0** = R$ 250.000.
 
 * **300000.0** = R$ 300.000.
 
-<!---->
-
-* **400000.0** = R$ 400.000.
-
-<!---->
+- **400000.0** = R$ 400.000.
 
 * **500000.0** = R$ 500.000.
 
-<!---->
-
-* **600000.0** = R$ 600.000.
-
-<!---->
+- **600000.0** = R$ 600.000.
 
 * **700000.0** = R$ 700.000.
 
-<!---->
-
-* **800000.0** = R$ 800.000.
-
-<!---->
+- **800000.0** = R$ 800.000.
 
 * **900000.0** = R$ 900.000.
 
-<!---->
-
-* **1000000.0** = R$ 1.000.000.
-
-<!---->
+- **1000000.0** = R$ 1.000.000.
 
 * **1100000.0** = R$ 1.100.000.
 
-<!---->
-
-* **1200000.0** = R$ 1.200.000.
-
-<!---->
+- **1200000.0** = R$ 1.200.000.
 
 * **1300000.0** = R$ 1.300.000.\
 
