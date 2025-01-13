@@ -941,7 +941,7 @@ Retorna informações da cotação com base no identifier
 >
 > Resposta da pergunta.
 >
-> * Dependendo do produto cotado, a answer pode ser um array de array contendo objetos compostos por **code** e **answer** ou apenas ser uma **string,** segue um exemplo abaixo**:**
+> * Dependendo do produto cotado, a answer pode ser um array de array contendo objetos compostos por **code** e **answer** ou apenas ser uma **string,** segue um exemplo abaix&#x6F;**:**
 >
 >
 >
